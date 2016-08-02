@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>CodeBlocks静态链接与动态链接设置 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="##静态库和动态库的区别
+###1.静态库
+之所以称之为”静态库”，是因为在链接阶段，会将汇编生成的目标文件.o与引用到的库一起链接打包到可执行文件中。因此对应的链接方式称为静态链接。从本质上来说，一个静态库可以简单看成是一组目标文件(.o/.obj文件)的集合，静态库与汇编生成的目标文件(.o/.obj)一起链接为可执行文件。静态库（后缀为.a/.lib）和.o文件格式相似。即很多目标文件经过压">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CodeBlocks静态链接与动态链接设置">
+<meta property="og:url" content="http://HawkAaron.github.io/2016/08/02/CodeBlocks静态链接与动态链接设置/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="##静态库和动态库的区别
+###1.静态库
+之所以称之为”静态库”，是因为在链接阶段，会将汇编生成的目标文件.o与引用到的库一起链接打包到可执行文件中。因此对应的链接方式称为静态链接。从本质上来说，一个静态库可以简单看成是一组目标文件(.o/.obj文件)的集合，静态库与汇编生成的目标文件(.o/.obj)一起链接为可执行文件。静态库（后缀为.a/.lib）和.o文件格式相似。即很多目标文件经过压">
+<meta property="og:image" content="http://img.blog.csdn.net/20141002194726705">
+<meta property="og:image" content="https://code.csdn.net/assets/CODE_ico.png">
+<meta property="og:image" content="https://code.csdn.net/assets/ico_fork.svg">
+<meta property="og:image" content="https://code.csdn.net/assets/CODE_ico.png">
+<meta property="og:image" content="https://code.csdn.net/assets/ico_fork.svg">
+<meta property="og:image" content="https://code.csdn.net/assets/CODE_ico.png">
+<meta property="og:image" content="https://code.csdn.net/assets/ico_fork.svg">
+<meta property="og:image" content="https://code.csdn.net/assets/CODE_ico.png">
+<meta property="og:image" content="https://code.csdn.net/assets/ico_fork.svg">
+<meta property="og:image" content="https://code.csdn.net/assets/CODE_ico.png">
+<meta property="og:image" content="https://code.csdn.net/assets/ico_fork.svg">
+<meta property="og:image" content="https://code.csdn.net/assets/CODE_ico.png">
+<meta property="og:image" content="https://code.csdn.net/assets/ico_fork.svg">
+<meta property="og:image" content="http://img.blog.csdn.net/20141002185651049?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZnJlZVdheVdhbGtlcg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:updated_time" content="2016-08-01T10:20:57.315Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CodeBlocks静态链接与动态链接设置">
+<meta name="twitter:description" content="##静态库和动态库的区别
+###1.静态库
+之所以称之为”静态库”，是因为在链接阶段，会将汇编生成的目标文件.o与引用到的库一起链接打包到可执行文件中。因此对应的链接方式称为静态链接。从本质上来说，一个静态库可以简单看成是一组目标文件(.o/.obj文件)的集合，静态库与汇编生成的目标文件(.o/.obj)一起链接为可执行文件。静态库（后缀为.a/.lib）和.o文件格式相似。即很多目标文件经过压">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20141002194726705">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://HawkAaron.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-CodeBlocks静态链接与动态链接设置" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/02/CodeBlocks静态链接与动态链接设置/" class="article-date">
+  <time datetime="2016-08-02T13:18:52.091Z" itemprop="datePublished">2016-08-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CodeBlocks静态链接与动态链接设置
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##静态库和动态库的区别</p>
+<p>###<a href=""></a>1.静态库</p>
+<p>之所以称之为”静态库”，是因为在链接阶段，会将汇编生成的目标文件.o与引用到的库一起链接打包到可执行文件中。因此对应的链接方式称为静态链接。<br>从本质上来说，一个静态库可以简单看成是一组目标文件(.o/.obj文件)的集合，静态库与汇编生成的目标文件(.o/.obj)一起链接为可执行文件。<br>静态库（后缀为.a/.lib）和.o文件格式相似。即很多目标文件经过压缩打包后形成的一个文件<br>静态库特点总结：</p>
+<pre><code>1. 静态库对函数库的链接是放在编译时期完成的
+2. 程序在运行时与函数库再无瓜葛，移植方便，因为代码已经嵌入到程序里面了，可以直接跟着程序走，不存在对外部文件的依赖
+3. 浪费空间和资源，因为所有相关的目标文件与牵涉到的函数库被链接合成一个可执行文件，会增加原本程序的空间
+</code></pre><p><strong>GCC编译、使用静态库</strong><br>静态库的后缀是.a(并没有强制规定)，它的产生分两步</p>
+<pre><code>1. 由源文件编译生成一堆.o，每个.o里都包含这个编译单元的符号表
+2. ar命令将很多.o转换成.a，成为静态库，从这点也可以看出来，库是很多.o文件的集合
+</code></pre><p>编译好静态库文件之后，我们就可以在其他程序中使用静态库文件中的函数了</p>
+<pre><code>1. 只需要在使用到这些公用函数的源程序中包含这些公用函数的原型声明(include对应的头文件)
+2. 然后在用gcc命令生成目标文件时指明静态库名
+3. gcc将会从静态库中将公用函数连接到目标文件中
+4. 注意，gcc会在静态库名前加上前缀lib，然后追加扩展名.a得到的静态库文件名来查找静态库文件,因此，我们在写需要连接的库时，只写名字就可以，如libhello.a的库，只写: -lhello
+</code></pre><p>###<a href=""></a>2.动态库</p>
+<p>动态库文件名命名规范和静态库文件名命名规范类似，也是在动态库名增加前缀lib，但其文件扩展名为.so（.dll）。例如：我们将创建的动态库名为myhello，则动态库文件名就是libmyhello.so。<br>使用库是重用代码的一种绝佳方式。 您不必在自己创建的每个程序中重新实现同一例程，而只需对这些例程写入一次，然后从需要该功能的应用程序引用它们即可。 通过将代码放入 DLL，您节省在引用它的每个应用程序的空间，而且，您可以更新 DLL，而无需重新编译所有应用程序。<br>动态链接库 (DLL) 是作为共享函数库的可执行文件。动态链接提供了一种方法，使进程可以调用不属于其可执行代码的函数。DLL 还有助于共享数据和资源。多个应用程序可同时访问内存中单个 DLL 副本的内容。<br>动态链接与静态链接的不同之处在于它允许可执行模块（.dll 文件或 .exe 文件）仅包含在运行时定位 DLL 函数的可执行代码所需的信息。在静态链接中，链接器从静态链接库获取所有被引用的函数，并将库同代码一起放到可执行文件中。<br>使用动态链接代替静态链接有若干优点。DLL 节省内存，减少交换操作，节省磁盘空间，更易于升级，提供售后支持，提供扩展 MFC 库类的机制，支持多语言程序，并使国际版本的创建轻松完成。<br><strong>DLL 的类型</strong><br>当您在应用程序中加载 DLL 时，可以使用两种链接方法来调用导出的 DLL 函数。这两种链接方法是加载时动态链接和运行时动态链接。<br>动态库一般会有对应的导入库，方便程序静态载入动态链接库，否则你可能就需要自己LoadLibary调入DLL文件，然后再手工GetProcAddress获得对应函数了。有了导入库，你只需要链接导入库后按照头文件函数接口的声明调用函数就可以了。<br><strong>加载时动态链接</strong>（load-time dynamic linking）<br>在加载时动态链接中，应用程序像调用本地函数一样对导出的 DLL 函数进行显式调用。要使用加载时动态链接，请在编译和链接应用程序时提供头文件 (.h) 和导入库文件 (.lib)。当您这样做时，链接器将向系统提供加载 DLL 所需的信息，并在加载时解析导出的 DLL 函数的位置。<br><strong>运行时动态链接</strong>（run-time dynamic linking）<br>在运行时动态链接中，应用程序调用 LoadLibrary 函数或 LoadLibraryEx 函数以在运行时加载 DLL。成功加载 DLL 后，可以使用 GetProcAddress 函数获得要调用的导出的 DLL 函数的地址。在使用运行时动态链接时，无需使用导入库文件。</p>
+<p>所谓静态、动态是指”链接”的过程存在区别:<br><img src="http://img.blog.csdn.net/20141002194726705" alt=""></p>
+<p>###<a href=""></a>3. DLL地狱<br>DLL地狱（DLL Hell）指在Microsoft Windows系统中，因为动态链接库（DLL）的版本或兼容性的问题而造成程序无法正常运行。<br>Windows早期并没有很严谨的DLL版本管理机制，以致经常发生安装了某软件后，因为其覆盖了系统上原有的同一个DLL文件，而导致原有可运行的程序无法运行。但还原回原有的DLL文件之后，所新安装的软件就无法运行。若覆盖到系统所使用的重要DLL时亦可能让系统容易死机甚至无法正常启动。<br>在CodeBlocks+GCC环境下，静态链接与动态链接设置如下：</p>
+<p>##<a href=""></a>静态链接</p>
+<p>###<a href=""></a>1.建立静态链接库</p>
+<p>示例：<br>建立静态链接库工程，工程文件包括static.h和static.cpp，具体如下，然后编译工程，会生成一个libStaticLibrary.a文件。<br>libStaticLibrary.a是用于链接的，与其他文件一起编译生成一个exe执行文件。<strong>static.h</strong></p>
+<p><strong>[cpp]</strong> <a href="http://blog.csdn.net/freewaywalker/article/details/39737699#" title="view plain" target="_blank" rel="external">view<br> plain</a><a href="http://blog.csdn.net/freewaywalker/article/details/39737699#" title="copy" target="_blank" rel="external">copy</a><a href="https://code.csdn.net/snippets/478749" title="在CODE上查看代码片" target="_blank" rel="external"><img src="https://code.csdn.net/assets/CODE_ico.png" alt="在CODE上查看代码片"></a><a href="https://code.csdn.net/snippets/478749/fork" title="派生到我的代码片" target="_blank" rel="external"><img src="https://code.csdn.net/assets/ico_fork.svg" alt="派生到我的代码片"></a>1. #ifndef STATIC_H_INCLUDED  </p>
+<ol>
+<li>#define STATIC_H_INCLUDED  </li>
+<li></li>
+<li>#ifdef __cplusplus  </li>
+<li>extern “C”  </li>
+<li>{  </li>
+<li>#endif  </li>
+<li></li>
+<li>int SampleAddInt(int i1, int i2);  </li>
+<li>void SampleFunction1();  </li>
+<li>int SampleFunction2();  </li>
+<li></li>
+<li>#ifdef __cplusplus  </li>
+<li>}  </li>
+<li>#endif  </li>
+<li></li>
+<li>#endif // STATIC_H_INCLUDED  </li>
+</ol>
+<p><strong>static.cpp</strong></p>
+<p><strong>[cpp]</strong> <a href="http://blog.csdn.net/freewaywalker/article/details/39737699#" title="view plain" target="_blank" rel="external">view<br> plain</a><a href="http://blog.csdn.net/freewaywalker/article/details/39737699#" title="copy" target="_blank" rel="external">copy</a><a href="https://code.csdn.net/snippets/478749" title="在CODE上查看代码片" target="_blank" rel="external"><img src="https://code.csdn.net/assets/CODE_ico.png" alt="在CODE上查看代码片"></a><a href="https://code.csdn.net/snippets/478749/fork" title="派生到我的代码片" target="_blank" rel="external"><img src="https://code.csdn.net/assets/ico_fork.svg" alt="派生到我的代码片"></a>1. #include “static.h”  </p>
+<ol>
+<li></li>
+<li>// A function adding two integers and returning the result  </li>
+<li>int SampleAddInt(int i1, int i2)  </li>
+<li>{  </li>
+<li>return i1 + i2;  </li>
+<li>}  </li>
+<li></li>
+<li>// A function doing nothing ;)  </li>
+<li>void SampleFunction1()  </li>
+<li>{  </li>
+<li>// insert code here  </li>
+<li>}  </li>
+<li></li>
+<li>// A function always returning zero  </li>
+<li>int SampleFunction2()  </li>
+<li>{  </li>
+<li>// insert code here  </li>
+<li></li>
+<li>return 0;  </li>
+<li>}  </li>
+</ol>
+<p>###<a href=""></a>2.建立主工程</p>
+<p>建立Console application，将生成一个main.cpp示例文件，在最上方添加#include “static.h”语句，这样就可以调用静态链接库里的函数了。<br><strong>main.cpp</strong></p>
+<p><strong>[cpp]</strong> <a href="http://blog.csdn.net/freewaywalker/article/details/39737699#" title="view plain" target="_blank" rel="external">view<br> plain</a><a href="http://blog.csdn.net/freewaywalker/article/details/39737699#" title="copy" target="_blank" rel="external">copy</a><a href="https://code.csdn.net/snippets/478749" title="在CODE上查看代码片" target="_blank" rel="external"><img src="https://code.csdn.net/assets/CODE_ico.png" alt="在CODE上查看代码片"></a><a href="https://code.csdn.net/snippets/478749/fork" title="派生到我的代码片" target="_blank" rel="external"><img src="https://code.csdn.net/assets/ico_fork.svg" alt="派生到我的代码片"></a>1. #include <iostream>  </iostream></p>
+<ol>
+<li>#include “static.h”  </li>
+<li>using namespace std;  </li>
+<li></li>
+<li>int main()  </li>
+<li>{  </li>
+<li>int a=1,b=2;  </li>
+<li>cout &lt;&lt; “a + b = “&lt;&lt;SampleAddInt(a,b)&lt;&lt; endl;  </li>
+<li>return 0;  </li>
+<li>}  </li>
+</ol>
+<p>然后选择菜单栏Project-&gt;Build Options，弹出Project Build Options，选择工程名称。在Linker settings选项卡下添加libStaticLibrary.a的路径，即<strong>添加需要的库</strong>。在Search<br> directories选项卡下的Compiler子选项卡下添加static.h所在的目录路径，即写入项目的头文件目录。最后，点击编译即可。</p>
+<p>##<a href=""></a>动态链接</p>
+<p>###<a href=""></a>1.建立动态链接库<br>示例：<br>建立动态链接库工程，工程文件包括dynamic.h和dynamic.cpp，具体如下，然后编译工程，会生成一个libDynamicLibrary.a文件和DynamicLibrary.dll文件。<br>libDynamicLibrary.a是用于链接的，DynamicLibrary.dll用于与将要链接的exe执行文件一起工作。<br><strong>dynamic.h</strong></p>
+<p><strong>[cpp]</strong> <a href="http://blog.csdn.net/freewaywalker/article/details/39737699#" title="view plain" target="_blank" rel="external">view<br> plain</a><a href="http://blog.csdn.net/freewaywalker/article/details/39737699#" title="copy" target="_blank" rel="external">copy</a><a href="https://code.csdn.net/snippets/478749" title="在CODE上查看代码片" target="_blank" rel="external"><img src="https://code.csdn.net/assets/CODE_ico.png" alt="在CODE上查看代码片"></a><a href="https://code.csdn.net/snippets/478749/fork" title="派生到我的代码片" target="_blank" rel="external"><img src="https://code.csdn.net/assets/ico_fork.svg" alt="派生到我的代码片"></a>1. #ifndef <strong>DYNAMIC_H</strong>  </p>
+<ol>
+<li>#define <strong>DYNAMIC_H</strong>  </li>
+<li></li>
+<li>#include <windows.h>  </windows.h></li>
+<li></li>
+<li>/*  To use this exported function of dll, include this header </li>
+<li><ul>
+<li>in your project. </li>
+</ul>
+</li>
+<li>*/  </li>
+<li></li>
+<li>#ifdef BUILD_DLL  </li>
+<li>#define DLL_EXPORT __declspec(dllexport)  </li>
+<li>#else  </li>
+<li>#define DLL_EXPORT __declspec(dllimport)  </li>
+<li>#endif  </li>
+<li></li>
+<li></li>
+<li>#ifdef __cplusplus  </li>
+<li>extern “C”  </li>
+<li>{  </li>
+<li>#endif  </li>
+<li></li>
+<li>void DLL_EXPORT SomeFunction(const LPCSTR sometext);  </li>
+<li></li>
+<li>#ifdef __cplusplus  </li>
+<li>}  </li>
+<li>#endif  </li>
+<li></li>
+<li>#endif // <strong>DYNAMIC</strong>  </li>
+</ol>
+<p><strong>dynamic.cpp</strong></p>
+<p><strong>[cpp]</strong> <a href="http://blog.csdn.net/freewaywalker/article/details/39737699#" title="view plain" target="_blank" rel="external">view<br> plain</a><a href="http://blog.csdn.net/freewaywalker/article/details/39737699#" title="copy" target="_blank" rel="external">copy</a><a href="https://code.csdn.net/snippets/478749" title="在CODE上查看代码片" target="_blank" rel="external"><img src="https://code.csdn.net/assets/CODE_ico.png" alt="在CODE上查看代码片"></a><a href="https://code.csdn.net/snippets/478749/fork" title="派生到我的代码片" target="_blank" rel="external"><img src="https://code.csdn.net/assets/ico_fork.svg" alt="派生到我的代码片"></a>1. #include “dynamic.h”  </p>
+<ol>
+<li></li>
+<li>// a sample exported function  </li>
+<li>void DLL_EXPORT SomeFunction(const LPCSTR sometext)  </li>
+<li>{  </li>
+<li>MessageBoxA(0, sometext, “DLL Message”, MB_OK | MB_ICONINFORMATION);  </li>
+<li>}  </li>
+<li></li>
+<li>extern “C” DLL_EXPORT BOOL APIENTRY DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved)  </li>
+<li>{  </li>
+<li>switch (fdwReason)  </li>
+<li>{  </li>
+<li>case DLL_PROCESS_ATTACH:  </li>
+<li>// attach to process  </li>
+<li>// return FALSE to fail DLL load  </li>
+<li>break;  </li>
+<li></li>
+<li>case DLL_PROCESS_DETACH:  </li>
+<li>// detach from process  </li>
+<li>break;  </li>
+<li></li>
+<li>case DLL_THREAD_ATTACH:  </li>
+<li>// attach to thread  </li>
+<li>break;  </li>
+<li></li>
+<li>case DLL_THREAD_DETACH:  </li>
+<li>// detach from thread  </li>
+<li>break;  </li>
+<li>}  </li>
+<li>return TRUE; // succesful  </li>
+<li>}  </li>
+</ol>
+<p>###<a href=""></a>2.建立主工程<br>建立win32 GUI project，将生成一个main.cpp示例文件，在最上方添加include “dynamic.h”语句，这样就可以调用动态链接库里的函数了。<br><strong>main.cpp</strong></p>
+<p><strong>[cpp]</strong> <a href="http://blog.csdn.net/freewaywalker/article/details/39737699#" title="view plain" target="_blank" rel="external">view<br> plain</a><a href="http://blog.csdn.net/freewaywalker/article/details/39737699#" title="copy" target="_blank" rel="external">copy</a><a href="https://code.csdn.net/snippets/478749" title="在CODE上查看代码片" target="_blank" rel="external"><img src="https://code.csdn.net/assets/CODE_ico.png" alt="在CODE上查看代码片"></a><a href="https://code.csdn.net/snippets/478749/fork" title="派生到我的代码片" target="_blank" rel="external"><img src="https://code.csdn.net/assets/ico_fork.svg" alt="派生到我的代码片"></a>1. #include <windows.h>  </windows.h></p>
+<ol>
+<li></li>
+<li>#include “dynamic.h”  </li>
+<li></li>
+<li>/<em>  Declare Windows procedure  </em>/  </li>
+<li>LRESULT CALLBACK WindowProcedure (HWND, UINT, WPARAM, LPARAM);  </li>
+<li></li>
+<li>/<em>  Make the class name into a global variable  </em>/  </li>
+<li>char szClassName[ ] = “CodeBlocksWindowsApp”;  </li>
+<li></li>
+<li>int WINAPI WinMain (HINSTANCE hThisInstance,  </li>
+<li>HINSTANCE hPrevInstance,  </li>
+<li>LPSTR lpszArgument,  </li>
+<li>int nCmdShow)  </li>
+<li>{  </li>
+<li>HWND hwnd;               /<em> This is the handle for our window </em>/  </li>
+<li>MSG messages;            /<em> Here messages to the application are saved </em>/  </li>
+<li>WNDCLASSEX wincl;        /<em> Data structure for the windowclass </em>/  </li>
+<li></li>
+<li>/<em> The Window structure </em>/  </li>
+<li>wincl.hInstance = hThisInstance;  </li>
+<li>wincl.lpszClassName = szClassName;  </li>
+<li>wincl.lpfnWndProc = WindowProcedure;      /<em> This function is called by windows </em>/  </li>
+<li>wincl.style = CS_DBLCLKS;                 /<em> Catch double-clicks </em>/  </li>
+<li>wincl.cbSize = sizeof (WNDCLASSEX);  </li>
+<li></li>
+<li>/<em> Use default icon and mouse-pointer </em>/  </li>
+<li>wincl.hIcon = LoadIcon (NULL, IDI_APPLICATION);  </li>
+<li>wincl.hIconSm = LoadIcon (NULL, IDI_APPLICATION);  </li>
+<li>wincl.hCursor = LoadCursor (NULL, IDC_ARROW);  </li>
+<li>wincl.lpszMenuName = NULL;                 /<em> No menu </em>/  </li>
+<li>wincl.cbClsExtra = 0;                      /<em> No extra bytes after the window class </em>/  </li>
+<li>wincl.cbWndExtra = 0;                      /<em> structure or the window instance </em>/  </li>
+<li>/<em> Use Windows’s default colour as the background of the window </em>/  </li>
+<li>wincl.hbrBackground = (HBRUSH) COLOR_BACKGROUND;  </li>
+<li></li>
+<li>/<em> Register the window class, and if it fails quit the program </em>/  </li>
+<li>if (!RegisterClassEx (&amp;wincl))  </li>
+<li>return 0;  </li>
+<li></li>
+<li>/<em> The class is registered, let’s create the program</em>/  </li>
+<li>hwnd = CreateWindowEx (  </li>
+<li>0,                   /<em> Extended possibilites for variation </em>/  </li>
+<li>szClassName,         /<em> Classname </em>/  </li>
+<li>“Code::Blocks Template Windows App”,       /<em> Title Text </em>/  </li>
+<li>WS_OVERLAPPEDWINDOW, /<em> default window </em>/  </li>
+<li>CW_USEDEFAULT,       /<em> Windows decides the position </em>/  </li>
+<li>CW_USEDEFAULT,       /<em> where the window ends up on the screen </em>/  </li>
+<li>544,                 /<em> The programs width </em>/  </li>
+<li>375,                 /<em> and height in pixels </em>/  </li>
+<li>HWND_DESKTOP,        /<em> The window is a child-window to desktop </em>/  </li>
+<li>NULL,                /<em> No menu </em>/  </li>
+<li>hThisInstance,       /<em> Program Instance handler </em>/  </li>
+<li>NULL                 /<em> No Window Creation data </em>/  </li>
+<li>);  </li>
+<li></li>
+<li>/<em> Make the window visible on the screen </em>/  </li>
+<li>ShowWindow (hwnd, nCmdShow);  </li>
+<li></li>
+<li>SomeFunction(“Dynamic Tester”);  </li>
+<li></li>
+<li>/<em> Run the message loop. It will run until GetMessage() returns 0 </em>/  </li>
+<li>while (GetMessage (&amp;messages, NULL, 0, 0))  </li>
+<li>{  </li>
+<li>/<em> Translate virtual-key messages into character messages </em>/  </li>
+<li>TranslateMessage(&amp;messages);  </li>
+<li>/<em> Send message to WindowProcedure </em>/  </li>
+<li>DispatchMessage(&amp;messages);  </li>
+<li>}  </li>
+<li></li>
+<li>/<em> The program return-value is 0 - The value that PostQuitMessage() gave </em>/  </li>
+<li>return messages.wParam;  </li>
+<li>}  </li>
+<li></li>
+<li></li>
+<li>/<em>  This function is called by the Windows function DispatchMessage()  </em>/  </li>
+<li></li>
+<li>LRESULT CALLBACK WindowProcedure (HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)  </li>
+<li>{  </li>
+<li>switch (message)                  /<em> handle the messages </em>/  </li>
+<li>{  </li>
+<li>case WM_DESTROY:  </li>
+<li>PostQuitMessage (0);       /<em> send a WM_QUIT to the message queue </em>/  </li>
+<li>break;  </li>
+<li>default:                      /<em> for messages that we don’t deal with </em>/  </li>
+<li>return DefWindowProc (hwnd, message, wParam, lParam);  </li>
+<li>}  </li>
+<li></li>
+<li>return 0;  </li>
+<li>}  </li>
+</ol>
+<p>然后选择菜单栏Project-&gt;Build Options，弹出Project Build Options，选择工程名称。在Linker settings选项卡下添加libDynamicLibrary.a的路径，即<strong>添加需要的库</strong>。在Search directories选项卡下的Compiler子选项卡下添加dynamic.h所在的目录路径，即<strong>写入项目的头文件目</strong>录；在Linker子选项卡下添加libDynamicLibrary.a所在的目录路径，即<strong>写入库文件目录</strong>。最后，点击编译即可。<br>需要注意的是，以后单独运行编译后的exe执行文件时，需要将dll文件（此处为DynamicLibrary.dll）放在同一目录下，不然运行时可能会崩溃。<br><img src="http://img.blog.csdn.net/20141002185651049?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZnJlZVdheVdhbGtlcg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<p>参考：<br>codeblocks 配置编译器 1配置编译器的path, include, lib <a href="http://www.verydemo.com/demo_c167_i5481.html" target="_blank" rel="external">http://www.verydemo.com/demo_c167_i5481.html</a><br>C/C++ 跨平台交叉编译、静态库/动态库编译、MinGW、Cygwin、CodeBlocks使用原理及链接参数选项 <a href="http://www.cnblogs.com/LittleHann/p/3980364.html" target="_blank" rel="external">http://www.cnblogs.com/LittleHann/p/3980364.html</a><br>什么是DLL? <a href="http://support2.microsoft.com/kb/815065/zh-cn" target="_blank" rel="external">http://support2.microsoft.com/kb/815065/zh-cn</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://HawkAaron.github.io/2016/08/02/CodeBlocks静态链接与动态链接设置/" data-id="cirdhs3ci0001v4nrlytp5cog" class="article-share-link">Delen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/08/02/mysql 远程数据库导入到本地数据库/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Nieuwer</strong>
+      <div class="article-nav-title">
+        
+          mysql 远程数据库导入到本地数据库
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/02/C语言连接MySQL（codeblocks）/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ouder</strong>
+      <div class="article-nav-title">C语言连接MySQL（codeblocks）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archieven</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recente berichten</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/08/02/雅虎刷题狂人曹鹏：10年理论与实践结合的程序员之路/">雅虎刷题狂人曹鹏：10年理论与实践结合的程序员之路</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/02/汇编注释/">汇编注释</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/02/盘点那些快速打开windows程序的快捷键/">盘点那些快速打开windows程序的快捷键</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/02/汇编学习笔记--寄存器（内存访问 1）/">汇编学习笔记--寄存器（内存访问 1）</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/02/win7 64位如何调出debug/">win7 64位如何调出debug</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

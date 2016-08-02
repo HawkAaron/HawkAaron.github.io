@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Oracle基础 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1、
+2、用户2、0、系统用户：sys，system，sysman，scott2、1、登陆SQL Plus：使用system登陆：[username/password] [@server]请输入用户名：system/adminSQL&amp;gt;connect sys/admin as sysdba2/2查看登陆用户show userdesc dba_usersselect username from">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Oracle基础">
+<meta property="og:url" content="http://HawkAaron.github.io/2016/08/02/Oracle基础/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1、
+2、用户2、0、系统用户：sys，system，sysman，scott2、1、登陆SQL Plus：使用system登陆：[username/password] [@server]请输入用户名：system/adminSQL&amp;gt;connect sys/admin as sysdba2/2查看登陆用户show userdesc dba_usersselect username from">
+<meta property="og:updated_time" content="2016-08-01T10:20:40.428Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Oracle基础">
+<meta name="twitter:description" content="1、
+2、用户2、0、系统用户：sys，system，sysman，scott2、1、登陆SQL Plus：使用system登陆：[username/password] [@server]请输入用户名：system/adminSQL&amp;gt;connect sys/admin as sysdba2/2查看登陆用户show userdesc dba_usersselect username from">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://HawkAaron.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Oracle基础" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/02/Oracle基础/" class="article-date">
+  <time datetime="2016-08-02T13:18:52.146Z" itemprop="datePublished">2016-08-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Oracle基础
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1、</p>
+<p>2、用户<br>2、0、系统用户：sys，system，sysman，scott<br>2、1、登陆SQL Plus：<br>使用system登陆：[username/password] [@server]<br>请输入用户名：system/admin<br>SQL&gt;connect sys/admin as sysdba<br>2/2查看登陆用户<br>show user<br>desc dba_users<br>select username from dba_users;<br>2/3启用用户语句<br>alter user <code>username</code> account unlock;<br>connect <code>username</code>/<code>password</code></p>
+<p>3、表空间<br>3/0表空间概述<br>永久表空间<br>临时表空间<br>UNDO表空间<br>3/1查看表空间<br>dba_tablespaces,dba_users;user_tablespaces,user_users;<br>select tablespace_name from dba_tablespaces;<br>3/2更改表空间<br>select default_tablespace,temporary_tablespace from dba_users where username=’SYSTEM’;<br>ALTER USER system DEFAULT TABLESPACE system;<br>3/3创建表空间<br>CREATE [TEMPORARY] TABLESPACE tablespace_name TEMPFILE | DATAFILE ‘xx.dbf’ SIZE xx;<br>例子：<br>create tablespace test1_tablespace datafile ‘test1file.dbf’ size 10m;<br>create temporary tablespace temptest1_tablespace tempfile ‘tempfile1.dbf’ size 10m;<br>desc dba_data_files;<br>select file_name from dba_data_files where tablespace_name=’TEST1_TABLESPACE’;<br>select file_name from dba_temp_files where tablespace_name=’TEMPTEST1_TABLESPACE’;<br>3/4修改表空间状态（默认ONLINE）<br>alter tablespace test1_tablespace offline;<br>desc dba_tablespaces;<br>select status from dba_tablespaces where tablespace_name=’TEST1_TABLESPACE’;<br>alter tablespace test1_tablespace read only;<br>alter tablespace test1_tablespace read write;<br>3/4修改数据文件<br>增加：ALTER TABLESPACE tablespace_name ADD DATAFILE ‘filename.dbf’ SIZE xx;<br>删除：ALTER TABLESPACE tablespace_name DROP DATAFILE ‘filename.dbf’;<br>例子：<br>alter tablespace test1_tablespace add datafile ‘test2_file.dbf’ size 10m;<br>select file_name from dba_data_files where tablespace_name=’TEST1_TABLESPACE’;<br>alter tablespace test1_tablespace drop datafile ‘test2_file.dbf’;<br>3/5删除表空间<br>DROP TABLESPACE tablespace_name [INCLUDING CONTENTS];</p>
+<p>4、操作表<br>4/1数据类型<br>字符型：CHAR(n)–MAX2000 NCHAR(n)–MAX1000 VARCHAR2(n)–MAX4000 NVARCHAR2(n)–MAX2000<br>数值型：NUMBER(p,s)–p有效数字 FLOAT(n)<br>日期型：DATE–精确到秒 TIMESTAMP<br>其他类型：BLOB–4G–二进制 CLOB–4G–字符串<br>4/2管理表<br>新建表：<br>create table userinfo(<br> id number(6,0),<br> username varchar2(20),<br> userpwd varchar2(20),<br> email varchar2(30),<br> regdate date);<br>添加字段：<br>ALTER TABLE table_name ADD column_name datatype;<br>eg:<br>alter table userinfo<br>add remarks varchar2(500);<br>更改字段：<br>ALTER TABLE table_name MODIFY column_name datatype;<br>删除字段：<br>ALTER TABLE table_name DROP COLUMN column_name;<br>修改字段名：<br>ALTER TABLE table_name RENAME COLUMN column_name TO new_column_name;<br>修改表名：<br>RENAME table_name TO new_table_name;<br>清空表：<br>TRUNCATE TABLE table_name;<br>删除表：<br>DROP TABLE table_name;<br>4/3添加数据<br>INSERT INTO table_name(column1,column2,…) VALUES(value1,value2,…);</p>
+<p>5、约束<br>非空约束、主键约束、外键约束<br>ADD CONSTRAINT constraint_name PRIMARY KEY(column1,….);<br>RENAME CONTRAINT old_name TO new_name;<br>DISABLE|ENABLE CONSTRAINT constraint_name;<br>DROP CONSTRAINT constraint_name;<br>DROP PRIMARY KEY[CASCADE];<br>5/5外键约束<br>CREATE TABLE table1(column_name datatype REFERENCES table2(cloumn_name),…);<br>要么是主表存在的值，要么是空值</p>
+<p>CONSTRAINT constraint_name FOREIGN KEY(column_name) REFERENCES table_name(column_name) [ON DELETE CASCADE]</p>
+<p>5/9唯一约束<br>CREATE TABLE table1(column_name datatype UNIQUE,…);<br>CONSTRAINT constraint_name UNIQUE(column_name);<br>约束名字唯一，多个约束多个语句</p>
+<p>创建表后添加唯一约束：(ALTER TABLE table_name)<br>ADD CONSTRAINT un_constraint_name(column);</p>
+<p>5/12检查约束<br>CREATE TABLE table_name(column_name datatype CHECK(expression),…);</p>
+<p>添加检查约束：<br>CONSTRAINT ck_constraint_name CHECK(expression);</p>
+<p>6、查询<br>带条件的查询<br>模糊查询<br>范围查询</p>
+<p>设置格式<br>COLUMN|COL column_name HEADING new_name<br>COLUMN|COL column_name FORMAT dataformat<br>COLUMN|COL column_name CLEAR</p>
+<p>6/6运算符和表达式</p>
+<ul>
+<li><ul>
+<li><ul>
+<li>/ &gt; &gt;= &lt; &lt;= = &lt;&gt; and or not<br>通配符’_ %’<br>范围查询<br>[NOT] BETWEEN … AND …<br>[NOT] IN<br>CASE column_name WHEN value THEN result,… [ELSE result] END<br>实例：select username ,case username when ‘xiaoming’ then ‘计算机’ when ‘daming’ then ‘不知道’ else ‘其他部门’ end as 部门 from userinfo;<br>CASE WHEN column_name=value THEN result … END<br>实例：select username ,case when username=’xiaoming’ then ‘计算机’ when id=3 then ‘unknown’ else ‘guizd’ end as wtf from userinfo;<br>DECODE函数<br>DECODE(column_name,value1,result1,…,defaultvalue)<br>实例：select  username ,decode(username,’xiaoming’,’计算机’,’daming’,’位置’,’其他’) as fuck from userinfo;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://HawkAaron.github.io/2016/08/02/Oracle基础/" data-id="cirdhs3dd0009v4nrcwb6iiyr" class="article-share-link">Delen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/08/02/Python编写带参数decorator/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Nieuwer</strong>
+      <div class="article-nav-title">
+        
+          Python编写带参数decorator
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/02/Oracle乱码/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ouder</strong>
+      <div class="article-nav-title">Oracle乱码</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archieven</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recente berichten</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/08/02/雅虎刷题狂人曹鹏：10年理论与实践结合的程序员之路/">雅虎刷题狂人曹鹏：10年理论与实践结合的程序员之路</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/02/汇编注释/">汇编注释</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/02/盘点那些快速打开windows程序的快捷键/">盘点那些快速打开windows程序的快捷键</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/02/汇编学习笔记--寄存器（内存访问 1）/">汇编学习笔记--寄存器（内存访问 1）</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/02/win7 64位如何调出debug/">win7 64位如何调出debug</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

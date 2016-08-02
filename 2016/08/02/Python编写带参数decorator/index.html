@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Python编写带参数decorator | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="@log 装饰器：    def log(f):        def fn(x):            print ‘call ‘ + f.name + ‘()…’            return f(x)        return fn对于被装饰的函数，log打印的语句是不能变的（除了函数名）。如果有的函数非常重要，希望打印出’[INFO] call xxx()…’，有的函数不太重要">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python编写带参数decorator">
+<meta property="og:url" content="http://HawkAaron.github.io/2016/08/02/Python编写带参数decorator/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="@log 装饰器：    def log(f):        def fn(x):            print ‘call ‘ + f.name + ‘()…’            return f(x)        return fn对于被装饰的函数，log打印的语句是不能变的（除了函数名）。如果有的函数非常重要，希望打印出’[INFO] call xxx()…’，有的函数不太重要">
+<meta property="og:updated_time" content="2016-08-01T10:20:48.302Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python编写带参数decorator">
+<meta name="twitter:description" content="@log 装饰器：    def log(f):        def fn(x):            print ‘call ‘ + f.name + ‘()…’            return f(x)        return fn对于被装饰的函数，log打印的语句是不能变的（除了函数名）。如果有的函数非常重要，希望打印出’[INFO] call xxx()…’，有的函数不太重要">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://HawkAaron.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Python编写带参数decorator" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/02/Python编写带参数decorator/" class="article-date">
+  <time datetime="2016-08-02T13:18:52.146Z" itemprop="datePublished">2016-08-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Python编写带参数decorator
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p> @log 装饰器：<br>    def log(f):<br>        def fn(x):<br>            print ‘call ‘ + f.<strong>name</strong> + ‘()…’<br>            return f(x)<br>        return fn<br>对于被装饰的函数，log打印的语句是不能变的（除了函数名）。<br>如果有的函数非常重要，希望打印出’[INFO] call xxx()…’，有的函数不太重要，希望打印出’[DEBUG] call xxx()…’，这时，log函数本身就需要传入’INFO’或’DEBUG’这样的参数，类似这样：<br>    @log(‘DEBUG’)<br>    def my_func():<br>        pass<br>把上面的定义翻译成高阶函数的调用，就是：<br>    my_func = log(‘DEBUG’)(my_func)<br>上面的语句看上去还是比较绕，再展开一下：<br>    log_decorator = log(‘DEBUG’)<br>    my_func = log_decorator(my_func)<br>上面的语句又相当于：<br>    log_decorator = log(‘DEBUG’)<br>    @log_decorator<br>    def my_func():<br>        pass<br>所以，带参数的log函数首先返回一个decorator函数，再让这个decorator函数接收my_func并返回新函数：<br>    def log(prefix):<br>        def log_decorator(f):<br>            def wrapper(<em>args, **kw):<br>                print ‘[%s] %s()…’ % (prefix, f.<strong>name</strong>)<br>                return f(</em>args, **kw)<br>            return wrapper<br>        return log_decorator</p>
+<pre><code>@log(&apos;DEBUG&apos;)
+def test():
+    pass
+print test()
+</code></pre><p><strong>执行结果：</strong><br>    [DEBUG] test()…<br>    None<br>对于这种3层嵌套的decorator定义，你可以先把它拆开：</p>
+<pre><code># 标准decorator:def log_decorator(f):
+    def wrapper(*args, **kw):
+        print &apos;[%s] %s()...&apos; % (prefix, f.__name__)
+        return f(*args, **kw)
+    return wrapper
+return log_decorator# 返回decorator:def log(prefix):
+    return log_decorator(f)
+</code></pre><p>拆开以后会发现，调用会失败，因为在3层嵌套的decorator定义中，最内层的wrapper引用了最外层的参数prefix，所以，把一个闭包拆成普通的函数调用会比较困难。不支持闭包的编程语言要实现同样的功能就需要更多的代码。</p>
+<p>上一节的@performance只能打印秒，请给 @performace增加一个参数，允许传入’s’或’ms’：<br>    @performance(‘ms’)<br>    def factorial(n):<br>        return reduce(lambda x,y: x*y, range(1, n+1))</p>
+<p>要实现带参数的@performance，就需要实现：<br>my_func = performance(‘ms’)(my_func)<br>需要3层嵌套的decorator来实现。<br><strong>参考代码:</strong><br>    import time<br>    def performance(unit):<br>        def perf_decorator(f):<br>            def wrapper(<em>args, **kw):<br>                t1 = time.time()<br>                r = f(</em>args, <em>*kw)<br>                t2 = time.time()<br>                t = (t2 - t1) </em> 1000 if unit==’ms’ else (t2 - t1)<br>                print ‘call %s() in %f %s’ % (f.<strong>name</strong>, t, unit)<br>                return r<br>            return wrapper<br>        return perf_decorator</p>
+<pre><code>@performance(&apos;ms&apos;)
+def factorial(n):
+    return reduce(lambda x,y: x*y, range(1, n+1))
+print factorial(10)
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://HawkAaron.github.io/2016/08/02/Python编写带参数decorator/" data-id="cirdhs3dd000av4nrxngy0qzm" class="article-share-link">Delen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/08/02/oracle查看当前登陆的用户信息/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Nieuwer</strong>
+      <div class="article-nav-title">
+        
+          oracle查看当前登陆的用户信息
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/02/Oracle基础/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ouder</strong>
+      <div class="article-nav-title">Oracle基础</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archieven</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recente berichten</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/08/02/雅虎刷题狂人曹鹏：10年理论与实践结合的程序员之路/">雅虎刷题狂人曹鹏：10年理论与实践结合的程序员之路</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/02/汇编注释/">汇编注释</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/02/盘点那些快速打开windows程序的快捷键/">盘点那些快速打开windows程序的快捷键</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/02/汇编学习笔记--寄存器（内存访问 1）/">汇编学习笔记--寄存器（内存访问 1）</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/02/win7 64位如何调出debug/">win7 64位如何调出debug</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

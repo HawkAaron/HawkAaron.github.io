@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>oracle审计详解 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Oracle使用大量不同的审计方法来监控使用何种权限，以及访问哪些对象。审计不会防止使用这些权限，但可以提供有用的信息，用于揭示权限的滥用和误用。下表中总结了Oracle数据库中不同类型的审计。审 计 类 型说    明语句审计按照语句类型审计SQL语句，而不论访问何种特定的模式对象。也可以在数据库中指定一个或多个用户，针对特定的语句审计这些用户权限审计审计系统权限，例如CREATE TABLE或">
+<meta property="og:type" content="article">
+<meta property="og:title" content="oracle审计详解">
+<meta property="og:url" content="http://HawkAaron.github.io/2016/08/02/oracle审计详解/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Oracle使用大量不同的审计方法来监控使用何种权限，以及访问哪些对象。审计不会防止使用这些权限，但可以提供有用的信息，用于揭示权限的滥用和误用。下表中总结了Oracle数据库中不同类型的审计。审 计 类 型说    明语句审计按照语句类型审计SQL语句，而不论访问何种特定的模式对象。也可以在数据库中指定一个或多个用户，针对特定的语句审计这些用户权限审计审计系统权限，例如CREATE TABLE或">
+<meta property="og:updated_time" content="2016-08-01T10:21:17.341Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="oracle审计详解">
+<meta name="twitter:description" content="Oracle使用大量不同的审计方法来监控使用何种权限，以及访问哪些对象。审计不会防止使用这些权限，但可以提供有用的信息，用于揭示权限的滥用和误用。下表中总结了Oracle数据库中不同类型的审计。审 计 类 型说    明语句审计按照语句类型审计SQL语句，而不论访问何种特定的模式对象。也可以在数据库中指定一个或多个用户，针对特定的语句审计这些用户权限审计审计系统权限，例如CREATE TABLE或">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://HawkAaron.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-oracle审计详解" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/02/oracle审计详解/" class="article-date">
+  <time datetime="2016-08-02T13:18:52.146Z" itemprop="datePublished">2016-08-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      oracle审计详解
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Oracle使用大量不同的审计方法来监控使用何种权限，以及访问哪些对象。审计不会防止使用这些权限，但可以提供有用的信息，用于揭示权限的滥用和误用。<br>下表中总结了Oracle数据库中不同类型的审计。<br>审 计 类 型<br>说    明<br>语句审计<br>按照语句类型审计SQL语句，而不论访问何种特定的模式对象。也可以在数据库中指定一个或多个用户，针对特定的语句审计这些用户<br>权限审计<br>审计系统权限，例如CREATE TABLE或ALTER INDEX。和语句审计一样，权限审计可以指定一个或多个特定的用户作为审计的目标<br>模式对象审计<br>审计特定模式对象上运行的特定语句(例如，DEPARTMENTS表上的UPDATE语句)。模式对象审计总是应用于数据库中的所有用户<br>细粒度的审计<br>根据访问对象的内容来审计表访问和权限。使用程序包DBMS_FGA来建立特定表上的策略<br>下面几节介绍DBA如何管理系统和对象权限使用的审计。当需要一定的粒度时，DBA可以使用细粒度的审计来监控对表中某些行或列的访问，而不仅仅是是否访问表。<br>和审计相关的主要参数<br>SQL&gt;show parameter audit<br>audit_file_dest<br>audit_sys_operations<br>audit_trail</p>
+<p>audit_sys_operations：<br>默认为false，当设置为true时，所有sys用户（包括以sysdba,sysoper身份登录的用户）的操作都会被记录，audit trail不会写在aud$表中，这个很好理解，如果数据库还未启动aud$不可用，那么像conn /as sysdba这样的连接信息，只能记录在其它地方。如果是windows平台，audti trail会记录在windows的事件管理中，如果是linux/unix平台则会记录在audit_file_dest参数指定的文件中。</p>
+<p>audit_trail：<br>None：是默认值，不做审计；<br>DB：将audit trail 记录在数据库的审计相关表中，如aud$，审计的结果只有连接信息；<br>DB,Extended：这样审计结果里面除了连接信息还包含了当时执行的具体语句；<br>OS：将audit trail 记录在操作系统文件中，文件名由audit_file_dest参数指定；<br>XML：10g里新增的。<br>10g Values:</p>
+<ul>
+<li><p><code>none</code><br>Disables database auditing.</p>
+</li>
+<li><p><code>os</code><br>Enables database auditing and directs all audit records to the operating system’s audit trail.</p>
+</li>
+<li><p><code>db</code><br>Enables database auditing and directs all audit records to the database audit trail (the <code>SYS.AUD$</code> table).</p>
+</li>
+<li><p><code>db,extended</code><br>Enables database auditing and directs all audit records to the database audit trail (the <code>SYS.AUD$</code> table). In addition, populates<br>the <code>SQLBIND</code> and <code>SQLTEXT</code> CLOB columns of the <code>SYS.AUD$</code> table.</p>
+</li>
+<li><p><code>xml</code><br>Enables database auditing and writes all audit records to XML format OS files.</p>
+</li>
+<li><p><code>xml``,extended</code><br>Enables database auditing and prints all columns of the audit trail, including SqlText and SqlBind values.</p>
+</li>
+</ul>
+<p>注：参数AUDIT_TRAIL不是动态的，为了使AUDIT_TRAIL参数中的改动生效，必须关闭数据库并重新启动。在对SYS.AUD$表进行审计时，应该注意监控该表的大小，以避免影响SYS表空间中其他对象的空间需求。推荐周期性归档SYS.AUD$中的行，并且截取该表。Oracle提供了角色 DELETE_CATALOG_ROLE，和批处理作业中的特殊账户一起使用，用于归档和截取审计表。<br>audit_file_dest：Audit_trail=OS时 文件位置<br><strong>1.语句审计</strong><br>所有类型的审计都使用audit命令来打开审计，使用noaudit命令来关闭审计。对于语句审计，audit命令的格式看起来如下所示：<br>    AUDIT sql_statement_clause BY {SESSION | ACCESS}<br>    WHENEVER [NOT] SUCCESSFUL;</p>
+<p>sql_statement_clause包含很多条不同的信息，例如希望审计的SQL语句类型以及审计什 么人。<br>此外，希望在每次动作发生时都对其进行审计(by access)或者只审计一次(by session)。默认是by session。<br>有时希望审计成功的动作：没有生成错误消息的语句。对于这些语句，添加whenever successful。而有时只关心使用审计语句的命令是否失败，失败原因是权限违犯、用完表空间中的空间还是语法错误。对于这些情况，使用 whenever not successful。<br>对于大多数类别的审计方法，如果确实希望审计所有类型的表访问或某个用户的任何权限，则可以指定all而不是单个的语句类型或对象。<br>表1列出了可以审计的语句类型，并且在每个类别中包含了相关语句的简要描述。如果指定all，则审计该列表中的任何语句。然而，表2中的语句类型在启用审计时不属于all类别；必须在audit命令中显式地指定它们。<br>表1 包括在ALL类别中的可审计语句<br>语 句 选 项<br>SQL操作<br>ALTER SYSTEM<br>所有ALTER SYSTEM选项，例如，动态改变实例参数，切换到下一个日志文件组，以及终止用户会话<br>CLUSTER<br>CREATE、ALTER、DROP或TRUNCATE集群<br>CONTEXT<br>CREATE CONTEXT或DROP CONTEXT<br>DATABASE LINK<br>CREATE或DROP数据库链接<br>DIMENSION<br>CREATE、ALTER或DROP维数<br>DIRECTORY<br>CREATE或DROP目录<br>INDEX<br>CREATE、ALTER或DROP索引<br>MATERIALIZED VIEW<br>CREATE、ALTER或DROP物化视图<br>NOT EXISTS<br>由于不存在的引用对象而造成的SQL语句的失败<br>PROCEDURE<br>CREATE或DROP FUNCTION、LIBRARY、PACKAGE、PACKAGE BODY或PROCEDURE<br>PROFILE<br>CREATE、ALTER或DROP配置文件<br>PUBLIC DATABASE LINK<br>CREATE或DROP公有数据库链接<br>PUBLIC SYNONYM<br>CREATE或DROP公有同义词<br>ROLE<br>CREATE、ALTER、DROP或SET角色<br>ROLLBACK SEGMENT<br>CREATE、ALTER或DROP回滚段<br>SEQUENCE<br>CREATE或DROP序列<br>SESSION<br>登录和退出<br>SYNONYM<br>CREATE或DROP同义词<br>SYSTEM AUDIT<br>系统权限的AUDIT或NOAUDIT<br>SYSTEM GRANT<br>GRANT或REVOKE系统权限和角色<br>TABLE<br>CREATE、DROP或TRUNCATE表<br>TABLESPACE<br>CREATE、ALTER或DROP表空间<br>TRIGGER<br>CREATE、ALTER(启用/禁用)、DROP触发器；具有ENABLE ALL TRIGGERS或DISABLE ALL TRIGGERS的ALTER TABLE<br>TYPE<br>CREATE、ALTER和DROP类型以及类型主体<br>USER<br>CREATE、ALTER或DROP用户<br>VIEW<br>CREATE或DROP视图<br>表2 显式指定的语句类型<br>语 句 选 项<br>SQL 操 作<br>ALTER SEQUENCE<br>任何ALTER SEQUENCE命令<br>ALTER TABLE<br>任何ALTER TABLE命令<br>COMMENT TABLE<br>添加注释到表、视图、物化视图或它们中的任何列<br>DELETE TABLE<br>删除表或视图中的行<br>EXECUTE PROCEDURE<br>执行程序包中的过程、函数或任何变量或游标<br>GRANT DIRECTORY<br>GRANT或REVOKE DIRECTORY对象上的权限<br>GRANT PROCEDURE<br>GRANT或REVOKE过程、函数或程序包上的权限<br>GRANT SEQUENCE<br>GRANT或REVOKE序列上的权限<br>GRANT TABLE<br>GRANT或REVOKE表、视图或物化视图上的权限<br>GRANT TYPE<br>GRANT或REVOKE TYPE上的权限<br>INSERT TABLE<br>INSERT INTO表或视图<br>LOCK TABLE<br>表或视图上的LOCK TABLE命令<br>SELECT SEQUENCE<br>引用序列的CURRVAL或NEXTVAL的任何命令<br>SELECT TABLE<br>SELECT FROM表、视图或物化视图<br>UPDATE TABLE<br>在表或视图上执行UPDATE<br>一些示例可以帮助读者更清楚地了解所有这些选项。在示例数据库中，用户KSHELTON具有HR模式和其他模式中所有表上的权限。允许 KSHELTON创建其中一些表上的索引，但如果有一些与执行计划改动相关的性能问题，则需要知道何时创建这些索引。可以使用如下命令审计 KSHELTON创建的索引：<br>    SQL&gt; audit index by kshelton;<br>    Audit succeeded.</p>
+<p>后面的某一天，KSHELTON在HR.JOBS表上创建了一个索引：<br>    SQL&gt; create index job_title_idx on hr.jobs(job_title);<br>    Index created.<br>检查数据字典视图DBA_AUDIT_TRAIL中的审计跟踪，可以看到KSHELTON实际上在8月12日的5:15 P.M.创建了索引：<br>    SQL&gt; select username, to_char(timestamp,’MM/DD/YY HH24:MI’) Timestamp,<br>    2      obj_name, action_name, sql_text from dba_audit_trail<br>    3  where username = ‘KSHELTON’;<br>    USERNAME    TIMESTAMP        OBJ_NAME         ACTION_NAME      SQL_TEXT</p>
+<pre><code>---------  --------------  --------------  --------------  ----------------
+KSHELTON    08/12/07 17:15  JOB_TITLE_IDX   CREATE INDEX     create index hr.
+job_title_idx on
+hr.jobs(job_title)
+1 row selected.
+</code></pre><p>注意：<br>从Oracle Database 11g开始，只有在初始参数AUDIT_TRAIL被设置为DB_EXTENDED时，才填充DBA_AUDIT_TRAIL中的列SQL_TEXT和SQL_BIND。默认情况下，AUDIT_TRAIL的值是DB。<br>为了关闭HR.JOBS表上KSHELTON的审计，可以使用noaudit命令，如下所示：<br>    SQL&gt; noaudit index by kshelton;<br>    Noaudit succeeded.<br>也可能希望按常规方式审计成功的和不成功的登录，这需要两个audit命令：<br>    SQL&gt; audit session whenever successful;<br>    Audit succeeded.<br>    SQL&gt; audit session whenever not successful;<br>    Audit succeeded.</p>
+<p><strong>2.权限审计</strong><br>审计系统权限具有与语句审计相同的基本语法，但审计系统权限是在sql_statement_clause中，而不是在语句中，指定系统权限。<br>例如，可能希望将ALTER TABLESPACE权限授予所有的DBA，但希望在发生这种情况时生成审计记录。启用对这种权限的审计的命令看起来类似于语句审计：<br>    SQL&gt; audit alter tablespace by access whenever successful;<br>    Audit succeeded.<br>每次成功使用ALTER TABLESPACE权限时，都会将一行内容添加到SYS.AUD$。<br>使用SYSDBA和SYSOPER权限或者以SYS用户连接到数据库的系统管理员可以利用特殊的审计。为了启用这种额外的审计级别，可以设置初始参数AUDIT_SYS_OPERATIONS为TRUE。这种审计记录发送到与操作系统审计记录相同的位置。因此，这个位置是和操作系统相关的。当使用其中一种权限时执行的所有SQL语句，以及作为用户SYS执行的任何SQL语句，都会发送到操作系统审计位置。<br>模式对象审计<br>审计对各种模式对象的访问看起来类似于语句审计和权限审计：<br>    AUDIT schema_object_clause BY {SESSION | ACCESS}<br>    WHENEVER [NOT] SUCCESSFUL;</p>
+<p>schema_object_clause指定对象访问的类型以及访问的对象。可以审计特定对象上14种不同的操作类型，下表中列出了这些操作。<br>对 象 选 项<br>说    明<br>ALTER<br>改变表、序列或物化视图<br>AUDIT<br>审计任何对象上的命令<br>COMMENT<br>添加注释到表、视图或物化视图<br>DELETE<br>从表、视图或物化视图中删除行<br>EXECUTE<br>执行过程、函数或程序包<br>FLASHBACK<br>执行表或视图上的闪回操作<br>GRANT<br>授予任何类型对象上的权限<br>INDEX<br>创建表或物化视图上的索引<br>INSERT<br>将行插入表、视图或物化视图中<br>LOCK<br>锁定表、视图或物化视图<br>READ<br>对DIRECTORY对象的内容执行读操作<br>RENAME<br>重命名表、视图或过程<br>SELECT<br>从表、视图、序列或物化视图中选择行<br>UPDATE<br>更新表、视图或物化视图<br>如果希望审计HR.JOBS表上的所有insert和update命令，而不管谁正在进行更新，则每次该动作发生时，都可以使用如下所示的audit命令：<br>    SQL&gt; audit insert, update on hr.jobs by access whenever successful;<br>    Audit successful.<br>用户KSHELTON决定向HR.JOBS表添加两个新行：<br>    SQL&gt; insert into hr.jobs (job_id, job_title, min_salary, max_salary)<br>    2  values (‘IN_CFO’,’Internet Chief Fun Officer’, 7500, 50000);<br>    1 row created.<br>    SQL&gt; insert into hr.jobs (job_id, job_title, min_salary, max_salary)<br>    2  values (‘OE_VLD’,’Order Entry CC Validation’, 5500, 20000);<br>    1 row created.<br>查看DBA_AUDIT_TRAIL视图，可以看到KSHELTON会话中的两个insert命令：<br>    USERNAME   TIMESTAMP      OWNER    OBJ_NAME   ACTION_NAME<br>    SQL_TEXT</p>
+<pre><code>---------- -------------- -------- ---------- ---------------
+---------------------------------------------------------------
+KSHELTON   08/12/07 22:54 HR       JOBS       INSERT
+insert into hr.jobs (job_id, job_title, min_salary, max_salary)
+values (&apos;IN_CFO&apos;,&apos;Internet Chief Fun Officer&apos;, 7500, 50000);
+KSHELTON   08/12/07 22:53 HR       JOBS       INSERT
+insert into hr.jobs (job_id, job_title, min_salary, max_salary)
+values (&apos;OE_VLD&apos;,&apos;Order Entry CC Validation&apos;, 5500, 20000);
+KSHELTON   08/12/07 22:51                     LOGON
+</code></pre><p>3 rows selected.</p>
+<p><strong>4.细粒度的审计</strong><br>从Oracle9i开始，通过引入细粒度的对象审计，或称为FGA，审计变得更为关注某个方面，并且更为精确。由称为DBMS_FGA的PL/SQL程序包实现FGA。<br>使用标准的审计，可以轻松发现访问了哪些对象以及由谁访问，但无法知道访问了哪些行或列。细粒度的审计可解决这个问题，它不仅为需要访问的行指定谓词(或where子句)，还指定了表中访问的列。通过只在访问某些行和列时审计对表的访问，可以极大地减少审计表条目的数量。<br>程序包DBMS_FGA具有4个过程：<br>ADD_POLICY<br>添加使用谓词和审计列的审计策略<br>DROP_POLICY<br>删除审计策略<br>DISABLE_POLICY<br>禁用审计策略，但保留与表或视图关联的策略<br>ENABLE_POLICY<br>启用策略<br>用户TAMARA通常每天访问HR.EMPLOYEES表，查找雇员的电子邮件地址。系统管理员怀疑TAMARA正在查看经理们的薪水信息，因此他们建立一个FGA策略，用于审计任何经理对SALARY列的任何访问：<br>    begin<br>    dbms_fga.add_policy(<br>    object_schema =&gt;   ‘HR’,<br>    object_name =&gt;     ‘EMPLOYEES’,<br>    policy_name =&gt;     ‘SAL_SELECT_AUDIT’,<br>    audit_condition =&gt; ‘instr(job_id,’’_MAN’’) &gt; 0’,<br>    audit_column =&gt;    ‘SALARY’<br>    );<br>    end;<br>可以使用数据字典视图DBA_FGA_AUDIT_TRAIL访问细粒度审计的审计记录。如果一般需要查看标准的审计行和细粒度的审计行，则数据字典视图DBA_COMMON_AUDIT_TRAIL结合了这两种审计类型中的行。<br>继续看示例，用户TAMARA运行了如下两个SQL查询：<br>    SQL&gt; select employee_id, first_name, last_name, email from hr.employees<br>    2     where employee_id = 114;<br>    EMPLOYEE_ID FIRST_NAME           LAST_NAME                 EMAIL</p>
+<pre><code>----------- ------------------ ---------------------   --------------
+114    Den                   Raphaely                  DRAPHEAL
+1 row selected.
+SQL&gt; select employee_id, first_name, last_name, salary from hr.employees
+2     where employee_id = 114;
+EMPLOYEE_ID FIRST_NAME           LAST_NAME                     SALARY
+----------- ------------------ -----------------------   ----------
+114    Den                   Raphaely                       11000
+1 row selected.
+</code></pre><p>第一个查询访问经理信息，但没有访问SALARY列。第二个查询与第一个查询相同，但是访问了SALARY列，因此触发了FGA策略，从而在审计跟踪中生成了一行：<br>    SQL&gt; select to_char(timestamp,’mm/dd/yy hh24:mi’) timestamp,<br>    2      object_schema, object_name, policy_name, statement_type<br>    3  from dba_fga_audit_trail<br>    4  where db_user = ‘TAMARA’;<br>    TIMESTAMP        OBJECT_SCHEMA  OBJECT_NAME     POLICY_NAME       STATEMENT_TYPE</p>
+<pre><code>--------------  -------------  -------------  ---------------- --------------
+08/12/07 18:07  HR               EMPLOYEES       SAL_SELECT_AUDIT SELECT
+1 row selected.
+</code></pre><p>因为在本章前面的VPD示例中建立了细粒度的访问控制来阻止对SALARY列的未授权访问，因此需要加倍检查策略函数，确保仍然正确限制了SALARY信息。细粒度的审计以及标准审计是确保首先正确建立授权策略的好方法。<br><strong>5.与审计相关的数据字典视图</strong><br>下表包含了与审计相关的数据字典视图。<br>数据字典视图<br>说    明<br>AUDIT_ACTIONS<br>包含审计跟踪动作类型代码的描述，例如INSERT、DROP VIEW、DELETE、LOGON和LOCK<br>DBA_AUDIT_OBJECT<br>与数据库中对象相关的审计跟踪记录<br>DBA_AUDIT_POLICIES<br>数据库中的细粒度审计策略<br>DBA_AUDIT_SESSION<br>与CONNECT和DISCONNECT相关的所有审计跟踪记录<br>DBA_AUDIT_STATEMENT<br>与GRANT、REVOKE、AUDIT、NOAUDIT和ALTER SYSTEM命令相关的审计跟踪条目<br>DBA_AUDIT_TRAIL<br>包含标准审计跟踪条目。USER_AUDIT_TRAILUSER_TRAIL_AUDIT只包含已连接用户的审计行<br>DBA_FGA_AUDIT_TRAIL<br>细粒度审计策略的审计跟踪条目</p>
+<pre><code>(续表)  
+</code></pre><p>数据字典视图<br>说    明<br>DBA_COMMON_AUDIT_TRAIL<br>将标准的审计行和细粒度的审计行结合在一个视图中<br>DBA_OBJ_AUDIT_OPTS<br>对数据库对象生效的审计选项<br>DBA_PRIV_AUDIT_OPTS<br>对系统权限生效的审计选项<br>DBA_STMT_AUDIT_OPTS<br>对语句生效的审计选项</p>
+<p><strong>6.保护审计跟踪</strong><br>审计跟踪自身需要受到保护，特别是在非系统用户必须访问表SYS.AUD$时。内置的角色DELETE_ANY_CATALOG是非SYS用户可以访问审计跟踪的一种方法(例如，归档和截取审计跟踪，以确保它不会影响到SYS表空间中其他对象的空间需求)。<br>为了建立对审计跟踪自身的审计，以SYSDBA身份连接到数据库，并运行下面的命令：<br>    SQL&gt; audit all on sys.aud$ by access;<br>    Audit succeeded.<br>现在，所有针对表SYS.AUD$的动作，包括select、insert、update和delete，都记录在SYS.AUD$自身中。但是，您可能会问，如果某个人删除了标识对表SYS.AUD$访问的审计记录，这时会发生什么？此时将删除表中的行，但接着插入另一行，记录行的删除。因此，总是存在一些针对SYS.AUD$表的(有意的或偶然的)活动的证据。此外，如果将AUDIT_SYS _OPERATIONS设置为True，使用as sysdba、as sysoper或以SYS自身连接的任何会话将记录到操作系统审计位置中，甚至Oracle<br> DBA可能都无法访问该位置。因此，有许多合适的安全措施，用于确保记录数据库中所有权限的活动，以及隐藏该活动的任何尝试。<br><strong>7.启用增强的审计</strong><br>从Oracle Database 11g开始，数据库配置助手(Database Configuration Assistant，DBCA)很容易启用默认的(增强的)审计。虽然记录审计信息有一些系统开销，但兼容性需求(例如，Sarbanes-Oxley法案中规定的兼容性需求)要求严格监控所有业务操作，包括数据库中与安全相关的操作。<br>可以在创建数据库时或在数据库已经创建之后使用DBCA配置默认审计。如果已经改变了很多审计设置，并想要将审计选项重置为基线值，则在数据库已创建之后使用DBCA配置默认审计就非常有用。<br>除将初始参数AUDIT_TRAIL的值设置为DB外，默认审计设置还审计audit role命令本身。另外，在Audited Privileges选项卡的Oracle Enterprise Manager Audit Settings页面中，可以查看默认的审计权限。<br>补充说明：<br><strong>8、实例讲解</strong></p>
+<p>8.1、激活审计<br>审计相关的表安装</p>
+<p>  SQLPLUS&gt; connect / AS SYSDBA<br>  SQLPLUS&gt; select <em> from sys.aud$;     –没有记录返回<br>  SQLPLUS&gt; select </em> from dba_audit_trail;   - 没有记录返回<br> 如果做上述查询的时候发现表不存在，说明审计相关的表还没有安装，需要安装。</p>
+<p>  SQLPLUS&gt; connect / as sysdba<br>  SQLPLUS&gt; @$ORACLE_HOME/rdbms/admin/cataudit.sql<br> 审计表安装在SYSTEM表空间。所以要确保SYSTEM表空间又足够的空间存放审计信息。<br>   安装后要重启数据库</p>
+<p>将审计相关的表移动到其他表空间</p>
+<p>由于AUD$表等审计相关的表存放在SYSTEM表空间，因此为了不影响系统的性能，保护SYSTEM表空间，最好把AUD$移动到其他的表空间上。可以使用下面的语句来进行移动：</p>
+<p>sql&gt;connect / as sysdba;<br>sql&gt;alter table aud$ move tablespace <new tablespace="">;<br>sql&gt;alter index I_aud1 rebuild online tablespace <new tablespace="">;<br>SQL&gt; alter table audit$ move tablespace <new tablespace="">;<br>SQL&gt; alter index i_audit rebuild online tablespace <new tablespace="">;<br>SQL&gt; alter table audit_actions move tablespace <new tablespace="">;<br>SQL&gt; alter index i_audit_actions rebuild online tablespace <new tablespace="">;</new></new></new></new></new></new></p>
+<p>SQL&gt; conn /as sysdba<br>SQL&gt; show parameter audit<br>NAME                                 TYPE        VALUE</p>
+<hr>
+<p>audit_file_dest                      string      /u01/app/oracle/admin/ORCL/adump<br>audit_sys_operations                 boolean     FALSE<br>audit_syslog_level                   string<br>audit_trail                          string      NONE</p>
+<p>SQL&gt; alter system set audit_sys_operations=TRUE scope=spfile;    –审计管理用户(以sysdba/sysoper角色登陆)<br>SQL&gt; alter system set audit_trail=db,extended scope=spfile;<br>SQL&gt; startup force;<br>SQL&gt; show parameter audit<br>NAME                                 TYPE        VALUE</p>
+<hr>
+<p>audit_file_dest                      string      /u01/app/oracle/admin/ORCL/adump<br>audit_sys_operations                 boolean     TRUE<br>audit_syslog_level                   string<br>audit_trail                          string      DB, EXTENDED          </p>
+<p>8.2、开始审计</p>
+<p>SQL&gt; conn /as sysdba<br>SQL&gt; audit all on t_test;<br>SQL&gt; conn u_test<br>SQL&gt; select * from t_test;<br>SQL&gt; insert into u_test.t_test (c2,c5) values (‘test1’,’2’);<br>SQL&gt; commit;<br>SQL&gt; delete from u_test.t_test;<br>SQL&gt; commit;<br>SQL&gt; conn /as sysdba<br>SQL&gt; col DEST_NAME format a30<br>col OS_USERNAME format a15<br>col USERNAME format a15<br>col USERHOST format a15<br>col TERMINAL format a15<br>col OBJ_NAME format a30<br>col SQL_TEXT format a60<br>SQL&gt; select OS_USERNAME,username,USERHOST,TERMINAL,TIMESTAMP,OWNER,obj_name,ACTION_NAME,sessionid,os_process,sql_text from dba_audit_trail;</p>
+<p>sql&gt; audit select table by u_test by access;<br>如果在命令后面添加by user则只对user的操作进行审计,如果省去by用户,则对系统中所有的用户进行审计(不包含sys用户).</p>
+<p>例：<br>AUDIT DELETE ANY TABLE;    –审计删除表的操作<br>AUDIT DELETE ANY TABLE WHENEVER NOT SUCCESSFUL;    –只审计删除失败的情况<br>AUDIT DELETE ANY TABLE WHENEVER SUCCESSFUL;    –只审计删除成功的情况<br>AUDIT DELETE,UPDATE,INSERT ON user.table by test;    –审计test用户对表user.table的delete,update,insert操作</p>
+<p>8.3、撤销审计<br>SQL&gt; noaudit all on t_test;</p>
+<p><strong>9、审计语句</strong></p>
+<p>多层环境下的审计：appserve-应用服务器，jackson-client<br>AUDIT SELECT TABLE BY appserve ON BEHALF OF jackson;</p>
+<p>审计连接或断开连接：<br>AUDIT SESSION;<br>AUDIT SESSION BY jeff, lori;    – 指定用户</p>
+<p>审计权限(使用该权限才能执行的操作)：<br>AUDIT DELETE ANY TABLE BY ACCESS WHENEVER NOT SUCCESSFUL;<br>AUDIT DELETE ANY TABLE;<br>AUDIT SELECT TABLE, INSERT TABLE, DELETE TABLE, EXECUTE PROCEDURE BY ACCESS WHENEVER NOT SUCCESSFUL;</p>
+<p>对象审计：<br>AUDIT DELETE ON jeff.emp;<br>AUDIT SELECT, INSERT, DELETE ON jward.dept BY ACCESS WHENEVER SUCCESSFUL;</p>
+<p>取消审计：<br>NOAUDIT session;<br>NOAUDIT session BY jeff, lori;<br>NOAUDIT DELETE ANY TABLE;<br>NOAUDIT SELECT TABLE, INSERT TABLE, DELETE TABLE,EXECUTE PROCEDURE;<br>NOAUDIT ALL;    – 取消所有statement审计<br>NOAUDIT ALL PRIVILEGES;    – 取消所有权限审计<br>NOAUDIT ALL ON DEFAULT;    – 取消所有对象审计</p>
+<p><strong>10、清除审计信息</strong></p>
+<p>DELETE FROM SYS.AUD$;<br>DELETE FROM SYS.AUD$ WHERE obj$name=’EMP’;</p>
+<p><strong>11、审计视图</strong></p>
+<p>STMT_AUDIT_OPTION_MAP    – 审计选项类型代码<br>AUDIT_ACTIONS    – action代码<br>ALL_DEF_AUDIT_OPTS    – 对象创建时默认的对象审计选项<br>DBA_STMT_AUDIT_OPTS    – 当前数据库系统审计选项<br>DBA_PRIV_AUDIT_OPTS    – 权限审计选项<br>DBA_OBJ_AUDIT_OPTS<br>USER_OBJ_AUDIT_OPTS    – 对象审计选项<br>DBA_AUDIT_TRAIL<br>USER_AUDIT_TRAIL    – 审计记录<br>DBA_AUDIT_OBJECT<br>USER_AUDIT_OBJECT    – 审计对象列表<br>DBA_AUDIT_SESSION<br>USER_AUDIT_SESSION    – session审计<br>DBA_AUDIT_STATEMENT<br>USER_AUDIT_STATEMENT    – 语句审计<br>DBA_AUDIT_EXISTS    – 使用BY AUDIT NOT EXISTS选项的审计<br>DBA_AUDIT_POLICIES    – 审计POLICIES<br>DBA_COMMON_AUDIT_TRAIL    – 标准审计+精细审计</p>
+<p><strong>12、将审计结果表从system表空间里移动到别的表空间上</strong></p>
+<p>实际上sys.aud$表上包含了两个lob字段，并不是简单的move table就可以。<br>下面是具体的过程:<br>alter table sys.aud$ move tablespace users;<br>alter table sys.aud$ move lob(sqlbind) store as( tablespace USERS);<br>alter table sys.aud$ move lob(SQLTEXT) store as( tablespace USERS);<br>alter index sys.I_AUD1 rebuild tablespace users;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://HawkAaron.github.io/2016/08/02/oracle审计详解/" data-id="cirdhs3dz000hv4nre44i32i5" class="article-share-link">Delen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/08/02/Pythonwin7/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Nieuwer</strong>
+      <div class="article-nav-title">
+        
+          Python???????win7?
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/02/proteus解决LED二极管不发光问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ouder</strong>
+      <div class="article-nav-title">proteus解决LED二极管不发光问题</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archieven</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recente berichten</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/08/02/雅虎刷题狂人曹鹏：10年理论与实践结合的程序员之路/">雅虎刷题狂人曹鹏：10年理论与实践结合的程序员之路</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/02/汇编注释/">汇编注释</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/02/盘点那些快速打开windows程序的快捷键/">盘点那些快速打开windows程序的快捷键</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/02/汇编学习笔记--寄存器（内存访问 1）/">汇编学习笔记--寄存器（内存访问 1）</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/02/win7 64位如何调出debug/">win7 64位如何调出debug</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

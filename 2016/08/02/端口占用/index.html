@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>端口占用 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="开始–运行–cmd 进入命令提示符 输入netstat -ano 即可看到所有连接的PID 之后在任务管理器中找到这个PID所对应的程序如果任务管理器中没有PID这一项,可以在任务管理器中选”查看”-“选择列” 
+经常，我们在启动应用的时候发现系统需要的端口被别的程序占用，如何知道谁占有了我们需要的端口，很多人都比较头疼，下面就介绍一种非常简单的方法，希望对大家有用 
+假如我们需要确定谁占用了我们">
+<meta property="og:type" content="article">
+<meta property="og:title" content="端口占用">
+<meta property="og:url" content="http://HawkAaron.github.io/2016/08/02/端口占用/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="开始–运行–cmd 进入命令提示符 输入netstat -ano 即可看到所有连接的PID 之后在任务管理器中找到这个PID所对应的程序如果任务管理器中没有PID这一项,可以在任务管理器中选”查看”-“选择列” 
+经常，我们在启动应用的时候发现系统需要的端口被别的程序占用，如何知道谁占有了我们需要的端口，很多人都比较头疼，下面就介绍一种非常简单的方法，希望对大家有用 
+假如我们需要确定谁占用了我们">
+<meta property="og:updated_time" content="2016-08-01T10:20:42.622Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="端口占用">
+<meta name="twitter:description" content="开始–运行–cmd 进入命令提示符 输入netstat -ano 即可看到所有连接的PID 之后在任务管理器中找到这个PID所对应的程序如果任务管理器中没有PID这一项,可以在任务管理器中选”查看”-“选择列” 
+经常，我们在启动应用的时候发现系统需要的端口被别的程序占用，如何知道谁占有了我们需要的端口，很多人都比较头疼，下面就介绍一种非常简单的方法，希望对大家有用 
+假如我们需要确定谁占用了我们">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://HawkAaron.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-端口占用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/02/端口占用/" class="article-date">
+  <time datetime="2016-08-02T13:18:52.162Z" itemprop="datePublished">2016-08-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      端口占用
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>开始–运行–cmd 进入命令提示符 输入netstat -ano 即可看到所有连接的PID 之后在任务管理器中找到这个PID所对应的程序如果任务管理器中<strong>没有PID</strong>这一项,可以在任务管理器中选”查看”-“选择列” </p>
+<pre><code>经常，我们在启动应用的时候发现系统需要的端口被别的程序占用，如何知道谁占有了我们需要的端口，很多人都比较头疼，下面就介绍一种非常简单的方法，希望对大家有用 
+</code></pre><p>假如我们需要确定谁占用了我们的9050端口 </p>
+<p>1、Windows平台<br>在windows命令行窗口下执行：<br>1.查看所有的端口占用情况<br>C:><strong>netstat -ano</strong><br>  协议    本地地址                     外部地址               状态                   PID<br>  TCP    127.0.0.1:1434         0.0.0.0:0              LISTENING       3236<br>  TCP    127.0.0.1:5679         0.0.0.0:0              LISTENING       4168<br>  TCP    127.0.0.1:7438         0.0.0.0:0              LISTENING       4168<br>  TCP    127.0.0.1:8015         0.0.0.0:0              LISTENING       1456<br>  TCP    192.168.3.230:139      0.0.0.0:0              LISTENING       4<br>  TCP    192.168.3.230:1957     220.181.31.225:443     ESTABLISHED     3068<br>  TCP    192.168.3.230:2020     183.62.96.189:1522     ESTABLISHED     1456<br>  TCP    192.168.3.230:2927     117.79.91.18:80        ESTABLISHED     4732<br>  TCP    192.168.3.230:2929     117.79.91.18:80        ESTABLISHED     4732<br>  TCP    192.168.3.230:2930     117.79.91.18:80        ESTABLISHED     4732<br>  TCP    192.168.3.230:2931     117.79.91.18:80        ESTABLISHED     4732</p>
+<p>2.查看指定端口的占用情况<br>C:><strong>netstat -aon|findstr “9050”</strong><br>  协议    本地地址                     外部地址               状态                   PID<br>  TCP    127.0.0.1:9050         0.0.0.0:0              LISTENING       2016<br>P: 看到了吗，端口被进程号为2016的进程占用，继续执行下面命令： （也可以去任务管理器中查看pid对应的进程）<br>3.查看PID对应的进程<br>C:><strong>tasklist|findstr “2016”</strong><br> 映像名称                       PID 会话名              会话#       内存使用<br> ========================= ======== ================<br>  tor.exe                     2016 Console                 0     16,064 K </p>
+<p>P:很清楚吧，tor占用了你的端口。</p>
+<p>4.结束该进程<br>C:><strong>taskkill /f /t /im tor.exe</strong></p>
+<p>其他不懂的用 help吧~</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://HawkAaron.github.io/2016/08/02/端口占用/" data-id="cirdhs3ev000rv4nr3hxj79ob" class="article-share-link">Delen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/08/02/谷歌浏览器安装QQ旋风插件/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Nieuwer</strong>
+      <div class="article-nav-title">
+        
+          谷歌浏览器安装QQ旋风插件
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/02/Pythonwin7/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ouder</strong>
+      <div class="article-nav-title">Python???????win7?</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archieven</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recente berichten</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/08/02/雅虎刷题狂人曹鹏：10年理论与实践结合的程序员之路/">雅虎刷题狂人曹鹏：10年理论与实践结合的程序员之路</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/02/汇编注释/">汇编注释</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/02/盘点那些快速打开windows程序的快捷键/">盘点那些快速打开windows程序的快捷键</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/02/汇编学习笔记--寄存器（内存访问 1）/">汇编学习笔记--寄存器（内存访问 1）</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/02/win7 64位如何调出debug/">win7 64位如何调出debug</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

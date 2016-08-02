@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>C/C++ 跨平台交叉编译、静态库/动态库编译、MinGW、Cygwin、CodeBlocks使用原理及链接参数选项 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="0. 引言UNIX是一个注册商标，是要满足一大堆条件并且支付可观费用才能够被授权使用的一个操作系统。linux是unix的克隆版本，是由其创始人Linus和诸多世界知名的黑客手工打造的一个操作系统。为什么linux和unix之间有很多软件可以很轻松的移植？因为linux也满足POSIX规范，所以在运行机制上跟unix相近。同时，POSIX标准也是Linux、windows下能够进行交叉编译的基础0">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C/C++ 跨平台交叉编译、静态库/动态库编译、MinGW、Cygwin、CodeBlocks使用原理及链接参数选项">
+<meta property="og:url" content="http://HawkAaron.github.io/2016/08/02/CC++ 跨平台交叉编译、静态库动态库编译、MinGW、Cygwin、CodeBlocks使用原理及链接参数选项/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="0. 引言UNIX是一个注册商标，是要满足一大堆条件并且支付可观费用才能够被授权使用的一个操作系统。linux是unix的克隆版本，是由其创始人Linus和诸多世界知名的黑客手工打造的一个操作系统。为什么linux和unix之间有很多软件可以很轻松的移植？因为linux也满足POSIX规范，所以在运行机制上跟unix相近。同时，POSIX标准也是Linux、windows下能够进行交叉编译的基础0">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://images.cnitblog.com/blog/532548/201409/191103358154415.png">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
+<meta property="og:updated_time" content="2016-08-01T10:21:06.959Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C/C++ 跨平台交叉编译、静态库/动态库编译、MinGW、Cygwin、CodeBlocks使用原理及链接参数选项">
+<meta name="twitter:description" content="0. 引言UNIX是一个注册商标，是要满足一大堆条件并且支付可观费用才能够被授权使用的一个操作系统。linux是unix的克隆版本，是由其创始人Linus和诸多世界知名的黑客手工打造的一个操作系统。为什么linux和unix之间有很多软件可以很轻松的移植？因为linux也满足POSIX规范，所以在运行机制上跟unix相近。同时，POSIX标准也是Linux、windows下能够进行交叉编译的基础0">
+<meta name="twitter:image" content="http://common.cnblogs.com/images/copycode.gif">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://HawkAaron.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-CC++ 跨平台交叉编译、静态库动态库编译、MinGW、Cygwin、CodeBlocks使用原理及链接参数选项" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/02/CC++ 跨平台交叉编译、静态库动态库编译、MinGW、Cygwin、CodeBlocks使用原理及链接参数选项/" class="article-date">
+  <time datetime="2016-08-02T13:18:52.091Z" itemprop="datePublished">2016-08-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      C/C++ 跨平台交叉编译、静态库/动态库编译、MinGW、Cygwin、CodeBlocks使用原理及链接参数选项
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>0. 引言</strong><br>UNIX是一个注册商标，是要满足一大堆条件并且支付可观费用才能够被授权使用的一个操作系统。linux是unix的克隆版本，是由其创始人Linus和诸多世界知名的黑客手工打造的一个操作系统。为什么linux和unix之间有很多软件可以很轻松的移植？因为linux也满足POSIX规范，所以在运行机制上跟unix相近。同时，POSIX标准也是Linux、windows下能够进行交叉编译的基础<br><strong><em>0x1: POSIX(Portable Operating System Interface)</em></strong><br>可移植操作系统接口(Portable Operating System Interface POSIX)，是IEEE为要在各种UNIX操作系统上运行的软件，而定义API的一系列互相关联的标准的总称，其正式称呼为IEEE 1003，而国际标准名称为ISO/IEC 9945。此标准源于一个大约开始于1985年的项目。POSIX这个名称是由理查德·斯托曼应IEEE的要求而提议的一个易于记忆的名称。它基本上是(Portable<br> Operating System Interface可移植操作系统接口)的缩写，而X则表明其对Unix API的传承<br>Linux基本上逐步实现了POSIX兼容，但并没有参加正式的POSIX认证。微软的Windows NT声称部分实现了POSIX标准，因为有POSIX标准的存在，我们在unix、linux、windows上进行编程的时候，会发现有很多API都是通用的，虽然大多数情况下进行跨系统兼容编程是很困难的<br>当前的POSIX主要分为四个部分</p>
+<pre><code>1. Base Definitions2. System Interfaces3. Shell and Utilities4. Rationale
+</code></pre><p><strong><em>0x2: POSIX 1.1标准</em></strong><br>POSIX(Portable Operating System Interface for Computing Systems)是由IEEE 和ISO/IEC 开发的一簇标准。该标准是基于现有的UNIX实践和经验，描述了操作系统的调用服务接口，用于保证编制的应用程序可以在源代码一级上在多种操作系统上移植运行。</p>
+<p><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>    1. 1003.0管理POSIX开放式系统环境(OSE)。IEEE在1995年通过了这项标准。ISO的版本是ISO/IEC 14252:1996</p>
+<pre><code>2. 1003.1被广泛接受、用于源代码级别的可移植性标准。1003.1提供一个操作系统的C语言应用编程接口(API)。IEEE和ISO已经在1990年通过了这个标准，IEEE在1995年重新修订了该标准。3. 1003.1b
+一个用于实时编程的标准(以前的P1003.4或POSIX.4)。这个标准在1993年被IEEE通过，被合并进ISO/IEC 9945-1
+
+4. 1003.1c
+一个用于线程(在一个程序中当前被执行的代码段)的标准。以前是P1993.4或POSIX.4的一部分，这个标准已经在1995年被IEEE通过，归入ISO/IEC 9945-1:1996
+
+5. 1003.1g
+一个关于协议独立接口的标准，该接口可以使一个应用程序通过网络与另一个应用程序通讯。1996年，IEEE通过了这个标准6. 1003.2一个应用于shell和工具软件的标准，它们分别是操作系统所必须提供的命令处理器和工具程序。1992年IEEE通过了这个标准。ISO也已经通过了这个标准(ISO/IEC 9945-2:1993)7. 1003.2d改进的1003.2标准8. 1003.5一个相当于1003.1的Ada语言的API。在1992年，IEEE通过了这个标准。并在1997年对其进行了修订。ISO也通过了该标准9. 1003.5b
+一个相当于1003.1b(实时扩展)的Ada语言的API。IEEE和ISO都已经通过了这个标准。ISO的标准是ISO/IEC 14519:1999
+
+10. 1003.5c
+一个相当于1003.1q(协议独立接口)的Ada语言的API。在1998年，IEEE通过了这个标准。ISO也通过了这个标准。11. 1003.9一个相当于1003.1的FORTRAN语言的API。在1992年，IEEE通过了这个标准，并于1997年对其再次确认。ISO也已经通过了这个标准12. 1003.10一个应用于超级计算应用环境框架(Application Environment Profile，AEP)的标准。在1995年，IEEE通过了这个标准13. 1003.13一个关于应用环境框架的标准，主要针对使用POSIX接口的实时应用程序。在1998年，IEEE通过了这个标准 14. 1003.22一个针对POSIX的关于安全性框架的指南15. 1003.23一个针对用户组织的指南，主要是为了指导用户开发和使用支持操作需求的开放式系统环境(OSE)框架16. 2003针对指定和使用是否符合POSIX标准的测试方法，有关其定义、一般需求和指导方针的一个标准。在1997年，IEEE通过了这个标准17. 2003.1这个标准规定了针对1003.1的POSIX测试方法的提供商要提供的一些条件。在1992年，IEEE通过了这个标准18. 2003.2一个定义了被用来检查与IEEE 1003.2(shell和工具API)是否符合的测试方法的标准。在1996年，IEEE通过了这个标准
+</code></pre><p><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a><em>*</em>0x3: POSIX标准的意义</p>
+<hr>
+<p>POSIX的意义在于提供了”跨操作系统兼容性编译”的能力，遵循了POSIX标准的C/C++程序源代码，可以直接在Linux/BSD环境下用GCC编译，或者在windows下用Cygwin/MinGW编译(Cygwin、MinGW提供了跨操作系统的兼容编译)。这叫跨操作系统的编译，注意要和”跨平台交叉编译”区分开来<br><strong><strong>Relevant Link:</strong></strong><br>    <a href="http://zh.wikipedia.org/wiki/POSIX" target="_blank" rel="external">http://zh.wikipedia.org/wiki/POSIX</a><br>    <a href="http://i.linuxtoy.org/docs/guide/ch48s05.html" target="_blank" rel="external">http://i.linuxtoy.org/docs/guide/ch48s05.html</a></p>
+<p><strong>1. 交叉编译</strong><br><strong><em>0x1: 交叉编译简介</em></strong><br>从编译所在的平台和运行所在的平台这点来看，有两种编译概念<br><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>    1. 本地编译<br>    我们常见的软件开发，都是属于”本地编译”。在当前的PC下，x86的CPU下，直接编译出来程序，可以运行的程序(或者库文件)，其可以直接在当前的环境，即x86的CPU下，当前电脑中，运行。<br>    此时的编译，可以叫做”本地编译”，即在当前目标平台下，编译出来的程序，也只是放到当前平台下，就可以运行的2. 交叉编译<br>    这是一个和本地编译相对应的概念。而所谓的”交叉编译”，就是在一种平台上编译，编译出来的程序，是放到别的平台上运行<br>    即编译的环境，和运行的环境，不一样，属于交叉的，此所谓cross交叉编译，这个概念，主要和嵌入式开发有关<br><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>一种最常见的例子就是：<br>    在进行嵌入式开发时，手上有个嵌入式开发板，CPU是arm的，然后在x86的平台下开发，比如Ubuntu的Linux，或者是Win7。然后就需要在x86的平台上，(用交叉编译器)去编译你写好的程序代码，编译生成的(可执行的)程序，是放<br>    到目标开发板，arm的CPU上运行的<br>    此所谓：在x86平台上编译，在ARM平台上运行<br>交叉编译，英文常写作cross compile，也有其他写法：crosscompile, cross compiling等<br><em>*</em>0x2: 为何要有交叉编译</p>
+<hr>
+<p>之所以要有交叉编译，主要原因是：<br><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>    1. 嵌入式系统中的资源太少<br>    交叉编译出来的程序，所要运行的目标环境中，各种资源，都相对有限，所以很难进行直接的本地编译，最常见的情况是：<br>    因为编译，开发，都需要相对比较多的CPU，内存，硬盘等资源，而嵌入式开发上的那点资源，只够嵌入式(Linux)系统运行的，没太多剩余的资源，供你本地编译。所以需要在别的平台上进行跨平台编译，然后在其他的平台上运行<br><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a><strong><em>0x3: 跨平台编译和跨操作系统编译的差别</em></strong><br>这里需要注意的是”平台”的概念，实际上包含两个概念</p>
+<pre><code>1. 体系结构(Architecture): 同一个体系结构可以运行不同的操作系统2. 操作系统(Operating System): 同一个操作系统也可以在不同的体系结构上运行
+</code></pre><p>举例来说，我们常说的x86 Linux平台实际上是Intel x86体系结构和Linux for x86操作系统的统称；而x86 WinNT平台实际上是Intel x86体系结构和Windows NT for x86操作系统的简称<br>像crosstool-NG这类交叉编译器和Cygwin这类跨操作系统平台编译器的区别在于</p>
+<pre><code>1. crosstool-NG跨平台编译(跨体系结构、操作系统)2. Cygwin跨平台编译(提供*inux到windows系统的代码级编译兼容性)
+</code></pre><p><strong><strong>Relevant Link:</strong></strong><br>    <a href="http://www.crifan.com/files/doc/docbook/cross_compile/release/html/cross_compile.html" target="_blank" rel="external">http://www.crifan.com/files/doc/docbook/cross_compile/release/html/cross_compile.html</a><br>    <a href="http://zh.wikipedia.org/wiki/%E4%BA%A4%E5%8F%89%E7%B7%A8%E8%AD%AF%E5%99%A8" target="_blank" rel="external">http://zh.wikipedia.org/wiki/%E4%BA%A4%E5%8F%89%E7%B7%A8%E8%AD%AF%E5%99%A8</a><br>    <a href="http://baike.baidu.com/view/650389.htm" target="_blank" rel="external">http://baike.baidu.com/view/650389.htm</a></p>
+<p><strong>2. Cygwin简介</strong><br><strong><em>0x1: 简介</em></strong><br>Cygwin是许多自由软件的集合，最初由Cygnus Solutions开发，用于各种版本的Microsoft Windows上，运行类UNIX系统。Cygwin的主要目的是通过”重新编译”(注意：是重新编译)，将POSIX系统(例如Linux、BSD，以及其他Unix系统)上的软件移植到Windows上。Cygwin移植工作在Windows NT上比较好，在Windows 95和Windows 98上，相对差劲一些。目前Cygwin由Red Hat等负责维护<br>首要需要明白的是，Cygwin不是一个跨平台模拟器，它不能让我们把linux上编译出来的程序在windows上运行(像wine那样)，而是一个跨平台的编译器，也就是提供代码级的跨操作系统兼容性，我们在linux下写的符合POSIX标准的C程序可以在windows下面进行编译，Cygwin提供了一套在windows下可以使用的Linux的API<br>Cygwin包括了一套库，该库在Win32系统下实现了POSIX系统调用的API。还有一套GNU开发工具集(比如GCC、GDB)，这样可以进行简单的软件开发。还有一些UNIX系统下的常见程序。2001年，新增了X Window System<br><strong><em>0x2: Cygwin的特性</em></strong><br><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>    Cygwin is:1. a large collection of GNU and Open Source tools which provide functionality similar to a Linux distribution on Windows.2. a DLL (cygwin1.dll) which provides substantial POSIX API functionality.</p>
+<pre><code>Cygwin is not:1. a way to run native Linux apps on Windows. You must rebuild your application from source if you want it to run on Windows.2. a way to magically make native Windows apps aware of UNIX® functionality like signals, ptys, etc. Again, you need to build your apps from source if you want to take advantage 
+of Cygwin functionality.
+</code></pre><p><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a><strong><em>0x3: Cygwin原理</em></strong><br>cygnus当初首先把GCC，GDB，GAS等开发工具进行了改进，使他们能够生成并解释win32的目标文件。然后，他们要把这些工具移植到windows平台上去。一种方案是基于win32 api对这些工具的源代码进行大幅修改，这样做显然需要大量工作。因此，他们采取了一种不同的方法<br><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>    1. 他们写了一个共享库(就是cygwin.dll)，把win32 api中没有的unix风格的调用(如fork、spawn、signals、select、sockets等)封装在里面2. 也就是说，他们基于win32 api写了一个unix系统库的模拟层(这个模拟层是一个关键，它的底层是win32 api，上层提供unix风格的调用，所以我们才可以在windows下编译unix风格的C程序)3. 这样，只要把这些工具的源代码和这个共享库连接到一起，就可以使用unix主机上的交叉编译器来生成可以在windows平台上运行的工具集4. 以这些移植到windows平台上的开发工具为基础，cygnus又逐步把其他的工具(几乎不需要对源代码进行修改，只需要修改他们的配置脚本)软件移植到windows上来。这样，在windows平台上运行bash和开发工具、用户工具，感觉好<br>    像在unix上工作<br><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a><strong><em>0x4: 使用Cygwin编程</em></strong><br>code<br><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>    #iuclude <stdio.h>main()<br>    {<br>        printf(“hello world!!\n”);<br>    }<br><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>编译<br>    gcc hello.c -o hello.exe<br>得到hello.exe，这个程序可以在windows上直接点击运行<br><strong><strong>Relevant Link:</strong></strong><br>    <a href="http://zh.wikipedia.org/wiki/Cygwin" target="_blank" rel="external">http://zh.wikipedia.org/wiki/Cygwin</a><br>    <a href="https://www.cygwin.com/" target="_blank" rel="external">https://www.cygwin.com/</a><br>    <a href="http://www.ibm.com/developerworks/cn/linux/l-cn-cygwin/" target="_blank" rel="external">http://www.ibm.com/developerworks/cn/linux/l-cn-cygwin/</a></stdio.h></p>
+<p><strong>3. 静态库编译及使用</strong><br><strong><em>0x1: 什么是库</em></strong><br>库是写好的现有的，成熟的，可以复用的代码。现实中每个程序都要依赖很多基础的底层库，不可能每个人的代码都从零开始，因此库的存在是很有必要的<br>本质上来说库是一种可执行代码的二进制形式，可以被操作系统载入内存执行。库有两种</p>
+<pre><code>1. 静态库(.a、.lib)2. 动态库(.so、.dll)
+</code></pre><p>所谓静态、动态是指”链接”的过程存在区别<br><img src="http://images.cnitblog.com/blog/532548/201409/191103358154415.png" alt=""><br><strong><em>0x2: 动态库和静态库的默认路径PATH搜索顺序</em></strong><br>库文件在连接(静态库和共享库)和运行(仅限于使用共享库的程序)时被使用，其搜索路径是在系统中进行设置的<br><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>    1. 静态库的搜索路径顺序<br>        1) /lib<br>        2) /usr/lib<br>        3) /etc/ld.so.conf文件中添加库的搜索路径<br>        4) /etc/ld.so.conf.d下新建一个.conf文件，这种方法可以很灵活地将不同软件的库搜索路径区分开来2. 动态库的搜索路径顺序<br>        1) LD_LIBRARY_PATH<br>        2) /lib<br>        3) /usr/lib<br>        4) /etc/ld.so.cache(使用ldconfig生成的库路径缓存)<br>        5) /etc/ld.so.conf文件中添加库的搜索路径<br>        6) /etc/ld.so.conf.d下新建一个.conf文件，这种方法可以很灵活地将不同软件的库搜索路径区分开来<br><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>0x3: 静态库<br>之所以称之为”静态库”，是因为在链接阶段，会将汇编生成的目标文件.o与引用到的库一起链接打包到可执行文件中。因此对应的链接方式称为静态链接。<br>从本质上来说，一个静态库可以简单看成是一组目标文件(.o/.obj文件)的集合，静态库与汇编生成的目标文件(.o/.obj)一起链接为可执行文件<br>静态库和.o文件格式相似。即很多目标文件经过压缩打包后形成的一个文件<br>静态库特点总结：</p>
+<pre><code>1. 静态库对函数库的链接是放在编译时期完成的2. 程序在运行时与函数库再无瓜葛，移植方便，因为代码已经嵌入到程序里面了，可以直接跟着程序走，不存在对外部文件的依赖3. 浪费空间和资源，因为所有相关的目标文件与牵涉到的函数库被链接合成一个可执行文件，会增加原本程序的空间
+</code></pre><p>0x4: 静态库编程<br>我们接下来学习一下如何创建用于C++应用的静态库(一个.lib 文件)。 使用静态库是重用代码的一种绝佳方式。 你不必在要求功能的每个应用中重新实现同一例程，而只需将其写入静态库一次，然后从应用引用它们即可。<br> 从静态库链接的代码成为了应用的一部分，这样你就不必安装另一个文件来使用代码。<br><strong>1. VS编译、使用静态库</strong><br><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>    //创建静态库项目</p>
+<pre><code>1. 在菜单栏上，依次选择&quot;文件&quot;、&quot;新建&quot;、&quot;项目&quot;
+2. 在&quot;新建项目&quot;对话框的左窗格中，依次展开&quot;已安装&quot;、&quot;模板&quot;、&quot;Visual C++&quot;，然后选择&quot;Win32&quot;
+3. 在中间窗格中，选择&quot;Win32 控制台应用程序&quot;
+4. 在&quot;名称&quot;框中为项目指定名称，例如 MathFuncsLib。 在&quot;解决方案名称&quot;框中为解决方案指定名称，例如 StaticLibrary。 选择&quot;确定&quot;按钮5. 在&quot;Win32 应用程序向导&quot;对话框的&quot;概述&quot;页上，选择&quot;下一步&quot;按钮6. 在&quot;应用程序设置&quot;页的&quot;应用程序类型&quot;下，选择&quot;静态库&quot;
+7. 在&quot;应用程序设置&quot;页的&quot;附加选项&quot;下，清除&quot;预编译头&quot;复选框8. 选择&quot;完成&quot;按钮创建项目
+</code></pre><p><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>MathFuncsLib.h<br><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>    // MathFuncsLib.h</p>
+<pre><code>#ifndef MATHFUNCSLIB_H  #define MATHFUNCSLIB_H  
+
+namespace MathFuncs
+{
+    class MyMathFuncs
+    {
+    public:
+        // Returns a + b
+        static double Add(double a, double b);
+
+        // Returns a - b
+        static double Subtract(double a, double b);
+
+        // Returns a * b
+        static double Multiply(double a, double b);
+
+        // Returns a / b
+        static double Divide(double a, double b);
+    };
+}  
+  #endif  
+</code></pre><p><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>MathFuncsLib.cpp<br><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>    // MathFuncsLib.cpp// compile with: cl /c /EHsc MathFuncsLib.cpp// post-build command: lib MathFuncsLib.obj</p>
+<pre><code>#include &quot;MathFuncsLib.h&quot;#include &lt;stdexcept&gt;
+
+using namespace std;namespace MathFuncs
+{
+    double MyMathFuncs::Add(double a, double b)
+    {
+        return a + b;
+    }
+
+    double MyMathFuncs::Subtract(double a, double b)
+    {
+        return a - b;
+    }
+
+    double MyMathFuncs::Multiply(double a, double b)
+    {
+        return a * b;
+    }
+
+    double MyMathFuncs::Divide(double a, double b)
+    {
+        return a / b;
+    }
+}
+</code></pre><p><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>编译静态库文件<br>    //编译此静态库</p>
+<pre><code>1. 在菜单栏上依次选择&quot;生成&quot;、&quot;生成解决方案&quot;
+2. 这将创建一个可供其他程序使用的静态库
+</code></pre><p>vs是windows操作系统下的编译平台，通过vs编译得到的.lib静态库只能在windows的程序代码中使用，主要是编译器、汇编器和连接器的不同，因此二者库的二进制是不兼容的。文章之后会学习到如何将linux下编译的静态库通过跨平台编译链接到windows的程序代码中<br>要在其他程序中使用静态库中的功能，必须引用静态库才能使用其中的例程<br><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>    //创建引用静态库的 C++ 控制台应用</p>
+<pre><code>1. 在菜单栏上，依次选择&quot;文件&quot;、&quot;新建&quot;、&quot;项目&quot;。2. 在左窗格中的&quot;Visual C++&quot;下，选择&quot;Win32&quot;。3. 在中间窗格中，选择&quot;Win32 控制台应用程序&quot;。4. 在&quot;名称&quot;框中为项目指定名称，例如 MyExecRefsLib。 在&quot;解决方案&quot;旁的下拉列表中选择&quot;添加到解决方案&quot;。 这会将新项目添加到包含此静5. 态库的解决方案。 选择&quot;确定&quot;按钮。6. 在&quot;Win32 应用程序向导&quot;对话框的&quot;概述&quot;页上，选择&quot;下一步&quot;按钮。7. 在&quot;应用程序设置&quot;页的&quot;应用程序类型&quot;下，选择&quot;控制台应用程序&quot;。8. 在&quot;应用程序设置&quot;页的&quot;附加选项&quot;下，清除&quot;预编译头&quot;复选框。9. 选择&quot;完成&quot;按钮创建项目。
+ //在应用中使用静态库的功能
+1. 在创建一个控制台应用程序后，一个空的程序已经为你创建好了。 源文件的名称与你之前选择的名称相同。 在此示例中，源文件名为 MyExecRefsLib.cpp。2. 必须引用静态库才能使用其中的算术例程。 为此，请在&quot;解决方案资源管理器&quot;中打开 MyExecRefsLib 项目的快捷菜单，然后选择&quot;引用&quot;。 在 MyExecRefsLib&quot;属性页&quot;对话框中，展开&quot;通用属性&quot;节点，选择&quot;框架和引用&quot;，然后
+选择&quot;添加新引用&quot;按钮。 有关&quot;引用&quot;对话框的更多信息，请参见&quot;&lt;Projectname&gt; 属性页&quot;对话框 -&gt;&quot;通用属性&quot;-&gt;&quot;框架和引用&quot;。3. &quot;添加引用&quot;对话框列出了可以引用的库。 &quot;项目&quot;选项卡列出了当前解决方案中的所有项目以及它们包含的所有库。 在&quot;项目&quot;选项卡上，选中&quot;MathFuncsLib&quot;复选框，然后选择&quot;确定&quot;按钮。4. 若要引用 MathFuncsLib.h 头文件，必须修改包含的目录路径。 在 MyExecRefsLib&quot;属性页&quot;对话框中，依次展开&quot;配置属性&quot;节点和&quot;C/C++&quot;节点，然后选择&quot;常规&quot;。 在&quot;附加包含目录&quot;旁，指定 MathFuncsLib 目录的路径或
+浏览至该目录。5. 若要浏览至目录路径，请打开属性值下拉列表框，然后选择&quot;编辑&quot;。 在&quot;附加包含目录&quot;对话框中，在文本框中选择一个空行，然后选择行尾的省略号按钮 (…)。 在&quot;选择目录&quot;对话框中，选择 MathFuncsLib 目录，然后选择&quot;选择
+文件夹&quot;按钮以保存所做选择并关闭对话框。 在&quot;附加包含目录&quot;对话框中，选择&quot;确定&quot;按钮，然后在&quot;属性页&quot;对话框中，选择&quot;确定&quot;按钮以保存对该项目进行的更改。
+</code></pre><p><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a><img src="" alt=""><br>MyExecRefsLib.cpp<strong> 
+</strong><br><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>    // MyExecRefsLib.cpp// compile with: cl /EHsc MyExecRefsLib.cpp /link MathFuncsLib.lib</p>
+<pre><code>#include &lt;iostream&gt;#include &quot;MathFuncsLib.h&quot;
+
+using namespace std;int main()
+{
+    double a = 7.4;
+    int b = 99;
+
+    cout &lt;&lt; &quot;a + b = &quot; &lt;&lt;        MathFuncs::MyMathFuncs::Add(a, b) &lt;&lt; endl;
+    cout &lt;&lt; &quot;a - b = &quot; &lt;&lt;        MathFuncs::MyMathFuncs::Subtract(a, b) &lt;&lt; endl;
+    cout &lt;&lt; &quot;a * b = &quot; &lt;&lt;        MathFuncs::MyMathFuncs::Multiply(a, b) &lt;&lt; endl;
+    cout &lt;&lt; &quot;a / b = &quot; &lt;&lt;        MathFuncs::MyMathFuncs::Divide(a, b) &lt;&lt; endl;
+
+    return 0;
+}
+</code></pre><p><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a><strong><strong><img src="" alt=""></strong></strong><br><strong><strong>Relevant Link:</strong></strong><br>    <a href="http://msdn.microsoft.com/zh-cn/library/ms235627.aspx#BKMK_CreateLibProject" target="_blank" rel="external">http://msdn.microsoft.com/zh-cn/library/ms235627.aspx#BKMK_CreateLibProject</a><br><strong>2. GCC编译、使用静态库</strong><br>静态库的后缀是.a(并没有强制规定)，它的产生分两步</p>
+<pre><code>1. 由源文件编译生成一堆.o，每个.o里都包含这个编译单元的符号表2. ar命令将很多.o转换成.a，成为静态库，从这点也可以看出来，库是很多.o文件的集合
+</code></pre><p>在linux下，库文件一般放在/usr/lib和/lib下<br>静态库的名字一般为libxxxx.a，其中xxxx是该lib的名称<br>动态库的名字一般为libxxxx.so.major.minor，xxxx是该lib的名称，major是主版本号，minor是副版本号(如果库的命名不遵循 libXXXXX.a的格式就找不到相应文件)<br><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>    ldd命令可以查看一个可执行程序依赖的共享库<br>    ldd /bin/ping<br>        linux-gate.so.1 =&gt;  (0x006cd000)<br>        libidn.so.11 =&gt; /lib/libidn.so.11 (0x005d6000)<br>        libc.so.6 =&gt; /lib/libc.so.6 (0x00927000)<br>        /lib/ld-linux.so.2 (0x005ac000)<br><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>首先，我们先完成函数库(静态库的代码)的编码<br>hello.h: 函数库(静态库)的头文件<br><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>    #ifndef HELLO_H#define HELLO_H</p>
+<pre><code>void hello(const char* name);#endif
+</code></pre><p><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>hello.c: 函数库的实现代码<br><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>    #include <stdio.h></stdio.h></p>
+<pre><code>void hello(const char* name)
+{
+    printf(&quot;Hello%s!\n&quot;, name);
+}
+</code></pre><p><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>现在，我们可以将当前的代码编译为静态库文件，需要注意的，静态库和可执行在本质上都是可执行代码，但是静态库没有main主程序，所以不能独立运行，需要被引入到别的程序中进行运行<br>    //将代码编译为对象文件.o<br>    gcc -c hello.c//将.o链接为静态库文件<br>    ar rcs libhello.a hello.o<br><img src="" alt=""><br>编译好静态库文件之后，我们就可以在其他程序中使用静态库文件中的函数了</p>
+<pre><code>1. 只需要在使用到这些公用函数的源程序中包含这些公用函数的原型声明(include对应的头文件)2. 然后在用gcc命令生成目标文件时指明静态库名3. gcc将会从静态库中将公用函数连接到目标文件中4. 注意，gcc会在静态库名前加上前缀lib，然后追加扩展名.a得到的静态库文件名来查找静态库文件,因此，我们在写需要连接的库时，只写名字就可以，如libhello.a的库，只写: -lhello
+</code></pre><p>main.c: 调用静态库的程序代码<br><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>    #include “hello.h”</p>
+<pre><code>int main()
+{
+    hello(&quot;LittleHann&quot;);
+    return 0;
+}
+</code></pre><p><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>编译<br>    gcc -o hello main.c -L. -lhello<br>关于gcc的编译指令，请参阅另一篇文章<br>    <a href="http://www.cnblogs.com/LittleHann/p/3855905.html" target="_blank" rel="external">http://www.cnblogs.com/LittleHann/p/3855905.html</a><br><img src="" alt=""><br><strong><strong>Relevant Link:</strong></strong><br>    <a href="http://wenku.baidu.com/view/7d8602b265ce050877321301.html" target="_blank" rel="external">http://wenku.baidu.com/view/7d8602b265ce050877321301.html</a></p>
+<p><strong>4. 动态库编译及使用</strong><br><strong><em>0x1: 动态库</em></strong><br>动态库文件名命名规范和静态库文件名命名规范类似，也是在动态库名增加前缀lib，但其文件扩展名为.so。例如：我们将创建的动态库名为myhello，则动态库文件名就是libmyhello.so。<br>接下来我们继续学习如何创建用于 C++ 应用程序的动态链接库 (DLL)。 使用库是重用代码的一种绝佳方式。 您不必在自己创建的每个程序中重新实现同一例程，而只需对这些例程写入一次，然后从需要该功能的应用程序引用它们即可。 通过将代码放入 DLL，您节省在引用它的每个应用程序的空间，而且，您可以更新 DLL，而无需重新编译所有应用程序<br><strong><em>0x2: 动态库编程</em></strong><br><strong>1. VS编译、使用静态库</strong><br><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>    //创建动态链接库 (DLL) 项目</p>
+<pre><code>1. 在菜单栏上，依次选择&quot;文件&quot;、&quot;新建&quot;、&quot;项目&quot;。2. 在&quot;新建项目&quot;对话框的左窗格中，依次展开&quot;已安装&quot;、&quot;模板&quot;、&quot;Visual C++&quot;，然后选择&quot;Win32&quot;。3. 在中间窗格中，选择&quot;Win32 控制台应用程序&quot;。4. 在&quot;名称&quot;框中为项目指定名称，例如，MathFuncsDll。 在&quot;解决方案名称&quot;框中为解决方案指定一个名称，例如 DynamicLibrary。 选择&quot;确定&quot;按钮。5. 在&quot;Win32 应用程序向导&quot;对话框的&quot;概述&quot;页上，选择&quot;下一步&quot;按钮。6. 在&quot;应用程序设置&quot;页上的&quot;应用程序类型&quot;下，选择&quot;DLL&quot;。7. 选择&quot;完成&quot;按钮创建项目。
+</code></pre><p><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>编写动态库DLL的头文件，MathFuncsDll.h<br><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>    // MathFuncsDll.h</p>
+<pre><code>#ifndef MATHFUNCSDll_H#define MATHFUNCSDll_H
+
+/*当定义了 MATHFUNCSDLL_EXPORTS 符号时，MATHFUNCSDLL_API 符号将在此代码中的成员函数声明中设置 __declspec(dllexport) 修饰符，此修饰符使函数能作为 DLL 导出，以供其他应用程序调用
+当 MATHFUNCSDLL_EXPORTS 未定义时，MATHFUNCSDLL_API 会在成员函数声明中定义 __declspec(dllimport) 修饰符。 此修饰符能够使编译器优化从 DLL 导入的用于其他应用程序的函数
+默认情况下，生成 MathFuncsDll 项目时会定义 MATHFUNCSDLL_EXPORTS*/#ifdef MATHFUNCSDLL_EXPORTS
+    #define MATHFUNCSDLL_API __declspec(dllexport) 
+#else
+    #define MATHFUNCSDLL_API __declspec(dllimport) 
+#endif
+
+namespace MathFuncs
+{
+    // This class is exported from the MathFuncsDll.dll
+    class MyMathFuncs
+    {
+    public: 
+        // Returns a + b
+        static MATHFUNCSDLL_API double Add(double a, double b); 
+
+        // Returns a - b
+        static MATHFUNCSDLL_API double Subtract(double a, double b); 
+
+        // Returns a * b
+        static MATHFUNCSDLL_API double Multiply(double a, double b); 
+
+        // Returns a / b
+        // Throws const std::invalid_argument&amp; if b is 0
+        static MATHFUNCSDLL_API double Divide(double a, double b); 
+    };
+}#endif
+</code></pre><p><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>编写动态库DLL的函数实现的.cpp文件<br><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>    // MathFuncsDll.cpp : Defines the exported functions for the DLL application.//#include “stdafx.h”#include “MathFuncsDll.h”#include <stdexcept></stdexcept></p>
+<pre><code>using namespace std;namespace MathFuncs
+{
+    double MyMathFuncs::Add(double a, double b)
+    {
+        return a + b;
+    }
+
+    double MyMathFuncs::Subtract(double a, double b)
+    {
+        return a - b;
+    }
+
+    double MyMathFuncs::Multiply(double a, double b)
+    {
+        return a * b;
+    }
+
+    double MyMathFuncs::Divide(double a, double b)
+    {
+        if (b == 0)
+        {
+            throw invalid_argument(&quot;b cannot be zero!&quot;);
+        }
+
+        return a / b;
+    }
+}
+</code></pre><p><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>编译后可以得到一个.dll文件<br><img src="" alt=""><br>编译得到一个dll文件后，我们就在其他的程序代码中去引入这个dll文件，并使用其中的函数功能了<br><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>    //创建引用 DLL 的应用程序</p>
+<pre><code>1. 为了创建一个项目引用你刚刚创建好的DLL，在菜单栏中选择 文件&gt;新建&gt;项目。2. 在左窗格中的&quot;Visual C++&quot;下，选择&quot;Win32&quot;。3. 在中间窗格中，选择&quot;Win32 控制台应用程序&quot;。4. 在&quot;名称&quot;框中为项目指定名称，例如，MyExecRefsDll。 从&quot;解决方案&quot;旁边的下拉列表中选择&quot;添加到解决方案&quot;。 这会将新项目添加到包含 DLL 的同一个解决方案中。 选择&quot;确定&quot;按钮。5. 在&quot;Win32 应用程序向导&quot;对话框的&quot;概述&quot;页上，选择&quot;下一步&quot;按钮。6. 在&quot;应用程序设置&quot;页的&quot;应用程序类型&quot;下，选择&quot;控制台应用程序&quot;。7. 在&quot;应用程序设置&quot;页的&quot;附加选项&quot;下，清除&quot;预编译头&quot;复选框。8. 选择&quot;完成&quot;按钮创建项目。//在应用程序中使用类库的功能
+1. 在创建一个控制台应用程序后，一个空的程序已经为你创建好了。 源文件的名称与你之前选择的名称相同。 在本示例中，名为&quot;MyExecRefsDll.cpp&quot;。2. 若要使用您 DLL 中创建的算术例程，必须引用 DLL。 为此，请在 解决方案资源管理器 中选择 MyExecRefsDll 项目，然后在菜单栏上，选择 项目，引用。 在&quot;属性页&quot;对话框中，展开&quot;通用属性&quot;节点，选择&quot;框架和引用&quot;，然
+后选择&quot;添加新引用&quot;按钮。 有关&quot;引用&quot;对话框的更多信息，请参见&quot;&lt;Projectname&gt; 属性页&quot;对话框 -&gt;&quot;通用属性&quot;-&gt;&quot;框架和引用&quot;。3. &quot;添加引用&quot;对话框列出了可以引用的库。 &quot;项目&quot;选项卡列出了当前解决方案中的所有项目，以及它们包含的所有库。 在&quot;项目&quot;选项卡上，选中&quot;MathFuncsDll&quot;旁边的复选框，然后选中&quot;确定&quot;按钮。4. 若要引用 DLL 的头文件，必须修改包含的目录路径。 为此，请在&quot;属性页&quot;对话框中展开&quot;配置属性&quot;节点，然后展开&quot;C/C++&quot;节点，并选择&quot;常规&quot;。 在&quot;附加包含目录&quot;旁边，指定 MathFuncsDll.h 头文件所在位置的路径。 可以
+使用相对路径（例如 ..\MathFuncsDll\），然后选择&quot;确定&quot;按钮。5. 现在即可在此应用程序中使用 MyMathFuncs 类。 使用以下代码替换&quot;&quot;的内容：
+</code></pre><p><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>MyExecRefsDll.cpp<br><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>    // MyExecRefsDll.cpp// compile with: /EHsc /link MathFuncsDll.lib</p>
+<pre><code>#include &lt;iostream&gt;#include &quot;MathFuncsDll.h&quot;
+
+using namespace std;int main()
+{
+    double a = 7.4;
+    int b = 99;
+
+    cout &lt;&lt; &quot;a + b = &quot; &lt;&lt;        MathFuncs::MyMathFuncs::Add(a, b) &lt;&lt; endl;
+    cout &lt;&lt; &quot;a - b = &quot; &lt;&lt;        MathFuncs::MyMathFuncs::Subtract(a, b) &lt;&lt; endl;
+    cout &lt;&lt; &quot;a * b = &quot; &lt;&lt;        MathFuncs::MyMathFuncs::Multiply(a, b) &lt;&lt; endl;
+    cout &lt;&lt; &quot;a / b = &quot; &lt;&lt;        MathFuncs::MyMathFuncs::Divide(a, b) &lt;&lt; endl;
+
+    try    {
+        cout &lt;&lt; &quot;a / 0 = &quot; &lt;&lt;            MathFuncs::MyMathFuncs::Divide(a, 0) &lt;&lt; endl; 
+    }
+    catch (const invalid_argument &amp;e) 
+    {
+        cout &lt;&lt; &quot;Caught exception: &quot; &lt;&lt; e.what() &lt;&lt; endl; 
+    }
+
+    return 0;
+}
+</code></pre><p><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a><img src="" alt=""><br><strong>2. GCC编译、使用静态库</strong><br>foo.h:<br><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>    #ifndef foo_h<strong>#define foo_h</strong></p>
+<pre><code>extern void foo(void);
+ #endif  // foo_h__
+</code></pre><p><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>foo.c:<br><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>    #include <stdio.h></stdio.h></p>
+<pre><code>void foo(void)
+{
+    puts(&quot;Hello LittleHann, I&apos;m a shared library&quot;);
+}
+</code></pre><p><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>编译动态库文件.so<br>    gcc -shared -Wall -Werror -fpic -o libfoo.so foo.c<br><img src="" alt=""><br>编译好动态库文件之后，我们就可以在其他程序中引入这个动态库文件.so，并使用其中的导出函数<br>main.c:<br><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>    #include <stdio.h>#include “foo.h”</stdio.h></p>
+<pre><code>int main(void)
+{
+    puts(&quot;This is a shared library test...&quot;);
+    foo();
+    return 0;
+}
+</code></pre><p><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>在main.c中引入了foo.h头文件<br>    gcc -L. -Wall -o test main.c -lfoo<br><img src="" alt=""><br>编译成功后，还有一件很重要的事，我们回想一下Linux下静态库、动态库的默认搜索顺序<br><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>    1) LD_LIBRARY_PATH 2) /lib3) /usr/lib  4) /etc/ld.so.cache(使用ldconfig生成的库路径缓存)5) /etc/ld.so.conf文件中添加库的搜索路径6) /etc/ld.so.conf.d下新建一个.conf文件，这种方法可以很灵活地将不同软件的库搜索路径区分开来<br><a href="&quot;复制代码&quot;"><img src="http://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a>linux是默认不会去搜索当前目录的，所以我们必须将.so文件复制到默认路径下、或者使用LD_LIBRARY_PATH显示指定<br>    cp libfoo.so /usr/lib<br>    ./test<br>    rm -f /usr/lib/libfoo.so<br><img src="" alt=""><br><strong><strong>Relevant Link:</strong></strong><br>    <a href="http://msdn.microsoft.com/zh-cn/library/ms235636.aspx" target="_blank" rel="external">http://msdn.microsoft.com/zh-cn/library/ms235636.aspx</a><br>    <a href="http://www.cprogramming.com/tutorial/shared-libraries-linux-gcc.html" target="_blank" rel="external">http://www.cprogramming.com/tutorial/shared-libraries-linux-gcc.html</a></p>
+<p><strong>5. MinGW简介</strong><br><strong><em>0x1: MinGW是什么</em></strong><br>MinGW(Minimalist GNU for Windows)，又称mingw32，是将GCC编译器和GNU Binutils移植到Win32平台下的产物，包括一系列头文件(Win32API)、库和可执行文件<br>GCC支持的语言大多在MinGW也受支持，其中涵盖</p>
+<pre><code>1. C 2. Objective-C3. Fortran4. Ada5. 对于C语言之外的语言，MinGW使用标准的GNU运行库，如C++使用GNU libstdc++ 
+</code></pre><p>但是MinGW使用Windows中的C运行库。因此用MinGW开发的程序不需要额外的第三方DLL支持就可以直接在Windows下运行，而且也不一定必须遵从GPL许可证。这同时造成了MinGW开发的程序只能使用Win32API和跨平台的第三方库，而缺少POSIX支持 ，大多数GNU软件无法在不修改源代码的情况下用MinGW编译<br>GCC是一个原本用于Unix系统下编程的编译器。不过，现在GCC也有了许多Win32下的移植版本，目前GCC在windows下有三个移植版本</p>
+<pre><code>1. MinGW2. Cygwin3. Djgpp
+</code></pre><p>MinGW是Minimalistic GNU for Windows 的缩写。它是一个建立在GCC和binutils 项目上的编译器系统。和其他GCC的移植版相比，它可以说是最接近Win32的一个了。因为，MinGW几乎支持所有的Win32 API，这也是MinGW的特色之一。它所连接的程序，不需要任何第三方库就可以运行了。在某种程度上看，MinGW更像是VC的替代品<br><strong><em>0x3: MinGW的Linker参数</em></strong><br><strong><em>0x3: 编程示例</em></strong><br><strong><strong>Relevant Link:</strong></strong><br>    <a href="http://www.mingw.org/" target="_blank" rel="external">http://www.mingw.org/</a><br>    <a href="https://code.google.com/p/msys-cn/wiki/ChapterThree" target="_blank" rel="external">https://code.google.com/p/msys-cn/wiki/ChapterThree</a><br>    <a href="http://wenku.baidu.com/view/c6f71522af45b307e87197a6.html" target="_blank" rel="external">http://wenku.baidu.com/view/c6f71522af45b307e87197a6.html</a><br><strong>6. CodeBlocks简介</strong><br><strong><strong>Relevant Link:</strong></strong><br>    <a href="http://bbs.chinaunix.net/thread-3640636-1-1.html" target="_blank" rel="external">http://bbs.chinaunix.net/thread-3640636-1-1.html</a><br>    <a href="http://zh.wikipedia.org/wiki/Code::Blocks" target="_blank" rel="external">http://zh.wikipedia.org/wiki/Code::Blocks</a><br>    <a href="http://blog.csdn.net/wtfmonking/article/details/17487705" target="_blank" rel="external">http://blog.csdn.net/wtfmonking/article/details/17487705</a></p>
+<p><strong><em>Copyright (c) 2014 LittleHann All rights reserved</em></strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://HawkAaron.github.io/2016/08/02/CC++ 跨平台交叉编译、静态库动态库编译、MinGW、Cygwin、CodeBlocks使用原理及链接参数选项/" data-id="cirdhs3ci0000v4nrcir0y69p" class="article-share-link">Delen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/08/02/C语言连接MySQL（codeblocks）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Nieuwer</strong>
+      <div class="article-nav-title">
+        
+          C语言连接MySQL（codeblocks）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/02/“Git Windows”/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ouder</strong>
+      <div class="article-nav-title">????“Git Windows???????????”???</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archieven</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recente berichten</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/08/02/雅虎刷题狂人曹鹏：10年理论与实践结合的程序员之路/">雅虎刷题狂人曹鹏：10年理论与实践结合的程序员之路</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/02/汇编注释/">汇编注释</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/02/盘点那些快速打开windows程序的快捷键/">盘点那些快速打开windows程序的快捷键</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/02/汇编学习笔记--寄存器（内存访问 1）/">汇编学习笔记--寄存器（内存访问 1）</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/02/win7 64位如何调出debug/">win7 64位如何调出debug</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
