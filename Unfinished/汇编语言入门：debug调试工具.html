@@ -1,0 +1,607 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="对于大学生来说，基本都需要学习高级编程语言，相信大多数理工类大学生都知道c++、c语言、Java语言等高级语言，也知道机器语言这个最低级的语言，但是却有很多都不知道汇编语言，或许听过这个名字，却不知道用途等。现在我就来给大家讲解一下汇编语言以及入门。我也是刚学习汇编语言，大家可以跟着我一起学习。汇编语言与高级语言不同，它是面向机器的语言，最接近于机器语言。学习汇编语言，必须要了解计算机中机器指令、">
+<meta name="keywords">
+<meta property="og:type" content="website">
+<meta property="og:title" content="汇编语言入门：debug调试工具">
+<meta property="og:url" content="http://HawkAaron.github.io/Unfinished/汇编语言入门：debug调试工具.html">
+<meta property="og:site_name" content="HMK's blog">
+<meta property="og:description" content="对于大学生来说，基本都需要学习高级编程语言，相信大多数理工类大学生都知道c++、c语言、Java语言等高级语言，也知道机器语言这个最低级的语言，但是却有很多都不知道汇编语言，或许听过这个名字，却不知道用途等。现在我就来给大家讲解一下汇编语言以及入门。我也是刚学习汇编语言，大家可以跟着我一起学习。汇编语言与高级语言不同，它是面向机器的语言，最接近于机器语言。学习汇编语言，必须要了解计算机中机器指令、">
+<meta property="og:image" content="http://img.blog.csdn.net/20150803144631191?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:image" content="http://img.blog.csdn.net/20150803145028837?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:image" content="http://img.blog.csdn.net/20150803145303234?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:image" content="http://img.blog.csdn.net/20150803145626367?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:image" content="http://img.blog.csdn.net/20150803145740537?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:updated_time" content="2016-08-01T10:21:02.476Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="汇编语言入门：debug调试工具">
+<meta name="twitter:description" content="对于大学生来说，基本都需要学习高级编程语言，相信大多数理工类大学生都知道c++、c语言、Java语言等高级语言，也知道机器语言这个最低级的语言，但是却有很多都不知道汇编语言，或许听过这个名字，却不知道用途等。现在我就来给大家讲解一下汇编语言以及入门。我也是刚学习汇编语言，大家可以跟着我一起学习。汇编语言与高级语言不同，它是面向机器的语言，最接近于机器语言。学习汇编语言，必须要了解计算机中机器指令、">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20150803144631191?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://HawkAaron.github.io/Unfinished/汇编语言入门：debug调试工具.html"/>
+
+  <title> 汇编语言入门：debug调试工具 | HMK's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">HMK's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Welcome!</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                汇编语言入门：debug调试工具
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-08-03T21:40:34+08:00" content="2016-08-03">
+              2016-08-03
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>对于大学生来说，基本都需要学习高级编程语言，相信大多数理工类大学生都知道c++、c语言、Java语言等高级语言，也知道机器语言这个最低级的语言，但是却有很多都不知道汇编语言，或许听过这个名字，却不知道用途等。现在我就来给大家讲解一下汇编语言以及入门。我也是刚学习汇编语言，大家可以跟着我一起学习。汇编语言与高级语言不同，它是面向机器的语言，最接近于机器语言。学习汇编语言，必须要了解计算机中机器指令、数据、符合的表示形式和存储格式以及机器指令程序的运行方式等。汇编语言的实践性很强，必须要边学习边动手才可能掌握，需要耐心和细心。初学者一般需要用到debug小工具进行程序调试，现在我就来给大家演示一下debug调试工具的使用以及debug命令符。</p>
+<p>##<a href=""></a>工具/原料</p>
+<ul>
+<li><p>电脑</p>
+</li>
+<li><p>安装有debug小工具的系统（一般32位的windows系统自带有，64位的需要自己安装）</p>
+</li>
+<li><p><img src="http://img.blog.csdn.net/20150803144631191?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+</li>
+<li><p>若直接输入debug打开，工作界面与输入cmd打开有所不同，建议还是通过cmd打开debug。</p>
+</li>
+<li><p>打开cmd程序后，输入debug，大小写均一样，习惯用大写，为方便操作，后续的操作我一律使用小写。输入之后按回车，会出现下图所示的工作框。</p>
+</li>
+</ul>
+<ul>
+<li><img src="http://img.blog.csdn.net/20150803145028837?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></li>
+</ul>
+<ul>
+<li>在debug窗口就可以进行汇编语句的编写和调试了。先在窗口输入A，然后回车，系统自动分配到内存，如本图所示，其中073F是寄存器的段基址，冒号后面的0100是偏移地址，对应的物理地址是74F00，即程序在此地址下开始存储。然后输入汇编语句，举一个简单的例子，将数据2341H送入寄存器ax和cx中。记住输入的数据在汇编是已经默认是十六进制，不需要在加h，否则会显示错误。</li>
+</ul>
+<ul>
+<li><img src="http://img.blog.csdn.net/20150803145303234?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></li>
+</ul>
+<ul>
+<li>再举另一个例子，将21h和23h两个数相加，结果存放到al中。并通过命令符t一步一步执行，看结果。每输入一个t，按回车后即完成一条指令，第一条指令是将21h送入到ax寄存器的低位al中，看到ax的值变成了0021；第二步执行的是将21h与23h相加，并将结果存放到al中，所执行之后看到ax的值由0021变成了0044<br>。注意到两条指令执行后，IP的值发生了改变，即地址指针发生了改变。NV、UP、EI、PL、NZ、NA、PO、NC代表的是标志寄存器的状态位，在此不做进一步介绍，查阅相关书籍都会有详细的介绍。</li>
+</ul>
+<ul>
+<li><img src="http://img.blog.csdn.net/20150803145626367?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></li>
+</ul>
+<ul>
+<li><p>现在来给大家介绍一下常用的几个命令符。a：逐行汇编；u：反汇编；t：逐行执行命令；d：显示一定内存单元内容，再次输入将在原显示内容上继续显示下面内存的内容；q：退出debug回到dos状态；r：改变或显示一个或多个寄存器的内容；n：命名文件；w：将已命名文件写入磁盘；l：将程序装载进内存。<br>暂时介绍这些常用的几个。有需要的读者可以去网上收索更详细的命令符。<br>下面给大家演示一个简单的例子，并使用这些命令符。<br>存盘后要想查看已存内容，可以先用q退出，然后输入dir回车，即可看到文件下的所以目录。可以看到自己命名的文件<br><img src="http://img.blog.csdn.net/20150803145740537?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+</li>
+<li><p>##注意事项</p>
+</li>
+<li><p>要想学好汇编，必须边看资料边操作，不可急功近利，不然很难学会的。</p>
+</li>
+<li><p>汇编命令符是需要记住的，在程序调试中经常需要用到。多动手才能方便记忆和理解。</p>
+</li>
+</ul>
+<ul>
+<li></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="HMK" />
+          <p class="site-author-name" itemprop="name">HMK</p>
+          <p class="site-description motion-element" itemprop="description">学习经验 & 理论知识</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">HMK</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

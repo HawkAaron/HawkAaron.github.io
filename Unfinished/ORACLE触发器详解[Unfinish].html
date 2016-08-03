@@ -1,0 +1,816 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content=",," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="ORACLE PL/SQL编程之八：把触发器说透">
+<meta name="keywords">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ORACLE触发器详解[Unfinish]">
+<meta property="og:url" content="http://HawkAaron.github.io/Unfinished/ORACLE触发器详解[Unfinish].html">
+<meta property="og:site_name" content="HMK's blog">
+<meta property="og:description" content="ORACLE PL/SQL编程之八：把触发器说透">
+<meta property="og:updated_time" content="2016-08-03T13:12:07.538Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ORACLE触发器详解[Unfinish]">
+<meta name="twitter:description" content="ORACLE PL/SQL编程之八：把触发器说透">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://HawkAaron.github.io/Unfinished/ORACLE触发器详解[Unfinish].html"/>
+
+  <title> ORACLE触发器详解[Unfinish] | HMK's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">HMK's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Welcome!</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                ORACLE触发器详解[Unfinish]
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-05-13T20:13:00+08:00" content="2015-05-13">
+              2015-05-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/" itemprop="url" rel="index">
+                    <span itemprop="name"></span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>ORACLE PL/SQL编程之八：</strong><br><strong>把触发器说透</strong><br> <a id="more"></a><br><strong>本篇主要内容如下：</strong><br>8.1 触发器类型<br>8.1.1 DML触发器<br>8.1.2 替代触发器<br>8.1.3 系统触发器<br>8.2 创建触发器<br>8.2.1 触发器触发次序<br>8.2.2 创建DML触发器<br>8.2.3 创建替代(INSTEAD OF)触发器<br>8.2.3 创建系统事件触发器<br>8.2.4 系统触发器事件属性<br>8.2.5 使用触发器谓词<br>8.2.6 重新编译触发器<br>8.3 删除和使能触发器<br>8.4 触发器和数据字典<br>8.5   数据库触发器的应用举例</p>
+<hr>
+<p>触发器是许多关系数据库系统都提供的一项技术。在ORACLE系统里，触发器类似过程和函数，都有声明，执行和异常处理过程的PL/SQL块。<br><strong>8.1 触发器类型</strong><br>    触发器在数据库里以独立的对象存储，它与存储过程和函数不同的是，存储过程与函数需要用户显示调用才执行，而触发器是由一个事件来启动运行。即触发器是当某个事件发生时自动地隐式运行。并且，触发器不能接收参数。所以运行触发器就叫触发或点火（firing）。ORACLE事件指的是对数据库的表进行的INSERT、UPDATE及DELETE操作或对视图进行类似的操作。ORACLE将触发器的功能扩展到了触发ORACLE，如数据库的启动与关闭等。所以触发器常用来完成由数据库的完整性约束难以完成的复杂业务规则的约束，或用来监视对数据库的各种操作，实现审计的功能。</p>
+<p><strong>8.1.1 DML触发器</strong><br>    ORACLE可以在DML语句进行触发，可以在DML操作前或操作后进行触发，并且可以对每个行或语句操作上进行触发。</p>
+<p><strong>8.1.2 替代触发器</strong><br>    由于在ORACLE里，不能直接对由两个以上的表建立的视图进行操作。所以给出了替代触发器。它就是ORACLE 8专门为进行视图操作的一种处理方法。</p>
+<p><strong>8.1.3 系统触发器</strong><br>ORACLE 8i 提供了第三种类型的触发器叫系统触发器。它可以在ORACLE数据库系统的事件中进行触发，如ORACLE系统的启动与关闭等。</p>
+<p>触发器组成:<br>l         触发事件：引起触发器被触发的事件。 例如：DML语句(INSERT, UPDATE, DELETE语句对表或视图执行数据处理操作)、DDL语句（如CREATE、ALTER、DROP语句在数据库中创建、修改、删除模式对象）、数据库系统事件（如系统启动或退出、异常错误）、用户事件（如登录或退出数据库）。<br>l         触发时间：即该TRIGGER 是在触发事件发生之前（BEFORE）还是之后(AFTER)触发，也就是触发事件和该TRIGGER 的操作顺序。<br>l         触发操作：即该TRIGGER 被触发之后的目的和意图，正是触发器本身要做的事情。 例如：PL/SQL 块。<br>l         触发对象：包括表、视图、模式、数据库。只有在这些对象上发生了符合触发条件的触发事件，才会执行触发操作。<br>l         触发条件：由WHEN子句指定一个逻辑表达式。只有当该表达式的值为TRUE时，遇到触发事件才会自动执行触发器，使其执行触发操作。<br>l         触发频率：说明触发器内定义的动作被执行的次数。即语句级(STATEMENT)触发器和行级(ROW)触发器。<br>语句级(STATEMENT)触发器：是指当某触发事件发生时，该触发器只执行一次；<br>行级(ROW)触发器：是指当某触发事件发生时，对受到该操作影响的每一行数据，触发器都单独执行一次。<br><strong>编写触发器时，需要注意以下几点：</strong><br>l         触发器不接受参数。<br>l         一个表上最多可有12个触发器，但同一时间、同一事件、同一类型的触发器只能有一个。并各触发器之间不能有矛盾。<br>l         在一个表上的触发器越多，对在该表上的DML操作的性能影响就越大。<br>l        触发器最大为32KB。若确实需要，可以先建立过程，然后在触发器中用CALL语句进行调用。<br>l         <strong>在触发器的执行部分只能用DML语句（SELECT、INSERT、UPDATE、DELETE），不能使用DDL语句（CREATE、ALTER、DROP）</strong>。<br>l         触发器中不能包含事务控制语句(COMMIT，ROLLBACK，SAVEPOINT)。因为触发器是触发语句的一部分，触发语句被提交、回退时，触发器也被提交、回退了。<br>l         在触发器主体中调用的任何过程、函数，都不能使用事务控制语句。<br>l         在触发器主体中不能申明任何Long和blob变量。新值new和旧值old也不能是表中的任何long和blob列。<br>l         不同类型的触发器(如DML触发器、INSTEAD OF触发器、系统触发器)的语法格式和作用有较大区别。<strong>
+</strong><br><strong>8.2 创建触发器</strong><br><strong>创建触发器的一般语法是:</strong></p>
+<p><a href="&quot;复制代码&quot;"></a><br>CREATE [OR REPLACE] TRIGGER trigger_name<br>{BEFORE | AFTER }<br>{INSERT | DELETE | UPDATE [OF column [, column …]]}<br>[OR {INSERT | DELETE | UPDATE [OF column [, column …]]}…]<br>ON [schema.]table_name | [schema.]view_name<br>[REFERENCING {OLD [AS] old | NEW [AS] new| PARENT as parent}]<br>[FOR EACH ROW ]<br>[WHEN condition]<br>PL/SQL_BLOCK | CALL procedure_name;<br><a href="&quot;复制代码&quot;"></a></p>
+<p>其中：<br>BEFORE 和AFTER指出触发器的触发时序分别为前触发和后触发方式，前触发是在执行触发事件之前触发当前所创建的触发器，后触发是在执行触发事件之后触发当前所创建的触发器。<br>       FOR EACH ROW选项说明触发器为行触发器。行触发器和语句触发器的区别表现在：行触发器要求当一个DML语句操作影响数据库中的多行数据时，对于其中的每个数据行，只要它们符合触发约束条件，均激活一次触发器；而语句触发器将整个语句操作作为触发事件，当它符合约束条件时，激活一次触发器。当省略FOR EACH ROW 选项时，BEFORE 和AFTER 触发器为语句触发器，而INSTEAD<br> OF 触发器则只能为行触发器。<br>           REFERENCING 子句说明相关名称，在行触发器的PL/SQL块和WHEN 子句中可以使用相关名称参照当前的新、旧列值，默认的相关名称分别为OLD和NEW。触发器的PL/SQL块中应用相关名称时，必须在它们之前加冒号(:)，但在WHEN子句中则不能加冒号。<br>WHEN 子句说明触发约束条件。Condition 为一个逻辑表达时，其中必须包含相关名称，而不能包含查询语句，也不能调用PL/SQL 函数。WHEN 子句指定的触发约束条件只能用在BEFORE 和AFTER 行触发器中，不能用在INSTEAD OF 行触发器和其它类型的触发器中。<br>    当一个基表被修改( INSERT, UPDATE, DELETE)时要执行的存储过程，执行时根据其所依附的基表改动而自动触发，因此与应用程序无关，用数据库触发器可以保证数据的一致性和完整性。</p>
+<hr>
+<p>每张表最多可建立12 种类型的触发器，它们是:<br>BEFORE INSERT<br>BEFORE INSERT FOR EACH ROW<br>AFTER INSERT<br>AFTER INSERT FOR EACH ROW</p>
+<p>BEFORE UPDATE<br>BEFORE UPDATE FOR EACH ROW<br>AFTER UPDATE<br>AFTER UPDATE FOR EACH ROW</p>
+<p>BEFORE DELETE<br>BEFORE DELETE FOR EACH ROW<br>AFTER DELETE<br>AFTER DELETE FOR EACH ROW</p>
+<p><strong>8.2.1 触发器触发次序</strong></p>
+<ol>
+<li>执行 BEFORE语句级触发器;</li>
+<li>对与受语句影响的每一行：<br>l         执行 BEFORE行级触发器<br>l         执行 DML语句<br>l         执行 AFTER行级触发器 </li>
+<li>执行 AFTER语句级触发器</li>
+</ol>
+<p><strong>8.2.2 创建DML触发器</strong><br>    触发器名与过程名和包的名字不一样，它是单独的名字空间，因而触发器名可以和表或过程有相同的名字，但在一个模式中触发器名不能相同。</p>
+<hr>
+<p><strong>DML触发器的限制</strong><br>l         CREATE TRIGGER语句文本的字符长度不能超过32KB；<br>l         触发器体内的SELECT 语句只能为SELECT … INTO …结构，或者为定义游标所使用的SELECT 语句。<br>l         触发器中不能使用数据库事务控制语句 COMMIT; ROLLBACK, SVAEPOINT 语句；<br>l         由触发器所调用的过程或函数也不能使用数据库事务控制语句；<br>l         触发器中不能使用LONG, LONG RAW 类型；<br>l         触发器内可以参照LOB 类型列的列值，但不能通过 :NEW 修改LOB列中的数据；</p>
+<hr>
+<p><strong>DML触发器基本要点</strong><br>l         <strong>触发时机：</strong>指定触发器的触发时间。如果指定为BEFORE，则表示在执行DML操作之前触发，以便防止某些错误操作发生或实现某些业务规则；如果指定为AFTER，则表示在执行DML操作之后触发，以便记录该操作或做某些事后处理。<br>l         <strong>触发事件：</strong>引起触发器被触发的事件，即DML操作（INSERT、UPDATE、DELETE）。既可以是单个触发事件，也可以是多个触发事件的组合（只能使用OR逻辑组合，不能使用AND逻辑组合）。<br>l         <strong>条件谓词：</strong>当在触发器中包含多个触发事件（INSERT、UPDATE、DELETE）的组合时，为了分别针对不同的事件进行不同的处理，需要使用ORACLE提供的如下条件谓词。<br>1）。<strong>INSERTING：</strong>当触发事件是INSERT时，取值为TRUE，否则为FALSE。<br>2）。<strong>UPDATING [（column_1,column_2,…,column_x）]：</strong>当触发事件是UPDATE      时，如果修改了column_x列，则取值为TRUE，否则为FALSE。其中column_x是可选的。<br>3）。<strong>DELETING：</strong>当触发事件是DELETE时，则取值为TRUE，否则为FALSE。<br><strong>解发对象：</strong>指定触发器是创建在哪个表、视图上。<br>l         <strong>触发类型：</strong>是语句级还是行级触发器。<br>l         <strong>触发条件：</strong>由WHEN子句指定一个逻辑表达式，只允许在行级触发器上指定触发条件，指定UPDATING后面的列的列表。</p>
+<hr>
+<p>问题：当触发器被触发时，要使用被插入、更新或删除的记录中的列值，有时要使用操作前、        后列的值.<br>实现:  :NEW 修饰符访问操作完成后列的值<br>       :OLD 修饰符访问操作完成前列的值</p>
+<p>特性<br>INSERT<br>UPDATE<br>DELETE<br>OLD<br>NULL<br>实际值<br>实际值<br>NEW<br>实际值<br>实际值<br>NULL</p>
+<p><strong>例1:</strong> 建立一个触发器, 当职工表 emp 表被删除一条记录时，把被删除记录写到职工表删除日志表中去。</p>
+<p><a href="&quot;复制代码&quot;"></a><br>CREATE TABLE emp_his AS SELECT <em> FROM EMP WHERE <strong>1</strong>=<strong>2</strong>;<br>CREATE OR REPLACE TRIGGER tr_del_emp<br>   BEFORE DELETE –指定触发时机为删除操作前触发<br>   ON scott.emp<br>   FOR EACH ROW   –说明创建的是行级触发器<br>BEGIN<br>   –将修改前数据插入到日志记录表 del_emp ,以供监督使用。<br>   INSERT INTO emp_his(deptno , empno, ename , job ,mgr , sal , comm , hiredate )<br>       VALUES( :old.deptno, :old.empno, :old.ename , :old.job,:old.mgr, :old.sal, :old.comm, :old.hiredate );<br>END;<br>DELETE emp WHERE empno=<em>*7788</em></em>;<br>DROP TABLE emp_his;<br>DROP TRIGGER del_emp;<br><a href="&quot;复制代码&quot;"></a></p>
+<p><strong>例2：</strong>限制对Departments表修改（包括INSERT,DELETE,UPDATE）的时间范围，即不允许在非工作时间修改departments表。</p>
+<p><a href="&quot;复制代码&quot;"></a><br>CREATE OR REPLACE TRIGGER tr_dept_time<br>BEFORE INSERT OR DELETE OR UPDATE<br>ON departments<br>BEGIN<br> IF (TO_CHAR(sysdate,’DAY’) IN (‘星期六’, ‘星期日’)) OR (TO_CHAR(sysdate, ‘HH24:MI’) NOT BETWEEN ‘08:30’ AND ‘18:00’) THEN<br>     RAISE_APPLICATION_ERROR(-<strong>20001</strong>, ‘不是上班时间，不能修改departments表’);<br> END IF;<br>END;<br><a href="&quot;复制代码&quot;"></a></p>
+<p><strong>例3：</strong>限定只对部门号为80的记录进行行触发器操作。</p>
+<p><a href="&quot;复制代码&quot;"></a><br>CREATE OR REPLACE TRIGGER tr_emp_sal_comm<br>BEFORE UPDATE OF salary, commission_pct<br>       OR DELETE<br>ON HR.employees<br>FOR EACH ROW<br>WHEN (old.department_id = <strong>80</strong>)<br>BEGIN<br> CASE<br>     WHEN UPDATING (‘salary’) THEN<br>        IF :NEW.salary &lt; :old.salary THEN</p>
+<pre><code>      RAISE_APPLICATION_ERROR(-**20001**, &apos;部门80的人员的工资不能降&apos;);
+   END IF;
+WHEN UPDATING (&apos;commission_pct&apos;) THEN
+
+   IF :NEW.commission_pct &lt; :old.commission_pct THEN
+      RAISE_APPLICATION_ERROR(-**20002**, &apos;部门80的人员的奖金不能降&apos;);
+   END IF;
+WHEN DELETING THEN
+     RAISE_APPLICATION_ERROR(-**20003**, &apos;不能删除部门80的人员记录&apos;);
+END CASE;
+</code></pre><p>END; </p>
+<p>/<em><br>实例：<br>UPDATE employees SET salary = 8000 WHERE employee_id = 177;<br>DELETE FROM employees WHERE employee_id in (177,170);
+</em>/<br><a href="&quot;复制代码&quot;"></a></p>
+<p><strong>例4：</strong>利用行触发器实现级联更新。在修改了主表regions中的region_id之后（AFTER），级联的、自动的更新子表countries表中原来在该地区的国家的region_id。</p>
+<p><a href="&quot;复制代码&quot;"></a><br>CREATE OR REPLACE TRIGGER tr_reg_cou<br>AFTER update OF region_id<br>ON regions<br>FOR EACH ROW<br>BEGIN<br> DBMS_OUTPUT.PUT_LINE(‘旧的region_id值是’||:old.region_id<br>                  ||’、新的region_id值是’||:new.region_id);<br> UPDATE countries SET region_id = :new.region_id<br> WHERE region_id = :old.region_id;<br>END;<br><a href="&quot;复制代码&quot;"></a><br><strong>例5：</strong>在触发器中调用过程。</p>
+<p><a href="&quot;复制代码&quot;"></a><br>CREATE OR REPLACE PROCEDURE add_job_history<br> ( p_emp_id          job_history.employee_id%type<br>   , p_start_date      job_history.start_date%type<br>  , p_end_date        job_history.end_date%type<br>   , p_job_id          job_history.job_id%type<br>   , p_department_id   job_history.department_id%type<br>   )<br>IS<br>BEGIN<br> INSERT INTO job_history (employee_id, start_date, end_date,<br>                           job_id, department_id)<br>  VALUES(p_emp_id, p_start_date, p_end_date, p_job_id, p_department_id);<br>END add_job_history;</p>
+<p>–创建触发器调用存储过程…<br>CREATE OR REPLACE TRIGGER update_job_history<br> AFTER UPDATE OF job_id, department_id ON employees<br> FOR EACH ROW<br>BEGIN<br> add_job_history(:old.employee_id, :old.hire_date, sysdate,<br>                  :old.job_id, :old.department_id);<br>END;<br><a href="&quot;复制代码&quot;"></a></p>
+<p><strong>8.2.3 创建替代(INSTEAD OF)触发器</strong></p>
+<p><strong>创建触发器的一般语法是:</strong></p>
+<p><a href="&quot;复制代码&quot;"></a><br>CREATE [OR REPLACE] TRIGGER trigger_name<br>INSTEAD OF<br>{INSERT | DELETE | UPDATE [OF column [, column …]]}<br>[OR {INSERT | DELETE | UPDATE [OF column [, column …]]}…]<br>ON [schema.] view_name –只能定义在视图上<br>[REFERENCING {OLD [AS] old | NEW [AS] new| PARENT as parent}]<br>[FOR EACH ROW ] –因为INSTEAD OF触发器只能在行级上触发,所以没有必要指定<br>[WHEN condition]<br>PL/SQL_block | CALL procedure_name;<br><a href="&quot;复制代码&quot;"></a></p>
+<p>其中：<br>           INSTEAD OF 选项使ORACLE激活触发器，而不执行触发事件。只能对视图和对象视图建立INSTEAD OF触发器，而不能对表、模式和数据库建立INSTEAD OF 触发器。<br>           FOR EACH ROW选项说明触发器为行触发器。行触发器和语句触发器的区别表现在：行触发器要求当一个DML语句操走影响数据库中的多行数据时，对于其中的每个数据行，只要它们符合触发约束条件，均激活一次触发器；而语句触发器将整个语句操作作为触发事件，当它符合约束条件时，激活一次触发器。当省略FOR EACH ROW 选项时，BEFORE 和AFTER 触发器为语句触发器，而INSTEAD OF 触发器则为行触发器。<br>           REFERENCING 子句说明相关名称，在行触发器的PL/SQL块和WHEN 子句中可以使用相关名称参照当前的新、旧列值，默认的相关名称分别为OLD和NEW。触发器的PL/SQL块中应用相关名称时，必须在它们之前加冒号(:)，但在WHEN子句中则不能加冒号。<br>WHEN 子句说明触发约束条件。Condition 为一个逻辑表达时，其中必须包含相关名称，而不能包含查询语句，也不能调用PL/SQL 函数。WHEN 子句指定的触发约束条件只能用在BEFORE 和AFTER 行触发器中，不能用在INSTEAD OF 行触发器和其它类型的触发器中。</p>
+<pre><code>INSTEAD_OF 用于对视图的DML触发，由于视图有可能是由多个表进行联结(join)而成，因而并非是所有的联结都是可更新的。但可以按照所需的方式执行更新，例如下面情况：
+</code></pre><p><strong>例1：</strong></p>
+<p>CREATE OR REPLACE VIEW emp_view AS<br>SELECT deptno, count(*) total_employeer, sum(sal) total_salary<br>FROM emp GROUP BY deptno;</p>
+<p>在此视图中直接删除是非法：<br>SQL&gt;DELETE FROM emp_view WHERE deptno=<strong>10</strong>;<br>DELETE FROM emp_view WHERE deptno=<strong>10</strong></p>
+<p>ERROR 位于第 1 行:<br>ORA-01732: 此视图的数据操纵操作非法</p>
+<p>但是我们可以创建INSTEAD_OF触发器来为 DELETE 操作执行所需的处理，即删除EMP表中所有基准行：</p>
+<hr>
+<p><strong><a href="&quot;复制代码&quot;"></a></strong><br>**CREATE OR REPLACE TRIGGER emp_view_delete<br>   INSTEAD OF DELETE ON emp_view FOR EACH ROW<br>BEGIN<br>   DELETE FROM emp WHERE deptno= :old.deptno;<br>END emp_view_delete; </p>
+<p>DELETE FROM emp_view WHERE deptno=10; </p>
+<p>DROP TRIGGER emp_view_delete;</p>
+<p>DROP VIEW emp_view; <strong>
+</strong><a href="&quot;复制代码&quot;"></a>**</p>
+<p><strong>例2：</strong>创建复杂视图，针对INSERT操作创建INSTEAD OF触发器，向复杂视图插入数据。<br>l         创建视图：</p>
+<p><a href="&quot;复制代码&quot;"></a><br>CREATE OR REPLACE FORCE VIEW “HR”.”V_REG_COU” (“R_ID”, “R_NAME”, “C_ID”, “C_NAME”)<br>AS<br> SELECT r.region_id,<br>    r.region_name,<br>    c.country_id,<br>    c.country_name<br> FROM regions r,<br>    countries c<br> WHERE r.region_id = c.region_id;<br><a href="&quot;复制代码&quot;"></a></p>
+<p>l        创建触发器：</p>
+<hr>
+<p><strong><a href="&quot;复制代码&quot;"></a></strong><br><em>*CREATE OR REPLACE TRIGGER “HR”.”TR_I_O_REG_COU” INSTEAD OF<br> INSERT ON v_reg_cou FOR EACH ROW DECLARE v_count NUMBER;<br>BEGIN<br> SELECT COUNT(</em>) INTO v_count FROM regions WHERE region_id = :new.r_id;<br> IF v_count = 0 THEN<br>    INSERT INTO regions<br>      (region_id, region_name<br>      ) VALUES<br>      (:new.r_id, :new.r_name<br>      );<br> END IF;</p>
+<p> SELECT COUNT(<em>) INTO v_count FROM countries WHERE country_id = :new.c_id;<br> IF v_count = 0 THEN<br>    INSERT<br>    INTO countries<br>      (<br>        country_id,<br>        country_name,<br>        region_id<br>      )<br>      VALUES<br>      (<br>        :new.c_id,<br>        :new.c_name,<br>        :new.r_id<br>      );<br> END IF;<br>END;<strong>
+</strong><a href="&quot;复制代码&quot;"></a>*</em></p>
+<hr>
+<p><strong>创建INSTEAD OF触发器需要注意以下几点：</strong><br>l         只能被创建在视图上，并且该视图没有指定WITH CHECK OPTION选项。<br>l         不能指定BEFORE 或 AFTER选项。<br>l         FOR EACH ROW子可是可选的，即INSTEAD OF触发器只能在行级上触发、或只能是行级触发器，没有必要指定。<br>l         没有必要在针对一个表的视图上创建INSTEAD OF触发器，只要创建DML触发器就可以了。</p>
+<hr>
+<p><strong>8.2.3 创建系统事件触发器</strong><br>    ORACLE10G提供的系统事件触发器可以在DDL或数据库系统上被触发。DDL指的是数据定义语言，如CREATE 、ALTER及DROP 等。而数据库系统事件包括数据库服务器的启动或关闭，用户的登录与退出、数据库服务错误等。创建系统触发器的语法如下：<br><strong>创建触发器的一般语法是:</strong></p>
+<p><a href="&quot;复制代码&quot;"></a><br>CREATE OR REPLACE TRIGGER [sachema.]trigger_name<br>{BEFORE|AFTER}<br>{ddl_event_list | database_event_list}<br>ON { DATABASE | [schema.]SCHEMA }<br>[WHEN condition]<br>PL/SQL_block | CALL procedure_name;<br><a href="&quot;复制代码&quot;"></a></p>
+<p>其中: ddl_event_list：一个或多个DDL 事件，事件间用 OR 分开；<br>        database_event_list：一个或多个数据库事件，事件间用 OR 分开；</p>
+<pre><code>系统事件触发器既可以建立在一个模式上，又可以建立在整个数据库上。当建立在模式(SCHEMA)之上时，只有模式所指定用户的DDL操作和它们所导致的错误才激活触发器, 默认时为当前用户模式。当建立在数据库(DATABASE)之上时，该数据库所有用户的DDL操作和他们所导致的错误，以及数据库的启动和关闭均可激活触发器。要在数据库之上建立触发器时，要求用户具有ADMINISTER DATABASE TRIGGER权限。
+</code></pre><p>下面给出系统触发器的种类和事件出现的时机（前或后）：<br><strong>事件</strong><br><strong>允许的时机</strong><br><strong>说明</strong><br>STARTUP<br>AFTER<br>启动数据库实例之后触发<br>SHUTDOWN<br>BEFORE<br>关闭数据库实例之前触发（非正常关闭不触发）<br>SERVERERROR<br>AFTER<br>数据库服务器发生错误之后触发<br>LOGON<br>AFTER<br>成功登录连接到数据库后触发<br>LOGOFF<br>BEFORE<br>开始断开数据库连接之前触发<br>CREATE<br>BEFORE，AFTER<br>在执行CREATE语句创建数据库对象之前、之后触发<br>DROP<br>BEFORE，AFTER<br>在执行DROP语句删除数据库对象之前、之后触发<br>ALTER<br>BEFORE，AFTER<br>在执行ALTER语句更新数据库对象之前、之后触发<br>DDL<br>BEFORE，AFTER<br>在执行大多数DDL语句之前、之后触发<br>GRANT<br>BEFORE，AFTER<br>执行GRANT语句授予权限之前、之后触发<br>REVOKE<br>BEFORE，AFTER<br>执行REVOKE语句收权限之前、之后触犯发<br>RENAME<br>BEFORE，AFTER<br>执行RENAME语句更改数据库对象名称之前、之后触犯发<br>AUDIT <strong>/ </strong>NOAUDIT<br>BEFORE，AFTER<br>执行AUDIT<strong>或</strong>NOAUDIT进行审计或停止审计之前、之后触发</p>
+<p><strong>8.2.4 系统触发器事件属性</strong></p>
+<p>事件属性\事件<br>Startup/Shutdown<br>Servererror<br>Logon/Logoff<br>DDL<br>DML<br>事件名称<br><strong>ü＊</strong><br><strong>ü＊</strong><br><strong>ü＊</strong><br><strong>ü＊</strong><br><strong>＊</strong><br>数据库名称<br><strong>ü＊</strong></p>
+<hr>
+<hr>
+<hr>
+<hr>
+<p>数据库实例号<br><strong>ü＊</strong></p>
+<hr>
+<hr>
+<hr>
+<hr>
+<p>错误号</p>
+<hr>
+<p><strong>ü＊</strong></p>
+<hr>
+<hr>
+<hr>
+<p>用户名</p>
+<hr>
+<hr>
+<p><strong>ü＊</strong><br><strong>＊</strong></p>
+<hr>
+<p>模式对象类型</p>
+<hr>
+<hr>
+<hr>
+<p><strong>ü＊</strong><br><strong>＊</strong><br>模式对象名称</p>
+<hr>
+<hr>
+<hr>
+<p><strong>ü＊</strong><br><strong>＊</strong><br>列</p>
+<hr>
+<hr>
+<hr>
+<hr>
+<p><strong>ü＊</strong></p>
+<p>除DML语句的列属性外，其余事件属性值可通过调用ORACLE定义的事件属性函数来读取。<br>函数名称<br>数据类型<br>说    明<br>Ora_sysevent<br>VARCHAR2（20）<br>激活触发器的事件名称<br>Instance_num<br>NUMBER<br>数据库实例名<br>Ora_database_name<br>VARCHAR2（50）<br>数据库名称<br>Server_error(posi)<br>NUMBER<br>错误信息栈中posi指定位置中的错误号</p>
+<p>Is_servererror(err_number)</p>
+<p>BOOLEAN<br>检查err_number指定的错误号是否在错误信息栈中，如果在则返回TRUE，否则返回FALSE。在触发器内调用此函数可以判断是否发生指定的错误。<br>Login_user<br>VARCHAR2(30)<br>登陆或注销的用户名称<br>Dictionary_obj_type<br>VARCHAR2(20)<br>DDL语句所操作的数据库对象类型<br>Dictionary_obj_name<br>VARCHAR2(30)<br>DDL语句所操作的数据库对象名称<br>Dictionary_obj_owner<br>VARCHAR2(30)<br>DDL语句所操作的数据库对象所有者名称<br>Des_encrypted_password<br>VARCHAR2(2)<br>正在创建或修改的经过DES算法加密的用户口令</p>
+<hr>
+<p><strong>例1：</strong>创建触发器，存放有关事件信息。<br><a href="&quot;复制代码&quot;"></a><br>DESC ora_sysevent<br>DESC ora_login_user</p>
+<p>–创建用于记录事件用的表</p>
+<p>CREATE TABLE ddl_event<br>(crt_date timestamp PRIMARY KEY,<br> event_name VARCHAR2(<strong>20</strong>),<br> user_name VARCHAR2(<strong>10</strong>),<br> obj_type VARCHAR2(<strong>20</strong>),<br> obj_name VARCHAR2(<strong>20</strong>));</p>
+<p>–创建触犯发器<br>CREATE OR REPLACE TRIGGER tr_ddl<br>AFTER DDL ON SCHEMA<br>BEGIN<br>   INSERT INTO ddl_event VALUES<br>   (systimestamp,ora_sysevent, ora_login_user,<br>    ora_dict_obj_type, ora_dict_obj_name);<br>END tr_ddl;<br><a href="&quot;复制代码&quot;"></a></p>
+<p><strong>例2：</strong>创建登录、退出触发器。</p>
+<p><a href="&quot;复制代码&quot;"></a><br>CREATE TABLE log_event<br>(user_name VARCHAR2(<strong>10</strong>),<br> address VARCHAR2(<strong>20</strong>),<br> logon_date timestamp,<br> logoff_date timestamp); </p>
+<p>–创建登录触发器<br>CREATE OR REPLACE TRIGGER tr_logon<br>AFTER LOGON ON DATABASE<br>BEGIN<br>   INSERT INTO log_event (user_name, address, logon_date)<br>   VALUES (ora_login_user, ora_client_ip_address, systimestamp);<br>END tr_logon;<br>–创建退出触发器<br>CREATE OR REPLACE TRIGGER tr_logoff<br>BEFORE LOGOFF ON DATABASE<br>BEGIN<br>   INSERT INTO log_event (user_name, address, logoff_date)<br>   VALUES (ora_login_user, ora_client_ip_address, systimestamp);<br>END tr_logoff;<br><a href="&quot;复制代码&quot;"></a></p>
+<p><strong>8.2.5 使用触发器谓词</strong><br>    ORACLE 提供三个参数INSERTING, UPDATING,DELETING 用于判断触发了哪些操作。<br>谓词<br>行为<br>INSERTING<br>如果触发语句是 INSERT 语句，则为TRUE,否则为FALSE<br>UPDATING<br>如果触发语句是 UPDATE语句，则为TRUE,否则为FALSE<br>DELETING<br>如果触发语句是 DELETE 语句，则为TRUE,否则为FALSE</p>
+<hr>
+<p><strong>8.2.6 重新编译触发器</strong><br>如果在触发器内调用其它函数或过程，当这些函数或过程被删除或修改后，触发器的状态将被标识为无效。当DML语句激活一个无效触发器时，ORACLE将重新编译触发器代码，如果编译时发现错误，这将导致DML语句执行失败。<br>在PL/SQL程序中可以调用ALTER TRIGGER语句重新编译已经创建的触发器，格式为：<br>ALTER TRIGGER [schema.] trigger_name COMPILE [ DEBUG]<br>       其中：DEBUG 选项要器编译器生成PL/SQL 程序条使其所使用的调试代码。<br><strong>8.3 删除和使能触发器</strong><br>l         <strong>删除触发器：</strong><br>DROP TRIGGER trigger_name;<br>当删除其他用户模式中的触发器名称，需要具有DROP ANY TRIGGER系统权限，当删除建立在数据库上的触发器时，用户需要具有ADMINISTER DATABASE TRIGGER系统权限。<br>此外，当删除表或视图时，建立在这些对象上的触发器也随之删除。<br>l         <strong>禁用或启用触发器</strong><br>数据库TRIGGER 的状态：<br>有效状态(ENABLE)：当触发事件发生时，处于有效状态的数据库触发器TRIGGER 将被触发。<br>无效状态(DISABLE)：当触发事件发生时，处于无效状态的数据库触发器TRIGGER 将不会被触发，此时就跟没有这个数据库触发器(TRIGGER) 一样。<br>数据库TRIGGER的这两种状态可以互相转换。格式为：<br>ALTER TIGGER trigger_name [DISABLE | ENABLE ];</p>
+<p>–例：ALTER TRIGGER emp_view_delete DISABLE;</p>
+<pre><code>ALTER TRIGGER语句一次只能改变一个触发器的状态，而ALTER TABLE语句则一次能够改变与指定表相关的所有触发器的使用状态。格式为：             
+</code></pre><p>ALTER TABLE [schema.]table_name {ENABLE|DISABLE} ALL TRIGGERS;</p>
+<p>–例：使表EMP 上的所有TRIGGER 失效：<br>ALTER TABLE emp DISABLE ALL TRIGGERS; </p>
+<p><strong>8.4 触发器和数据字典</strong><br>相关数据字典：USER_TRIGGERS、ALL_TRIGGERS、DBA_TRIGGERS<br>SELECT TRIGGER_NAME, TRIGGER_TYPE, TRIGGERING_EVENT,<br> TABLE_OWNER, BASE_OBJECT_TYPE, REFERENCING_NAMES,<br> STATUS, ACTION_TYPE<br> FROM user_triggers;</p>
+<p><strong>8.5   数据库触发器的应用举例</strong><br><strong>例1：</strong>创建一个DML语句级触发器，当对emp表执行INSERT, UPDATE, DELETE 操作时，它自动更新dept_summary 表中的数据。由于在PL/SQL块中不能直接调用DDL语句，所以，利用ORACLE内置包DBMS_UTILITY中的EXEC_DDL_STATEMENT过程，由它执行DDL语句创建触发器。</p>
+<p><a href="&quot;复制代码&quot;"></a><br>CREATE TABLE dept_summary(<br> Deptno NUMBER(<strong>2</strong>),<br> Sal_sum NUMBER(<strong>9</strong>, <strong>2</strong>),<br> Emp_count NUMBER); </p>
+<p>INSERT INTO dept_summary(deptno, sal_sum, emp_count)<br> SELECT deptno, SUM(sal), COUNT(*)<br>FROM emp<br>GROUP BY deptno;</p>
+<p>–创建一个PL/SQL过程disp_dept_summary<br>–在触发器中调用该过程显示dept_summary标中的数据。<br>CREATE OR REPLACE PROCEDURE disp_dept_summary<br>IS<br> Rec dept_summary%ROWTYPE;<br> CURSOR c1 IS SELECT <em> FROM dept_summary;<br>BEGIN<br> OPEN c1;<br> FETCH c1 INTO REC;<br> DBMS_OUTPUT.PUT_LINE(‘deptno    sal_sum    emp_count’);<br> DBMS_OUTPUT.PUT_LINE(‘————————————-‘);<br> WHILE c1%FOUND LOOP<br>    DBMS_OUTPUT.PUT_LINE(RPAD(rec.deptno, <strong>6</strong>)||<br>      To_char(rec.sal_sum, ‘$999,999.99’)||<br>      LPAD(rec.emp_count, <strong>13</strong>));<br>    FETCH c1 INTO rec;<br> END LOOP;<br> CLOSE c1;<br>END;<br>BEGIN<br> DBMS_OUTPUT.PUT_LINE(‘插入前’);<br> Disp_dept_summary();<br> DBMS_UTILITY.EXEC_DDL_STATEMENT(‘<br>    CREATE OR REPLACE TRIGGER trig1<br>      AFTER INSERT OR DELETE OR UPDATE OF sal ON emp<br>    BEGIN<br>      DBMS_OUTPUT.PUT_LINE(‘’正在执行trig1 触发器…’’);<br>      DELETE FROM dept_summary;<br>      INSERT INTO dept_summary(deptno, sal_sum, emp_count)<br>      SELECT deptno, SUM(sal), COUNT(</em>)<br>      FROM emp GROUP BY deptno;<br>    END;<br> ‘);</p>
+<p> INSERT INTO dept(deptno, dname, loc)<br> VALUES(<strong>90</strong>, ‘demo_dept’, ‘none_loc’);<br> INSERT INTO emp(ename, deptno, empno, sal)<br> VALUES(USER, <strong>90</strong>, <strong>9999</strong>, <strong>3000</strong>);</p>
+<p> DBMS_OUTPUT.PUT_LINE(‘插入后’);<br> Disp_dept_summary();</p>
+<p> UPDATE emp SET sal=<strong>1000</strong> WHERE empno=<strong>9999</strong>;<br> DBMS_OUTPUT.PUT_LINE(‘修改后’);<br> Disp_dept_summary();</p>
+<p> DELETE FROM emp WHERE empno=<strong>9999</strong>;<br> DELETE FROM dept WHERE deptno=<strong>90</strong>;</p>
+<p> DBMS_OUTPUT.PUT_LINE(‘删除后’);<br> Disp_dept_summary();<br> DBMS_UTILITY.EXEC_DDL_STATEMENT(‘DROP TRIGGER trig1’);<br>EXCEPTION<br>   WHEN OTHERS THEN<br>      DBMS_OUTPUT.PUT_LINE(SQLCODE||’—‘||SQLERRM);</p>
+<p>END;<br><a href="&quot;复制代码&quot;"></a></p>
+<p><strong>例2：</strong>创建DML语句行级触发器。当对emp表执行INSERT, UPDATE, DELETE 操作时，它自动更新dept_summary 表中的数据。由于在PL/SQL块中不能直接调用DDL语句，所以，利用ORACLE内置包DBMS_UTILITY中的EXEC_DDL_STATEMENT过程，由它执行DDL语句创建触发器。</p>
+<p><a href="&quot;复制代码&quot;"></a><br>BEGIN<br>  DBMS_OUTPUT.PUT_LINE(‘插入前’);<br>  Disp_dept_summary();<br>  DBMS_UTILITY.EXEC_DDL_STATEMENT(<br>    ‘CREATE OR REPLACE TRIGGER trig2_update<br>      AFTER UPDATE OF sal ON emp<br>      REFERENCING OLD AS old_emp NEW AS new_emp<br>      FOR EACH ROW<br>      WHEN (old_emp.sal != new_emp.sal)<br>    BEGIN<br>      DBMS_OUTPUT.PUT_LINE(‘’正在执行trig2_update 触发器…’’);<br>      DBMS_OUTPUT.PUT_LINE(‘’sal 旧值：’’|| :old_emp.sal);<br>      DBMS_OUTPUT.PUT_LINE(‘’sal 新值：’’|| :new_emp.sal);<br>      UPDATE dept_summary<br>        SET sal_sum=sal_sum + :new_emp.sal - :old_emp.sal<br>        WHERE deptno = :new_emp.deptno;<br>    END;’<br>  );</p>
+<p>  DBMS_UTILITY.EXEC_DDL_STATEMENT(<br>    ‘CREATE OR REPLACE TRIGGER trig2_insert<br>      AFTER INSERT ON emp<br>      REFERENCING NEW AS new_emp<br>      FOR EACH ROW<br>    DECLARE<br>      I NUMBER;<br>    BEGIN<br>      DBMS_OUTPUT.PUT_LINE(‘’正在执行trig2_insert 触发器…’’);<br>      SELECT COUNT(*) INTO I<br>      FROM dept_summary WHERE deptno = :new_emp.deptno;<br>      IF I &gt; 0 THEN<br>        UPDATE dept_summary<br>        SET sal_sum=sal_sum+:new_emp.sal,<br>        Emp_count=emp_count+1<br>        WHERE deptno = :new_emp.deptno;<br>      ELSE<br>        INSERT INTO dept_summary<br>        VALUES (:new_emp.deptno, :new_emp.sal, 1);<br>      END IF;<br>    END;’<br>  );</p>
+<p>  DBMS_UTILITY.EXEC_DDL_STATEMENT(<br>    ‘CREATE OR REPLACE TRIGGER trig2_delete<br>      AFTER DELETE ON emp<br>      REFERENCING OLD AS old_emp<br>      FOR EACH ROW<br>    DECLARE<br>      I NUMBER;<br>    BEGIN<br>      DBMS_OUTPUT.PUT_LINE(‘’正在执行trig2_delete 触发器…’’);<br>      SELECT emp_count INTO I<br>      FROM dept_summary WHERE deptno = :old_emp.deptno;<br>      IF I &gt;1 THEN<br>        UPDATE dept_summary<br>        SET sal_sum=sal_sum - :old_emp.sal,<br>        Emp_count=emp_count - 1<br>        WHERE deptno = :old_emp.deptno;<br>      ELSE<br>        DELETE FROM dept_summary WHERE deptno = :old_emp.deptno;<br>      END IF;<br>    END;’<br>  );</p>
+<p>  INSERT INTO dept(deptno, dname, loc)<br>    VALUES(<strong>90</strong>, ‘demo_dept’, ‘none_loc’);<br>  INSERT INTO emp(ename, deptno, empno, sal)<br>    VALUES(USER, <strong>90</strong>, <strong>9999</strong>, <strong>3000</strong>);<br>  INSERT INTO emp(ename, deptno, empno, sal)<br>    VALUES(USER, <strong>90</strong>, <strong>9998</strong>, <strong>2000</strong>);<br>  DBMS_OUTPUT.PUT_LINE(‘插入后’);<br>  Disp_dept_summary();</p>
+<p>  UPDATE emp SET sal = sal<strong>*1.1</strong> WHERE deptno=<strong>90</strong>;<br>  DBMS_OUTPUT.PUT_LINE(‘修改后’);<br>  Disp_dept_summary();</p>
+<p>  DELETE FROM emp WHERE deptno=<strong>90</strong>;<br>  DELETE FROM dept WHERE deptno=<strong>90</strong>;<br>  DBMS_OUTPUT.PUT_LINE(‘删除后’);<br>  Disp_dept_summary();</p>
+<p>  DBMS_UTILITY.EXEC_DDL_STATEMENT(‘DROP TRIGGER trig2_update’);<br>  DBMS_UTILITY.EXEC_DDL_STATEMENT(‘DROP TRIGGER trig2_insert’);<br>  DBMS_UTILITY.EXEC_DDL_STATEMENT(‘DROP TRIGGER trig2_delete’);<br>EXCEPTION<br>   WHEN OTHERS THEN<br>      DBMS_OUTPUT.PUT_LINE(SQLCODE||’—‘||SQLERRM);<br>END;<br><a href="&quot;复制代码&quot;"></a></p>
+<p><strong>例3：</strong>利用ORACLE提供的条件谓词INSERTING、UPDATING和DELETING创建与例2具有相同功能的触发器。</p>
+<p><a href="&quot;复制代码&quot;"></a><br>BEGIN<br>    DBMS_OUTPUT.PUT_LINE(‘插入前’);<br>    Disp_dept_summary();<br>    DBMS_UTILITY.EXEC_DDL_STATEMENT(<br>        ‘CREATE OR REPLACE TRIGGER trig2<br>            AFTER INSERT OR DELETE OR UPDATE OF sal<br>ON emp<br>            REFERENCING OLD AS old_emp NEW AS new_emp<br>            FOR EACH ROW<br>        DECLARE<br>            I NUMBER;<br>        BEGIN<br>            IF UPDATING AND :old_emp.sal != :new_emp.sal THEN<br>            DBMS_OUTPUT.PUT_LINE(‘’正在执行trig2 触发器…’’);<br>                DBMS_OUTPUT.PUT_LINE(‘’sal 旧值：’’|| :old_emp.sal);<br>                DBMS_OUTPUT.PUT_LINE(‘’sal 新值：’’|| :new_emp.sal);<br>                UPDATE dept_summary<br>                    SET sal_sum=sal_sum + :new_emp.sal - :old_emp.sal<br>                WHERE deptno = :new_emp.deptno;<br>            ELSIF INSERTING THEN<br>                DBMS_OUTPUT.PUT_LINE(‘’正在执行trig2触发器…’’);<br>                SELECT COUNT(*) INTO I<br>        FROM dept_summary<br>        WHERE deptno = :new_emp.deptno;<br>                IF I &gt; 0 THEN<br>                    UPDATE dept_summary<br>          SET sal_sum=sal_sum+:new_emp.sal,<br>              Emp_count=emp_count+1<br>          WHERE deptno = :new_emp.deptno;<br>            ELSE<br>          INSERT INTO dept_summary<br>            VALUES (:new_emp.deptno, :new_emp.sal, 1);<br>        END IF;<br>      ELSE<br>        DBMS_OUTPUT.PUT_LINE(‘’正在执行trig2触发器…’’);<br>        SELECT emp_count INTO I<br>        FROM dept_summary WHERE deptno = :old_emp.deptno;<br>      IF I &gt; 1 THEN<br>        UPDATE dept_summary<br>        SET sal_sum=sal_sum - :old_emp.sal,<br>        Emp_count=emp_count - 1<br>        WHERE deptno = :old_emp.deptno;<br>      ELSE<br>          DELETE FROM dept_summary<br>          WHERE deptno = :old_emp.deptno;<br>      END IF;<br>    END IF;<br>    END;’<br>  );</p>
+<p>  INSERT INTO dept(deptno, dname, loc)<br>    VALUES(<strong>90</strong>, ‘demo_dept’, ‘none_loc’);<br>  INSERT INTO emp(ename, deptno, empno, sal)<br>    VALUES(USER, <strong>90</strong>, <strong>9999</strong>, <strong>3000</strong>);<br>  INSERT INTO emp(ename, deptno, empno, sal)<br>    VALUES(USER, <strong>90</strong>, <strong>9998</strong>, <strong>2000</strong>);<br>  DBMS_OUTPUT.PUT_LINE(‘插入后’);<br>  Disp_dept_summary();</p>
+<p>  UPDATE emp SET sal = sal<strong>*1.1</strong> WHERE deptno=<strong>90</strong>;<br>  DBMS_OUTPUT.PUT_LINE(‘修改后’);<br>  Disp_dept_summary();</p>
+<p>  DELETE FROM emp WHERE deptno=<strong>90</strong>;<br>  DELETE FROM dept WHERE deptno=<strong>90</strong>;<br>  DBMS_OUTPUT.PUT_LINE(‘删除后’);<br>  Disp_dept_summary();</p>
+<p>  DBMS_UTILITY.EXEC_DDL_STATEMENT(‘DROP TRIGGER trig2’);<br>EXCEPTION<br>   WHEN OTHERS THEN<br>      DBMS_OUTPUT.PUT_LINE(SQLCODE||’—‘||SQLERRM);<br>END;<br><a href="&quot;复制代码&quot;"></a></p>
+<p><strong>例4：</strong>创建INSTEAD OF 触发器。首先创建一个视图myview,由于该视图是复合查询所产生的视图，所以不能执行DML语句。根据用户对视图所插入的数据判断需要将数据插入到哪个视图基表中，然后对该基表执行插入操作。</p>
+<p><a href="&quot;复制代码&quot;"></a><br>DECLARE<br>    No NUMBER;<br>    Name VARCHAR2(<strong>20</strong>);<br>BEGIN<br>    DBMS_UTILITY.EXEC_DDL_STATEMENT(‘<br>        CREATE OR REPLACE VIEW myview AS<br>            SELECT empno, ename, ‘’E’’ type FROM emp<br>            UNION<br>            SELECT dept.deptno, dname, ‘’D’’ FROM dept<br>    ‘);<br>    – 创建INSTEAD OF 触发器trigger3;<br>    DBMS_UTILITY.EXEC_DDL_STATEMENT(‘<br>        CREATE OR REPLACE TRIGGER trig3<br>            INSTEAD OF INSERT ON myview<br>            REFERENCING NEW n<br>            FOR EACH ROW<br>        DECLARE<br>            Rows INTEGER;<br>        BEGIN<br>            DBMS_OUTPUT.PUT_LINE(‘’正在执行trig3触发器…’’);<br>            IF :n.type = ‘’D’’ THEN<br>                SELECT COUNT(<em>) INTO rows<br>                    FROM dept WHERE deptno = :n.empno;<br>                IF rows = 0 THEN<br>                    DBMS_OUTPUT.PUT_LINE(‘’向dept表中插入数据…’’);<br>                    INSERT INTO dept(deptno, dname, loc)<br>                        VALUES (:n.empno, :n.ename, ‘’none’’);<br>                ELSE<br>                    DBMS_OUTPUT.PUT_LINE(‘’编号为’’|| :n.empno||<br>                     ‘’的部门已存在，插入操作失败！’’);<br>                 END IF;<br>            ELSE<br>                SELECT COUNT(</em>) INTO rows<br>                    FROM emp WHERE empno = :n.empno;<br>                IF rows = 0 THEN<br>                    DBMS_OUTPUT.PUT_LINE(‘’向emp表中插入数据…’’);<br>                    INSERT INTO emp(empno, ename)<br>                        VALUES(:n.empno, :n.ename);<br>                ELSE<br>                    DBMS_OUTPUT.PUT_LINE(‘’编号为’’|| :n.empno||<br>                      ‘’的人员已存在，插入操作失败!’’);<br>                END IF;<br>            END IF;<br>        END;<br>    ‘);</p>
+<pre><code>INSERT INTO myview VALUES (70, &apos;demo&apos;, &apos;D&apos;);
+INSERT INTO myview VALUES (9999, USER, &apos;E&apos;);
+SELECT deptno, dname INTO no, name FROM dept WHERE deptno=70;
+DBMS_OUTPUT.PUT_LINE(&apos;员工编号：&apos;||TO_CHAR(no)||&apos;姓名：&apos;||name);
+SELECT empno, ename INTO no, name FROM emp WHERE empno=9999;
+DBMS_OUTPUT.PUT_LINE(&apos;部门编号：&apos;||TO_CHAR(no)||&apos;姓名：&apos;||name);
+</code></pre><p>  DELETE FROM emp WHERE empno=9999;<br>  DELETE FROM dept WHERE deptno=70;<br>    DBMS_UTILITY.EXEC_DDL_STATEMENT(‘DROP TRIGGER trig3’);<br>END;<br><a href="&quot;复制代码&quot;"></a></p>
+<p><strong>例5：</strong>利用ORACLE事件属性函数，创建一个系统事件触发器。首先创建一个事件日志表eventlog，由它存储用户在当前数据库中所创建的数据库对象，以及用户的登陆和注销、数据库的启动和关闭等事件，之后创建trig4_ddl、trig4_before和trig4_after触发器，它们调用事件属性函数将各个事件记录到eventlog数据表中。</p>
+<hr>
+<p><strong><a href="&quot;复制代码&quot;"></a></strong><br>**BEGIN<br>    – 创建用于记录事件日志的数据表<br>    DBMS_UTILITY.EXEC_DDL_STATEMENT(‘<br>        CREATE TABLE eventlog(<br>            Eventname VARCHAR2(20) NOT NULL,<br>            Eventdate date default sysdate,<br>            Inst_num NUMBER NULL,<br>            Db_name VARCHAR2(50) NULL,<br>            Srv_error NUMBER NULL,<br>            Username VARCHAR2(30) NULL,<br>            Obj_type VARCHAR2(20) NULL,<br>            Obj_name VARCHAR2(30) NULL,<br>            Obj_owner VARCHAR2(30) NULL<br>        )<br>    ‘);</p>
+<pre><code>-- 创建DDL触发器trig4_ddl
+DBMS_UTILITY.EXEC_DDL_STATEMENT(&apos;
+    CREATE OR REPLACE TRIGGER trig4_ddl
+        AFTER CREATE OR ALTER OR DROP 
+</code></pre><p>ON DATABASE<br>        DECLARE<br>            Event VARCHAR2(20);<br>            Typ VARCHAR2(20);<br>            Name VARCHAR2(30);<br>            Owner VARCHAR2(30);<br>        BEGIN<br>            – 读取DDL事件属性<br>            Event := SYSEVENT;<br>            Typ := DICTIONARY_OBJ_TYPE;<br>            Name := DICTIONARY_OBJ_NAME;<br>            Owner := DICTIONARY_OBJ_OWNER;<br>            –将事件属性插入到事件日志表中<br>            INSERT INTO scott.eventlog(eventname, obj_type, obj_name, obj_owner)<br>                VALUES(event, typ, name, owner);<br>        END;<br>    ‘);</p>
+<pre><code>-- 创建LOGON、STARTUP和SERVERERROR 事件触发器
+DBMS_UTILITY.EXEC_DDL_STATEMENT(&apos;
+    CREATE OR REPLACE TRIGGER trig4_after
+        AFTER LOGON OR STARTUP OR SERVERERROR 
+  ON DATABASE
+    DECLARE
+        Event VARCHAR2(20);
+        Instance NUMBER;
+        Err_num NUMBER;
+        Dbname VARCHAR2(50);
+        User VARCHAR2(30);
+    BEGIN
+        Event := SYSEVENT;
+        IF event = &apos;&apos;LOGON&apos;&apos; THEN
+            User := LOGIN_USER;
+            INSERT INTO eventlog(eventname, username)
+                VALUES(event, user);
+        ELSIF event = &apos;&apos;SERVERERROR&apos;&apos; THEN
+            Err_num := SERVER_ERROR(1);
+            INSERT INTO eventlog(eventname, srv_error)
+                VALUES(event, err_num);
+        ELSE
+            Instance := INSTANCE_NUM;
+            Dbname := DATABASE_NAME;
+            INSERT INTO eventlog(eventname, inst_num, db_name)
+                VALUES(event, instance, dbname);
+  END IF;
+END;
+</code></pre><p>  ‘);</p>
+<p>  – 创建LOGOFF和SHUTDOWN 事件触发器<br>  DBMS_UTILITY.EXEC_DDL_STATEMENT(‘<br>    CREATE OR REPLACE TRIGGER trig4_before<br>      BEFORE LOGOFF OR SHUTDOWN<br>      ON DATABASE<br>    DECLARE<br>      Event VARCHAR2(20);<br>      Instance NUMBER;<br>      Dbname VARCHAR2(50);<br>      User VARCHAR2(30);<br>    BEGIN<br>      Event := SYSEVENT;<br>      IF event = ‘’LOGOFF’’ THEN<br>        User := LOGIN_USER;<br>        INSERT INTO eventlog(eventname, username)<br>          VALUES(event, user);<br>      ELSE<br>        Instance := INSTANCE_NUM;<br>        Dbname := DATABASE_NAME;<br>        INSERT INTO eventlog(eventname, inst_num, db_name)<br>          VALUES(event, instance, dbname);<br>      END IF;<br>    END;<br>  ‘);<br>END;</p>
+<p>CREATE TABLE mydata(mydate NUMBER);<br>CONNECT SCOTT/TIGER</p>
+<p>COL eventname FORMAT A10<br>COL eventdate FORMAT A12<br>COL username FORMAT A10<br>COL obj_type FORMAT A15<br>COL obj_name FORMAT A15<br>COL obj_owner FORMAT A10<br>SELECT eventname, eventdate, obj_type, obj_name, obj_owner, username, Srv_error<br>  FROM eventlog;</p>
+<p>DROP TRIGGER trig4_ddl;<br>DROP TRIGGER trig4_before;<br>DROP TRIGGER trig4_after;<br>DROP TABLE eventlog;<br>DROP TABLE mydata;<strong>
+</strong><a href="&quot;复制代码&quot;"></a>**</p>
+<p><strong>8.6   数据库触发器的应用实例</strong><br>用户可以使用数据库触发器实现各种功能：<br>l         复杂的审计功能；<br>例：将EMP 表的变化情况记录到AUDIT_TABLE和AUDIT_TABLE_VALUES中。</p>
+<p><a href="&quot;复制代码&quot;"></a><br>CREATE TABLE audit_table(<br>    Audit_id     NUMBER,<br>    User_name VARCHAR2(<strong>20</strong>),<br>    Now_time DATE,<br>    Terminal_name VARCHAR2(<strong>10</strong>),<br>    Table_name VARCHAR2(<strong>10</strong>),<br>    Action_name VARCHAR2(<strong>10</strong>),<br>    Emp_id NUMBER(<strong>4</strong>));</p>
+<p>CREATE TABLE audit_table_val(<br>    Audit_id NUMBER,<br>    Column_name VARCHAR2(<strong>10</strong>),<br>    Old_val NUMBER(<strong>7</strong>,<strong>2</strong>),<br>    New_val NUMBER(<strong>7</strong>,<strong>2</strong>));</p>
+<p>CREATE SEQUENCE audit_seq<br>    START WITH <strong>1000</strong><br>    INCREMENT BY <strong>1</strong><br>    NOMAXVALUE<br>    NOCYCLE NOCACHE;</p>
+<p>CREATE OR REPLACE TRIGGER audit_emp<br>    AFTER INSERT OR UPDATE OR DELETE ON emp<br>    FOR EACH ROW<br>DECLARE<br>    Time_now DATE;<br>    Terminal CHAR(<strong>10</strong>);<br>BEGIN<br>    Time_now:=sysdate;<br>    Terminal:=USERENV(‘TERMINAL’);<br>    IF INSERTING THEN<br>        INSERT INTO audit_table<br>    VALUES(audit_seq.NEXTVAL, user, time_now,<br>           terminal, ‘EMP’, ‘INSERT’, :new.empno);<br>    ELSIF DELETING THEN<br>        INSERT INTO audit_table<br>    VALUES(audit_seq.NEXTVAL, user, time_now,<br>           terminal, ‘EMP’, ‘DELETE’, :old.empno);<br>    ELSE<br>        INSERT INTO audit_table<br>    VALUES(audit_seq.NEXTVAL, user, time_now,<br>           terminal, ‘EMP’, ‘UPDATE’, :old.empno);<br>        IF UPDATING(‘SAL’) THEN<br>            INSERT INTO audit_table_val<br>                VALUES(audit_seq.CURRVAL, ‘SAL’, :old.sal, :new.sal);<br>        ELSE UPDATING(‘DEPTNO’)<br>            INSERT INTO audit_table_val<br>                VALUES(audit_seq.CURRVAL, ‘DEPTNO’, :old.deptno, :new.deptno);<br>        END IF;<br>    END IF;<br>END;<br><a href="&quot;复制代码&quot;"></a></p>
+<p>l         增强数据的完整性管理；<br>例：修改DEPT表的DEPTNO列时，同时把EMP表中相应的DEPTNO也作相应的修改；</p>
+<p><a href="&quot;复制代码&quot;"></a><br>CREATE SEQUENCE update_sequence<br>    INCREMENT BY <strong>1</strong><br>    START WITH <strong>1000</strong><br>    MAXVALUE <strong>5000</strong> CYCLE;</p>
+<p>ALTER TABLE emp<br>    ADD update_id NUMBER;</p>
+<p>CREATE OR REPLACE PACKAGE integritypackage AS<br>    Updateseq NUMBER;<br>END integritypackage;</p>
+<p>CREATE OR REPLACE PACKAGE BODY integritypackage AS<br>END integritypackage;</p>
+<p>CREATE OR REPLACE TRIGGER dept_cascade1<br>    BEFORE UPDATE OF deptno ON dept<br>DECLARE<br>    Dummy NUMBER;<br>BEGIN<br>    SELECT update_sequence.NEXTVAL INTO dummy FROM dual;<br>    Integritypackage.updateseq:=dummy;<br>END;</p>
+<p>CREATE OR REPLACE TRIGGER dept_cascade2<br>    AFTER DELETE OR UPDATE OF deptno ON dept<br>    FOR EACH ROW<br>BEGIN<br>    IF UPDATING THEN<br>        UPDATE emp SET deptno=:new.deptno,<br>     update_id=integritypackage.updateseq<br>        WHERE emp.deptno=:old.deptno AND update_id IS NULL;<br>    END IF;<br>    IF DELETING THEN<br>        DELETE FROM emp<br>            WHERE emp.deptno=:old.deptno;<br>    END IF;<br>END;</p>
+<p>CREATE OR REPLACE TRIGGER dept_cascade3<br>    AFTER UPDATE OF deptno ON dept<br>BEGIN<br>    UPDATE emp SET update_id=NULL<br>        WHERE update_id=integritypackage.updateseq;<br>END;</p>
+<p>SELECT <em> FROM EMP ORDER BY DEPTNO;<br>UPDATE dept SET deptno=<strong>25</strong> WHERE deptno=<em>*20</em></em>;<br><a href="&quot;复制代码&quot;"></a></p>
+<p>l         帮助实现安全控制；<br>例：保证对EMP表的修改仅在工作日的工作时间；</p>
+<p><a href="&quot;复制代码&quot;"></a><br>CREATE TABLE company_holidays(day DATE);</p>
+<p>INSERT INTO company_holidays<br>    VALUES(sysdate);<br>INSERT INTO company_holidays<br>VALUES(TO_DATE(‘21-10月-01’, ‘DD-MON-YY’));</p>
+<p>CREATE OR REPLACE TRIGGER emp_permit_change<br>    BEFORE INSERT OR DELETE OR UPDATE ON emp<br>DECLARE<br>    Dummy NUMBER;<br>    Not_on_weekends EXCEPTION;<br>    Not_on_holidays EXCEPTION;<br>    Not_working_hours EXCEPTION;<br>BEGIN<br>    /<em> check for weekends </em>/<br>IF TO_CHAR(SYSDATE, ‘DAY’) IN (‘星期六’, ‘星期日’) THEN<br>    RAISE not_on_weekends;<br>END IF;<br>    /<em> check for company holidays </em>/<br>SELECT COUNT(<em>) INTO dummy FROM company_holidays<br>    WHERE TRUNC(day)=TRUNC(SYSDATE);<br>IF dummy &gt;<strong>0</strong> THEN<br>    RAISE not_on_holidays;<br>END IF;<br>    /</em> check for work hours(8:00 AM to 18:00 PM <em>/<br>IF (TO_CHAR(SYSDATE,’HH24’)&lt;<strong>8</strong> OR TO_CHAR(SYSDATE, ‘HH24’)&gt;<strong>18</strong>) THEN<br>  RAISE not_working_hours;<br>END IF;<br>EXCEPTION<br>  WHEN not_on_weekends THEN<br>    RAISE_APPLICATION_ERROR(-<strong>20324</strong>,<br>‘May not change employee table during the weekends’);<br>  WHEN not_on_holidays THEN<br>    RAISE_APPLICATION_ERROR(-<strong>20325</strong>,<br>‘May not change employee table during a holiday’);<br>  WHEN not_working_hours THEN<br>    RAISE_APPLICATION_ERROR(-<em>*20326</em></em>,<br>‘May not change employee table during no_working hours’);<br>END;</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/" rel="tag">#</a>
+          
+            <a href="/" rel="tag">#</a>
+          
+        </div>
+      
+
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="HMK" />
+          <p class="site-author-name" itemprop="name">HMK</p>
+          <p class="site-description motion-element" itemprop="description">学习经验 & 理论知识</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">HMK</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

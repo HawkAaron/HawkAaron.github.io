@@ -1,0 +1,563 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="曹鹏，2006年浙江大学计算机科学专业毕业，2013年中国科学院计算机技术研究所博士毕业。博士期间研究方向为社交网络与社会计算，曾经做过搜索、话题发现、社交网络方面、推荐算法等领域的相关研究。曾为浙江大学、浙江省大学生程序设计竞赛的命题人，是hackerrank.com、hackerearth.com和csdn英雄会、CSDN高校编程挑战的命题人，也是PAT(Programming Ability">
+<meta name="keywords">
+<meta property="og:type" content="website">
+<meta property="og:title" content="雅虎刷题狂人曹鹏：10年理论与实践结合的程序员之路">
+<meta property="og:url" content="http://HawkAaron.github.io/Unfinished/雅虎刷题狂人曹鹏：10年理论与实践结合的程序员之路.html">
+<meta property="og:site_name" content="HMK's blog">
+<meta property="og:description" content="曹鹏，2006年浙江大学计算机科学专业毕业，2013年中国科学院计算机技术研究所博士毕业。博士期间研究方向为社交网络与社会计算，曾经做过搜索、话题发现、社交网络方面、推荐算法等领域的相关研究。曾为浙江大学、浙江省大学生程序设计竞赛的命题人，是hackerrank.com、hackerearth.com和csdn英雄会、CSDN高校编程挑战的命题人，也是PAT(Programming Ability">
+<meta property="og:updated_time" content="2016-08-01T10:20:57.899Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="雅虎刷题狂人曹鹏：10年理论与实践结合的程序员之路">
+<meta name="twitter:description" content="曹鹏，2006年浙江大学计算机科学专业毕业，2013年中国科学院计算机技术研究所博士毕业。博士期间研究方向为社交网络与社会计算，曾经做过搜索、话题发现、社交网络方面、推荐算法等领域的相关研究。曾为浙江大学、浙江省大学生程序设计竞赛的命题人，是hackerrank.com、hackerearth.com和csdn英雄会、CSDN高校编程挑战的命题人，也是PAT(Programming Ability">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://HawkAaron.github.io/Unfinished/雅虎刷题狂人曹鹏：10年理论与实践结合的程序员之路.html"/>
+
+  <title> 雅虎刷题狂人曹鹏：10年理论与实践结合的程序员之路 | HMK's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">HMK's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Welcome!</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                雅虎刷题狂人曹鹏：10年理论与实践结合的程序员之路
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-08-03T21:40:34+08:00" content="2016-08-03">
+              2016-08-03
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>曹鹏，2006年浙江大学计算机科学专业毕业，2013年中国科学院计算机技术研究所博士毕业。博士期间研究方向为社交网络与社会计算，曾经做过搜索、话题发现、社交网络方面、推荐算法等领域的相关研究。<br>曾为浙江大学、浙江省大学生程序设计竞赛的命题人，是hackerrank.com、hackerearth.com和csdn英雄会、CSDN高校编程挑战的命题人，也是PAT(Programming Ability Test, <a href="http://pat.zju.edu.cn/" target="_blank" rel="external">http://pat.zju.edu.cn/</a>) 的命题人。是国内ZOJ(<a href="http://acm.zju.edu.cn" target="_blank" rel="external">http://acm.zju.edu.cn</a>) 第一，有“题霸”之称(<a href="http://www.zjol.com.cn/05edu/system/2007/11/19/008982046.shtml" target="_blank" rel="external">http://www.zjol.com.cn/05edu/system/2007/11/19/008982046.shtml</a>)</p>
+<p><strong>CSDN高校俱乐部</strong>：都说男人30而立，2014年对于您来说是一个新的开端吧。从浙江大学到中国科学院计算机技术研究所博士，从雅虎中国的高级工程师到即将奔赴美国深造的学者，10多年一路走来各种奖项名誉光环不断。您曾经做过搜索、话题发现、社交网络、推荐算法等领域的相关研究，与算法的结缘，是偶然还是必然呢？<br><strong>曹鹏：</strong>我觉得必然当中有偶然。怎么说呢？算法是计算机科学的基础，所以作为一名计算机专业出身的学生以及IT工作者，学习算法是必然的。然而，如果只是把算法当作工具，还是缺乏对它的热爱的。我学习算法的初衷是热爱，毕竟兴趣是最好的老师。兴趣可以驱使我去研究、去探索、去发现。我认为浓厚的兴趣、良好的机遇、以及适当的指导三者缺一不可。没有良好的兴趣，我不可能跨入计算机专业的大门，没有良好的机遇，我不可能有条件去学习，而没有良师的耐心指导，我不可能取得现在的成绩。<br><strong>CSDN高校俱乐部</strong>：很多人都认为学习编程要有好的环境，包括硬件环境，学习环境，您上大学时电脑还不够普及，互联网也不够发达，那时您是是如何学习编程和算法的？<br><strong>曹鹏：</strong>其实，我学习编程是从小学三年级开始的（1993年）。那时我参加了学校的计算机兴趣小组，清楚地记得学习的是BASIC语言，那会儿用的是中华学习机，根本谈不上什么286、386什么的。现在想来学习的课程也比较简单——都是用计算机求简单一次不定方程的正整数解之类的，然而我的兴趣就是从那时培养起来的。<br>从开始学习到小学毕业，我拿了几个天津市以及河东区的一等奖。后来，天津市比较重视培养，把获奖的学生组织到一起继续“深造”培养，我在市科协接触到了算法课。那会儿讲算法的是比较好的高中生和大学生——也是在各种编程比赛中频频获奖的。初中和高中也是在学校的兴趣小组学习，总之是一群热爱编程的孩子在老师的带领下学习编程的。到了大学，浙大宣传“快乐竞赛”的理念，就是说把学习算法作为一种娱乐活动，没有那么功利，我主要是看书（如经典的《算法导论》、康奈尔大学的《算法设计》等）和刷题（在浙江大学online<br> judge ZOJ上）学习的。请允许我在这里向一直默默支持我的父母表达最诚挚的谢意。也对关心我和帮助我的各位老师、同学、朋友表达感谢。<br>另外，在浙江大学集训队的经历也让我受益匪浅，大家互相讨论、研究——这就是所谓的训练。另外，除了参加浙江大学和浙江省的程序设计竞赛以外，我当时还参加了一些著名的网络编程比赛，例如百度举办的百度执行(astar)还有google举办的google code jam China等。现在，我偶尔会去hackerrank.com以及codility.com上面去练练手，也会去看一些coursera上面的算法课程。总之，我觉得我主要是理论联系实践。理论就是看书，书比较杂，不光看算法、数据结构相关的，还有数学相关。实践就是参加编程比赛和刷题。<br><strong>CSDN高校俱乐部</strong>：一些同学喜欢“看”多过于“写”，认为理论学习好就可以了。您认为“刷题”是否能够帮助一个人成长为优秀的程序员？“刷题”对一个人编程思路的优化和代码质量的提高有本质的帮助吗？<br><strong>曹鹏：</strong>我认为“刷题”肯定有用，但是光刷题是不够的。因为优秀程序员的标准非常多，他们应该有精深的理论基础、丰富的编程经验。程序员还需要有工程实践经验，在实际工作中，光靠刷题积累的经验可能是远远不够的。例如，我们可能需要迅速得掌握某种编程语言，如scala, go, haskell之类的。我们不仅要写出正确的代码，还要写出清晰、可读性强、鲁棒性好的代码。<br>例如，变量的名字要有意义，有一定的命名规则（如匈牙利命名法），如何检测并捕获异常等等。我们需要软件工程的指导——因为软件的功能有时和用户的需求差距极大，我们需要掌握一些设计理念和设计模式，我们需要使用一些编程框架，需要一些工具库。我们需要review别人的代码，我们需要做版本控制，我们需要考虑多线程访问，我们需要借鉴先进的设计理念和思想，我们需要做一些权限的管理与控制……所有这些刷题往往学不到。软件是巨大的工程——绝对不是我们看起来那么简单——这项工程的难度不亚于盖一栋大楼、架起一座桥梁。这些可能需要去公司实习或者在”真杀实砍“的工作中才能逐渐掌握、逐步熟练。然而，千里之行，始于足下，刷题可以认为是基础。<br><strong>CSDN高校俱乐部</strong>：很多同学对您甚是崇拜，希望从您这里“取取算法真经”。作为一名雅虎RD高级工程师，您对正在学习计算机的同学，给些“学什么”、“怎么学”的建议吧。<br><strong>曹鹏：</strong>我想是计算机和数学的基础课吧。我觉得光靠课堂的学习恐怕是不够的，可以学一些MOOC的课程，现在网络资源那么发达，电子书、教学视频有多。我的理解还是看书＋做题吧。如果要做算法研究，显然是要阅读paper的。另外，我认为看一些开源的库，对某些算法的理解与运用也是有益的。至于学习方法，我想不同的人可能适用的方法不同。但我觉得还是要理论和实践并重吧。光看书是没太大用处的，“纸上得来终觉浅”、“尽信书不如无书”——实践还是非常有用的。当然实践可能是刷题，也可能是去公司实习，也可能是自己承担一些实验室的项目、甚至凭兴趣做一些开源的项目——实践的方式很多。总之，计算机科学的路很宽，只有自己努力才能越走越宽。<br><strong>CSDN高校俱乐部</strong>：有些同学喜欢抱怨学校不好，老师不好，感叹各种条件差，把个人发展的现状归结于客观条件的限制。您怎么看待这个问题？<br><strong>曹鹏：</strong>客观条件只是一个方面，尽管这个方面很重要。现在网络发达、资源丰富，想学习总是有渠道的。我从小学到高中毕业都没有自己的电脑，那会儿想自己写段代码并调试，需要去公共机房。为了节约上机时间我都是在纸上把代码写好，轮到上机时自己把写好的代码照着纸敲进电脑去调试。这也培养了我在纸上写代码的习惯——现在很多IT工作者没有电脑就无法思考，这是很可怕的。其实大学里的ACM竞赛就是三个人共用一台电脑的，如果没有“闭门造车”的招数，配合起来还是有些困难的。我想现在的学习环境比我当时好多了吧？网上有那么多的学习资料——电子书、文章、开源项目、名人博客、视频、bbs、社交网络、qq群，邮件列表，主观上想学习的话，是不应该有太多问题的。</p>
+<hr>
+<p>###<strong>曹鹏博士简介：</strong><br>2006年浙江大学计算机科学专业毕业，2013年中国科学院计算机技术研究所博士毕业。博士期间研究方向为社交网络与社会计算，曾经做过搜索、话题发现、社交网络方面、推荐算法等领域的相关研究。<br>曾为浙江大学、浙江省大学生程序设计竞赛的命题人，是hackerrank.com、hackerearth.com和csdn英雄会的命题人，也是PAT(Programming Ability Test, <a href="http://pat.zju.edu.cn/" target="_blank" rel="external">http://pat.zju.edu.cn/</a>) 的命题人。是国内ZOJ(<a href="http://acm.zju.edu.cn" target="_blank" rel="external">http://acm.zju.edu.cn</a>) 第一，有“题霸”之称(<a href="http://www.zjol.com.cn/05edu/system/2007/11/19/008982046.shtml" target="_blank" rel="external">http://www.zjol.com.cn/05edu/system/2007/11/19/008982046.shtml</a>)<br>本科期间获得过 浙江省程序设计竞赛一等奖，浙江大学计算机程序设计竞赛一等奖，浙江省高等数学竞赛三等奖。<br>2006年google code jam China编程挑战赛进入前50名，2007年百度之星编程竞赛前50名<br>2008-2011  中国科学院计算技术研究所研究生会学术部部长 中国科学院研究生院三好学生、优秀学生干部<br>2012年腾讯编程马拉松比赛组队第4名。<br>2013年英雄会第二届在线编程大冠军。  <a href="http://www.csdn.net/article/2014-01-03/2818011" target="_blank" rel="external">http://www.csdn.net/article/2014-01-03/2818011</a><br>博客；blog.sina.com/javamancaopeng     blog.csdn.net/caopengcs<br>微博： @曹鹏博士<br>LinkedIn: cn.linkedin.com/in/caopeng/</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="HMK" />
+          <p class="site-author-name" itemprop="name">HMK</p>
+          <p class="site-description motion-element" itemprop="description">学习经验 & 理论知识</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">HMK</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,645 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Python,开发工具," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="安装配置Python其实在开发python最好在ubuntu环境下，简单也便于扩展各个package。这次来讲一下如何在win7上搭建Python开发环境。由于python的跨平台性。在windows下和ubuntu下基本上没什么差别。下面从几个不步骤来搭建开发环境。
+
+下载（https://www.python.org/downloads/）安装python.2.7.8. python有2.7的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python开发环境搭建（Windows）">
+<meta property="og:url" content="http://HawkAaron.github.io/2015/06/14/Python开发环境搭建win7/index.html">
+<meta property="og:site_name" content="HMK's blog">
+<meta property="og:description" content="安装配置Python其实在开发python最好在ubuntu环境下，简单也便于扩展各个package。这次来讲一下如何在win7上搭建Python开发环境。由于python的跨平台性。在windows下和ubuntu下基本上没什么差别。下面从几个不步骤来搭建开发环境。
+
+下载（https://www.python.org/downloads/）安装python.2.7.8. python有2.7的">
+<meta property="og:image" content="http://img.blog.csdn.net/20150614220256424">
+<meta property="og:image" content="http://img.blog.csdn.net/20150614220848906">
+<meta property="og:image" content="http://img.blog.csdn.net/20150614221056309">
+<meta property="og:image" content="http://img.blog.csdn.net/20150614221428207">
+<meta property="og:image" content="http://img.blog.csdn.net/20150614221552477">
+<meta property="og:image" content="http://img.blog.csdn.net/20150614221724802">
+<meta property="og:image" content="http://img.blog.csdn.net/20150614221923517">
+<meta property="og:image" content="http://img.blog.csdn.net/20150614222121670">
+<meta property="og:image" content="http://img.blog.csdn.net/20150614222249308">
+<meta property="og:image" content="http://img.blog.csdn.net/20150614222438443">
+<meta property="og:image" content="http://img.blog.csdn.net/20150614222535224">
+<meta property="og:image" content="http://img.blog.csdn.net/20150614222630525">
+<meta property="og:updated_time" content="2016-08-03T13:38:07.925Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python开发环境搭建（Windows）">
+<meta name="twitter:description" content="安装配置Python其实在开发python最好在ubuntu环境下，简单也便于扩展各个package。这次来讲一下如何在win7上搭建Python开发环境。由于python的跨平台性。在windows下和ubuntu下基本上没什么差别。下面从几个不步骤来搭建开发环境。
+
+下载（https://www.python.org/downloads/）安装python.2.7.8. python有2.7的">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20150614220256424">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://HawkAaron.github.io/2015/06/14/Python开发环境搭建win7/"/>
+
+  <title> Python开发环境搭建（Windows） | HMK's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">HMK's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Welcome!</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Python开发环境搭建（Windows）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-06-14T21:47:00+08:00" content="2015-06-14">
+              2015-06-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="安装配置Python"><a href="#安装配置Python" class="headerlink" title="安装配置Python"></a>安装配置Python</h1><p>其实在开发python最好在ubuntu环境下，简单也便于扩展各个package。这次来讲一下如何在win7上搭建Python开发环境。由于python的跨平台性。在windows下和ubuntu下基本上没什么差别。下面从几个不步骤来搭建开发环境。</p>
+<ol>
+<li><p>下载（<a href="https://www.python.org/downloads/）安装python.2.7.8" target="_blank" rel="external">https://www.python.org/downloads/）安装python.2.7.8</a>. python有2.7的版本和3.x版本，建议还是使用python-2.7.x 版本，因为python的各大框架都支持2.7版本，但是不支持3.x版本。例如简介并且功能强大的webpy就不支持3.x版本，好像web2py,django 对3.x版本也支持不太好。<br>安装就按照默认安装模式即可，主要是安装完成后设置环境变量。python也要配置环境变量，不过比Java简单多了，windows7下：计算机-&gt;属性-&gt;计算机名称、域和工作组设置（更改设置）-&gt;高级-&gt;环境变量，在变量PATH中加入C:/Python27，即之前的安装路径。</p>
+</li>
+<li><p>在命令行输入Python，出现下图所示说明安装配置成功。<br><img src="http://img.blog.csdn.net/20150614220256424" alt=""></p>
+</li>
+</ol>
+<h1 id="安装配置Pycharm-IDE开发工具"><a href="#安装配置Pycharm-IDE开发工具" class="headerlink" title="安装配置Pycharm IDE开发工具"></a>安装配置Pycharm IDE开发工具</h1><p>在python的开发过程中，刚开始一直没找到像eclipse 那样的方便的开发工具，大部分网友估计用过ecplise的pydev插件。其实早期学习的python过程，确实也用过这个工具。但是最终发现这个pycharm后，果断的放弃eclipse，因为它太好用啦。<br> PyCharm 是我用过的python编辑器中，比较顺手的一个。而且可以跨平台，在macos和windows下面都可以用，这点比较好。<br> <a href="http://www.jetbrains.com/pycharm/" target="_blank" rel="external">pycharm的官方下载地址： http://www.jetbrains.com/pycharm/ </a><br> 我们可以下载free的社区版，这足够我们用了。安装按照默认安装即可，安装成功启动如下：代表安装成功。<br>首先预览一下 PyCharm 在实际应用中的界面：<br><img src="http://img.blog.csdn.net/20150614220848906" alt=""></p>
+<p>PyCharm 的激活方式：<br>1，推荐购买正版。<br>2，可以选择试用，免费试用30天。<br>3，网上找激活码：<br>用户名：yueting3527<br>注册码：<br>===== LICENSE BEGIN =====<br>93347-12042010<br>00001FMHemWIs”6wozMZnat3IgXKXJ<br>2!nV2I6kSO48hgGLa9JNgjQ5oKz1Us<br>FFR8k”nGzJHzjQT6IBG!1fbQZn9!Vi<br>===== LICENSE END =====</p>
+<h1 id="Pycharm的使用"><a href="#Pycharm的使用" class="headerlink" title="Pycharm的使用"></a>Pycharm的使用</h1><ol>
+<li>点击Create New Project.</li>
+<li>输入项目名、路径、选择python解释器。如果没有出现python解释器，进入步骤3.<br><img src="http://img.blog.csdn.net/20150614221056309" alt=""></li>
+<li>选择python解释器。可以看到，一旦添加了python解释器，pycharm就会扫描出你已经安装的python扩展包，和这些扩展包的最新版本。</li>
+<li>点击OK之后，就会创建一个空项目，里面包含一个.idea的文件夹，用于pycharm管理项目。</li>
+<li>新建一个文件：右键单击刚建好的helloWord项目，选择New –&gt; Python File<br><img src="http://img.blog.csdn.net/20150614221428207" alt=""></li>
+<li>输入文件名：<br><img src="http://img.blog.csdn.net/20150614221552477" alt=""></li>
+<li><p>进入编写界面：PyCharm的默认编辑界面很怪，会自动生成一行 <strong>author</strong> = “作者” 的头。而比较常用的文件头，如：#coding=utf-8 等，反倒没有自动生成。<br><img src="http://img.blog.csdn.net/20150614221724802" alt=""><br>输入code：print “Hello word!”<br><img src="http://img.blog.csdn.net/20150614221923517" alt=""></p>
+</li>
+<li><p>设置控制台：运行之前，我们发现快捷菜单上的【运行】和【调试】都是灰色的，不可触发状态。是因为，我们需要先配置一下控制台。点击运行旁边的黑色倒三角，进入【Run/Debug<br>Configurations】配置界面。（或者点击Run –&gt; Edit Configurations 也一样）<br><img src="http://img.blog.csdn.net/20150614222121670" alt=""><br>在【Run/Debug Configurations】配置界面里，点击绿色的加号，新建一个配置项，并选择python。（因为hello word 就是个python程序）<br><img src="http://img.blog.csdn.net/20150614222249308" alt=""><br>在右边的配置界面里：Name 一栏里写个名字，比如Hello。点击Scrip选项，找到刚才我们写的hello_word.py<br><img src="http://img.blog.csdn.net/20150614222438443" alt=""><br>点击ok, 自动返回到编辑界面，这时候【运行】【调试】按钮全部变绿！<br><img src="http://img.blog.csdn.net/20150614222535224" alt=""></p>
+</li>
+<li><p>运行：点击绿色的运行按钮，观看输出的结果：<br><img src="http://img.blog.csdn.net/20150614222630525" alt=""><br>到此，Python开发环境搭建完成，第一个Python工程已经成功运行。</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag">#Python</a>
+          
+            <a href="/tags/开发工具/" rel="tag">#开发工具</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/06/07/proteus解决LED二极管不发光问题/" rel="next" title="proteus解决LED二极管不发光问题">
+                <i class="fa fa-chevron-left"></i> proteus解决LED二极管不发光问题
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/29/adb无线调试/" rel="prev" title="adb无线调试">
+                adb无线调试 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="HMK" />
+          <p class="site-author-name" itemprop="name">HMK</p>
+          <p class="site-description motion-element" itemprop="description">学习经验 & 理论知识</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装配置Python"><span class="nav-number">1.</span> <span class="nav-text">安装配置Python</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装配置Pycharm-IDE开发工具"><span class="nav-number">2.</span> <span class="nav-text">安装配置Pycharm IDE开发工具</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Pycharm的使用"><span class="nav-number">3.</span> <span class="nav-text">Pycharm的使用</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">HMK</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
