@@ -248,8 +248,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/02/汇编语言入门：debug调试工具/" itemprop="url">
-                  汇编语言入门：debug调试工具
+                <a class="post-title-link" href="/2016/08/02/端口占用/" itemprop="url">
+                  端口占用
                 </a>
               
             
@@ -292,162 +292,15 @@
       
         
           
-            <p>对于大学生来说，基本都需要学习高级编程语言，相信大多数理工类大学生都知道c++、c语言、Java语言等高级语言，也知道机器语言这个最低级的语言，但是却有很多都不知道汇编语言，或许听过这个名字，却不知道用途等。现在我就来给大家讲解一下汇编语言以及入门。我也是刚学习汇编语言，大家可以跟着我一起学习。汇编语言与高级语言不同，它是面向机器的语言，最接近于机器语言。学习汇编语言，必须要了解计算机中机器指令、数据、符合的表示形式和存储格式以及机器指令程序的运行方式等。汇编语言的实践性很强，必须要边学习边动手才可能掌握，需要耐心和细心。初学者一般需要用到debug小工具进行程序调试，现在我就来给大家演示一下debug调试工具的使用以及debug命令符。</p>
-<p>##<a href=""></a>工具/原料</p>
-<ul>
-<li><p>电脑</p>
-</li>
-<li><p>安装有debug小工具的系统（一般32位的windows系统自带有，64位的需要自己安装）</p>
-</li>
-<li><p><img src="http://img.blog.csdn.net/20150803144631191?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
-</li>
-<li><p>若直接输入debug打开，工作界面与输入cmd打开有所不同，建议还是通过cmd打开debug。</p>
-</li>
-<li><p>打开cmd程序后，输入debug，大小写均一样，习惯用大写，为方便操作，后续的操作我一律使用小写。输入之后按回车，会出现下图所示的工作框。</p>
-</li>
-</ul>
-<ul>
-<li><img src="http://img.blog.csdn.net/20150803145028837?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></li>
-</ul>
-<ul>
-<li>在debug窗口就可以进行汇编语句的编写和调试了。先在窗口输入A，然后回车，系统自动分配到内存，如本图所示，其中073F是寄存器的段基址，冒号后面的0100是偏移地址，对应的物理地址是74F00，即程序在此地址下开始存储。然后输入汇编语句，举一个简单的例子，将数据2341H送入寄存器ax和cx中。记住输入的数据在汇编是已经默认是十六进制，不需要在加h，否则会显示错误。</li>
-</ul>
-<ul>
-<li><img src="http://img.blog.csdn.net/20150803145303234?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></li>
-</ul>
-<ul>
-<li>再举另一个例子，将21h和23h两个数相加，结果存放到al中。并通过命令符t一步一步执行，看结果。每输入一个t，按回车后即完成一条指令，第一条指令是将21h送入到ax寄存器的低位al中，看到ax的值变成了0021；第二步执行的是将21h与23h相加，并将结果存放到al中，所执行之后看到ax的值由0021变成了0044<br>。注意到两条指令执行后，IP的值发生了改变，即地址指针发生了改变。NV、UP、EI、PL、NZ、NA、PO、NC代表的是标志寄存器的状态位，在此不做进一步介绍，查阅相关书籍都会有详细的介绍。</li>
-</ul>
-<ul>
-<li><img src="http://img.blog.csdn.net/20150803145626367?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></li>
-</ul>
-<ul>
-<li><p>现在来给大家介绍一下常用的几个命令符。a：逐行汇编；u：反汇编；t：逐行执行命令；d：显示一定内存单元内容，再次输入将在原显示内容上继续显示下面内存的内容；q：退出debug回到dos状态；r：改变或显示一个或多个寄存器的内容；n：命名文件；w：将已命名文件写入磁盘；l：将程序装载进内存。<br>暂时介绍这些常用的几个。有需要的读者可以去网上收索更详细的命令符。<br>下面给大家演示一个简单的例子，并使用这些命令符。<br>存盘后要想查看已存内容，可以先用q退出，然后输入dir回车，即可看到文件下的所以目录。可以看到自己命名的文件<br><img src="http://img.blog.csdn.net/20150803145740537?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
-</li>
-<li><p>##注意事项</p>
-</li>
-<li><p>要想学好汇编，必须边看资料边操作，不可急功近利，不然很难学会的。</p>
-</li>
-<li><p>汇编命令符是需要记住的，在程序调试中经常需要用到。多动手才能方便记忆和理解。</p>
-</li>
-</ul>
-<ul>
-<li></li>
-</ul>
+            <p>开始–运行–cmd 进入命令提示符 输入netstat -ano 即可看到所有连接的PID 之后在任务管理器中找到这个PID所对应的程序如果任务管理器中<strong>没有PID</strong>这一项,可以在任务管理器中选”查看”-“选择列” </p>
+<pre><code>经常，我们在启动应用的时候发现系统需要的端口被别的程序占用，如何知道谁占有了我们需要的端口，很多人都比较头疼，下面就介绍一种非常简单的方法，希望对大家有用 
+</code></pre><p>假如我们需要确定谁占用了我们的9050端口 </p>
+<p>1、Windows平台<br>在windows命令行窗口下执行：<br>1.查看所有的端口占用情况<br>C:><strong>netstat -ano</strong><br>  协议    本地地址                     外部地址               状态                   PID<br>  TCP    127.0.0.1:1434         0.0.0.0:0              LISTENING       3236<br>  TCP    127.0.0.1:5679         0.0.0.0:0              LISTENING       4168<br>  TCP    127.0.0.1:7438         0.0.0.0:0              LISTENING       4168<br>  TCP    127.0.0.1:8015         0.0.0.0:0              LISTENING       1456<br>  TCP    192.168.3.230:139      0.0.0.0:0              LISTENING       4<br>  TCP    192.168.3.230:1957     220.181.31.225:443     ESTABLISHED     3068<br>  TCP    192.168.3.230:2020     183.62.96.189:1522     ESTABLISHED     1456<br>  TCP    192.168.3.230:2927     117.79.91.18:80        ESTABLISHED     4732<br>  TCP    192.168.3.230:2929     117.79.91.18:80        ESTABLISHED     4732<br>  TCP    192.168.3.230:2930     117.79.91.18:80        ESTABLISHED     4732<br>  TCP    192.168.3.230:2931     117.79.91.18:80        ESTABLISHED     4732</p>
+<p>2.查看指定端口的占用情况<br>C:><strong>netstat -aon|findstr “9050”</strong><br>  协议    本地地址                     外部地址               状态                   PID<br>  TCP    127.0.0.1:9050         0.0.0.0:0              LISTENING       2016<br>P: 看到了吗，端口被进程号为2016的进程占用，继续执行下面命令： （也可以去任务管理器中查看pid对应的进程）<br>3.查看PID对应的进程<br>C:><strong>tasklist|findstr “2016”</strong><br> 映像名称                       PID 会话名              会话#       内存使用<br> ========================= ======== ================<br>  tor.exe                     2016 Console                 0     16,064 K </p>
+<p>P:很清楚吧，tor占用了你的端口。</p>
+<p>4.结束该进程<br>C:><strong>taskkill /f /t /im tor.exe</strong></p>
+<p>其他不懂的用 help吧~</p>
 
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/02/Python编写带参数decorator/" itemprop="url">
-                  Python编写带参数decorator
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-08-02T21:18:52+08:00" content="2016-08-02">
-              2016-08-02
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p> @log 装饰器：<br>    def log(f):<br>        def fn(x):<br>            print ‘call ‘ + f.<strong>name</strong> + ‘()…’<br>            return f(x)<br>        return fn<br>对于被装饰的函数，log打印的语句是不能变的（除了函数名）。<br>如果有的函数非常重要，希望打印出’[INFO] call xxx()…’，有的函数不太重要，希望打印出’[DEBUG] call xxx()…’，这时，log函数本身就需要传入’INFO’或’DEBUG’这样的参数，类似这样：<br>    @log(‘DEBUG’)<br>    def my_func():<br>        pass<br>把上面的定义翻译成高阶函数的调用，就是：<br>    my_func = log(‘DEBUG’)(my_func)<br>上面的语句看上去还是比较绕，再展开一下：<br>    log_decorator = log(‘DEBUG’)<br>    my_func = log_decorator(my_func)<br>上面的语句又相当于：<br>    log_decorator = log(‘DEBUG’)<br>    @log_decorator<br>    def my_func():<br>        pass<br>所以，带参数的log函数首先返回一个decorator函数，再让这个decorator函数接收my_func并返回新函数：<br>    def log(prefix):<br>        def log_decorator(f):<br>            def wrapper(<em>args, **kw):<br>                print ‘[%s] %s()…’ % (prefix, f.<strong>name</strong>)<br>                return f(</em>args, **kw)<br>            return wrapper<br>        return log_decorator</p>
-<pre><code>@log(&apos;DEBUG&apos;)
-def test():
-    pass
-print test()
-</code></pre><p><strong>执行结果：</strong><br>    [DEBUG] test()…<br>    None<br>对于这种3层嵌套的decorator定义，你可以先把它拆开：</p>
-<pre><code># 标准decorator:def log_decorator(f):
-    def wrapper(*args, **kw):
-        print &apos;[%s] %s()...&apos; % (prefix, f.__name__)
-        return f(*args, **kw)
-    return wrapper
-return log_decorator# 返回decorator:def log(prefix):
-    return log_decorator(f)
-</code></pre><p>拆开以后会发现，调用会失败，因为在3层嵌套的decorator定义中，最内层的wrapper引用了最外层的参数prefix，所以，把一个闭包拆成普通的函数调用会比较困难。不支持闭包的编程语言要实现同样的功能就需要更多的代码。</p>
-<p>上一节的@performance只能打印秒，请给 @performace增加一个参数，允许传入’s’或’ms’：<br>    @performance(‘ms’)<br>    def factorial(n):<br>        return reduce(lambda x,y: x*y, range(1, n+1))</p>
-<p>要实现带参数的@performance，就需要实现：<br>my_func = performance(‘ms’)(my_func)<br>需要3层嵌套的decorator来实现。<br><strong>参考代码:</strong><br>    import time<br>    def performance(unit):<br>        def perf_decorator(f):<br>            def wrapper(<em>args, **kw):<br>                t1 = time.time()<br>                r = f(</em>args, <em>*kw)<br>                t2 = time.time()<br>                t = (t2 - t1) </em> 1000 if unit==’ms’ else (t2 - t1)<br>                print ‘call %s() in %f %s’ % (f.<strong>name</strong>, t, unit)<br>                return r<br>            return wrapper<br>        return perf_decorator</p>
-<pre><code>@performance(&apos;ms&apos;)
-def factorial(n):
-    return reduce(lambda x,y: x*y, range(1, n+1))
-print factorial(10)
-</code></pre>
           
         
       
@@ -1093,197 +946,6 @@ NLS_NCHAR_CHARACTERSET       AL16UTF16
             
               
                 
-                <a class="post-title-link" href="/2016/08/02/proteus解决LED二极管不发光问题/" itemprop="url">
-                  proteus解决LED二极管不发光问题
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-08-02T21:18:52+08:00" content="2016-08-02">
-              2016-08-02
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><img src="http://img.blog.csdn.net/20150607130238443?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br>如上图，LED正接不亮，这种情况是LED和电阻之间没有导线连接造成的（一般元件之间必须要有导线连接，如果直接把元件拖到后面，看起来接上去了，其实是断开的）<br><img src="http://img.blog.csdn.net/20150607130353831?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br>拖动电阻，发现的确没有连接<br><img src="http://img.blog.csdn.net/20150607130443096?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br>连接后LED正常</p>
-<p>也许你会发现连线正常后LED依然不亮，这时你应该注意一下电阻值的设定<br><img src="http://img.blog.csdn.net/20150607130632281?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br>如上图，5k的阻值，LED不亮了<br><img src="http://img.blog.csdn.net/20150607130931719?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br>阻值设为2k时很暗，这说明阻值高了，一般我们设置为100或200</p>
-<p>最后，如果你发现连接正常并且电阻值很低时LED还是不亮，那很可能是你的LED接反了，注意图中的接法</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/02/oracle查看当前登陆的用户信息/" itemprop="url">
-                  oracle查看当前登陆的用户信息
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-08-02T21:18:52+08:00" content="2016-08-02">
-              2016-08-02
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>查看当前登陆的用户名：<br>select user from dual;<br>或者<br>select * from user_users;<br>或者<br>show user</p>
-<p>查看当前用户拥有的角色和权限：<br>select <em> from user_role_privs;<br>select </em> from session_privs;</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2016/08/02/Pythonwin7/" itemprop="url">
                   Python???????win7?
                 </a>
@@ -1566,6 +1228,310 @@ EMPLOYEE_ID FIRST_NAME           LAST_NAME                     SALARY
             
               
                 
+                <a class="post-title-link" href="/2016/08/02/proteus解决LED二极管不发光问题/" itemprop="url">
+                  proteus解决LED二极管不发光问题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-08-02T21:18:52+08:00" content="2016-08-02">
+              2016-08-02
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="http://img.blog.csdn.net/20150607130238443?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br>如上图，LED正接不亮，这种情况是LED和电阻之间没有导线连接造成的（一般元件之间必须要有导线连接，如果直接把元件拖到后面，看起来接上去了，其实是断开的）<br><img src="http://img.blog.csdn.net/20150607130353831?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br>拖动电阻，发现的确没有连接<br><img src="http://img.blog.csdn.net/20150607130443096?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br>连接后LED正常</p>
+<p>也许你会发现连线正常后LED依然不亮，这时你应该注意一下电阻值的设定<br><img src="http://img.blog.csdn.net/20150607130632281?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br>如上图，5k的阻值，LED不亮了<br><img src="http://img.blog.csdn.net/20150607130931719?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br>阻值设为2k时很暗，这说明阻值高了，一般我们设置为100或200</p>
+<p>最后，如果你发现连接正常并且电阻值很低时LED还是不亮，那很可能是你的LED接反了，注意图中的接法</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/02/oracle查看当前登陆的用户信息/" itemprop="url">
+                  oracle查看当前登陆的用户信息
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-08-02T21:18:52+08:00" content="2016-08-02">
+              2016-08-02
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>查看当前登陆的用户名：<br>select user from dual;<br>或者<br>select * from user_users;<br>或者<br>show user</p>
+<p>查看当前用户拥有的角色和权限：<br>select <em> from user_role_privs;<br>select </em> from session_privs;</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/02/Python编写带参数decorator/" itemprop="url">
+                  Python编写带参数decorator
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-08-02T21:18:52+08:00" content="2016-08-02">
+              2016-08-02
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p> @log 装饰器：<br>    def log(f):<br>        def fn(x):<br>            print ‘call ‘ + f.<strong>name</strong> + ‘()…’<br>            return f(x)<br>        return fn<br>对于被装饰的函数，log打印的语句是不能变的（除了函数名）。<br>如果有的函数非常重要，希望打印出’[INFO] call xxx()…’，有的函数不太重要，希望打印出’[DEBUG] call xxx()…’，这时，log函数本身就需要传入’INFO’或’DEBUG’这样的参数，类似这样：<br>    @log(‘DEBUG’)<br>    def my_func():<br>        pass<br>把上面的定义翻译成高阶函数的调用，就是：<br>    my_func = log(‘DEBUG’)(my_func)<br>上面的语句看上去还是比较绕，再展开一下：<br>    log_decorator = log(‘DEBUG’)<br>    my_func = log_decorator(my_func)<br>上面的语句又相当于：<br>    log_decorator = log(‘DEBUG’)<br>    @log_decorator<br>    def my_func():<br>        pass<br>所以，带参数的log函数首先返回一个decorator函数，再让这个decorator函数接收my_func并返回新函数：<br>    def log(prefix):<br>        def log_decorator(f):<br>            def wrapper(<em>args, **kw):<br>                print ‘[%s] %s()…’ % (prefix, f.<strong>name</strong>)<br>                return f(</em>args, **kw)<br>            return wrapper<br>        return log_decorator</p>
+<pre><code>@log(&apos;DEBUG&apos;)
+def test():
+    pass
+print test()
+</code></pre><p><strong>执行结果：</strong><br>    [DEBUG] test()…<br>    None<br>对于这种3层嵌套的decorator定义，你可以先把它拆开：</p>
+<pre><code># 标准decorator:def log_decorator(f):
+    def wrapper(*args, **kw):
+        print &apos;[%s] %s()...&apos; % (prefix, f.__name__)
+        return f(*args, **kw)
+    return wrapper
+return log_decorator# 返回decorator:def log(prefix):
+    return log_decorator(f)
+</code></pre><p>拆开以后会发现，调用会失败，因为在3层嵌套的decorator定义中，最内层的wrapper引用了最外层的参数prefix，所以，把一个闭包拆成普通的函数调用会比较困难。不支持闭包的编程语言要实现同样的功能就需要更多的代码。</p>
+<p>上一节的@performance只能打印秒，请给 @performace增加一个参数，允许传入’s’或’ms’：<br>    @performance(‘ms’)<br>    def factorial(n):<br>        return reduce(lambda x,y: x*y, range(1, n+1))</p>
+<p>要实现带参数的@performance，就需要实现：<br>my_func = performance(‘ms’)(my_func)<br>需要3层嵌套的decorator来实现。<br><strong>参考代码:</strong><br>    import time<br>    def performance(unit):<br>        def perf_decorator(f):<br>            def wrapper(<em>args, **kw):<br>                t1 = time.time()<br>                r = f(</em>args, <em>*kw)<br>                t2 = time.time()<br>                t = (t2 - t1) </em> 1000 if unit==’ms’ else (t2 - t1)<br>                print ‘call %s() in %f %s’ % (f.<strong>name</strong>, t, unit)<br>                return r<br>            return wrapper<br>        return perf_decorator</p>
+<pre><code>@performance(&apos;ms&apos;)
+def factorial(n):
+    return reduce(lambda x,y: x*y, range(1, n+1))
+print factorial(10)
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/02/oracle error 引号内的字符串没有正确结束/" itemprop="url">
                   oracle error 引号内的字符串没有正确结束
                 </a>
@@ -1686,7 +1652,7 @@ EMPLOYEE_ID FIRST_NAME           LAST_NAME                     SALARY
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">32</span>
+              <span class="site-state-item-count">31</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1694,7 +1660,7 @@ EMPLOYEE_ID FIRST_NAME           LAST_NAME                     SALARY
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -1703,7 +1669,7 @@ EMPLOYEE_ID FIRST_NAME           LAST_NAME                     SALARY
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

@@ -1,0 +1,637 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="mingw,交叉编译," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="#静态库和动态库的区别
+##1.静态库之所以称之为”静态库”，是因为在链接阶段，会将汇编生成的目标文件.o与引用到的库一起链接打包到可执行文件中。因此对应的链接方式称为静态链接。从本质上来说，一个静态库可以简单看成是一组目标文件(.o/.obj文件)的集合，静态库与汇编生成的目标文件(.o/.obj)一起链接为可执行文件。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CodeBlocks静态链接与动态链接设置">
+<meta property="og:url" content="http://HawkAaron.github.io/2015/05/30/CodeBlocks静态链接与动态链接设置/index.html">
+<meta property="og:site_name" content="HMK's blog">
+<meta property="og:description" content="#静态库和动态库的区别
+##1.静态库之所以称之为”静态库”，是因为在链接阶段，会将汇编生成的目标文件.o与引用到的库一起链接打包到可执行文件中。因此对应的链接方式称为静态链接。从本质上来说，一个静态库可以简单看成是一组目标文件(.o/.obj文件)的集合，静态库与汇编生成的目标文件(.o/.obj)一起链接为可执行文件。">
+<meta property="og:image" content="http://img.blog.csdn.net/20141002194726705">
+<meta property="og:updated_time" content="2016-08-03T11:56:08.270Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CodeBlocks静态链接与动态链接设置">
+<meta name="twitter:description" content="#静态库和动态库的区别
+##1.静态库之所以称之为”静态库”，是因为在链接阶段，会将汇编生成的目标文件.o与引用到的库一起链接打包到可执行文件中。因此对应的链接方式称为静态链接。从本质上来说，一个静态库可以简单看成是一组目标文件(.o/.obj文件)的集合，静态库与汇编生成的目标文件(.o/.obj)一起链接为可执行文件。">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20141002194726705">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://HawkAaron.github.io/2015/05/30/CodeBlocks静态链接与动态链接设置/"/>
+
+  <title> CodeBlocks静态链接与动态链接设置 | HMK's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">HMK's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Welcome!</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                CodeBlocks静态链接与动态链接设置
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-05-30T17:30:00+08:00" content="2015-05-30">
+              2015-05-30
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/DLL/" itemprop="url" rel="index">
+                    <span itemprop="name">DLL</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>#静态库和动态库的区别</p>
+<p>##1.静态库<br>之所以称之为”静态库”，是因为在链接阶段，会将汇编生成的目标文件.o与引用到的库一起链接打包到可执行文件中。因此对应的链接方式称为静态链接。<br>从本质上来说，一个静态库可以简单看成是一组目标文件(.o/.obj文件)的集合，静态库与汇编生成的目标文件(.o/.obj)一起链接为可执行文件。<a id="more"></a><br>静态库（后缀为.a/.lib）和.o文件格式相似。即很多目标文件经过压缩打包后形成的一个文件<br>静态库特点总结：</p>
+<pre><code>1. 静态库对函数库的链接是放在编译时期完成的
+2. 程序在运行时与函数库再无瓜葛，移植方便，因为代码已经嵌入到程序里面了，可以直接跟着程序走，不存在对外部文件的依赖
+3. 浪费空间和资源，因为所有相关的目标文件与牵涉到的函数库被链接合成一个可执行文件，会增加原本程序的空间
+</code></pre><p><strong>GCC编译、使用静态库</strong><br>静态库的后缀是.a(并没有强制规定)，它的产生分两步</p>
+<pre><code>1. 由源文件编译生成一堆.o，每个.o里都包含这个编译单元的符号表
+2. ar命令将很多.o转换成.a，成为静态库，从这点也可以看出来，库是很多.o文件的集合
+</code></pre><p>编译好静态库文件之后，我们就可以在其他程序中使用静态库文件中的函数了</p>
+<pre><code>1. 只需要在使用到这些公用函数的源程序中包含这些公用函数的原型声明(include对应的头文件)
+2. 然后在用gcc命令生成目标文件时指明静态库名
+3. gcc将会从静态库中将公用函数连接到目标文件中
+4. 注意，gcc会在静态库名前加上前缀lib，然后追加扩展名.a得到的静态库文件名来查找静态库文件,因此，我们在写需要连接的库时，只写名字就可以，如libhello.a的库，只写: -lhello
+</code></pre><p>##2.动态库</p>
+<p>动态库文件名命名规范和静态库文件名命名规范类似，也是在动态库名增加前缀lib，但其文件扩展名为.so（.dll）。例如：我们将创建的动态库名为myhello，则动态库文件名就是libmyhello.so。<br>使用库是重用代码的一种绝佳方式。 您不必在自己创建的每个程序中重新实现同一例程，而只需对这些例程写入一次，然后从需要该功能的应用程序引用它们即可。 通过将代码放入 DLL，您节省在引用它的每个应用程序的空间，而且，您可以更新 DLL，而无需重新编译所有应用程序。<br>动态链接库 (DLL) 是作为共享函数库的可执行文件。动态链接提供了一种方法，使进程可以调用不属于其可执行代码的函数。DLL 还有助于共享数据和资源。多个应用程序可同时访问内存中单个 DLL 副本的内容。<br>动态链接与静态链接的不同之处在于它允许可执行模块（.dll 文件或 .exe 文件）仅包含在运行时定位 DLL 函数的可执行代码所需的信息。在静态链接中，链接器从静态链接库获取所有被引用的函数，并将库同代码一起放到可执行文件中。<br>使用动态链接代替静态链接有若干优点。DLL 节省内存，减少交换操作，节省磁盘空间，更易于升级，提供售后支持，提供扩展 MFC 库类的机制，支持多语言程序，并使国际版本的创建轻松完成。<br><strong>DLL 的类型</strong><br>当您在应用程序中加载 DLL 时，可以使用两种链接方法来调用导出的 DLL 函数。这两种链接方法是加载时动态链接和运行时动态链接。<br>动态库一般会有对应的导入库，方便程序静态载入动态链接库，否则你可能就需要自己LoadLibary调入DLL文件，然后再手工GetProcAddress获得对应函数了。有了导入库，你只需要链接导入库后按照头文件函数接口的声明调用函数就可以了。<br><strong>加载时动态链接</strong>（load-time dynamic linking）<br>在加载时动态链接中，应用程序像调用本地函数一样对导出的 DLL 函数进行显式调用。要使用加载时动态链接，请在编译和链接应用程序时提供头文件 (.h) 和导入库文件 (.lib)。当您这样做时，链接器将向系统提供加载 DLL 所需的信息，并在加载时解析导出的 DLL 函数的位置。<br><strong>运行时动态链接</strong>（run-time dynamic linking）<br>在运行时动态链接中，应用程序调用 LoadLibrary 函数或 LoadLibraryEx 函数以在运行时加载 DLL。成功加载 DLL 后，可以使用 GetProcAddress 函数获得要调用的导出的 DLL 函数的地址。在使用运行时动态链接时，无需使用导入库文件。</p>
+<p>所谓静态、动态是指”链接”的过程存在区别:<br><img src="http://img.blog.csdn.net/20141002194726705" alt=""></p>
+<p>##3. DLL地狱<br>DLL地狱（DLL Hell）指在Microsoft Windows系统中，因为动态链接库（DLL）的版本或兼容性的问题而造成程序无法正常运行。<br>Windows早期并没有很严谨的DLL版本管理机制，以致经常发生安装了某软件后，因为其覆盖了系统上原有的同一个DLL文件，而导致原有可运行的程序无法运行。但还原回原有的DLL文件之后，所新安装的软件就无法运行。若覆盖到系统所使用的重要DLL时亦可能让系统容易死机甚至无法正常启动。<br>在CodeBlocks+GCC环境下，静态链接与动态链接设置如下：</p>
+<p>#静态链接</p>
+<p>##1.建立静态链接库<br>示例：<br>建立静态链接库工程，工程文件包括static.h和static.cpp，具体如下，然后编译工程，会生成一个libStaticLibrary.a文件。<br>libStaticLibrary.a是用于链接的，与其他文件一起编译生成一个exe执行文件。<br><strong>static.h</strong><br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> STATIC_H_INCLUDED  </span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> STATIC_H_INCLUDED  </span></div><div class="line">  </div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus  </span></div><div class="line"><span class="keyword">extern</span> <span class="string">"C"</span>  </div><div class="line">&#123;  </div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span>  </span></div><div class="line">  </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">SampleAddInt</span><span class="params">(<span class="keyword">int</span> i1, <span class="keyword">int</span> i2)</span></span>;  </div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">SampleFunction1</span><span class="params">()</span></span>;  </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">SampleFunction2</span><span class="params">()</span></span>;  </div><div class="line">  </div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus  </span></div><div class="line">&#125;  </div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span>  </span></div><div class="line">  </div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// STATIC_H_INCLUDED</span></span></div></pre></td></tr></table></figure></p>
+<p><strong>static.cpp</strong><br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"static.h"</span>  </span></div><div class="line">  </div><div class="line"><span class="comment">// A function adding two integers and returning the result  </span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">SampleAddInt</span><span class="params">(<span class="keyword">int</span> i1, <span class="keyword">int</span> i2)</span>  </span></div><div class="line">&#123;  </div><div class="line">    <span class="keyword">return</span> i1 + i2;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line"><span class="comment">// A function doing nothing ;)  </span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">SampleFunction1</span><span class="params">()</span>  </span></div><div class="line">&#123;  </div><div class="line">    <span class="comment">// insert code here  </span></div><div class="line">&#125;  </div><div class="line">  </div><div class="line"><span class="comment">// A function always returning zero  </span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">SampleFunction2</span><span class="params">()</span>  </span></div><div class="line">&#123;  </div><div class="line">    <span class="comment">// insert code here  </span></div><div class="line">  </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>##2.建立主工程</p>
+<p>建立Console application，将生成一个main.cpp示例文件，在最上方添加#include “static.h”语句，这样就可以调用静态链接库里的函数了。<br><strong>main.cpp</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span>  </span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"static.h"</span>  </span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;  </div><div class="line">  </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></div><div class="line">&#123;  </div><div class="line">    <span class="keyword">int</span> a=<span class="number">1</span>,b=<span class="number">2</span>;  </div><div class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"a + b = "</span>&lt;&lt;SampleAddInt(a,b)&lt;&lt; <span class="built_in">endl</span>;  </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>然后选择菜单栏Project-&gt;Build Options，弹出Project Build Options，选择工程名称。在Linker settings选项卡下添加libStaticLibrary.a的路径，即<strong>添加需要的库</strong>。在Search<br> directories选项卡下的Compiler子选项卡下添加static.h所在的目录路径，即写入项目的头文件目录。最后，点击编译即可。</p>
+<p>#动态链接</p>
+<p>##1.建立动态链接库<br>示例：<br>建立动态链接库工程，工程文件包括dynamic.h和dynamic.cpp，具体如下，然后编译工程，会生成一个libDynamicLibrary.a文件和DynamicLibrary.dll文件。<br>libDynamicLibrary.a是用于链接的，DynamicLibrary.dll用于与将要链接的exe执行文件一起工作。<br><strong>dynamic.h</strong><br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> __DYNAMIC_H__  </span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> __DYNAMIC_H__  </span></div><div class="line">  </div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;windows.h&gt;</span>  </span></div><div class="line">  </div><div class="line"><span class="comment">/*  To use this exported function of dll, include this header </span></div><div class="line"> *  in your project. </div><div class="line"> */  </div><div class="line">  </div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> BUILD_DLL  </span></div><div class="line">    <span class="meta">#<span class="meta-keyword">define</span> DLL_EXPORT __declspec(dllexport)  </span></div><div class="line"><span class="meta">#<span class="meta-keyword">else</span>  </span></div><div class="line">    <span class="meta">#<span class="meta-keyword">define</span> DLL_EXPORT __declspec(dllimport)  </span></div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span>  </span></div><div class="line">  </div><div class="line">  </div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus  </span></div><div class="line"><span class="keyword">extern</span> <span class="string">"C"</span>  </div><div class="line">&#123;  </div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span>  </span></div><div class="line">  </div><div class="line"><span class="function"><span class="keyword">void</span> DLL_EXPORT <span class="title">SomeFunction</span><span class="params">(<span class="keyword">const</span> LPCSTR sometext)</span></span>;  </div><div class="line">  </div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus  </span></div><div class="line">&#125;  </div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span>  </span></div><div class="line">  </div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// __DYNAMIC__</span></span></div></pre></td></tr></table></figure></p>
+<p><strong>dynamic.cpp</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"dynamic.h"</span>  </span></div><div class="line">  </div><div class="line"><span class="comment">// a sample exported function  </span></div><div class="line"><span class="function"><span class="keyword">void</span> DLL_EXPORT <span class="title">SomeFunction</span><span class="params">(<span class="keyword">const</span> LPCSTR sometext)</span>  </span></div><div class="line">&#123;  </div><div class="line">    MessageBoxA(<span class="number">0</span>, sometext, <span class="string">"DLL Message"</span>, MB_OK | MB_ICONINFORMATION);  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line"><span class="keyword">extern</span> <span class="string">"C"</span> <span class="function">DLL_EXPORT BOOL APIENTRY <span class="title">DllMain</span><span class="params">(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved)</span>  </span></div><div class="line">&#123;  </div><div class="line">    <span class="keyword">switch</span> (fdwReason)  </div><div class="line">    &#123;  </div><div class="line">        <span class="keyword">case</span> DLL_PROCESS_ATTACH:  </div><div class="line">            <span class="comment">// attach to process  </span></div><div class="line">            <span class="comment">// return FALSE to fail DLL load  </span></div><div class="line">            <span class="keyword">break</span>;  </div><div class="line">  </div><div class="line">        <span class="keyword">case</span> DLL_PROCESS_DETACH:  </div><div class="line">            <span class="comment">// detach from process  </span></div><div class="line">            <span class="keyword">break</span>;  </div><div class="line">  </div><div class="line">        <span class="keyword">case</span> DLL_THREAD_ATTACH:  </div><div class="line">            <span class="comment">// attach to thread  </span></div><div class="line">            <span class="keyword">break</span>;  </div><div class="line">  </div><div class="line">        <span class="keyword">case</span> DLL_THREAD_DETACH:  </div><div class="line">            <span class="comment">// detach from thread  </span></div><div class="line">            <span class="keyword">break</span>;  </div><div class="line">    &#125;  </div><div class="line">    <span class="keyword">return</span> TRUE; <span class="comment">// succesful  </span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>##2.建立主工程<br>建立win32 GUI project，将生成一个main.cpp示例文件，在最上方添加include “dynamic.h”语句，这样就可以调用动态链接库里的函数了。<br><strong>main.cpp</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;windows.h&gt;</span>  </span></div><div class="line">  </div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"dynamic.h"</span>  </span></div><div class="line">  </div><div class="line"><span class="comment">/*  Declare Windows procedure  */</span>  </div><div class="line"><span class="function">LRESULT CALLBACK <span class="title">WindowProcedure</span> <span class="params">(HWND, UINT, WPARAM, LPARAM)</span></span>;  </div><div class="line">  </div><div class="line"><span class="comment">/*  Make the class name into a global variable  */</span>  </div><div class="line"><span class="keyword">char</span> szClassName[ ] = <span class="string">"CodeBlocksWindowsApp"</span>;  </div><div class="line">  </div><div class="line"><span class="function"><span class="keyword">int</span> WINAPI <span class="title">WinMain</span> <span class="params">(HINSTANCE hThisInstance,  </span></span></div><div class="line">                     HINSTANCE hPrevInstance,  </div><div class="line">                     LPSTR lpszArgument,  </div><div class="line">                     <span class="keyword">int</span> nCmdShow)  </div><div class="line">&#123;  </div><div class="line">    HWND hwnd;               <span class="comment">/* This is the handle for our window */</span>  </div><div class="line">    MSG messages;            <span class="comment">/* Here messages to the application are saved */</span>  </div><div class="line">    WNDCLASSEX wincl;        <span class="comment">/* Data structure for the windowclass */</span>  </div><div class="line">  </div><div class="line">    <span class="comment">/* The Window structure */</span>  </div><div class="line">    wincl.hInstance = hThisInstance;  </div><div class="line">    wincl.lpszClassName = szClassName;  </div><div class="line">    wincl.lpfnWndProc = WindowProcedure;      <span class="comment">/* This function is called by windows */</span>  </div><div class="line">    wincl.style = CS_DBLCLKS;                 <span class="comment">/* Catch double-clicks */</span>  </div><div class="line">    wincl.cbSize = <span class="keyword">sizeof</span> (WNDCLASSEX);  </div><div class="line">  </div><div class="line">    <span class="comment">/* Use default icon and mouse-pointer */</span>  </div><div class="line">    wincl.hIcon = LoadIcon (<span class="literal">NULL</span>, IDI_APPLICATION);  </div><div class="line">    wincl.hIconSm = LoadIcon (<span class="literal">NULL</span>, IDI_APPLICATION);  </div><div class="line">    wincl.hCursor = LoadCursor (<span class="literal">NULL</span>, IDC_ARROW);  </div><div class="line">    wincl.lpszMenuName = <span class="literal">NULL</span>;                 <span class="comment">/* No menu */</span>  </div><div class="line">    wincl.cbClsExtra = <span class="number">0</span>;                      <span class="comment">/* No extra bytes after the window class */</span>  </div><div class="line">    wincl.cbWndExtra = <span class="number">0</span>;                      <span class="comment">/* structure or the window instance */</span>  </div><div class="line">    <span class="comment">/* Use Windows's default colour as the background of the window */</span>  </div><div class="line">    wincl.hbrBackground = (HBRUSH) COLOR_BACKGROUND;  </div><div class="line">  </div><div class="line">    <span class="comment">/* Register the window class, and if it fails quit the program */</span>  </div><div class="line">    <span class="keyword">if</span> (!RegisterClassEx (&amp;wincl))  </div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">  </div><div class="line">    <span class="comment">/* The class is registered, let's create the program*/</span>  </div><div class="line">    hwnd = CreateWindowEx (  </div><div class="line">           <span class="number">0</span>,                   <span class="comment">/* Extended possibilites for variation */</span>  </div><div class="line">           szClassName,         <span class="comment">/* Classname */</span>  </div><div class="line">           <span class="string">"Code::Blocks Template Windows App"</span>,       <span class="comment">/* Title Text */</span>  </div><div class="line">           WS_OVERLAPPEDWINDOW, <span class="comment">/* default window */</span>  </div><div class="line">           CW_USEDEFAULT,       <span class="comment">/* Windows decides the position */</span>  </div><div class="line">           CW_USEDEFAULT,       <span class="comment">/* where the window ends up on the screen */</span>  </div><div class="line">           <span class="number">544</span>,                 <span class="comment">/* The programs width */</span>  </div><div class="line">           <span class="number">375</span>,                 <span class="comment">/* and height in pixels */</span>  </div><div class="line">           HWND_DESKTOP,        <span class="comment">/* The window is a child-window to desktop */</span>  </div><div class="line">           <span class="literal">NULL</span>,                <span class="comment">/* No menu */</span>  </div><div class="line">           hThisInstance,       <span class="comment">/* Program Instance handler */</span>  </div><div class="line">           <span class="literal">NULL</span>                 <span class="comment">/* No Window Creation data */</span>  </div><div class="line">           );  </div><div class="line">  </div><div class="line">    <span class="comment">/* Make the window visible on the screen */</span>  </div><div class="line">    ShowWindow (hwnd, nCmdShow);  </div><div class="line">  </div><div class="line">    SomeFunction(<span class="string">"Dynamic Tester"</span>);  </div><div class="line">  </div><div class="line">    <span class="comment">/* Run the message loop. It will run until GetMessage() returns 0 */</span>  </div><div class="line">    <span class="keyword">while</span> (GetMessage (&amp;messages, <span class="literal">NULL</span>, <span class="number">0</span>, <span class="number">0</span>))  </div><div class="line">    &#123;  </div><div class="line">        <span class="comment">/* Translate virtual-key messages into character messages */</span>  </div><div class="line">        TranslateMessage(&amp;messages);  </div><div class="line">        <span class="comment">/* Send message to WindowProcedure */</span>  </div><div class="line">        DispatchMessage(&amp;messages);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    <span class="comment">/* The program return-value is 0 - The value that PostQuitMessage() gave */</span>  </div><div class="line">    <span class="keyword">return</span> messages.wParam;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line">  </div><div class="line"><span class="comment">/*  This function is called by the Windows function DispatchMessage()  */</span>  </div><div class="line">  </div><div class="line"><span class="function">LRESULT CALLBACK <span class="title">WindowProcedure</span> <span class="params">(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)</span>  </span></div><div class="line">&#123;  </div><div class="line">    <span class="keyword">switch</span> (message)                  <span class="comment">/* handle the messages */</span>  </div><div class="line">    &#123;  </div><div class="line">        <span class="keyword">case</span> WM_DESTROY:  </div><div class="line">            PostQuitMessage (<span class="number">0</span>);       <span class="comment">/* send a WM_QUIT to the message queue */</span>  </div><div class="line">            <span class="keyword">break</span>;  </div><div class="line">        <span class="keyword">default</span>:                      <span class="comment">/* for messages that we don't deal with */</span>  </div><div class="line">            <span class="keyword">return</span> DefWindowProc (hwnd, message, wParam, lParam);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>然后选择菜单栏Project-&gt;Build Options，弹出Project Build Options，选择工程名称。在Linker settings选项卡下添加libDynamicLibrary.a的路径，即<strong>添加需要的库</strong>。在Search directories选项卡下的Compiler子选项卡下添加dynamic.h所在的目录路径，即<strong>写入项目的头文件目</strong>录；在Linker子选项卡下添加libDynamicLibrary.a所在的目录路径，即<strong>写入库文件目录</strong>。最后，点击编译即可。<br>需要注意的是，以后单独运行编译后的exe执行文件时，需要将dll文件（此处为DynamicLibrary.dll）放在同一目录下，不然运行时可能会崩溃。</p>
+<p>参考：<br>codeblocks 配置编译器 1配置编译器的path, include, lib <a href="http://www.verydemo.com/demo_c167_i5481.html" target="_blank" rel="external">http://www.verydemo.com/demo_c167_i5481.html</a><br>C/C++ 跨平台交叉编译、静态库/动态库编译、MinGW、Cygwin、CodeBlocks使用原理及链接参数选项 <a href="http://www.cnblogs.com/LittleHann/p/3980364.html" target="_blank" rel="external">http://www.cnblogs.com/LittleHann/p/3980364.html</a><br>什么是DLL? <a href="http://support2.microsoft.com/kb/815065/zh-cn" target="_blank" rel="external">http://support2.microsoft.com/kb/815065/zh-cn</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/mingw/" rel="tag">#mingw</a>
+          
+            <a href="/tags/交叉编译/" rel="tag">#交叉编译</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/05/18/CCpp跨平台交叉编译-静态库动态库编译-MinGW-Cygwin-CodeBlocks使用原理及链接参数选项/" rel="next" title="C/C++ 跨平台交叉编译、静态库/动态库编译、MinGW、Cygwin、CodeBlocks使用原理及链接参数选项">
+                <i class="fa fa-chevron-left"></i> C/C++ 跨平台交叉编译、静态库/动态库编译、MinGW、Cygwin、CodeBlocks使用原理及链接参数选项
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/06/02/Git Windows客户端保存用户名与密码的问题/" rel="prev" title="终于解决“Git Windows客户端保存用户名与密码”的问题">
+                终于解决“Git Windows客户端保存用户名与密码”的问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="HMK" />
+          <p class="site-author-name" itemprop="name">HMK</p>
+          <p class="site-description motion-element" itemprop="description">学习经验 & 理论知识</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">31</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">HMK</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

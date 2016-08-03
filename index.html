@@ -535,6 +535,141 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/02/汇编语言入门：debug调试工具/" itemprop="url">
+                  汇编语言入门：debug调试工具
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-08-02T21:18:52+08:00" content="2016-08-02">
+              2016-08-02
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>对于大学生来说，基本都需要学习高级编程语言，相信大多数理工类大学生都知道c++、c语言、Java语言等高级语言，也知道机器语言这个最低级的语言，但是却有很多都不知道汇编语言，或许听过这个名字，却不知道用途等。现在我就来给大家讲解一下汇编语言以及入门。我也是刚学习汇编语言，大家可以跟着我一起学习。汇编语言与高级语言不同，它是面向机器的语言，最接近于机器语言。学习汇编语言，必须要了解计算机中机器指令、数据、符合的表示形式和存储格式以及机器指令程序的运行方式等。汇编语言的实践性很强，必须要边学习边动手才可能掌握，需要耐心和细心。初学者一般需要用到debug小工具进行程序调试，现在我就来给大家演示一下debug调试工具的使用以及debug命令符。</p>
+<p>##<a href=""></a>工具/原料</p>
+<ul>
+<li><p>电脑</p>
+</li>
+<li><p>安装有debug小工具的系统（一般32位的windows系统自带有，64位的需要自己安装）</p>
+</li>
+<li><p><img src="http://img.blog.csdn.net/20150803144631191?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+</li>
+<li><p>若直接输入debug打开，工作界面与输入cmd打开有所不同，建议还是通过cmd打开debug。</p>
+</li>
+<li><p>打开cmd程序后，输入debug，大小写均一样，习惯用大写，为方便操作，后续的操作我一律使用小写。输入之后按回车，会出现下图所示的工作框。</p>
+</li>
+</ul>
+<ul>
+<li><img src="http://img.blog.csdn.net/20150803145028837?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></li>
+</ul>
+<ul>
+<li>在debug窗口就可以进行汇编语句的编写和调试了。先在窗口输入A，然后回车，系统自动分配到内存，如本图所示，其中073F是寄存器的段基址，冒号后面的0100是偏移地址，对应的物理地址是74F00，即程序在此地址下开始存储。然后输入汇编语句，举一个简单的例子，将数据2341H送入寄存器ax和cx中。记住输入的数据在汇编是已经默认是十六进制，不需要在加h，否则会显示错误。</li>
+</ul>
+<ul>
+<li><img src="http://img.blog.csdn.net/20150803145303234?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></li>
+</ul>
+<ul>
+<li>再举另一个例子，将21h和23h两个数相加，结果存放到al中。并通过命令符t一步一步执行，看结果。每输入一个t，按回车后即完成一条指令，第一条指令是将21h送入到ax寄存器的低位al中，看到ax的值变成了0021；第二步执行的是将21h与23h相加，并将结果存放到al中，所执行之后看到ax的值由0021变成了0044<br>。注意到两条指令执行后，IP的值发生了改变，即地址指针发生了改变。NV、UP、EI、PL、NZ、NA、PO、NC代表的是标志寄存器的状态位，在此不做进一步介绍，查阅相关书籍都会有详细的介绍。</li>
+</ul>
+<ul>
+<li><img src="http://img.blog.csdn.net/20150803145626367?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></li>
+</ul>
+<ul>
+<li><p>现在来给大家介绍一下常用的几个命令符。a：逐行汇编；u：反汇编；t：逐行执行命令；d：显示一定内存单元内容，再次输入将在原显示内容上继续显示下面内存的内容；q：退出debug回到dos状态；r：改变或显示一个或多个寄存器的内容；n：命名文件；w：将已命名文件写入磁盘；l：将程序装载进内存。<br>暂时介绍这些常用的几个。有需要的读者可以去网上收索更详细的命令符。<br>下面给大家演示一个简单的例子，并使用这些命令符。<br>存盘后要想查看已存内容，可以先用q退出，然后输入dir回车，即可看到文件下的所以目录。可以看到自己命名的文件<br><img src="http://img.blog.csdn.net/20150803145740537?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+</li>
+<li><p>##注意事项</p>
+</li>
+<li><p>要想学好汇编，必须边看资料边操作，不可急功近利，不然很难学会的。</p>
+</li>
+<li><p>汇编命令符是需要记住的，在程序调试中经常需要用到。多动手才能方便记忆和理解。</p>
+</li>
+</ul>
+<ul>
+<li></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/02/汇编学习笔记--查看CPU和内存/" itemprop="url">
                   汇编学习笔记--查看CPU和内存
                 </a>
@@ -733,6 +868,212 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/02/win7 64位如何调出debug/" itemprop="url">
+                  win7 64位如何调出debug
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-08-02T21:18:52+08:00" content="2016-08-02">
+              2016-08-02
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>win7 64位没有debug功能，接下来介绍如何使win7可以使用该功能</p>
+<p>##工具/原料</p>
+<ul>
+<li><p>dos模拟器即DOSBOX 下载地址： <a href="http://www.dosbox.com/download.php?main=1" target="_blank" rel="external">http://www.dosbox.com/download.php?main=1</a> </p>
+</li>
+<li><p>debug32.exe 下载地址：<a href="http://download.csdn.net/detail/qq_20480611/8715889" target="_blank" rel="external">http://download.csdn.net/detail/qq_20480611/8715889</a></p>
+</li>
+</ul>
+<p>##<a href=""></a>方法/步骤</p>
+<ol>
+<li>下载一个dosbox和win7 32位debug.exe,安装dosbox,打开后页面如下<br><a href="http://jingyan.baidu.com/album/86f4a73e58413137d7526970.html?picindex=1" target="_blank" rel="external"><img src="http://b.hiphotos.baidu.com/exp/w=500/sign=5076309eb33533faf5b6932e98d2fdca/0ff41bd5ad6eddc418740d6b3bdbb6fd5366338a.jpg" alt="win7 64位如何调出debug"></a></li>
+<li>将debug.exe放入磁盘根目录，这里以D盘为例。在dosbox中输入mount c d:\按回车，出现下图<br><a href="http://jingyan.baidu.com/album/86f4a73e58413137d7526970.html?picindex=2" target="_blank" rel="external"><img src="http://b.hiphotos.baidu.com/exp/w=500/sign=b8395459d52a60595210e11a1835342d/4a36acaf2edda3cc95ef00b003e93901213f9213.jpg" alt="win7 64位如何调出debug"></a></li>
+<li>输入c:回车<br><a href="http://jingyan.baidu.com/album/86f4a73e58413137d7526970.html?picindex=3" target="_blank" rel="external"><img src="http://a.hiphotos.baidu.com/exp/w=500/sign=bba4c262d762853592e0d221a0ed76f2/18d8bc3eb13533faa27f2bbeaad3fd1f40345b50.jpg" alt="win7 64位如何调出debug"></a></li>
+<li>输入debug回车<br><a href="http://jingyan.baidu.com/album/86f4a73e58413137d7526970.html?picindex=4" target="_blank" rel="external"><img src="http://h.hiphotos.baidu.com/exp/w=500/sign=a31f194ef21f3a295ac8d5cea924bce3/c8177f3e6709c93d5f84b6679d3df8dcd100542f.jpg" alt="win7 64位如何调出debug"></a></li>
+<li>输入p回车<br><a href="http://jingyan.baidu.com/album/86f4a73e58413137d7526970.html?picindex=5" target="_blank" rel="external"><img src="http://c.hiphotos.baidu.com/exp/w=500/sign=1fae6e5e9b25bc312b5d01986ede8de7/71cf3bc79f3df8dce35b3401cf11728b4710283f.jpg" alt="win7 64位如何调出debug"></a></li>
+<li>输入a回车<br><a href="http://jingyan.baidu.com/album/86f4a73e58413137d7526970.html?picindex=6" target="_blank" rel="external"><img src="http://f.hiphotos.baidu.com/exp/w=500/sign=de0b392f8e5494ee87220f191df4e0e1/d0c8a786c9177f3e4adc449d72cf3bc79e3d56b1.jpg" alt="win7 64位如何调出debug"></a></li>
+<li>7最后就可以自己敲代码了</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/02/Win7旗舰版不能将大于4G的文件拷贝到U盘怎么办？/" itemprop="url">
+                  Win7旗舰版不能将大于4G的文件拷贝到U盘怎么办？
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-08-02T21:18:52+08:00" content="2016-08-02">
+              2016-08-02
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>相信许多Win7用户在拷贝文件到U盘中的时候，都遇到过这样一个问题，那就是无法将超过4G的文件拷贝到U盘中，这个问题该怎么解决呢？今天小编就和大家一起来看看这个问题的解决方法吧。</p>
+<p><strong>设置方法：</strong><br>　　1、首先将需要转换的U盘插入到计算机电脑之中；<br>　　2、随后在开始菜单栏中找到运行选项，键入CMD指令后出现；<br>　　3、键入CONVERT X： /FS:NTFS，其中X代表的是你U盘目前所代表的盘符，按下回车；<br>　　4、直到显示转换完成之后就可以发现我们的U盘已经自然而然的转换为NTFS的文化系统了，各种原来存放在U盘里的文件都还完好无损的保存着。<br>　　以上就是Win7系统无法将超过4G的文件拷贝到U盘中的解决方法，正在为这个问题所烦恼的用户们，赶紧在自己的电脑上进行设置吧。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/02/谷歌浏览器安装QQ旋风插件/" itemprop="url">
                   谷歌浏览器安装QQ旋风插件
                 </a>
@@ -876,218 +1217,6 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/02/win7 64位如何调出debug/" itemprop="url">
-                  win7 64位如何调出debug
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-08-02T21:18:52+08:00" content="2016-08-02">
-              2016-08-02
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>win7 64位没有debug功能，接下来介绍如何使win7可以使用该功能</p>
-<p>##工具/原料</p>
-<ul>
-<li><p>dos模拟器即DOSBOX 下载地址： <a href="http://www.dosbox.com/download.php?main=1" target="_blank" rel="external">http://www.dosbox.com/download.php?main=1</a> </p>
-</li>
-<li><p>debug32.exe 下载地址：<a href="http://download.csdn.net/detail/qq_20480611/8715889" target="_blank" rel="external">http://download.csdn.net/detail/qq_20480611/8715889</a></p>
-</li>
-</ul>
-<p>##<a href=""></a>方法/步骤</p>
-<ol>
-<li>下载一个dosbox和win7 32位debug.exe,安装dosbox,打开后页面如下<br><a href="http://jingyan.baidu.com/album/86f4a73e58413137d7526970.html?picindex=1" target="_blank" rel="external"><img src="http://b.hiphotos.baidu.com/exp/w=500/sign=5076309eb33533faf5b6932e98d2fdca/0ff41bd5ad6eddc418740d6b3bdbb6fd5366338a.jpg" alt="win7 64位如何调出debug"></a></li>
-<li>将debug.exe放入磁盘根目录，这里以D盘为例。在dosbox中输入mount c d:\按回车，出现下图<br><a href="http://jingyan.baidu.com/album/86f4a73e58413137d7526970.html?picindex=2" target="_blank" rel="external"><img src="http://b.hiphotos.baidu.com/exp/w=500/sign=b8395459d52a60595210e11a1835342d/4a36acaf2edda3cc95ef00b003e93901213f9213.jpg" alt="win7 64位如何调出debug"></a></li>
-<li>输入c:回车<br><a href="http://jingyan.baidu.com/album/86f4a73e58413137d7526970.html?picindex=3" target="_blank" rel="external"><img src="http://a.hiphotos.baidu.com/exp/w=500/sign=bba4c262d762853592e0d221a0ed76f2/18d8bc3eb13533faa27f2bbeaad3fd1f40345b50.jpg" alt="win7 64位如何调出debug"></a></li>
-<li>输入debug回车<br><a href="http://jingyan.baidu.com/album/86f4a73e58413137d7526970.html?picindex=4" target="_blank" rel="external"><img src="http://h.hiphotos.baidu.com/exp/w=500/sign=a31f194ef21f3a295ac8d5cea924bce3/c8177f3e6709c93d5f84b6679d3df8dcd100542f.jpg" alt="win7 64位如何调出debug"></a></li>
-<li>输入p回车<br><a href="http://jingyan.baidu.com/album/86f4a73e58413137d7526970.html?picindex=5" target="_blank" rel="external"><img src="http://c.hiphotos.baidu.com/exp/w=500/sign=1fae6e5e9b25bc312b5d01986ede8de7/71cf3bc79f3df8dce35b3401cf11728b4710283f.jpg" alt="win7 64位如何调出debug"></a></li>
-<li>输入a回车<br><a href="http://jingyan.baidu.com/album/86f4a73e58413137d7526970.html?picindex=6" target="_blank" rel="external"><img src="http://f.hiphotos.baidu.com/exp/w=500/sign=de0b392f8e5494ee87220f191df4e0e1/d0c8a786c9177f3e4adc449d72cf3bc79e3d56b1.jpg" alt="win7 64位如何调出debug"></a></li>
-<li>7最后就可以自己敲代码了</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/02/端口占用/" itemprop="url">
-                  端口占用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-08-02T21:18:52+08:00" content="2016-08-02">
-              2016-08-02
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>开始–运行–cmd 进入命令提示符 输入netstat -ano 即可看到所有连接的PID 之后在任务管理器中找到这个PID所对应的程序如果任务管理器中<strong>没有PID</strong>这一项,可以在任务管理器中选”查看”-“选择列” </p>
-<pre><code>经常，我们在启动应用的时候发现系统需要的端口被别的程序占用，如何知道谁占有了我们需要的端口，很多人都比较头疼，下面就介绍一种非常简单的方法，希望对大家有用 
-</code></pre><p>假如我们需要确定谁占用了我们的9050端口 </p>
-<p>1、Windows平台<br>在windows命令行窗口下执行：<br>1.查看所有的端口占用情况<br>C:><strong>netstat -ano</strong><br>  协议    本地地址                     外部地址               状态                   PID<br>  TCP    127.0.0.1:1434         0.0.0.0:0              LISTENING       3236<br>  TCP    127.0.0.1:5679         0.0.0.0:0              LISTENING       4168<br>  TCP    127.0.0.1:7438         0.0.0.0:0              LISTENING       4168<br>  TCP    127.0.0.1:8015         0.0.0.0:0              LISTENING       1456<br>  TCP    192.168.3.230:139      0.0.0.0:0              LISTENING       4<br>  TCP    192.168.3.230:1957     220.181.31.225:443     ESTABLISHED     3068<br>  TCP    192.168.3.230:2020     183.62.96.189:1522     ESTABLISHED     1456<br>  TCP    192.168.3.230:2927     117.79.91.18:80        ESTABLISHED     4732<br>  TCP    192.168.3.230:2929     117.79.91.18:80        ESTABLISHED     4732<br>  TCP    192.168.3.230:2930     117.79.91.18:80        ESTABLISHED     4732<br>  TCP    192.168.3.230:2931     117.79.91.18:80        ESTABLISHED     4732</p>
-<p>2.查看指定端口的占用情况<br>C:><strong>netstat -aon|findstr “9050”</strong><br>  协议    本地地址                     外部地址               状态                   PID<br>  TCP    127.0.0.1:9050         0.0.0.0:0              LISTENING       2016<br>P: 看到了吗，端口被进程号为2016的进程占用，继续执行下面命令： （也可以去任务管理器中查看pid对应的进程）<br>3.查看PID对应的进程<br>C:><strong>tasklist|findstr “2016”</strong><br> 映像名称                       PID 会话名              会话#       内存使用<br> ========================= ======== ================<br>  tor.exe                     2016 Console                 0     16,064 K </p>
-<p>P:很清楚吧，tor占用了你的端口。</p>
-<p>4.结束该进程<br>C:><strong>taskkill /f /t /im tor.exe</strong></p>
-<p>其他不懂的用 help吧~</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2016/08/02/Windows常用快捷命令/" itemprop="url">
                   Windows常用快捷命令
                 </a>
@@ -1161,101 +1290,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/02/Win7旗舰版不能将大于4G的文件拷贝到U盘怎么办？/" itemprop="url">
-                  Win7旗舰版不能将大于4G的文件拷贝到U盘怎么办？
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-08-02T21:18:52+08:00" content="2016-08-02">
-              2016-08-02
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>相信许多Win7用户在拷贝文件到U盘中的时候，都遇到过这样一个问题，那就是无法将超过4G的文件拷贝到U盘中，这个问题该怎么解决呢？今天小编就和大家一起来看看这个问题的解决方法吧。</p>
-<p><strong>设置方法：</strong><br>　　1、首先将需要转换的U盘插入到计算机电脑之中；<br>　　2、随后在开始菜单栏中找到运行选项，键入CMD指令后出现；<br>　　3、键入CONVERT X： /FS:NTFS，其中X代表的是你U盘目前所代表的盘符，按下回车；<br>　　4、直到显示转换完成之后就可以发现我们的U盘已经自然而然的转换为NTFS的文化系统了，各种原来存放在U盘里的文件都还完好无损的保存着。<br>　　以上就是Win7系统无法将超过4G的文件拷贝到U盘中的解决方法，正在为这个问题所烦恼的用户们，赶紧在自己的电脑上进行设置吧。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1301,7 +1335,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">32</span>
+              <span class="site-state-item-count">31</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1309,7 +1343,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -1318,7 +1352,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
