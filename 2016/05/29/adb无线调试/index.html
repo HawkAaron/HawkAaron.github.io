@@ -314,22 +314,21 @@
 
       
         <p>Android开发会用到 adb，调试用的设备一般会选择模拟器，但不管怎么说没有真机流畅，而且有些场景还必须得用真机。问题是真机调试还得用数据线，连上电脑后各种弹框下载简直受不了。这里介绍一下如何通过WiFi无线调试：<br><a id="more"></a></p>
-<p>##<strong>0x00 前期准备</strong></p>
-<ol>
+<h2 id="0x00-前期准备"><a href="#0x00-前期准备" class="headerlink" title="0x00 前期准备"></a><strong>0x00 前期准备</strong></h2><ol>
 <li>无线调试的前提是终端设备在同一局域网（能相互ping通即可），这里我们在 PC 创建一个免费WiFi，手机连上。</li>
 <li>手机需要root权限，以便于后面进行相关设置（目前各大厂商都有自己的权限管理中心，没有的可以刷开发版ROM或者用第三方root软件）。</li>
 <li>安装<a href="https://www.baidu.com/s?wd=Android%20Terminal%20Emulator" target="_blank" rel="external">Android终端模拟器</a>。</li>
 </ol>
-<p>##<strong>0x01 终端配置</strong><br>打开终端模拟器，依次输入以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ su</div><div class="line"># stop adbd</div><div class="line"># setprop service.adb.tcp.port 5555</div><div class="line"># start adbd</div></pre></td></tr></table></figure></p>
+<h2 id="0x01-终端配置"><a href="#0x01-终端配置" class="headerlink" title="0x01 终端配置"></a><strong>0x01 终端配置</strong></h2><p>打开终端模拟器，依次输入以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ su</div><div class="line"># stop adbd</div><div class="line"># setprop service.adb.tcp.port 5555</div><div class="line"># start adbd</div></pre></td></tr></table></figure></p>
 <p><img src="http://img.blog.csdn.net/20160529171056030" alt="adbd"></p>
 <p>注意<code>setprop service.adb.tcp.port 5555</code> 把adbd的监听端口号设置为默认的5555，可以换成其它的。</p>
-<p>##<strong>0x02 连接终端</strong><br>首先需要获取手机的IP地址：<br>在终端模拟器中输入<code>ip addr</code> ：<br><img src="http://img.blog.csdn.net/20160529171712017" alt="ip addr"><br>可以看到下面 wlan0 的ip是 192.168.191.4<br>在CMD下输入以下命令：<br><code>adb connect 192.168.191.4</code><br>如果手机adbd的监听端口不是默认的5555，则输入以下命令：<br><code>adb connect 192.168.191.4:6666</code>（这里以6666为例）</p>
+<h2 id="0x02-连接终端"><a href="#0x02-连接终端" class="headerlink" title="0x02 连接终端"></a><strong>0x02 连接终端</strong></h2><p>首先需要获取手机的IP地址：<br>在终端模拟器中输入<code>ip addr</code> ：<br><img src="http://img.blog.csdn.net/20160529171712017" alt="ip addr"><br>可以看到下面 wlan0 的ip是 192.168.191.4<br>在CMD下输入以下命令：<br><code>adb connect 192.168.191.4</code><br>如果手机adbd的监听端口不是默认的5555，则输入以下命令：<br><code>adb connect 192.168.191.4:6666</code>（这里以6666为例）</p>
 <p><img src="http://img.blog.csdn.net/20160529171921591" alt="adb devices"></p>
 <p>可见已成功连接。</p>
-<p>##<strong>0x03 调试运行</strong><br>这里简单的创建一个Android工程：<br><img src="http://img.blog.csdn.net/20160529172826384" alt="android"><br>注意此时 DDMS 中可以看见设备：<br><img src="http://img.blog.csdn.net/20160529172919073" alt="ddms"><br>可见我已经换了监听端口。</p>
+<h2 id="0x03-调试运行"><a href="#0x03-调试运行" class="headerlink" title="0x03 调试运行"></a><strong>0x03 调试运行</strong></h2><p>这里简单的创建一个Android工程：<br><img src="http://img.blog.csdn.net/20160529172826384" alt="android"><br>注意此时 DDMS 中可以看见设备：<br><img src="http://img.blog.csdn.net/20160529172919073" alt="ddms"><br>可见我已经换了监听端口。</p>
 <p>点击直接运行工程进入设备选择界面：<br><img src="http://img.blog.csdn.net/20160529173258867" alt="android device chooser"></p>
 <p>选中后确定，很快地在手机中运行了：<br><img src="http://img.blog.csdn.net/20160529173457784" alt="hello world"></p>
-<p>##<strong>0x04 步骤总结</strong><br>1.进入android模拟终端，依次输入以下命令：<br><code>su</code> : 获取root权限（必须）<br><code>setprop service.adb.tcp.port 5555</code> ：设置adb监听端口（只用设置一次）<br><code>stop adbd</code> ：首先关闭 adbd<br><code>start adbd</code> ：然后开启 adbd<br><code>ip addr</code> ：获取手机IP，wlan0对应的IP</p>
+<h2 id="0x04-步骤总结"><a href="#0x04-步骤总结" class="headerlink" title="0x04 步骤总结"></a><strong>0x04 步骤总结</strong></h2><p>1.进入android模拟终端，依次输入以下命令：<br><code>su</code> : 获取root权限（必须）<br><code>setprop service.adb.tcp.port 5555</code> ：设置adb监听端口（只用设置一次）<br><code>stop adbd</code> ：首先关闭 adbd<br><code>start adbd</code> ：然后开启 adbd<br><code>ip addr</code> ：获取手机IP，wlan0对应的IP</p>
 <p>2.CMD下adb连接手机：<br><code>adb connect IP:PORT</code> : 端口默认为5555，如果设置成其它的需要在IP后显示指定<br><code>adb devices</code> ：查看已经连上的设备（可选）<br><code>adb shell</code> ：进入手机终端shell（可选）</p>
 
       
@@ -492,7 +491,7 @@
               
             
             
-              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x00-前期准备"><span class="nav-number">1.</span> <span class="nav-text">0x00 前期准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-终端配置"><span class="nav-number">2.</span> <span class="nav-text">0x01 终端配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02-连接终端"><span class="nav-number">3.</span> <span class="nav-text">0x02 连接终端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x03-调试运行"><span class="nav-number">4.</span> <span class="nav-text">0x03 调试运行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x04-步骤总结"><span class="nav-number">5.</span> <span class="nav-text">0x04 步骤总结</span></a></li></ol></div>
             
           </div>
         </section>
