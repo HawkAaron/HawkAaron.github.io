@@ -1,0 +1,644 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Oracle," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="下载首先我们在官网下载Oracle11g，链接如下：http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html注意系统位数和文件个数两个文件都要下载，过程可能比价漫长，可以敲会代码或者做几篇阅读理解缓解一下情绪（为接下来操蛋的安装过程做好充分的心理准备）
+安装安装可以参考已下链接http://">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Oracle11g安装及使用详解">
+<meta property="og:url" content="http://HawkAaron.github.io/2015/04/10/Oracle11g安装及使用详解/index.html">
+<meta property="og:site_name" content="HMK's blog">
+<meta property="og:description" content="下载首先我们在官网下载Oracle11g，链接如下：http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html注意系统位数和文件个数两个文件都要下载，过程可能比价漫长，可以敲会代码或者做几篇阅读理解缓解一下情绪（为接下来操蛋的安装过程做好充分的心理准备）
+安装安装可以参考已下链接http://">
+<meta property="og:image" content="http://img.blog.csdn.net/20150410221936614">
+<meta property="og:image" content="http://img.blog.csdn.net/20150410222254232">
+<meta property="og:image" content="http://img.blog.csdn.net/20150410222343106">
+<meta property="og:image" content="http://img.blog.csdn.net/20150410222411545">
+<meta property="og:image" content="http://img.blog.csdn.net/20150410222556299">
+<meta property="og:image" content="http://img.blog.csdn.net/20150410222541124">
+<meta property="og:image" content="http://img.blog.csdn.net/20150410222609937">
+<meta property="og:image" content="http://img.blog.csdn.net/20150410222729400">
+<meta property="og:updated_time" content="2016-08-03T13:27:59.417Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Oracle11g安装及使用详解">
+<meta name="twitter:description" content="下载首先我们在官网下载Oracle11g，链接如下：http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html注意系统位数和文件个数两个文件都要下载，过程可能比价漫长，可以敲会代码或者做几篇阅读理解缓解一下情绪（为接下来操蛋的安装过程做好充分的心理准备）
+安装安装可以参考已下链接http://">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20150410221936614">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://HawkAaron.github.io/2015/04/10/Oracle11g安装及使用详解/"/>
+
+  <title> Oracle11g安装及使用详解 | HMK's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">HMK's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Welcome!</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Oracle11g安装及使用详解
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-04-10T22:16:00+08:00" content="2015-04-10">
+              2015-04-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Oracle/" itemprop="url" rel="index">
+                    <span itemprop="name">Oracle</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><p>首先我们在官网下载Oracle11g，链接如下：<br><a href="http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html" title="Oracle11g下载链接" target="_blank" rel="external">http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html</a><br>注意系统位数和文件个数<br><img src="http://img.blog.csdn.net/20150410221936614" alt=""><br>两个文件都要下载，过程可能比价漫长，可以敲会代码或者做几篇阅读理解缓解一下情绪（为接下来操蛋的安装过程做好充分的心理准备）</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>安装可以参考已下链接<br><a href="http://jingyan.baidu.com/article/e5c39bf58eff9239d760338b.html" target="_blank" rel="external">http://jingyan.baidu.com/article/e5c39bf58eff9239d760338b.html</a><br>这里要注意一点：可以无视所有的错误提示！（在第5步进行先决条件检查时由于系统原因可能会报错，此时可以按照安装教程忽略相关选项！）<br>另外要注意的是安装目录尽量在跟目录下，比如安装在D:\Oracle\下，而且目录不能包含中文及空格等非数字字母的字符（大部分国外的大型程序都这样，我们只能默默地接受了）</p>
+<h1 id="环境变量检查"><a href="#环境变量检查" class="headerlink" title="环境变量检查"></a>环境变量检查</h1><p>使用前请配置环境变量（系统会自动配置，最好检查一下）：</p>
+<h2 id="方法一：命令行-echo-PATH-命令"><a href="#方法一：命令行-echo-PATH-命令" class="headerlink" title="方法一：命令行 echo %PATH% 命令"></a>方法一：命令行 echo %PATH% 命令</h2><p><img src="http://img.blog.csdn.net/20150410222254232" alt=""><br>可以看见图中的环境变量的第一条目录即是刚才安装完的Oracle的bin目录（一般软件的bin目录下有我们用到的命令行工具，Oracle的bin命令里面有sqlplus）</p>
+<h2 id="方法二：右击‘计算机’，选择‘属性’，‘高级系统配置’"><a href="#方法二：右击‘计算机’，选择‘属性’，‘高级系统配置’" class="headerlink" title="方法二：右击‘计算机’，选择‘属性’，‘高级系统配置’"></a>方法二：右击‘计算机’，选择‘属性’，‘高级系统配置’</h2><p><img src="http://img.blog.csdn.net/20150410222343106" alt=""><br><img src="http://img.blog.csdn.net/20150410222411545" alt=""><br><img src="http://img.blog.csdn.net/20150410222556299" alt=""><img src="http://img.blog.csdn.net/20150410222541124" alt=""><br><img src="http://img.blog.csdn.net/20150410222609937" alt=""><br>变量值的最前面即刚才安装的Oracle的bin目录<br>（若path中没有Oracle的bin目录则把刚才安装oracle的目录里面的bin找出来加进去就行了，正常情况下是自动加的，如果没有就是安装有问题了）</p>
+<h1 id="登陆Oracle"><a href="#登陆Oracle" class="headerlink" title="登陆Oracle"></a>登陆Oracle</h1><p>登陆的方法有以下几种：</p>
+<h2 id="sqlplus登陆oracle："><a href="#sqlplus登陆oracle：" class="headerlink" title="sqlplus登陆oracle："></a>sqlplus登陆oracle：</h2><ol>
+<li><p>C: &gt; sqlplus “/as sysdba”   –以操作系统权限认证的oracle sys管理员登陆</p>
+</li>
+<li><p>C: &gt; sqlplus /nolog             –不在cmd或者terminal当中暴露密码的登陆方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">SQL&gt; conn /as sysdba</div><div class="line">&amp;</div><div class="line">SQL&gt; conn sys/password as sysdba</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol>
+<li><p>C: &gt; sqlplus scott/tiger      –非管理员用户登陆</p>
+</li>
+<li><p>C: &gt; sqlplus scott/tiger@orcl    –非管理员用户使用tns别名登陆</p>
+</li>
+<li><p>C: &gt; sqlplus sys/password@orcl as sysdba –管理员用户使用tns别名登陆</p>
+</li>
+<li><p>C: &gt; sqlplus                       –不显露密码的登陆方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Enter user-name：sys</div><div class="line">Enter password：password as sysdba     --以sys用户登陆的话 必须要加上 as sysdba 子句</div></pre></td></tr></table></figure>
+<p> <img src="http://img.blog.csdn.net/20150410222729400" alt=""><br> 这是我输入sqlplus后的效果，系统莫名其妙的提示输入用户名，用过MySQL的可能对这点感到很迷惑，一般安装完后都是root账户，但是oracle是个比MySQL强大很多倍的大型关系型数据库，用户名也有很多，如下：</p>
+<pre><code>scott
+sys  
+system
+sysman 
+这些账户的密码设置会在安装过程中完成，其中system是我们设置的登陆口令，Scott也是可以在口令管理中管理的
+</code></pre></li>
+</ol>
+<h3 id="其它参考"><a href="#其它参考" class="headerlink" title="其它参考"></a>其它参考</h3><p><a href="http://www.linuxidc.com/Linux/2011-03/33174.htm" target="_blank" rel="external">sqlplus详细使用方法</a><br><a href="http://baike.baidu.com/link?url=GAgntfVfaPWk9Oam_8bWSv37PdWx6xQ-wZDP2TWCy8GWDnQlMI5T6JqWcflkw9jmfb3JXyTAjkfN-3Qp8nbryK#1" target="_blank" rel="external">百度百科</a><br><a href="http://jingyan.baidu.com/article/6525d4b155767dac7d2e94e8.html" target="_blank" rel="external">Linux下操作方法</a></p>
+<h2 id="使用Oracle控制台"><a href="#使用Oracle控制台" class="headerlink" title="使用Oracle控制台"></a>使用Oracle控制台</h2><p>打开chrome浏览器（或其它，不推荐使用IE），在地址栏中输入<a href="https://localhost:1158/em" target="_blank" rel="external">https://localhost:1158/em</a><br>可能会有不安全之类的提示，无视即可，输入用户名密码后就可以管理了<br><a href="http://jingyan.baidu.com/article/3c343ff72c71c10d3679636a.html" target="_blank" rel="external">具体的使用方法可以点此查看</a><br>不过控制台的连接速度可能很慢，如果不能忍受的话就用命令行吧</p>
+<h2 id="第三方GUI管理工具"><a href="#第三方GUI管理工具" class="headerlink" title="第三方GUI管理工具"></a>第三方GUI管理工具</h2><p><a href="https://www.toadworld.com/?Redirected=true" target="_blank" rel="external">Toad</a></p>
+<p><a href="http://jingyan.baidu.com/article/c85b7a6403acd1003bac950f.html" target="_blank" rel="external">PLSQL Developer</a></p>
+<h1 id="管理Oracle"><a href="#管理Oracle" class="headerlink" title="管理Oracle"></a>管理Oracle</h1><p>Oracle是地球上目前最强大的关系型数据库，用过MySQL的人可能刚开始对Oracle无从下手，想想当初你玩MySQL的时候不也是配置环境变量，百度登陆方法等等，所以我们要有耐心。最后一句话：打好基础。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Oracle/" rel="tag">#Oracle</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/04/16/Oracle乱码[Unfinish]/" rel="prev" title="Oracle乱码[Unfinish]">
+                Oracle乱码[Unfinish] <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="HMK" />
+          <p class="site-author-name" itemprop="name">HMK</p>
+          <p class="site-description motion-element" itemprop="description">学习经验 & 理论知识</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">31</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#下载"><span class="nav-number">1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#环境变量检查"><span class="nav-number">3.</span> <span class="nav-text">环境变量检查</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一：命令行-echo-PATH-命令"><span class="nav-number">3.1.</span> <span class="nav-text">方法一：命令行 echo %PATH% 命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二：右击‘计算机’，选择‘属性’，‘高级系统配置’"><span class="nav-number">3.2.</span> <span class="nav-text">方法二：右击‘计算机’，选择‘属性’，‘高级系统配置’</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#登陆Oracle"><span class="nav-number">4.</span> <span class="nav-text">登陆Oracle</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#sqlplus登陆oracle："><span class="nav-number">4.1.</span> <span class="nav-text">sqlplus登陆oracle：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#其它参考"><span class="nav-number">4.1.1.</span> <span class="nav-text">其它参考</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Oracle控制台"><span class="nav-number">4.2.</span> <span class="nav-text">使用Oracle控制台</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三方GUI管理工具"><span class="nav-number">4.3.</span> <span class="nav-text">第三方GUI管理工具</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#管理Oracle"><span class="nav-number">5.</span> <span class="nav-text">管理Oracle</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">HMK</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

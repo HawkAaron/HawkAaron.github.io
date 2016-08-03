@@ -1,0 +1,631 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="win7 64位没有debug功能，接下来介绍如何使win7可以使用该功能
+##工具/原料
+
+dos模拟器即DOSBOX 下载地址： http://www.dosbox.com/download.php?main=1 
+
+debug32.exe 下载地址：http://download.csdn.net/detail/qq_20480611/8715889
+
+
+##方法/步骤
+
+下载一个dosbo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="win7 64位如何调出debug">
+<meta property="og:url" content="http://HawkAaron.github.io/2016/08/02/win7-64位如何调出debug/index.html">
+<meta property="og:site_name" content="HMK's blog">
+<meta property="og:description" content="win7 64位没有debug功能，接下来介绍如何使win7可以使用该功能
+##工具/原料
+
+dos模拟器即DOSBOX 下载地址： http://www.dosbox.com/download.php?main=1 
+
+debug32.exe 下载地址：http://download.csdn.net/detail/qq_20480611/8715889
+
+
+##方法/步骤
+
+下载一个dosbo">
+<meta property="og:image" content="http://b.hiphotos.baidu.com/exp/w=500/sign=5076309eb33533faf5b6932e98d2fdca/0ff41bd5ad6eddc418740d6b3bdbb6fd5366338a.jpg">
+<meta property="og:image" content="http://b.hiphotos.baidu.com/exp/w=500/sign=b8395459d52a60595210e11a1835342d/4a36acaf2edda3cc95ef00b003e93901213f9213.jpg">
+<meta property="og:image" content="http://a.hiphotos.baidu.com/exp/w=500/sign=bba4c262d762853592e0d221a0ed76f2/18d8bc3eb13533faa27f2bbeaad3fd1f40345b50.jpg">
+<meta property="og:image" content="http://h.hiphotos.baidu.com/exp/w=500/sign=a31f194ef21f3a295ac8d5cea924bce3/c8177f3e6709c93d5f84b6679d3df8dcd100542f.jpg">
+<meta property="og:image" content="http://c.hiphotos.baidu.com/exp/w=500/sign=1fae6e5e9b25bc312b5d01986ede8de7/71cf3bc79f3df8dce35b3401cf11728b4710283f.jpg">
+<meta property="og:image" content="http://f.hiphotos.baidu.com/exp/w=500/sign=de0b392f8e5494ee87220f191df4e0e1/d0c8a786c9177f3e4adc449d72cf3bc79e3d56b1.jpg">
+<meta property="og:updated_time" content="2016-08-01T10:21:01.065Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="win7 64位如何调出debug">
+<meta name="twitter:description" content="win7 64位没有debug功能，接下来介绍如何使win7可以使用该功能
+##工具/原料
+
+dos模拟器即DOSBOX 下载地址： http://www.dosbox.com/download.php?main=1 
+
+debug32.exe 下载地址：http://download.csdn.net/detail/qq_20480611/8715889
+
+
+##方法/步骤
+
+下载一个dosbo">
+<meta name="twitter:image" content="http://b.hiphotos.baidu.com/exp/w=500/sign=5076309eb33533faf5b6932e98d2fdca/0ff41bd5ad6eddc418740d6b3bdbb6fd5366338a.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://HawkAaron.github.io/2016/08/02/win7-64位如何调出debug/"/>
+
+  <title> win7 64位如何调出debug | HMK's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">HMK's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Welcome!</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                win7 64位如何调出debug
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-08-02T21:18:52+08:00" content="2016-08-02">
+              2016-08-02
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>win7 64位没有debug功能，接下来介绍如何使win7可以使用该功能</p>
+<p>##工具/原料</p>
+<ul>
+<li><p>dos模拟器即DOSBOX 下载地址： <a href="http://www.dosbox.com/download.php?main=1" target="_blank" rel="external">http://www.dosbox.com/download.php?main=1</a> </p>
+</li>
+<li><p>debug32.exe 下载地址：<a href="http://download.csdn.net/detail/qq_20480611/8715889" target="_blank" rel="external">http://download.csdn.net/detail/qq_20480611/8715889</a></p>
+</li>
+</ul>
+<p>##<a href=""></a>方法/步骤</p>
+<ol>
+<li>下载一个dosbox和win7 32位debug.exe,安装dosbox,打开后页面如下<br><a href="http://jingyan.baidu.com/album/86f4a73e58413137d7526970.html?picindex=1" target="_blank" rel="external"><img src="http://b.hiphotos.baidu.com/exp/w=500/sign=5076309eb33533faf5b6932e98d2fdca/0ff41bd5ad6eddc418740d6b3bdbb6fd5366338a.jpg" alt="win7 64位如何调出debug"></a></li>
+<li>将debug.exe放入磁盘根目录，这里以D盘为例。在dosbox中输入mount c d:\按回车，出现下图<br><a href="http://jingyan.baidu.com/album/86f4a73e58413137d7526970.html?picindex=2" target="_blank" rel="external"><img src="http://b.hiphotos.baidu.com/exp/w=500/sign=b8395459d52a60595210e11a1835342d/4a36acaf2edda3cc95ef00b003e93901213f9213.jpg" alt="win7 64位如何调出debug"></a></li>
+<li>输入c:回车<br><a href="http://jingyan.baidu.com/album/86f4a73e58413137d7526970.html?picindex=3" target="_blank" rel="external"><img src="http://a.hiphotos.baidu.com/exp/w=500/sign=bba4c262d762853592e0d221a0ed76f2/18d8bc3eb13533faa27f2bbeaad3fd1f40345b50.jpg" alt="win7 64位如何调出debug"></a></li>
+<li>输入debug回车<br><a href="http://jingyan.baidu.com/album/86f4a73e58413137d7526970.html?picindex=4" target="_blank" rel="external"><img src="http://h.hiphotos.baidu.com/exp/w=500/sign=a31f194ef21f3a295ac8d5cea924bce3/c8177f3e6709c93d5f84b6679d3df8dcd100542f.jpg" alt="win7 64位如何调出debug"></a></li>
+<li>输入p回车<br><a href="http://jingyan.baidu.com/album/86f4a73e58413137d7526970.html?picindex=5" target="_blank" rel="external"><img src="http://c.hiphotos.baidu.com/exp/w=500/sign=1fae6e5e9b25bc312b5d01986ede8de7/71cf3bc79f3df8dce35b3401cf11728b4710283f.jpg" alt="win7 64位如何调出debug"></a></li>
+<li>输入a回车<br><a href="http://jingyan.baidu.com/album/86f4a73e58413137d7526970.html?picindex=6" target="_blank" rel="external"><img src="http://f.hiphotos.baidu.com/exp/w=500/sign=de0b392f8e5494ee87220f191df4e0e1/d0c8a786c9177f3e4adc449d72cf3bc79e3d56b1.jpg" alt="win7 64位如何调出debug"></a></li>
+<li>7最后就可以自己敲代码了</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/02/Win7旗舰版不能将大于4G的文件拷贝到U盘怎么办？/" rel="next" title="Win7旗舰版不能将大于4G的文件拷贝到U盘怎么办？">
+                <i class="fa fa-chevron-left"></i> Win7旗舰版不能将大于4G的文件拷贝到U盘怎么办？
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/02/谷歌浏览器安装QQ旋风插件/" rel="prev" title="谷歌浏览器安装QQ旋风插件">
+                谷歌浏览器安装QQ旋风插件 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="HMK" />
+          <p class="site-author-name" itemprop="name">HMK</p>
+          <p class="site-description motion-element" itemprop="description">学习经验 & 理论知识</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">31</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">HMK</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

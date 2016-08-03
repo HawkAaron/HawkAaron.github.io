@@ -1,0 +1,668 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Oracle,Code," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="1、连接windows 2003的oracle 11g    C:&amp;gt;sqlplus / as sysdba    SQL*Plus: Release 11.2.0.1.0 Production on 星期一 5月 21 15:03:29 2012    Copyright (c) 1982, 2010, Oracle.  All rights reserved.    连接到:    Oracle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Oracle乱码[Unfinish]">
+<meta property="og:url" content="http://HawkAaron.github.io/2015/04/16/Oracle乱码[Unfinish]/index.html">
+<meta property="og:site_name" content="HMK's blog">
+<meta property="og:description" content="1、连接windows 2003的oracle 11g    C:&amp;gt;sqlplus / as sysdba    SQL*Plus: Release 11.2.0.1.0 Production on 星期一 5月 21 15:03:29 2012    Copyright (c) 1982, 2010, Oracle.  All rights reserved.    连接到:    Oracle">
+<meta property="og:updated_time" content="2016-08-03T13:15:09.387Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Oracle乱码[Unfinish]">
+<meta name="twitter:description" content="1、连接windows 2003的oracle 11g    C:&amp;gt;sqlplus / as sysdba    SQL*Plus: Release 11.2.0.1.0 Production on 星期一 5月 21 15:03:29 2012    Copyright (c) 1982, 2010, Oracle.  All rights reserved.    连接到:    Oracle">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://HawkAaron.github.io/2015/04/16/Oracle乱码[Unfinish]/"/>
+
+  <title> Oracle乱码[Unfinish] | HMK's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">HMK's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Welcome!</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Oracle乱码[Unfinish]
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-04-16T22:32:00+08:00" content="2015-04-16">
+              2015-04-16
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Oracle/" itemprop="url" rel="index">
+                    <span itemprop="name">Oracle</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>1、连接windows 2003的oracle 11g<br>    C:>sqlplus / as sysdba<br>    SQL*Plus: Release 11.2.0.1.0 Production on 星期一 5月 21 15:03:29 2012<br>    Copyright (c) 1982, 2010, Oracle.  All rights reserved.<br>    连接到:<br>    Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - Production<br>    With the Partitioning, OLAP, Data Mining and Real Application Testing options  </p>
+<p>2、查看客户端的字符集<br>    SQL&gt; select userenv(‘language’) from dual;  </p>
+<pre><code>USERENV(&apos;LANGUAGE&apos;)  
+----------------------------------------------------  
+AMERICAN_AMERICA.ZHS16GBK  
+</code></pre><p>3、查看服务端的字符集<br>    SQL&gt; set linesize 100<br>    SQL&gt; col parameter for a40<br>    SQL&gt; col value for a40<br>    SQL&gt; select * from nls_database_parameters where parameter like ‘%CHARACTERSET%%’;  </p>
+<pre><code>PARAMETER                VALUE  
+---------------------------------------- ----------------------------------------  
+NLS_CHARACTERSET             ZHS16GBK  
+NLS_NCHAR_CHARACTERSET       AL16UTF16  
+</code></pre><p>可以看到客户端与服务端的字符集都是一致的，均为ZHS16GBK。<br>4、创建dl_char表<br>    SQL&gt; create table dl_char (name varchar2(20));  </p>
+<pre><code>表已创建。  
+</code></pre><p>5、插入数据<br>    SQL&gt; insert into dl_char values (‘字符集的乱码问题’);  </p>
+<pre><code>已创建 1 行。  
+</code></pre><p>6、进行select查询<br>    SQL&gt; select * from dl_char;  </p>
+<pre><code>NAME  
+--------------------  
+字符集的乱码问题  
+</code></pre><p>可以看得，现在显示为我刚才输入的值<br>7、更改客户端的字符集<br>    C:>SET NLS_LANG=AMERICAN_AMERICA.WE8ISO8859P1 </p>
+<p>8、然后重新登录<br>    C:>sqlplus / as sysdba  </p>
+<pre><code>SQL*Plus: Release 11.2.0.1.0 Production on Mon May 21 15:06:55 2012  
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.  
+
+
+Connected to:  
+Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - Production  
+With the Partitioning, OLAP, Data Mining and Real Application Testing options  
+</code></pre><p>9、查看客户端的字符集<br>    SQL&gt; select userenv(‘language’) from dual;  </p>
+<pre><code>USERENV(&apos;LANGUAGE&apos;)  
+----------------------------------------------------  
+AMERICAN_AMERICA.ZHS16GBK  
+</code></pre><p>可以看到客户端的字符集已经变为AMERICAN_AMERICA.ZHS16GBK了<br>10、然后查看dl_char的值<br>    SQL&gt; select * from dl_char;  </p>
+<pre><code>NAME  
+--------------------  
+靠靠靠靠  
+</code></pre><p>现在就出现了我前面说的4个靠字的问题，从上面的实验，可以看到产生4靠的原因为：客户端与服务端的字符集不一致，所以解决这个问题的方法就是在客户端设置与服务端一致的字符集</p>
+<p>11、现在把客户端的字符集改成与服务端一致的字符集<br>    C:>SET NLS_LANG=ZHS16GBK </p>
+<p>12、然后登陆<br>    C:>sqlplus / as sysdba  </p>
+<pre><code>SQL*Plus: Release 11.2.0.1.0 Production on 星期一 5月 21 15:13:11 2012  
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.  
+
+
+连接到:  
+Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - Production  
+With the Partitioning, OLAP, Data Mining and Real Application Testing options  
+</code></pre><p>13、查看客户端与服务端的字符集<br>    SQL&gt; select userenv(‘language’) from dual;  </p>
+<pre><code>USERENV(&apos;LANGUAGE&apos;)  
+----------------------------------------------------  
+SIMPLIFIED CHINESE_CHINA.ZHS16GBK  
+
+SQL&gt; select * from nls_database_parameters where parameter like &apos;%CHARACTERSET%%&apos;;  
+
+PARAMETER                VALUE  
+---------------------------------------- ----------------------------------------  
+NLS_CHARACTERSET             ZHS16GBK  
+NLS_NCHAR_CHARACTERSET       AL16UTF16  
+</code></pre><p>14、现在客户端与服务端的字符集都一致了，在查看一下dl_char里的内容<br>    SQL&gt; select * from dl_char;  </p>
+<pre><code>NAME  
+--------------------  
+字符集的乱码问题  
+
+
+     现在显示为正常的，4个靠字也没用在出现，所以以后在做exp/imp导出/导入或者客户端查询数据等操作的时候，一定要把客户端的字符集与服务端的字符集设置为同一个。
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Oracle/" rel="tag">#Oracle</a>
+          
+            <a href="/tags/Code/" rel="tag">#Code</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/04/10/Oracle11g安装及使用详解/" rel="next" title="Oracle11g安装及使用详解">
+                <i class="fa fa-chevron-left"></i> Oracle11g安装及使用详解
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/04/17/MySQL-ERROR2013完美解决方案/" rel="prev" title="MySQL ERROR2013完美解决方案">
+                MySQL ERROR2013完美解决方案 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="HMK" />
+          <p class="site-author-name" itemprop="name">HMK</p>
+          <p class="site-description motion-element" itemprop="description">学习经验 & 理论知识</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">31</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">HMK</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

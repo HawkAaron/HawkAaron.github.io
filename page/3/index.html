@@ -248,946 +248,6 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/02/mysql 远程数据库导入到本地数据库/" itemprop="url">
-                  mysql 远程数据库导入到本地数据库
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-08-02T21:18:52+08:00" content="2016-08-02">
-              2016-08-02
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>mysqldump -h ‘114.212.111.123’ -uROSE -pxxxooo –opt –compress ITSM –skip-lock-tables | mysql -h localhost<br> -uroot -proot ITSMC<br>解释：<br>114.212.111.123 远程服务器名称<br>ROSE 远程数据库登录名<br>xxxooo 远程数据库登录密码<br>ITSM远程数据库名（即：复制的源）<br>localhost 本地数据库名称（一般情况下都是这个）<br>root 本地数据库登录名（一般情况下都是这个）<br>root 本地数据库登录密码（一般情况下都是这个）<br>ITSMC 本地（即：复制的目的）<br>sql解释：<br>mysqldump 是mysql的一个专门用于拷贝操作的命令<br>–opt 操作的意思<br>–compress 压缩要传输的数据<br>–skip-lock 忽略锁住的表（加上这句能防止当表有外键时的报错）<br>-tables 某数据库所有表<br>-h 服务器名称<br>-u 用户名（<em>后面无空格，直接加用户名）<br>-p 密码（</em>后面无空格，直接加密码）<br>注意：<br>-u、-p的后面没有空格，直接加用户名和密码！！！ </p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/02/Oracle11g安装及使用详解/" itemprop="url">
-                  Oracle11g安装及使用详解
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-08-02T21:18:52+08:00" content="2016-08-02">
-              2016-08-02
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>一、首先我们在官网下载Oracle11g，链接如下：<br><a href="http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html" target="_blank" rel="external">http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html</a><br>注意系统位数和文件个数<br><img src="http://img.blog.csdn.net/20150410221936614?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br>两个文件都要下载，过程可能比价漫长，可以敲会代码或者做几篇阅读理解缓解一下情绪（为接下来操蛋的安装过程做好充分的心理准备）</p>
-<p>二、安装可以参考已下链接<br><a href="http://jingyan.baidu.com/article/e5c39bf58eff9239d760338b.html" target="_blank" rel="external">http://jingyan.baidu.com/article/e5c39bf58eff9239d760338b.html</a><br>这里要注意一点：可以无视所有的错误提示！（在第5步进行先决条件检查时由于系统原因可能会报错，此时可以按照安装教程忽略相关选项！）<br>另外要注意的是安装目录尽量在跟目录下，比如安装在D:\Oracle\下，而且目录不能包含中文及空格等非数字字母的字符（大部分国外的大型程序都这样，我们只能默默地接受了）</p>
-<p>三、环境变量检查<br>1、使用前请配置环境变量（系统会自动配置，最好检查一下）：<br>方法一：命令行 echo %PATH% 命令<br><img src="http://img.blog.csdn.net/20150410222254232?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br>可以看见图中的环境变量的第一条目录即是刚才安装完的Oracle的bin目录（一般软件的bin目录下有我们用到的命令行工具，Oracle的bin命令里面有sqlplus）<br>方法二：右击‘计算机’，选择‘属性’，‘高级系统配置’，<br><img src="http://img.blog.csdn.net/20150410222343106?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br><img src="http://img.blog.csdn.net/20150410222411545?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br><img src="http://img.blog.csdn.net/20150410222556299?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><img src="http://img.blog.csdn.net/20150410222541124?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br><img src="http://img.blog.csdn.net/20150410222609937?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br>变量值的最前面即刚才安装的Oracle的bin目录<br>（若path中没有Oracle的bin目录则把刚才安装oracle的目录里面的bin找出来加进去就行了，正常情况下是自动加的，如果没有就是安装有问题了）</p>
-<p>四、登陆oracle：<br>登陆的方法有以下几种：<br>1、sqlplus登陆oracle：</p>
-<pre><code>1.C: &gt; sqlplus &quot;/as sysdba&quot;   --以操作系统权限认证的oracle sys管理员登陆
-
-2.C: &gt; sqlplus /nolog             --不在cmd或者terminal当中暴露密码的登陆方式
-SQL&gt; conn /as sysdba
-&amp;
-SQL&gt; conn sys/password as sysdba
-
-3.C: &gt; sqlplus scott/tiger      --非管理员用户登陆
-
-4.C: &gt; sqlplus scott/tiger@orcl    --非管理员用户使用tns别名登陆
-
-5.C: &gt; sqlplus sys/password@orcl as sysdba --管理员用户使用tns别名登陆
-6.C: &gt; sqlplus                       --不显露密码的登陆方式
-Enter user-name：sys
-Enter password：password as sysdba     --以sys用户登陆的话 必须要加上 as sysdba 子句
-
-![](http://img.blog.csdn.net/20150410222729400?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
-这是我输入sqlplus后的效果，系统莫名其妙的提示输入用户名，用过MySQL的可能对这点感到很迷惑，一般安装完后都是root账户，但是oracle是个比MySQL强大很多倍的大型关系型数据库，用户名也有很多，如下：
-    scott
-    sys  
-    system
-    sysman 
-    这些账户的密码设置会在安装过程中完成，其中system是我们设置的登陆口令，Scott也是可以在口令管理中管理的
-</code></pre><p><a href="http://www.linuxidc.com/Linux/2011-03/33174.htm" target="_blank" rel="external">http://www.linuxidc.com/Linux/2011-03/33174.htm</a></p>
-<p>这个链接里面有比较详细的sqlplus的使用方法<br><a href="http://baike.baidu.com/link?url=GAgntfVfaPWk9Oam_8bWSv37PdWx6xQ-wZDP2TWCy8GWDnQlMI5T6JqWcflkw9jmfb3JXyTAjkfN-3Qp8nbryK#1" target="_blank" rel="external">http://baike.baidu.com/link?url=GAgntfVfaPWk9Oam_8bWSv37PdWx6xQ-wZDP2TWCy8GWDnQlMI5T6JqWcflkw9jmfb3JXyTAjkfN-3Qp8nbryK#1</a><br>以上是百度百科的介绍，可以参考<br><a href="http://jingyan.baidu.com/article/6525d4b155767dac7d2e94e8.html" target="_blank" rel="external">http://jingyan.baidu.com/article/6525d4b155767dac7d2e94e8.html</a><br>这个是Linux下的操作方法</p>
-<p>2、使用Oracle控制台<br>打开chrome浏览器（或其它，不推荐使用IE），在地址栏中输入<a href="https://localhost:1158/em" target="_blank" rel="external">https://localhost:1158/em</a><br>可能会有不安全之类的提示，无视即可，输入用户名密码后就可以管理了<br>具体的使用方法可以参考已下链接<br><a href="http://jingyan.baidu.com/article/3c343ff72c71c10d3679636a.html" target="_blank" rel="external">http://jingyan.baidu.com/article/3c343ff72c71c10d3679636a.html</a><br>不过控制台的连接速度可能很慢，如果不能忍受的话就用命令行吧</p>
-<p>3、第三方GUI管理工具<br>Toad：<br><a href="https://www.toadworld.com/?Redirected=true" target="_blank" rel="external">https://www.toadworld.com/?Redirected=true</a></p>
-<p>PLSQL Developer：<br><a href="http://jingyan.baidu.com/article/c85b7a6403acd1003bac950f.html" target="_blank" rel="external">http://jingyan.baidu.com/article/c85b7a6403acd1003bac950f.html</a></p>
-<p>五、管理Oracle<br>Oracle是地球上目前最强大的关系型数据库，用过MySQL的人可能刚开始对Oracle无从下手，想想当初你玩MySQL的时候不也是配置环境变量，百度登陆方法等等，所以我们要有耐心。最后一句话：打好基础。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/02/MySQL忘记密码/" itemprop="url">
-                  MySQL忘记密码
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-08-02T21:18:52+08:00" content="2016-08-02">
-              2016-08-02
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <pre><code>如果是root密码：
-
-方法一：
-MySQL提供跳过访问控制的命令行参数，通过在命令行以此命令启动MySQL服务器： 
-safe_mysqld --skip-grant-tables&amp; 
-即可跳过MySQL的访问控制，任何人都可以在控制台以管理员的身份进入MySQL数据库。 
-需要注意的是在修改完密码以后要把MySQL服务器停掉重新启动才会生效
-
-方法二：
-可以进行如下的步骤重新设置MySQL的root密码： 
-1．首先确认服务器出于安全的状态，也就是没有人能够任意地连接MySQL数据库。 
-因为在重新设置MySQL的root密码的期间，MySQL数据库完全出于没有密码保护的 
-状态下，其他的用户也可以任意地登录和修改MySQL的信息。可以采用将MySQL对 
-外的端口封闭，并且停止Apache以及所有的用户进程的方法实现服务器的准安全 
-状态。最安全的状态是到服务器的Console上面操作，并且拔掉网线。 
-2．修改MySQL的登录设置： 
-# vi /etc/my.cnf 
-在[mysqld]的段中加上一句：skip-grant-tables 
-例如： 
-[mysqld] 
-datadir=/var/lib/mysql 
-socket=/var/lib/mysql/mysql.sock 
-skip-name-resolve 
-skip-grant-tables 
-保存并且退出vi。 
-3．重新启动mysqld 
-# /etc/init.d/mysqld restart 
-Stopping MySQL: [ OK ] 
-Starting MySQL: [ OK ] 
-4．登录并修改MySQL的root密码 
-# /usr/bin/mysql 
-Welcome to the MySQL monitor. Commands end with ; or \g. 
-Your MySQL connection id is 3 to server version: 3.23.56 
-Type ‘help;’ or ‘\h’ for help. Type ‘\c’ to clear the buffer. 
-mysql&gt; USE mysql ; 
-Reading table information for completion of table and column names 
-You can turn off this feature to get a quicker startup with -A 
-Database changed 
-mysql&gt; UPDATE user SET Password = password ( ‘new-password’ ) WHERE User = ‘root’ ; 
-Query OK, 0 rows affected (0.00 sec) 
-Rows matched: 2 Changed: 0 Warnings: 0 
-mysql&gt; flush privileges ; 
-Query OK, 0 rows affected (0.01 sec) 
-mysql&gt; quit 
-Bye 
-5．将MySQL的登录设置修改回来 
-# vi /etc/my.cnf 
-将刚才在[mysqld]的段中加上的skip-grant-tables删除 
-保存并且退出vi。 
-6．重新启动mysqld 
-# /etc/init.d/mysqld restart 
-Stopping MySQL: [ OK ] 
-Starting MySQL: [ OK ] 
-windows 
-1.以系统管理员身份登陆系统。 
-  2.打开cmd—–net start 查看mysql是否启动。启动的话就停止net stop mysql. 
-  3.我的mysql安装在d:\usr\local\mysql4\bin下。 
-  4.跳过权限检查启动mysql. 
-  d:\usr\local\mysql4\bin\mysqld-nt –skip-grant-tables 
-  5.重新打开cmd。进到d:\usr\local\mysql4\bin下： 
-  d:\usr\local\mysql4\bin\mysqladmin -uroot flush-privileges password “newpassword” 
-  d:\usr\local\mysql4\bin\mysqladmin -u root -p shutdown 这句提示你重新输密码。 
-  6.在cmd里net start mysql 
-  7.搞定了。 
-2，MySQL4.1以上版本一种密码错误问题的解决方法 
-1 # SET PASSWORD FOR ’some_user’@’some_host’ = OLD_PASSWORD(‘newpwd’);   
-2 # FLUSH PRIVILEGES;  
-3，Mysql数据库修复 
-myisamchk -r -q d:\mysql\data\latin1\* 
-r代表修复 
-q代表快速 
-d:\mysql\data\latin1\*数据库里面 *代表里面的所有的文件  
-
-方法三：
-如果你忘记了你的MYSQL的root口令的话，你可以通过下面的过程恢复。
-  1. 向mysqld server 发送kill命令关掉mysqld server(不是 kill -9),存放进程ID的文件通常在MYSQL的数据库所在的目录中。
-      kill `cat /mysql-data-directory/hostname.pid`
-     你必须是UNIX的root用户或者是你所运行的SERVER上的同等用户，才能执行这个操作。
-  2. 使用`--skip-grant-tables&apos; 参数来启动 mysqld。
-  3. 使用`mysql -h hostname mysql&apos;命令登录到mysqld server ，用grant命令改变口令。你也可以这样做：`mysqladmin -h hostname -u user password &apos;new password&apos;&apos;。
-（其实也可以用use mysql; update user set password =password(&apos;yourpass&apos;) where user=&apos;root&apos; 来做到。）
-  4. 载入权限表： `mysqladmin -h hostname flush-privileges&apos; ，或者使用 SQL 命令`FLUSH PRIVILEGES&apos;。（当然，在这里，你也可以重启mysqld。）
-
-方法四：(一定要先备份)
-1，重新在另一台电脑上安装相同版本的MySQL
-2，删除忘记密码的电脑中MySQL安装目录中\data\mysql的全部内容（要先停止MySQL服务）
-3，Copy新装的电脑上MySQL安装目录中\data\mysql的全部内容 to 刚刚删除的目录中4，启动MySQL服务
-
-综述：cmd到MySQL安装目录，关闭mysql服务 **net stop mysql **输入mysqld-nt --skip-grant-tables 此时cmd处于监听状态(这个留着不要关了)，新开一个cmd，切换到MySQL安装目录，输入mysql  进入MySQL命令行后修改root账户密码(use mysql;   update user set password=password(&apos;root&apos;) where user=&apos;root&apos;;  flush privileges;)
-此方法只要到MySQL安装目录即可，注意安装的MySQL一定要有mysqld-nt，完全安装就行了，毕竟才100多M
-</code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/02/MySQL ERROR2013完美解决方案/" itemprop="url">
-                  MySQL ERROR2013完美解决方案
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-08-02T21:18:52+08:00" content="2016-08-02">
-              2016-08-02
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>这个错误一般是安装了多个MySQL服务器导致的，解决方案如下：<br>1、进入MySQL安装目录：D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin&gt;<br>2、输入mysqld-nt -remove<br>D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin&gt;mysqld-nt -remove<br>The service doesn’t exist!</p>
-<p>3、输入mysqld-nt -install<br>D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin&gt;mysqld-nt -install<br>Service successfully installed.<br>4、输入net start mysql<br>D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin&gt;net start mysql<br>MySQL 服务正在启动 ……………….<br>MySQL 服务无法启动。<br>5、输入netstat -ano|findstr 3306<br>D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin&gt;netstat -ano|findstr 3306<br>  TCP    0.0.0.0:3306           0.0.0.0:0              LISTENING       5804<br>6、输入taskkill -f -pid 5804（此处的5804即上面的进程ID）<br>D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin&gt;taskkill -f -pid 5804<br>成功: 已终止 PID 为 5804 的进程。<br>7、输入net start mysql<br>D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin&gt;net start mysql<br>MySQL 服务正在启动 .<br>MySQL 服务已经启动成功。<br>8、输入mysql -uroot -p进入MySQL</p>
-<p>如果设置了环境变量，可在任意目录下执行以上命令</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/02/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-08-02T20:12:36+08:00" content="2016-08-02">
-              2016-08-02
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/02/hello-world/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/29/adb无线调试/" itemprop="url">
-                  adb无线调试
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-05-29T17:35:00+08:00" content="2016-05-29">
-              2016-05-29
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Android开发会用到 adb，调试用的设备一般会选择模拟器，但不管怎么说没有真机流畅，而且有些场景还必须得用真机。问题是真机调试还得用数据线，连上电脑后各种弹框下载简直受不了。这里介绍一下如何通过WiFi无线调试：<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/29/adb无线调试/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/06/06/C语言连接MySQL-codeblocks/" itemprop="url">
-                  C语言连接MySQL（codeblocks）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-06-06T16:55:00+08:00" content="2015-06-06">
-              2015-06-06
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/MySQL/" itemprop="url" rel="index">
-                    <span itemprop="name">MySQL</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;winsock2.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;mysql.h&gt;</span></span></div><div class="line"><span class="comment">/*数据库连接用宏*/</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> HOST <span class="meta-string">"localhost"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> USERNAME <span class="meta-string">"root"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> PASSWORD <span class="meta-string">"root"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> DATABASE <span class="meta-string">"mysql"</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></div><div class="line"></span>&#123;</div><div class="line">    <span class="keyword">char</span> *query;</div><div class="line">    query=<span class="string">"select host,user from user"</span>;</div><div class="line">    query_sql(query);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">query_sql</span><span class="params">(<span class="keyword">char</span>* sql)</span></div><div class="line"></span>&#123;</div><div class="line">    MYSQL my_connection; <span class="comment">/*这是一个数据库连接*/</span></div><div class="line">    <span class="keyword">int</span> res; <span class="comment">/*执行sql語句后的返回标志*/</span></div><div class="line">    MYSQL_RES *res_ptr; <span class="comment">/*指向查询结果的指针*/</span></div><div class="line">    MYSQL_FIELD *field; <span class="comment">/*字段结构指针*/</span></div><div class="line">    MYSQL_ROW result_row; <span class="comment">/*按行返回的查询信息*/</span></div><div class="line">    <span class="keyword">int</span> row, column; <span class="comment">/*查询返回的行数和列数*/</span></div><div class="line">    <span class="keyword">int</span> i, j;</div><div class="line">    <span class="comment">/*初始化mysql连接my_connection*/</span></div><div class="line">    mysql_init(&amp;my_connection);</div><div class="line">    <span class="comment">/*建立mysql连接*/</span></div><div class="line">    <span class="keyword">if</span> (<span class="literal">NULL</span> != mysql_real_connect(&amp;my_connection, HOST, USERNAME, PASSWORD,</div><div class="line">                                   DATABASE, <span class="number">0</span>, <span class="literal">NULL</span>, CLIENT_FOUND_ROWS))  <span class="comment">/*连接成功*/</span></div><div class="line">    &#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"数据库查询query_sql连接成功！\n"</span>);</div><div class="line">        <span class="comment">/*设置查询编码为gbk，以支持中文*/</span></div><div class="line">        mysql_query(&amp;my_connection, <span class="string">"set names gbk"</span>);</div><div class="line">        res = mysql_query(&amp;my_connection, sql);</div><div class="line">        <span class="keyword">if</span> (res)   <span class="comment">/*执行失败*/</span></div><div class="line">        &#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"Error： mysql_query !\n"</span>);</div><div class="line">            <span class="comment">/*关闭连接*/</span></div><div class="line">            mysql_close(&amp;my_connection);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span>     <span class="comment">/*现在就代表执行成功了*/</span></div><div class="line">        &#123;</div><div class="line">            <span class="comment">/*将查询的結果给res_ptr*/</span></div><div class="line">            res_ptr = mysql_store_result(&amp;my_connection);</div><div class="line">            <span class="comment">/*如果结果不为空，就把结果print*/</span></div><div class="line">            <span class="keyword">if</span> (res_ptr)</div><div class="line">            &#123;</div><div class="line">                <span class="comment">/*取得結果的行数和*/</span></div><div class="line">                column = mysql_num_fields(res_ptr);</div><div class="line">                row = mysql_num_rows(res_ptr);</div><div class="line">                <span class="built_in">printf</span>(<span class="string">"查询到 %d 行 \n"</span>, row);</div><div class="line">                <span class="comment">/*输出結果的字段名*/</span></div><div class="line">                <span class="keyword">for</span> (i = <span class="number">0</span>; field = mysql_fetch_field(res_ptr); i++)</div><div class="line">                    <span class="built_in">printf</span>(<span class="string">"%10s "</span>, field-&gt;name);</div><div class="line">                <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">                <span class="comment">/*按行输出結果*/</span></div><div class="line">                <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt; row+<span class="number">1</span>; i++)</div><div class="line">                &#123;</div><div class="line">                    result_row = mysql_fetch_row(res_ptr);</div><div class="line">                    <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; column; j++)</div><div class="line">                        <span class="built_in">printf</span>(<span class="string">"%10s "</span>, result_row[j]);</div><div class="line">                    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="comment">/*不要忘了关闭连接*/</span></div><div class="line">            mysql_close(&amp;my_connection);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span></div><div class="line">    &#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"数据库连接失败"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/06/C语言连接MySQL-codeblocks/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/06/02/Git Windows客户端保存用户名与密码的问题/" itemprop="url">
-                  终于解决“Git Windows客户端保存用户名与密码”的问题
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-06-02T22:03:00+08:00" content="2015-06-02">
-              2015-06-02
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Git/" itemprop="url" rel="index">
-                    <span itemprop="name">Git</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="http://stackoverflow.com/questions/6031214/git-how-to-use-netrc-file-on-windows">Git - How to use netrc file on windows - Stack Overflow</a><br><img src="http://img.blog.csdn.net/20150602220505492?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/02/Git Windows客户端保存用户名与密码的问题/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2015/05/30/CodeBlocks静态链接与动态链接设置/" itemprop="url">
                   CodeBlocks静态链接与动态链接设置
                 </a>
@@ -1397,6 +457,1055 @@ d:\mysql\data\latin1\*数据库里面 *代表里面的所有的文件
 
 
     
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/05/16/Java的内存回收机制/" itemprop="url">
+                  Java的内存回收机制
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-05-16T09:53:00+08:00" content="2015-05-16">
+              2015-05-16
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>在Java中，它的内存管理包括两方面：内存分配（创建Java对象的时候）和内存回收，这两方面工作都是由JVM自动完成的，降低了Java程序员的学习难度，避免了像C/C++直接操作内存的危险。但是，也正因为内存管理完全由JVM负责，所以也使Java很多程序员不再关心内存分配，导致很多程序低效，耗内存。因此就有了Java程序员到最后应该去了解JVM，才能写出更高效，充分利用有限的内存的程序。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/05/16/Java的内存回收机制/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/05/15/mysql-远程数据库导入到本地数据库/" itemprop="url">
+                  mysql 远程数据库导入到本地数据库
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-05-15T13:17:00+08:00" content="2015-05-15">
+              2015-05-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/MySQL/" itemprop="url" rel="index">
+                    <span itemprop="name">MySQL</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <pre><code>mysqldump -h192.168.0.1 -uNAME -pPASS --opt --compress DBS --skip-lock-tables | mysql -h127.0.0.1 -uroot -proot DBD 
+</code></pre><h1 id="解释："><a href="#解释：" class="headerlink" title="解释："></a>解释：</h1><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>192.168.0.1</td>
+<td>远程服务器IP</td>
+</tr>
+<tr>
+<td>NAME</td>
+<td>远程数据库登录名</td>
+</tr>
+<tr>
+<td>PASS</td>
+<td>远程数据库登录密码</td>
+</tr>
+<tr>
+<td>DBS</td>
+<td>远程数据库名（即：复制的源）</td>
+</tr>
+<tr>
+<td>127.0.0.1</td>
+<td>本地数据库服务器IP</td>
+</tr>
+<tr>
+<td>root</td>
+<td>本地数据库登录名（一般情况下都是这个）</td>
+</tr>
+<tr>
+<td>root</td>
+<td>本地数据库登录密码（一般情况下都是这个）</td>
+</tr>
+<tr>
+<td>DBD</td>
+<td>本地数据库名（即：复制的目的）</td>
+</tr>
+</tbody>
+</table>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/05/15/mysql-远程数据库导入到本地数据库/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/05/13/oracle审计详解[Unfinish]/" itemprop="url">
+                  Oracle审计详解[Unfinish]
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-05-13T23:13:00+08:00" content="2015-05-13">
+              2015-05-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Oracle/" itemprop="url" rel="index">
+                    <span itemprop="name">Oracle</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>Oracle使用大量不同的审计方法来监控使用何种权限，以及访问哪些对象。审计不会防止使用这些权限，但可以提供有用的信息，用于揭示权限的滥用和误用。
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/05/13/oracle审计详解[Unfinish]/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/05/13/ORACLE触发器详解[Unfinish]/" itemprop="url">
+                  ORACLE触发器详解[Unfinish]
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-05-13T20:13:00+08:00" content="2015-05-13">
+              2015-05-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Oracle/" itemprop="url" rel="index">
+                    <span itemprop="name">Oracle</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><strong>ORACLE PL/SQL编程之八：</strong><br><strong>把触发器说透</strong><br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/05/13/ORACLE触发器详解[Unfinish]/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/05/13/oracle查看当前登陆的用户信息/" itemprop="url">
+                  oracle查看当前登陆的用户信息
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-05-13T20:06:00+08:00" content="2015-05-13">
+              2015-05-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Oracle/" itemprop="url" rel="index">
+                    <span itemprop="name">Oracle</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>查看当前登陆的用户名：</p>
+<pre><code>select user from dual;
+</code></pre><p>或者</p>
+<pre><code>select * from user_users;
+</code></pre><p>或者</p>
+<pre><code>show user
+</code></pre><p>查看当前用户拥有的角色和权限：</p>
+<pre><code>select * from user_role_privs;
+select * from session_privs;
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/04/21/Oracle基础[Unfinish]/" itemprop="url">
+                  Oracle基础[Unfinish]
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-04-21T21:52:00+08:00" content="2015-04-21">
+              2015-04-21
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Oracle/" itemprop="url" rel="index">
+                    <span itemprop="name">Oracle</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1、</p>
+<p>2、用户<br>2、0、系统用户：sys，system，sysman，scott<br>2、1、登陆SQL Plus：<br>使用system登陆：[username/password] [@server]<br>请输入用户名：system/admin<br>SQL&gt;connect sys/admin as sysdba<br>2/2查看登陆用户<br>show user<br>desc dba_users<br>select username from dba_users;<br>2/3启用用户语句<br>alter user <code>username</code> account unlock;<br>connect <code>username</code>/<code>password</code></p>
+<p>3、表空间<br>3/0表空间概述<br>永久表空间<br>临时表空间<br>UNDO表空间<br>3/1查看表空间<br>dba_tablespaces,dba_users;user_tablespaces,user_users;<br>select tablespace_name from dba_tablespaces;<br>3/2更改表空间<br>select default_tablespace,temporary_tablespace from dba_users where username=’SYSTEM’;<br>ALTER USER system DEFAULT TABLESPACE system;<br>3/3创建表空间<br>CREATE [TEMPORARY] TABLESPACE tablespace_name TEMPFILE | DATAFILE ‘xx.dbf’ SIZE xx;<br>例子：<br>create tablespace test1_tablespace datafile ‘test1file.dbf’ size 10m;<br>create temporary tablespace temptest1_tablespace tempfile ‘tempfile1.dbf’ size 10m;<br>desc dba_data_files;<br>select file_name from dba_data_files where tablespace_name=’TEST1_TABLESPACE’;<br>select file_name from dba_temp_files where tablespace_name=’TEMPTEST1_TABLESPACE’;<br>3/4修改表空间状态（默认ONLINE）<br>alter tablespace test1_tablespace offline;<br>desc dba_tablespaces;<br>select status from dba_tablespaces where tablespace_name=’TEST1_TABLESPACE’;<br>alter tablespace test1_tablespace read only;<br>alter tablespace test1_tablespace read write;<br>3/4修改数据文件<br>增加：ALTER TABLESPACE tablespace_name ADD DATAFILE ‘filename.dbf’ SIZE xx;<br>删除：ALTER TABLESPACE tablespace_name DROP DATAFILE ‘filename.dbf’;<br>例子：<br>alter tablespace test1_tablespace add datafile ‘test2_file.dbf’ size 10m;<br>select file_name from dba_data_files where tablespace_name=’TEST1_TABLESPACE’;<br>alter tablespace test1_tablespace drop datafile ‘test2_file.dbf’;<br>3/5删除表空间<br>DROP TABLESPACE tablespace_name [INCLUDING CONTENTS];</p>
+<p>4、操作表<br>4/1数据类型<br>字符型：CHAR(n)–MAX2000 NCHAR(n)–MAX1000 VARCHAR2(n)–MAX4000 NVARCHAR2(n)–MAX2000<br>数值型：NUMBER(p,s)–p有效数字 FLOAT(n)<br>日期型：DATE–精确到秒 TIMESTAMP<br>其他类型：BLOB–4G–二进制 CLOB–4G–字符串<br>4/2管理表<br>新建表：<br>create table userinfo(<br> id number(6,0),<br> username varchar2(20),<br> userpwd varchar2(20),<br> email varchar2(30),<br> regdate date);<br>添加字段：<br>ALTER TABLE table_name ADD column_name datatype;<br>eg:<br>alter table userinfo<br>add remarks varchar2(500);<br>更改字段：<br>ALTER TABLE table_name MODIFY column_name datatype;<br>删除字段：<br>ALTER TABLE table_name DROP COLUMN column_name;<br>修改字段名：<br>ALTER TABLE table_name RENAME COLUMN column_name TO new_column_name;<br>修改表名：<br>RENAME table_name TO new_table_name;<br>清空表：<br>TRUNCATE TABLE table_name;<br>删除表：<br>DROP TABLE table_name;<br>4/3添加数据<br>INSERT INTO table_name(column1,column2,…) VALUES(value1,value2,…);</p>
+<p>5、约束<br>非空约束、主键约束、外键约束<br>ADD CONSTRAINT constraint_name PRIMARY KEY(column1,….);<br>RENAME CONTRAINT old_name TO new_name;<br>DISABLE|ENABLE CONSTRAINT constraint_name;<br>DROP CONSTRAINT constraint_name;<br>DROP PRIMARY KEY[CASCADE];<br>5/5外键约束<br>CREATE TABLE table1(column_name datatype REFERENCES table2(cloumn_name),…);<br>要么是主表存在的值，要么是空值</p>
+<p>CONSTRAINT constraint_name FOREIGN KEY(column_name) REFERENCES table_name(column_name) [ON DELETE CASCADE]</p>
+<p>5/9唯一约束<br>CREATE TABLE table1(column_name datatype UNIQUE,…);<br>CONSTRAINT constraint_name UNIQUE(column_name);<br>约束名字唯一，多个约束多个语句</p>
+<p>创建表后添加唯一约束：(ALTER TABLE table_name)<br>ADD CONSTRAINT un_constraint_name(column);</p>
+<p>5/12检查约束<br>CREATE TABLE table_name(column_name datatype CHECK(expression),…);</p>
+<p>添加检查约束：<br>CONSTRAINT ck_constraint_name CHECK(expression);</p>
+<p>6、查询<br>带条件的查询<br>模糊查询<br>范围查询</p>
+<p>设置格式<br>COLUMN|COL column_name HEADING new_name<br>COLUMN|COL column_name FORMAT dataformat<br>COLUMN|COL column_name CLEAR</p>
+<p>6/6运算符和表达式</p>
+<ul>
+<li><ul>
+<li><ul>
+<li>/ &gt; &gt;= &lt; &lt;= = &lt;&gt; and or not<br>通配符’_ %’<br>范围查询<br>[NOT] BETWEEN … AND …<br>[NOT] IN<br>CASE column_name WHEN value THEN result,… [ELSE result] END<br>实例：select username ,case username when ‘xiaoming’ then ‘计算机’ when ‘daming’ then ‘不知道’ else ‘其他部门’ end as 部门 from userinfo;<br>CASE WHEN column_name=value THEN result … END<br>实例：select username ,case when username=’xiaoming’ then ‘计算机’ when id=3 then ‘unknown’ else ‘guizd’ end as wtf from userinfo;<br>DECODE函数<br>DECODE(column_name,value1,result1,…,defaultvalue)<br>实例：select  username ,decode(username,’xiaoming’,’计算机’,’daming’,’位置’,’其他’) as fuck from userinfo;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/04/17/MySQL-ERROR2013完美解决方案/" itemprop="url">
+                  MySQL ERROR2013完美解决方案
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-04-17T21:24:00+08:00" content="2015-04-17">
+              2015-04-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/MySQL/" itemprop="url" rel="index">
+                    <span itemprop="name">MySQL</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>这个错误一般是安装了多个MySQL服务器导致的，解决方案如下：<br><strong>1、进入MySQL安装目录</strong>：D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin&gt;<br><strong>2、输入mysqld-nt -remove</strong><br>D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin&gt;mysqld-nt -remove<br>The service doesn’t exist!<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/04/17/MySQL-ERROR2013完美解决方案/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/04/16/Oracle乱码[Unfinish]/" itemprop="url">
+                  Oracle乱码[Unfinish]
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-04-16T22:32:00+08:00" content="2015-04-16">
+              2015-04-16
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Oracle/" itemprop="url" rel="index">
+                    <span itemprop="name">Oracle</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1、连接windows 2003的oracle 11g<br>    C:>sqlplus / as sysdba<br>    SQL*Plus: Release 11.2.0.1.0 Production on 星期一 5月 21 15:03:29 2012<br>    Copyright (c) 1982, 2010, Oracle.  All rights reserved.<br>    连接到:<br>    Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - Production<br>    With the Partitioning, OLAP, Data Mining and Real Application Testing options  </p>
+<p>2、查看客户端的字符集<br>    SQL&gt; select userenv(‘language’) from dual;  </p>
+<pre><code>USERENV(&apos;LANGUAGE&apos;)  
+----------------------------------------------------  
+AMERICAN_AMERICA.ZHS16GBK  
+</code></pre><p>3、查看服务端的字符集<br>    SQL&gt; set linesize 100<br>    SQL&gt; col parameter for a40<br>    SQL&gt; col value for a40<br>    SQL&gt; select * from nls_database_parameters where parameter like ‘%CHARACTERSET%%’;  </p>
+<pre><code>PARAMETER                VALUE  
+---------------------------------------- ----------------------------------------  
+NLS_CHARACTERSET             ZHS16GBK  
+NLS_NCHAR_CHARACTERSET       AL16UTF16  
+</code></pre><p>可以看到客户端与服务端的字符集都是一致的，均为ZHS16GBK。<br>4、创建dl_char表<br>    SQL&gt; create table dl_char (name varchar2(20));  </p>
+<pre><code>表已创建。  
+</code></pre><p>5、插入数据<br>    SQL&gt; insert into dl_char values (‘字符集的乱码问题’);  </p>
+<pre><code>已创建 1 行。  
+</code></pre><p>6、进行select查询<br>    SQL&gt; select * from dl_char;  </p>
+<pre><code>NAME  
+--------------------  
+字符集的乱码问题  
+</code></pre><p>可以看得，现在显示为我刚才输入的值<br>7、更改客户端的字符集<br>    C:>SET NLS_LANG=AMERICAN_AMERICA.WE8ISO8859P1 </p>
+<p>8、然后重新登录<br>    C:>sqlplus / as sysdba  </p>
+<pre><code>SQL*Plus: Release 11.2.0.1.0 Production on Mon May 21 15:06:55 2012  
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.  
+
+
+Connected to:  
+Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - Production  
+With the Partitioning, OLAP, Data Mining and Real Application Testing options  
+</code></pre><p>9、查看客户端的字符集<br>    SQL&gt; select userenv(‘language’) from dual;  </p>
+<pre><code>USERENV(&apos;LANGUAGE&apos;)  
+----------------------------------------------------  
+AMERICAN_AMERICA.ZHS16GBK  
+</code></pre><p>可以看到客户端的字符集已经变为AMERICAN_AMERICA.ZHS16GBK了<br>10、然后查看dl_char的值<br>    SQL&gt; select * from dl_char;  </p>
+<pre><code>NAME  
+--------------------  
+靠靠靠靠  
+</code></pre><p>现在就出现了我前面说的4个靠字的问题，从上面的实验，可以看到产生4靠的原因为：客户端与服务端的字符集不一致，所以解决这个问题的方法就是在客户端设置与服务端一致的字符集</p>
+<p>11、现在把客户端的字符集改成与服务端一致的字符集<br>    C:>SET NLS_LANG=ZHS16GBK </p>
+<p>12、然后登陆<br>    C:>sqlplus / as sysdba  </p>
+<pre><code>SQL*Plus: Release 11.2.0.1.0 Production on 星期一 5月 21 15:13:11 2012  
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.  
+
+
+连接到:  
+Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - Production  
+With the Partitioning, OLAP, Data Mining and Real Application Testing options  
+</code></pre><p>13、查看客户端与服务端的字符集<br>    SQL&gt; select userenv(‘language’) from dual;  </p>
+<pre><code>USERENV(&apos;LANGUAGE&apos;)  
+----------------------------------------------------  
+SIMPLIFIED CHINESE_CHINA.ZHS16GBK  
+
+SQL&gt; select * from nls_database_parameters where parameter like &apos;%CHARACTERSET%%&apos;;  
+
+PARAMETER                VALUE  
+---------------------------------------- ----------------------------------------  
+NLS_CHARACTERSET             ZHS16GBK  
+NLS_NCHAR_CHARACTERSET       AL16UTF16  
+</code></pre><p>14、现在客户端与服务端的字符集都一致了，在查看一下dl_char里的内容<br>    SQL&gt; select * from dl_char;  </p>
+<pre><code>NAME  
+--------------------  
+字符集的乱码问题  
+
+
+     现在显示为正常的，4个靠字也没用在出现，所以以后在做exp/imp导出/导入或者客户端查询数据等操作的时候，一定要把客户端的字符集与服务端的字符集设置为同一个。
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
@@ -1450,7 +1559,7 @@ d:\mysql\data\latin1\*数据库里面 *代表里面的所有的文件
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -1459,7 +1568,7 @@ d:\mysql\data\latin1\*数据库里面 *代表里面的所有的文件
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

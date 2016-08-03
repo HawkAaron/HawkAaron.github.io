@@ -85,42 +85,18 @@
 
 
 <meta name="description" content="如果是root密码：
-
-方法一：
-MySQL提供跳过访问控制的命令行参数，通过在命令行以此命令启动MySQL服务器： 
-safe_mysqld --skip-grant-tables&amp;amp; 
-即可跳过MySQL的访问控制，任何人都可以在控制台以管理员的身份进入MySQL数据库。 
-需要注意的是在修改完密码以后要把MySQL服务器停掉重新启动才会生效
-
-方法二：
-可以进行如下的步骤重新设置MyS">
+方法一MySQL提供跳过访问控制的命令行参数，通过在命令行以此命令启动MySQL服务器：safe_mysqld –skip-grant-tables&amp;amp; 即可跳过MySQL的访问控制，任何人都可以在控制台以管理员的身份进入MySQL数据库。需要注意的是在修改完密码以后要把MySQL服务器停掉重新启动才会生效">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL忘记密码">
 <meta property="og:url" content="http://HawkAaron.github.io/2016/08/02/MySQL忘记密码/index.html">
 <meta property="og:site_name" content="HMK's blog">
 <meta property="og:description" content="如果是root密码：
-
-方法一：
-MySQL提供跳过访问控制的命令行参数，通过在命令行以此命令启动MySQL服务器： 
-safe_mysqld --skip-grant-tables&amp;amp; 
-即可跳过MySQL的访问控制，任何人都可以在控制台以管理员的身份进入MySQL数据库。 
-需要注意的是在修改完密码以后要把MySQL服务器停掉重新启动才会生效
-
-方法二：
-可以进行如下的步骤重新设置MyS">
-<meta property="og:updated_time" content="2016-08-01T10:21:18.581Z">
+方法一MySQL提供跳过访问控制的命令行参数，通过在命令行以此命令启动MySQL服务器：safe_mysqld –skip-grant-tables&amp;amp; 即可跳过MySQL的访问控制，任何人都可以在控制台以管理员的身份进入MySQL数据库。需要注意的是在修改完密码以后要把MySQL服务器停掉重新启动才会生效">
+<meta property="og:updated_time" content="2016-08-03T12:48:21.651Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL忘记密码">
 <meta name="twitter:description" content="如果是root密码：
-
-方法一：
-MySQL提供跳过访问控制的命令行参数，通过在命令行以此命令启动MySQL服务器： 
-safe_mysqld --skip-grant-tables&amp;amp; 
-即可跳过MySQL的访问控制，任何人都可以在控制台以管理员的身份进入MySQL数据库。 
-需要注意的是在修改完密码以后要把MySQL服务器停掉重新启动才会生效
-
-方法二：
-可以进行如下的步骤重新设置MyS">
+方法一MySQL提供跳过访问控制的命令行参数，通过在命令行以此命令启动MySQL服务器：safe_mysqld –skip-grant-tables&amp;amp; 即可跳过MySQL的访问控制，任何人都可以在控制台以管理员的身份进入MySQL数据库。需要注意的是在修改完密码以后要把MySQL服务器停掉重新启动才会生效">
 
 
 
@@ -313,97 +289,58 @@ safe_mysqld --skip-grant-tables&amp;amp;
       
 
       
-        <pre><code>如果是root密码：
+        <p>如果是root密码：</p>
+<h1 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h1><p>MySQL提供跳过访问控制的命令行参数，通过在命令行以此命令启动MySQL服务器：<br><strong>safe_mysqld –skip-grant-tables&amp; </strong><br>即可跳过MySQL的访问控制，任何人都可以在控制台以管理员的身份进入MySQL数据库。<br>需要注意的是在修改完密码以后要把MySQL服务器停掉重新启动才会生效<br><a id="more"></a></p>
+<h1 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h1><h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><p>可以进行如下的步骤重新设置MySQL的root密码： </p>
+<ol>
+<li>首先确认服务器出于安全的状态，也就是没有人能够任意地连接MySQL数据库。<br>因为在重新设置MySQL的root密码的期间，MySQL数据库完全出于没有密码保护的状态下，其他的用户也可以任意地登录和修改MySQL的信息。可以采用将MySQL对外的端口封闭，并且停止Apache以及所有的用户进程的方法实现服务器的准安全状态。最安全的状态是到服务器的Console上面操作，并且拔掉网线。 </li>
+<li>修改MySQL的登录设置：<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># vi /etc/my.cnf</span></div><div class="line">``` </div><div class="line">在[mysqld]的段中加上一句：**skip-grant-tables **</div><div class="line">例如：</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>[mysqld]<br>datadir=/var/lib/mysql<br>socket=/var/lib/mysql/mysql.sock<br>skip-name-resolve<br>skip-grant-tables<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">保存并且退出vi。 </div><div class="line">3. 重新启动mysqld </div><div class="line">``` bash</div><div class="line"># /etc/init.d/mysqld restart </div><div class="line">Stopping MySQL: [ OK ] </div><div class="line">Starting MySQL: [ OK ]</div></pre></td></tr></table></figure></p>
+<ol>
+<li><p>登录并修改MySQL的root密码 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># /usr/bin/mysql</span></div><div class="line">Welcome to the MySQL monitor. Commands end with ; or \g. </div><div class="line">Your MySQL connection id is 3 to server version: 3.23.56 </div><div class="line">Type ‘<span class="built_in">help</span>;’ or ‘\h’ <span class="keyword">for</span> help. Type ‘\c’ to clear the buffer. </div><div class="line">mysql&gt; USE mysql ; </div><div class="line">Reading table information <span class="keyword">for</span> completion of table and column names </div><div class="line">You can turn off this feature to get a quicker startup with -A </div><div class="line">Database changed </div><div class="line">mysql&gt; UPDATE user SET Password = password ( ‘new-password’ ) WHERE User = ‘root’ ; </div><div class="line">Query OK, 0 rows affected (0.00 sec) </div><div class="line">Rows matched: 2 Changed: 0 Warnings: 0 </div><div class="line">mysql&gt; flush privileges ; </div><div class="line">Query OK, 0 rows affected (0.01 sec) </div><div class="line">mysql&gt; quit </div><div class="line">Bye</div></pre></td></tr></table></figure>
+</li>
+<li><p>将MySQL的登录设置修改回来 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># vi /etc/my.cnf</span></div><div class="line">``` </div><div class="line">将刚才在[mysqld]的段中加上的skip-grant-tables删除 </div><div class="line">保存并且退出vi。 </div><div class="line">6. 重新启动mysqld </div><div class="line">``` bash</div><div class="line"><span class="comment"># /etc/init.d/mysqld restart </span></div><div class="line">Stopping MySQL: [ OK ] </div><div class="line">Starting MySQL: [ OK ]</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2><ol>
+<li>以系统管理员身份登陆系统。 </li>
+<li>打开cmd, 运行命令 <code>net start</code> 查看mysql是否启动。启动的话就停止<code>net stop mysql</code>. </li>
+<li>我的mysql安装在d:\usr\local\mysql4\bin下。 </li>
+<li>跳过权限检查启动mysql。<br><code>d:\usr\local\mysql4\bin\mysqld-nt –skip-grant-tables</code></li>
+<li>重新打开cmd。进到d:\usr\local\mysql4\bin下：<br><code>d:\usr\local\mysql4\bin\mysqladmin -uroot flush-privileges password “newpassword”</code><br><code>d:\usr\local\mysql4\bin\mysqladmin -u root -p shutdown 这句提示你重新输密码。</code></li>
+<li>在cmd里<code>net start mysql</code> </li>
+<li>搞定了。 </li>
+</ol>
+<h2 id="MySQL4-1以上版本一种密码错误问题的解决方法"><a href="#MySQL4-1以上版本一种密码错误问题的解决方法" class="headerlink" title="MySQL4.1以上版本一种密码错误问题的解决方法"></a>MySQL4.1以上版本一种密码错误问题的解决方法</h2><ol>
+<li><code># SET PASSWORD FOR ’some_user’@’some_host’ = OLD_PASSWORD(‘newpwd’);</code></li>
+<li><code># FLUSH PRIVILEGES;</code></li>
+</ol>
+<h2 id="Mysql数据库修复"><a href="#Mysql数据库修复" class="headerlink" title="Mysql数据库修复"></a>Mysql数据库修复</h2><pre><code>myisamchk -r -q d:\mysql\data\latin1\* 
+</code></pre><p><code>r代表修复 
+q代表快速</code></p>
+<h1 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h1><p>如果你忘记了你的MYSQL的root口令的话，你可以通过下面的过程恢复。</p>
+<ol>
+<li>向mysqld server 发送kill命令关掉mysqld server(不是 kill -9),存放进程ID的文件通常在MYSQL的数据库所在的目录中。<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">kill</span> `cat /mysql-data-directory/hostname.pid`</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>你必须是UNIX的root用户或者是你所运行的SERVER上的同等用户，才能执行这个操作。</p>
+<ol>
+<li>使用<code>--skip-grant-tables</code>参数来启动 mysqld。</li>
+<li>使用<code>mysql -h hostname mysql</code>命令登录到mysqld server ，用grant命令改变口令。你也可以这样做：<code>mysqladmin -h hostname -u user password &#39;new password&#39;</code>。<br>（其实也可以用 <code>use mysql; update user set password =password(&#39;yourpass&#39;) where user=&#39;root&#39;</code>来做到。）</li>
+<li>载入权限表： <code>mysqladmin -h hostname flush-privileges</code> ，或者使用 SQL 命令<code>FLUSH PRIVILEGES</code>。（当然，在这里，你也可以重启mysqld。）</li>
+</ol>
+<h1 id="方法四-一定要先备份"><a href="#方法四-一定要先备份" class="headerlink" title="方法四 (一定要先备份)"></a>方法四 (一定要先备份)</h1><ol>
+<li>重新在另一台电脑上安装相同版本的MySQL</li>
+<li>删除忘记密码的电脑中MySQL安装目录中\data\mysql的全部内容（要先停止MySQL服务）</li>
+<li>Copy新装的电脑上MySQL安装目录中\data\mysql的全部内容 to 刚刚删除的目录中</li>
+<li>启动MySQL服务</li>
+</ol>
+<p>综述：cmd到MySQL安装目录，关闭mysql服务 <strong><code>net stop mysql</code></strong>输入<strong><code>mysqld-nt --skip-grant-tables</code></strong> 此时cmd处于监听状态(这个留着不要关了)，新开一个cmd，切换到MySQL安装目录，输入mysql  进入MySQL命令行后修改root账户密码(<strong><code>use mysql;   update user set password=password(&#39;root&#39;) where user=&#39;root&#39;;  flush privileges;</code></strong>)<br>此方法只要到MySQL安装目录即可，注意安装的MySQL一定要有mysqld-nt，完全安装就行了，毕竟才100多M</p>
 
-方法一：
-MySQL提供跳过访问控制的命令行参数，通过在命令行以此命令启动MySQL服务器： 
-safe_mysqld --skip-grant-tables&amp; 
-即可跳过MySQL的访问控制，任何人都可以在控制台以管理员的身份进入MySQL数据库。 
-需要注意的是在修改完密码以后要把MySQL服务器停掉重新启动才会生效
-
-方法二：
-可以进行如下的步骤重新设置MySQL的root密码： 
-1．首先确认服务器出于安全的状态，也就是没有人能够任意地连接MySQL数据库。 
-因为在重新设置MySQL的root密码的期间，MySQL数据库完全出于没有密码保护的 
-状态下，其他的用户也可以任意地登录和修改MySQL的信息。可以采用将MySQL对 
-外的端口封闭，并且停止Apache以及所有的用户进程的方法实现服务器的准安全 
-状态。最安全的状态是到服务器的Console上面操作，并且拔掉网线。 
-2．修改MySQL的登录设置： 
-# vi /etc/my.cnf 
-在[mysqld]的段中加上一句：skip-grant-tables 
-例如： 
-[mysqld] 
-datadir=/var/lib/mysql 
-socket=/var/lib/mysql/mysql.sock 
-skip-name-resolve 
-skip-grant-tables 
-保存并且退出vi。 
-3．重新启动mysqld 
-# /etc/init.d/mysqld restart 
-Stopping MySQL: [ OK ] 
-Starting MySQL: [ OK ] 
-4．登录并修改MySQL的root密码 
-# /usr/bin/mysql 
-Welcome to the MySQL monitor. Commands end with ; or \g. 
-Your MySQL connection id is 3 to server version: 3.23.56 
-Type ‘help;’ or ‘\h’ for help. Type ‘\c’ to clear the buffer. 
-mysql&gt; USE mysql ; 
-Reading table information for completion of table and column names 
-You can turn off this feature to get a quicker startup with -A 
-Database changed 
-mysql&gt; UPDATE user SET Password = password ( ‘new-password’ ) WHERE User = ‘root’ ; 
-Query OK, 0 rows affected (0.00 sec) 
-Rows matched: 2 Changed: 0 Warnings: 0 
-mysql&gt; flush privileges ; 
-Query OK, 0 rows affected (0.01 sec) 
-mysql&gt; quit 
-Bye 
-5．将MySQL的登录设置修改回来 
-# vi /etc/my.cnf 
-将刚才在[mysqld]的段中加上的skip-grant-tables删除 
-保存并且退出vi。 
-6．重新启动mysqld 
-# /etc/init.d/mysqld restart 
-Stopping MySQL: [ OK ] 
-Starting MySQL: [ OK ] 
-windows 
-1.以系统管理员身份登陆系统。 
-  2.打开cmd—–net start 查看mysql是否启动。启动的话就停止net stop mysql. 
-  3.我的mysql安装在d:\usr\local\mysql4\bin下。 
-  4.跳过权限检查启动mysql. 
-  d:\usr\local\mysql4\bin\mysqld-nt –skip-grant-tables 
-  5.重新打开cmd。进到d:\usr\local\mysql4\bin下： 
-  d:\usr\local\mysql4\bin\mysqladmin -uroot flush-privileges password “newpassword” 
-  d:\usr\local\mysql4\bin\mysqladmin -u root -p shutdown 这句提示你重新输密码。 
-  6.在cmd里net start mysql 
-  7.搞定了。 
-2，MySQL4.1以上版本一种密码错误问题的解决方法 
-1 # SET PASSWORD FOR ’some_user’@’some_host’ = OLD_PASSWORD(‘newpwd’);   
-2 # FLUSH PRIVILEGES;  
-3，Mysql数据库修复 
-myisamchk -r -q d:\mysql\data\latin1\* 
-r代表修复 
-q代表快速 
-d:\mysql\data\latin1\*数据库里面 *代表里面的所有的文件  
-
-方法三：
-如果你忘记了你的MYSQL的root口令的话，你可以通过下面的过程恢复。
-  1. 向mysqld server 发送kill命令关掉mysqld server(不是 kill -9),存放进程ID的文件通常在MYSQL的数据库所在的目录中。
-      kill `cat /mysql-data-directory/hostname.pid`
-     你必须是UNIX的root用户或者是你所运行的SERVER上的同等用户，才能执行这个操作。
-  2. 使用`--skip-grant-tables&apos; 参数来启动 mysqld。
-  3. 使用`mysql -h hostname mysql&apos;命令登录到mysqld server ，用grant命令改变口令。你也可以这样做：`mysqladmin -h hostname -u user password &apos;new password&apos;&apos;。
-（其实也可以用use mysql; update user set password =password(&apos;yourpass&apos;) where user=&apos;root&apos; 来做到。）
-  4. 载入权限表： `mysqladmin -h hostname flush-privileges&apos; ，或者使用 SQL 命令`FLUSH PRIVILEGES&apos;。（当然，在这里，你也可以重启mysqld。）
-
-方法四：(一定要先备份)
-1，重新在另一台电脑上安装相同版本的MySQL
-2，删除忘记密码的电脑中MySQL安装目录中\data\mysql的全部内容（要先停止MySQL服务）
-3，Copy新装的电脑上MySQL安装目录中\data\mysql的全部内容 to 刚刚删除的目录中4，启动MySQL服务
-
-综述：cmd到MySQL安装目录，关闭mysql服务 **net stop mysql **输入mysqld-nt --skip-grant-tables 此时cmd处于监听状态(这个留着不要关了)，新开一个cmd，切换到MySQL安装目录，输入mysql  进入MySQL命令行后修改root账户密码(use mysql;   update user set password=password(&apos;root&apos;) where user=&apos;root&apos;;  flush privileges;)
-此方法只要到MySQL安装目录即可，注意安装的MySQL一定要有mysqld-nt，完全安装就行了，毕竟才100多M
-</code></pre>
       
     </div>
 
@@ -428,16 +365,16 @@ d:\mysql\data\latin1\*数据库里面 *代表里面的所有的文件
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/02/MySQL ERROR2013完美解决方案/" rel="next" title="MySQL ERROR2013完美解决方案">
-                <i class="fa fa-chevron-left"></i> MySQL ERROR2013完美解决方案
+              <a href="/2016/08/02/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/08/02/Oracle11g安装及使用详解/" rel="prev" title="Oracle11g安装及使用详解">
-                Oracle11g安装及使用详解 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/08/02/proteus解决LED二极管不发光问题/" rel="prev" title="proteus解决LED二极管不发光问题">
+                proteus解决LED二极管不发光问题 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -514,7 +451,7 @@ d:\mysql\data\latin1\*数据库里面 *代表里面的所有的文件
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -523,7 +460,7 @@ d:\mysql\data\latin1\*数据库里面 *代表里面的所有的文件
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -552,7 +489,7 @@ d:\mysql\data\latin1\*数据库里面 *代表里面的所有的文件
               
             
             
-              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#方法一"><span class="nav-number">1.</span> <span class="nav-text">方法一</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法二"><span class="nav-number">2.</span> <span class="nav-text">方法二</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux"><span class="nav-number">2.1.</span> <span class="nav-text">Linux</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows"><span class="nav-number">2.2.</span> <span class="nav-text">Windows</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL4-1以上版本一种密码错误问题的解决方法"><span class="nav-number">2.3.</span> <span class="nav-text">MySQL4.1以上版本一种密码错误问题的解决方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mysql数据库修复"><span class="nav-number">2.4.</span> <span class="nav-text">Mysql数据库修复</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法三"><span class="nav-number">3.</span> <span class="nav-text">方法三</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法四-一定要先备份"><span class="nav-number">4.</span> <span class="nav-text">方法四 (一定要先备份)</span></a></li></ol></div>
             
           </div>
         </section>
