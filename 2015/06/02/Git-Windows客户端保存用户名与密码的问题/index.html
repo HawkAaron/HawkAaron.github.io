@@ -90,13 +90,13 @@
 <meta property="og:url" content="http://HawkAaron.github.io/2015/06/02/Git-Windows客户端保存用户名与密码的问题/index.html">
 <meta property="og:site_name" content="HMK's blog">
 <meta property="og:description" content="Git - How to use netrc file on windows - Stack Overflow">
-<meta property="og:image" content="http://img.blog.csdn.net/20150602220505492?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
-<meta property="og:image" content="http://img.blog.csdn.net/20150602220742394?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
-<meta property="og:updated_time" content="2016-08-03T11:57:12.752Z">
+<meta property="og:image" content="http://img.blog.csdn.net/20150602220505492">
+<meta property="og:image" content="http://img.blog.csdn.net/20150602220742394">
+<meta property="og:updated_time" content="2016-08-03T13:50:18.107Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="终于解决“Git Windows客户端保存用户名与密码”的问题">
 <meta name="twitter:description" content="Git - How to use netrc file on windows - Stack Overflow">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20150602220505492?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20150602220505492">
 
 
 
@@ -308,9 +308,9 @@
       
 
       
-        <p><a href="http://stackoverflow.com/questions/6031214/git-how-to-use-netrc-file-on-windows" target="_blank" rel="external">Git - How to use netrc file on windows - Stack Overflow</a><br><img src="http://img.blog.csdn.net/20150602220505492?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br><a id="more"></a><br>这就是正确答案，我们已经验证过了，下面详细描述一下解决方法：</p>
+        <p><a href="http://stackoverflow.com/questions/6031214/git-how-to-use-netrc-file-on-windows" target="_blank" rel="external">Git - How to use netrc file on windows - Stack Overflow</a><br><img src="http://img.blog.csdn.net/20150602220505492" alt=""><br><a id="more"></a><br>这就是正确答案，我们已经验证过了，下面详细描述一下解决方法：</p>
 <ol>
-<li><p>在Windows中添加一个HOME环境变量，值为%USERPROFILE%，如下图：<br><img src="http://img.blog.csdn.net/20150602220742394?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<li><p>在Windows中添加一个HOME环境变量，值为%USERPROFILE%，如下图：<br><img src="http://img.blog.csdn.net/20150602220742394" alt=""></p>
 </li>
 <li><p>在“开始》运行”中打开%Home%，新建一个名为“_netrc”的文件。</p>
 </li>
@@ -429,7 +429,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">24</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -437,7 +437,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -446,7 +446,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">35</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -607,6 +607,26 @@
   
 
   
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
 
   
 

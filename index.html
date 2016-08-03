@@ -344,8 +344,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/05/29/adb无线调试/" itemprop="url">
-                  adb无线调试
+                <a class="post-title-link" href="/2016/08/01/线段树/" itemprop="url">
+                  线段树
                 </a>
               
             
@@ -358,8 +358,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-05-29T17:35:00+08:00" content="2016-05-29">
-              2016-05-29
+            <time itemprop="dateCreated" datetime="2016-08-01T16:02:00+08:00" content="2016-08-01">
+              2016-08-01
             </time>
           </span>
 
@@ -372,8 +372,20 @@
               <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/数据结构/线段树/" itemprop="url" rel="index">
+                    <span itemprop="name">线段树</span>
                   </a>
                 </span>
 
@@ -406,12 +418,25 @@
 
       
         
-          <p>Android开发会用到 adb，调试用的设备一般会选择模拟器，但不管怎么说没有真机流畅，而且有些场景还必须得用真机。问题是真机调试还得用数据线，连上电脑后各种弹框下载简直受不了。这里介绍一下如何通过WiFi无线调试：<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/29/adb无线调试/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
+          
+            <h2 id="线段树的构造"><a href="#线段树的构造" class="headerlink" title="线段树的构造"></a><strong><a href="http://www.lintcode.com/zh-cn/problem/segment-tree-build/" target="_blank" rel="external">线段树的构造</a></strong></h2><p>线段树是一棵二叉树，他的每个节点包含了两个额外的属性start和end用于表示该节点所代表的区间。start和end都是整数，并按照如下的方式赋值:</p>
+<ul>
+<li>根节点的 start 和 end 由 build 方法所给出。</li>
+<li>对于节点 A 的左儿子，有 start=A.left, end=(A.left + A.right) / 2。</li>
+<li>对于节点 A 的右儿子，有 start=(A.left + A.right) / 2 + 1, end=A.right。</li>
+<li>如果 start 等于 end, 那么该节点是叶子节点，不再有左右儿子。</li>
+</ul>
+<p>实现一个 build 方法，接受 start 和 end 作为参数, 然后构造一个代表区间 [start, end] 的线段树，返回这棵线段树的根。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Definition of SegmentTreeNode:</div><div class="line"> * class SegmentTreeNode &#123;</div><div class="line"> * public:</div><div class="line"> *     int start, end;</div><div class="line"> *     SegmentTreeNode *left, *right;</div><div class="line"> *     SegmentTreeNode(int start, int end) &#123;</div><div class="line"> *         this-&gt;start = start, this-&gt;end = end;</div><div class="line"> *         this-&gt;left = this-&gt;right = NULL;</div><div class="line"> *     &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line"><span class="keyword">class</span> Solution &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="comment">/**</span></div><div class="line">     *@param start, end: Denote an segment / interval</div><div class="line">     *@return: The root of Segment Tree</div><div class="line">     */</div><div class="line">    <span class="function">SegmentTreeNode * <span class="title">build</span><span class="params">(<span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</div><div class="line">        <span class="comment">// write your code here</span></div><div class="line">        <span class="keyword">if</span> (start &gt; end) <span class="keyword">return</span> <span class="literal">NULL</span>;</div><div class="line">        SegmentTreeNode* node = <span class="keyword">new</span> SegmentTreeNode(start, end);</div><div class="line">        <span class="keyword">if</span> (start != end) &#123;</div><div class="line">            <span class="keyword">int</span> mid = start + (end - start) / <span class="number">2</span>;</div><div class="line">            node-&gt;left = build(start, mid);</div><div class="line">            node-&gt;right = build(mid+<span class="number">1</span>, end);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> node;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="线段树的查询"><a href="#线段树的查询" class="headerlink" title="线段树的查询"></a><strong><a href="http://www.lintcode.com/zh-cn/problem/segment-tree-query/" target="_blank" rel="external">线段树的查询</a></strong></h2><p>对于一个有n个数的整数数组，在对应的线段树中, 根节点所代表的区间为0-n-1, 每个节点有一个额外的属性max，值为该节点所代表的数组区间start到end内的最大值。</p>
+<p>为SegmentTree设计一个 query 的方法，接受3个参数root, start和end，线段树root所代表的数组中子区间[start, end]内的最大值。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Solution &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="comment">/**</span></div><div class="line">     *@param root, start, end: The root of segment tree and </div><div class="line">     *                         an segment / interval</div><div class="line">     *@return: The maximum number in the interval [start, end]</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">query</span><span class="params">(SegmentTreeNode *root, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</div><div class="line">        <span class="comment">// write your code here</span></div><div class="line">        <span class="keyword">if</span> (root-&gt;start == start &amp;&amp; root-&gt;end == end) <span class="keyword">return</span> root-&gt;max;</div><div class="line">        <span class="keyword">int</span> leftmax = <span class="number">1</span>&lt;&lt;<span class="number">31</span>, rightmax = <span class="number">1</span>&lt;&lt;<span class="number">31</span>;</div><div class="line">        <span class="keyword">int</span> mid = root-&gt;start + (root-&gt;end - root-&gt;start) / <span class="number">2</span>;</div><div class="line">        <span class="comment">// left half part</span></div><div class="line">        <span class="keyword">if</span> (start &lt;= mid) &#123;</div><div class="line">            <span class="keyword">if</span> (mid &lt; end) &#123;</div><div class="line">                leftmax = query(root-&gt;left, start, mid);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                leftmax = query(root-&gt;left, start, end);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">// right half part</span></div><div class="line">        <span class="keyword">if</span> (mid &lt; end) &#123;</div><div class="line">            <span class="keyword">if</span> (start &lt;= mid) &#123;</div><div class="line">                rightmax = query(root-&gt;right, mid+<span class="number">1</span>, end);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                rightmax = query(root-&gt;right, start, end);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> max(leftmax, rightmax);</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="线段树的修改"><a href="#线段树的修改" class="headerlink" title="线段树的修改"></a><strong><a href="http://www.lintcode.com/zh-cn/problem/segment-tree-modify/" target="_blank" rel="external">线段树的修改</a></strong></h2><p>对于一棵 最大线段树, 每个节点包含一个额外的 max 属性，用于存储该节点所代表区间的最大值。</p>
+<p>设计一个 modify 的方法，接受三个参数 root、 index 和 value。该方法将 root 为跟的线段树中 [start, end] = [index, index] 的节点修改为了新的 value ，并确保在修改后，线段树的每个节点的 max 属性仍然具有正确的值。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Solution &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="comment">/**</span></div><div class="line">     *@param root, index, value: The root of segment tree and </div><div class="line">     *@ change the node's value with [index, index] to the new given value</div><div class="line">     *@return: void</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">modify</span><span class="params">(SegmentTreeNode *root, <span class="keyword">int</span> index, <span class="keyword">int</span> value)</span> </span>&#123;</div><div class="line">        <span class="comment">// write your code here</span></div><div class="line">        <span class="keyword">if</span> (root-&gt;start == index &amp;&amp; root-&gt;end == index) &#123;</div><div class="line">            root-&gt;max = value;</div><div class="line">            <span class="keyword">return</span> ;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">int</span> mid = root-&gt;start + (root-&gt;end - root-&gt;start) / <span class="number">2</span>;</div><div class="line">        <span class="keyword">if</span> (root-&gt;start &lt;= index &amp;&amp; index &lt;= mid) &#123;</div><div class="line">            modify(root-&gt;left, index, value);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (mid &lt; index &amp;&amp; index &lt;= root-&gt;end) &#123;</div><div class="line">            modify(root-&gt;right, index, value);</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        root-&gt;max = max(root-&gt;left-&gt;max, root-&gt;right-&gt;max);</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="区间最小数"><a href="#区间最小数" class="headerlink" title="区间最小数"></a><strong><a href="http://www.lintcode.com/zh-cn/problem/interval-minimum-number/" target="_blank" rel="external">区间最小数</a></strong></h2><p>给定一个整数数组（下标由 0 到 n-1，其中 n 表示数组的规模），以及一个查询列表。每一个查询列表有两个整数 [start, end]。 对于每个查询，计算出数组中从下标 start 到 end 之间的数的最小值，并返回在结果列表中。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Definition of Interval:</div><div class="line"> * classs Interval &#123;</div><div class="line"> *     int start, end;</div><div class="line"> *     Interval(int start, int end) &#123;</div><div class="line"> *         this-&gt;start = start;</div><div class="line"> *         this-&gt;end = end;</div><div class="line"> *     &#125;</div><div class="line"> */</div><div class="line"><span class="keyword">class</span> Solution &#123; </div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="keyword">struct</span> Node &#123;</div><div class="line">        Node* left, * right;</div><div class="line">        <span class="keyword">int</span> start, end, min;</div><div class="line">        Node(<span class="keyword">int</span> start, <span class="keyword">int</span> end) &#123;</div><div class="line">            <span class="keyword">this</span>-&gt;start = start;</div><div class="line">            <span class="keyword">this</span>-&gt;end = end;</div><div class="line">            left = right = <span class="literal">NULL</span>;</div><div class="line">            min = <span class="number">1</span>&lt;&lt;<span class="number">30</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">    </div><div class="line">    <span class="function">Node* <span class="title">build</span><span class="params">(<span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (start &gt; end) <span class="keyword">return</span> <span class="literal">NULL</span>;</div><div class="line">        Node* root = <span class="keyword">new</span> Node(start, end);</div><div class="line">        </div><div class="line">        <span class="keyword">if</span> (start != end) &#123;</div><div class="line">            <span class="keyword">int</span> mid = (start + end) / <span class="number">2</span>;</div><div class="line">            root-&gt;left = build(start, mid);</div><div class="line">            root-&gt;right = build(mid+<span class="number">1</span>, end);</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">return</span> root;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">query</span><span class="params">(Node* root, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (root-&gt;start == start &amp;&amp; root-&gt;end == end) </div><div class="line">            <span class="keyword">return</span> root-&gt;min;</div><div class="line">        </div><div class="line">        <span class="keyword">int</span> leftmin = <span class="number">1</span>&lt;&lt;<span class="number">30</span>, rightmin = leftmin;</div><div class="line">        <span class="keyword">int</span> mid = (root-&gt;start + root-&gt;end) / <span class="number">2</span>;</div><div class="line">        <span class="keyword">if</span> (start &lt;= mid) &#123;</div><div class="line">            <span class="keyword">if</span> (mid &lt; end) &#123;</div><div class="line">                leftmin = query(root-&gt;left, start, mid);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                leftmin = query(root-&gt;left, start, end);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (mid &lt; end) &#123;</div><div class="line">            <span class="keyword">if</span> (start &lt;= mid) &#123;</div><div class="line">                rightmin = query(root-&gt;right, mid+<span class="number">1</span>, end);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                rightmin = query(root-&gt;right, start, end);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">return</span> min(leftmin, rightmin);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">modify</span><span class="params">(Node* root, <span class="keyword">int</span> index, <span class="keyword">int</span> value)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (root-&gt;start == index &amp;&amp; root-&gt;end == index) &#123;</div><div class="line">            root-&gt;min = value;</div><div class="line">            <span class="keyword">return</span> ;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">int</span> mid = (root-&gt;start + root-&gt;end) / <span class="number">2</span>;</div><div class="line">        <span class="keyword">if</span> (root-&gt;start &lt;= index &amp;&amp; index &lt;= mid) &#123;</div><div class="line">            modify(root-&gt;left, index, value);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (mid &lt; index &amp;&amp; index &lt;= root-&gt;end) &#123;</div><div class="line">            modify(root-&gt;right, index, value);</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        root-&gt;min = min(root-&gt;left-&gt;min, root-&gt;right-&gt;min);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">/**</span></div><div class="line">     *@param A, queries: Given an integer array and an query list</div><div class="line">     *@return: The result list</div><div class="line">     */</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; intervalMinNumber(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;A, <span class="built_in">vector</span>&lt;Interval&gt; &amp;queries) &#123;</div><div class="line">        <span class="comment">// write your code here</span></div><div class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ret;</div><div class="line">        <span class="keyword">if</span> (A.size() == <span class="number">0</span>) <span class="keyword">return</span> ret;</div><div class="line">        Node* root = build(<span class="number">0</span>, A.size()<span class="number">-1</span>);</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;A.size(); i++) </div><div class="line">            modify(root, i, A[i]);</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;queries.size(); i++) &#123;</div><div class="line">            ret.push_back(query(root, queries[i].start, queries[i].end));</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ret;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+
+          
         
       
     </div>
@@ -459,8 +484,8 @@
             
               
                 
-                <a class="post-title-link" href="/2015/06/14/Python开发环境搭建win7/" itemprop="url">
-                  Python开发环境搭建（Windows）
+                <a class="post-title-link" href="/2016/08/01/Google-2016-面试题6-Count-of-Smaller-Numbers-After-Self(数组计数)/" itemprop="url">
+                  Google 2016 面试题6 | Count of Smaller Numbers After Self(数组计数)
                 </a>
               
             
@@ -473,8 +498,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-06-14T21:47:00+08:00" content="2015-06-14">
-              2015-06-14
+            <time itemprop="dateCreated" datetime="2016-08-01T12:38:00+08:00" content="2016-08-01">
+              2016-08-01
             </time>
           </span>
 
@@ -487,8 +512,32 @@
               <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/数据结构/线段树/" itemprop="url" rel="index">
+                    <span itemprop="name">线段树</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/数据结构/线段树/BST/" itemprop="url" rel="index">
+                    <span itemprop="name">BST</span>
                   </a>
                 </span>
 
@@ -521,16 +570,399 @@
 
       
         
-          <h1 id="安装配置Python"><a href="#安装配置Python" class="headerlink" title="安装配置Python"></a>安装配置Python</h1><p>其实在开发python最好在ubuntu环境下，简单也便于扩展各个package。这次来讲一下如何在win7上搭建Python开发环境。由于python的跨平台性。在windows下和ubuntu下基本上没什么差别。下面从几个不步骤来搭建开发环境。</p>
+          
+            <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述 "></a><strong>题目描述 </strong></h2><p>给定一个数组nums,返回一个计数数组count，count[i]表示nums中第i个右边有多少个数小于nums[i]<br>Example:<br>nums = [5, 2, 6, 1]<br>输出[2,1,1,0]</p>
+<h2 id="分析解答"><a href="#分析解答" class="headerlink" title="分析解答"></a><strong>分析解答</strong></h2><p>此题不难给出O(N^2)的算法，先穷举nums中每个位置i，再穷举右边的数计算有多少个小于nums[i]。难点在于利用数据结构进行优化从而降低时间复杂度。线段树（segment tree）和平衡树（Balanced Binary Tree）是两种可以使用的数据结构。</p>
+<p>线段树的每个节点表示一段区间，记录这个区间的某些信息，其基本思想是把区间一分为二，二分为四。。。直到不可再分（因此叶子节点的区间只包含一个数），如此可以把任意区间表示成log（区间大小）个子区间的拼接，以降低查询时间复杂度。在本题中，假设nums中的数字范围在0到maxnum之间，那么建树的区间为[0,maxnum]（也就是根节点所表示的区间）。每个节点记录其表示区间内的数字个数。本题涉及两种线段树基本操作：插入和查询。插入操作把nums[i]插入到线段树相应位置，同时对所有经过的区间的sum值进行累加；查询操作需要查询区间[0,nums[i]-1]所包含的数字个数，利用已经建好的线段树把查询区间分割为若干个节点所表示的区间，统计并返回这些节点的sum值之和。</p>
+<p>平衡树用途更广，代码复杂度也更高，是一种保持叶子节点深度平衡的二叉搜索树，有多种方法实现，<a href="https://discuss.leetcode.com/category/395/count-of-smaller-numbers-after-self" target="_blank" rel="external">可以参照LeetCode</a>。</p>
+<h2 id="参考程序"><a href="#参考程序" class="headerlink" title="参考程序"></a><strong>参考程序</strong></h2><h3 id="1-线段树-Segment-Tree"><a href="#1-线段树-Segment-Tree" class="headerlink" title="1.线段树 Segment Tree"></a><strong>1.线段树 Segment Tree</strong></h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Solution &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="keyword">struct</span> SegmentTreeNode &#123;</div><div class="line">        SegmentTreeNode* left, *right;</div><div class="line">        <span class="keyword">int</span> start, end;</div><div class="line">        <span class="keyword">int</span> count;</div><div class="line">        SegmentTreeNode(<span class="keyword">int</span> start, <span class="keyword">int</span> end, <span class="keyword">int</span> count)</div><div class="line">            : start(start), end(end), count(count) &#123;</div><div class="line">            left = right = <span class="literal">NULL</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="function">SegmentTreeNode* <span class="title">build</span><span class="params">(<span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (start &gt; end) <span class="keyword">return</span> <span class="literal">NULL</span>;</div><div class="line">        SegmentTreeNode* root = <span class="keyword">new</span> SegmentTreeNode(start, end, <span class="number">0</span>);</div><div class="line">        <span class="keyword">if</span> (start != end) &#123;</div><div class="line">            <span class="keyword">int</span> mid = start + (end - start) / <span class="number">2</span>;</div><div class="line">            root-&gt;left = build(start, mid);</div><div class="line">            root-&gt;right = build(mid+<span class="number">1</span>, end);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> root;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">querySegmentTree</span><span class="params">(SegmentTreeNode* root, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (root-&gt;start == start &amp;&amp; root-&gt;end == end)</div><div class="line">            <span class="keyword">return</span> root-&gt;count;</div><div class="line">        <span class="keyword">int</span> leftcount = <span class="number">0</span>, rightcount = <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> mid = root-&gt;start + (root-&gt;end - root-&gt;start) / <span class="number">2</span>;</div><div class="line">        <span class="comment">// left half part</span></div><div class="line">        <span class="keyword">if</span> (start &lt;= mid) &#123;</div><div class="line">            <span class="keyword">if</span> (mid &lt; end) &#123;</div><div class="line">                leftcount = querySegmentTree(root-&gt;left, start, mid);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                leftcount = querySegmentTree(root-&gt;left, start, end);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">// right half part</span></div><div class="line">        <span class="keyword">if</span> (mid &lt; end) &#123;</div><div class="line">            <span class="keyword">if</span> (start &lt;= mid) &#123;</div><div class="line">                rightcount = querySegmentTree(root-&gt;right, mid+<span class="number">1</span>, end);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                rightcount = querySegmentTree(root-&gt;right, start, end);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> leftcount + rightcount;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">modifySegmentTree</span><span class="params">(SegmentTreeNode* root, <span class="keyword">int</span> index, <span class="keyword">int</span> value)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (root-&gt;start == index &amp;&amp; root-&gt;end == index) &#123;</div><div class="line">            root-&gt;count += value;</div><div class="line">            <span class="keyword">return</span> ;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> mid = root-&gt;start + (root-&gt;end - root-&gt;start) / <span class="number">2</span>;</div><div class="line">        <span class="keyword">if</span> (root-&gt;start &lt;= index &amp;&amp; index &lt;= mid) &#123;</div><div class="line">            modifySegmentTree(root-&gt;left, index, value);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (mid &lt; index &amp;&amp; index &lt;= root-&gt;end) &#123;</div><div class="line">            modifySegmentTree(root-&gt;right, index, value);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        root-&gt;count = root-&gt;left-&gt;count + root-&gt;right-&gt;count;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; countSmaller(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums) &#123;</div><div class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ret;</div><div class="line">        SegmentTreeNode* root = build(<span class="number">-1000</span>, <span class="number">10000</span>);</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=nums.size()<span class="number">-1</span>; i&gt;=<span class="number">0</span>; i--) &#123;</div><div class="line">            <span class="keyword">int</span> ans = querySegmentTree(root, <span class="number">-1000</span>, nums[i]<span class="number">-1</span>);</div><div class="line">            modifySegmentTree(root, nums[i], <span class="number">1</span>);</div><div class="line">            ret.push_back(ans);</div><div class="line">        &#125;</div><div class="line">        reverse(ret.begin(), ret.end());</div><div class="line">        <span class="keyword">return</span> ret;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a><strong>注意事项</strong></h3><p>之前写的线段树居然不能有负区间，debug了好长时间，发现原来是区间中点计算有问题，应该类似于<code>int c = a + (b - a) / 2</code></p>
+<h3 id="2-二叉搜索树-Binary-Search-Tree"><a href="#2-二叉搜索树-Binary-Search-Tree" class="headerlink" title="2.二叉搜索树 Binary Search Tree"></a><strong>2.二叉搜索树 Binary Search Tree</strong></h3><p>每个节点保存sum（左子树节点个数），dup（副本个数）。当插入一个数时，比它小的数的个数就是沿着树向右转时dup和sum之和，<a href="https://discuss.leetcode.com/topic/31405/9ms-short-java-bst-solution-get-answer-when-building-bst" target="_blank" rel="external">详情请见LeetCode</a><br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Solution &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="keyword">struct</span> Node &#123;</div><div class="line">        Node* left, *right;</div><div class="line">        <span class="keyword">int</span> val, sum, dup = <span class="number">1</span>;</div><div class="line">        Node(<span class="keyword">int</span> v, <span class="keyword">int</span> s) : val(v), sum(s) &#123;</div><div class="line">            left = right = <span class="literal">NULL</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; countSmaller(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums) &#123;</div><div class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ret(nums.size());</div><div class="line">        Node* root = <span class="literal">NULL</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=nums.size()<span class="number">-1</span>; i&gt;=<span class="number">0</span>; i--) &#123;</div><div class="line">            insert(nums[i], root, ret[i], <span class="number">0</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ret;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> num, Node*&amp; root, <span class="keyword">int</span>&amp; ret, <span class="keyword">int</span> preSum)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (root == <span class="literal">NULL</span>) &#123;</div><div class="line">            root = <span class="keyword">new</span> Node(num, <span class="number">0</span>);</div><div class="line">            ret = preSum;</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (root-&gt;val &gt; num) &#123;</div><div class="line">            root-&gt;sum++;</div><div class="line">            insert(num, root-&gt;left, ret, preSum);</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (root-&gt;val &lt; num) &#123;</div><div class="line">            insert(num, root-&gt;right, ret, preSum + root-&gt;dup + root-&gt;sum);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            root-&gt;dup++;</div><div class="line">            ret = preSum + root-&gt;sum;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h3 id="迭代版"><a href="#迭代版" class="headerlink" title="迭代版"></a><strong>迭代版</strong></h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Solution &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="keyword">struct</span> Node &#123;</div><div class="line">        Node* left, *right;</div><div class="line">        <span class="keyword">int</span> val, sum = <span class="number">0</span>, dup = <span class="number">0</span>;</div><div class="line">        Node(<span class="keyword">int</span> v) : val(v) &#123;</div><div class="line">            left = right = <span class="literal">NULL</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; countSmaller(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums) &#123;</div><div class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ret(nums.size());</div><div class="line">        <span class="keyword">if</span> (nums.size() == <span class="number">0</span>) <span class="keyword">return</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;();</div><div class="line">        Node* root = <span class="keyword">new</span> Node(nums[nums.size()<span class="number">-1</span>]);</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=nums.size()<span class="number">-1</span>; i&gt;=<span class="number">0</span>; i--) &#123;</div><div class="line">            ret[i] = insert(root, nums[i]);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ret;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">insert</span><span class="params">(Node* root, <span class="keyword">int</span> num)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> ret = <span class="number">0</span>;</div><div class="line">        <span class="keyword">while</span> (root-&gt;val != num) &#123;</div><div class="line">            <span class="keyword">if</span> (root-&gt;val &gt; num) &#123;</div><div class="line">                root-&gt;sum++;</div><div class="line">                <span class="keyword">if</span> (root-&gt;left == <span class="literal">NULL</span>)</div><div class="line">                    root-&gt;left = <span class="keyword">new</span> Node(num);</div><div class="line">                root = root-&gt;left;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                ret += root-&gt;dup + root-&gt;sum;</div><div class="line">                <span class="keyword">if</span> (root-&gt;right == <span class="literal">NULL</span>)</div><div class="line">                    root-&gt;right = <span class="keyword">new</span> Node(num);</div><div class="line">                root = root-&gt;right;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        root-&gt;dup++;</div><div class="line">        <span class="keyword">return</span> ret + root-&gt;sum;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/01/Google-2016-面试题5-岛屿计数2/" itemprop="url">
+                  Google 2016 面试题5 | 岛屿计数2
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-08-01T09:46:00+08:00" content="2016-08-01">
+              2016-08-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/数据结构/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a><strong>题目描述</strong></h2><p>给出一个m行n列的网格地图，每个位置为0或1，0表示海水1表示陆地。一开始地图全为0（没有陆地）。每次在一个位置加入一块陆地，返回此时地图中陆地的总块数（相邻陆地统计时为同一块陆地）。<br>Example:<br>操作#1: addLand(0, 0) turns the water at grid[0][0] into a land.<br><img src="http://img.blog.csdn.net/20160801094144259" alt="leetcode"><br>操作#2: addLand(0, 1) turns the water at grid[0][1] into a land.<br><img src="http://img.blog.csdn.net/20160801094214103" alt="leetcode"><br>操作#3: addLand(1, 2) turns the water at grid[1][2] into a land.<br><img src="http://img.blog.csdn.net/20160801094236588" alt="leetcode"><br>操作#4: addLand(2, 1) turns the water at grid[2][1] into a land.<br><img src="http://img.blog.csdn.net/20160801094255504" alt="leetcode"><br>返回答案数组: [1, 1, 2, 3]<br>你可以做到复杂度O(k log mn)吗？其中k为操作次数。</p>
+<h2 id="分析解答"><a href="#分析解答" class="headerlink" title="分析解答"></a><strong>分析解答</strong></h2><p>对于一个静态的地图，统计岛屿个数可以使用dfs（类似于寻找一个图中的连通块个数），算法复杂度是O(m*n)。但是对于一个不断更新的地图，如果我们每次重新统计连通块个数，复杂度为O(m*n*k)，其中k为总操作个数。考虑到每次只有一个位置发生变化（从0变为1），完全不必重新统一，该陆地的产生职能影响周围四个位置。假设该陆地周围有t（p至多为4）个不连通的岛屿，那么该陆地为把这四个不同点岛屿合并为一个岛屿，使得总岛屿数下降t-1个。因此我们需要维护岛屿之间的连通性，自然的我们想到了并查集。<strong>并查集</strong>是一种解决此类问题的强力数据结构，以此题为例，初始时每个位置都是独立的、互不连通的，每个位置都有一个标签来identify自己，记录在fa数组中，fa[i]为i。当两个位置p、q相邻且都为1时，这两个位置需要统一它们的标签（表示这两个岛屿合并），即fa[p] = q。但是p、q的标签可能已经被修改，因此我们需要通过getfather函数递归找到它们的真实标签（getfather(i)的返回值也称为i的祖先），合并操作变为fa[getfather(p)] = getfather(q)。为了防止最坏情况下每次调用getfather函数都要经过m*n次递归，我们可以采用路径压缩的方法（详见代码中getfather函数），使得每个位置到其祖先的距离始终为一个很小的常数（与m、n无关）。本题中总体时间复杂度为O(m*n+k)，其中每次并查集的查询复杂度为一个常数（不超过4）。</p>
+<h2 id="参考代码"><a href="#参考代码" class="headerlink" title="参考代码 "></a><strong>参考代码 </strong></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Solution &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; numIslands2(<span class="keyword">int</span> m, <span class="keyword">int</span> n, <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt;&amp; positions) &#123;</div><div class="line">        <span class="keyword">bool</span> land[m][n];</div><div class="line">        <span class="keyword">int</span> dr[<span class="number">4</span>] = &#123;<span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">0</span>&#125;;</div><div class="line">        <span class="keyword">int</span> dc[<span class="number">4</span>] = &#123;<span class="number">0</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">1</span>&#125;;</div><div class="line">        <span class="keyword">int</span> fa[m * n];</div><div class="line">        <span class="keyword">int</span> island = <span class="number">0</span>;</div><div class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ret;</div><div class="line"></div><div class="line">        <span class="comment">// initialization</span></div><div class="line">        <span class="built_in">memset</span>(land, <span class="number">0</span>, <span class="keyword">sizeof</span>(land));</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;m*n; i++)</div><div class="line">            fa[i] = i;</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;positions.size(); i++) &#123;</div><div class="line">            island++;</div><div class="line">            <span class="keyword">int</span> x = positions[i][<span class="number">0</span>], y = positions[i][<span class="number">1</span>];</div><div class="line">            <span class="keyword">int</span> f = x * n + y;</div><div class="line">            land[x][y] = <span class="literal">true</span>;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;<span class="number">4</span>; j++) &#123;   <span class="comment">// 4 direction check</span></div><div class="line">                <span class="keyword">int</span> tx = x + dr[j];</div><div class="line">                <span class="keyword">int</span> ty = y + dc[j];</div><div class="line">                <span class="keyword">if</span> (tx &gt;=<span class="number">0</span> &amp;&amp; tx &lt; m &amp;&amp; ty &gt;= <span class="number">0</span> &amp;&amp; ty &lt; n &amp;&amp;</div><div class="line">                    land[tx][ty] &amp;&amp; getfather(fa, tx*n+ty) != f) &#123;</div><div class="line">                    fa[getfather(fa, tx*n+ty)] = f;</div><div class="line">                    island--;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            ret.push_back(island);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ret;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">// disjoint-set and path compression</span></div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getfather</span><span class="params">(<span class="keyword">int</span> fa[], <span class="keyword">int</span> i)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (fa[i] == i) <span class="keyword">return</span> i;</div><div class="line">        <span class="keyword">return</span> fa[i] = getfather(fa, fa[i]);</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/31/Number-of-Islands/" itemprop="url">
+                  Number of Islands
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-07-31T21:44:00+08:00" content="2016-07-31">
+              2016-07-31
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Given a 2d grid map of ‘1’s (land) and ‘0’s (water), count the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.</p>
+<p>Example 1:</p>
+<p>11110<br>11010<br>11000<br>00000<br>Answer: 1</p>
+<p>Example 2:</p>
+<p>11000<br>11000<br>00100<br>00011<br>Answer: 3</p>
+<p>对于一个静态的地图，统计岛屿个数可以使用dfs（类似于寻找一个图中的连通块个数），算法复杂度是O(m*n)。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Solution &#123;</div><div class="line">    <span class="keyword">int</span> m, n;</div><div class="line">    <span class="keyword">int</span> dr[<span class="number">4</span>] = &#123;<span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">0</span>&#125;;</div><div class="line">    <span class="keyword">int</span> dc[<span class="number">4</span>] = &#123;<span class="number">0</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">1</span>&#125;;</div><div class="line"><span class="keyword">public</span>:    </div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt; &gt;&amp; grid)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (x &lt; <span class="number">0</span> || x &gt;= m || y &lt; <span class="number">0</span> || y &gt;= n || grid[x][y] != <span class="string">'1'</span>) <span class="keyword">return</span>;</div><div class="line">        grid[x][y] = <span class="string">'2'</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">4</span>; i++) &#123;</div><div class="line">            dfs(x+dr[i], y+dc[i], grid);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">numIslands</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt; &gt;&amp; grid)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> cnt = <span class="number">0</span>;</div><div class="line">        m = grid.size(); </div><div class="line">        <span class="keyword">if</span> (m == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        n = grid[<span class="number">0</span>].size();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;m; i++) &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;n; j++) &#123;</div><div class="line">                <span class="keyword">if</span> (grid[i][j] == <span class="string">'1'</span>) &#123;</div><div class="line">                    dfs(i, j, grid);</div><div class="line">                    cnt++;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> cnt;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p><a href="https://leetcode.com/problems/number-of-islands/" target="_blank" rel="external">Source: LeetCode 200. Number of Islands</a> </p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/31/Google-2016-面试题3-摆动排序2/" itemprop="url">
+                  Google 2016 面试题3 | 摆动排序 II
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-07-31T17:31:00+08:00" content="2016-07-31">
+              2016-07-31
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述 "></a><strong>题目描述 </strong></h2><p>给出一个整数数组nums，重新排列nums使得nums[0] &lt; nums[1] &gt; nums[2] &lt; nums[3]…<br>Example:<br>nums = [1, 5, 1, 1, 6, 4], 一个可能的答案是[1, 4, 1, 5, 1, 6]<br>数据保证必定有解。</p>
+<h2 id="分析解答"><a href="#分析解答" class="headerlink" title="分析解答"></a><strong>分析解答</strong></h2><p><strong>解法I O(nlogn)时间排序+O(n)空间辅助数组解法：</strong></p>
 <ol>
-<li><p>下载（<a href="https://www.python.org/downloads/）安装python.2.7.8">https://www.python.org/downloads/）安装python.2.7.8</a>. python有2.7的版本和3.x版本，建议还是使用python-2.7.x 版本，因为python的各大框架都支持2.7版本，但是不支持3.x版本。例如简介并且功能强大的webpy就不支持3.x版本，好像web2py,django 对3.x版本也支持不太好。<br>安装就按照默认安装模式即可，主要是安装完成后设置环境变量。python也要配置环境变量，不过比Java简单多了，windows7下：计算机-&gt;属性-&gt;计算机名称、域和工作组设置（更改设置）-&gt;高级-&gt;环境变量，在变量PATH中加入C:/Python27，即之前的安装路径。</p>
+<li><p>对原数组排序，得到排序后的辅助数组tmp</p>
 </li>
-<li><p>在命令行输入Python，出现下图所示说明安装配置成功。<br><img src="http://img.blog.csdn.net/20150614220256424" alt=""></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/14/Python开发环境搭建win7/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
+<li><p>对原数组的偶数位下标填充tmp的末尾元素</p>
+</li>
+<li><p>对原数组的奇数位下标填充tmp的末尾元素</p>
+</li>
+</ol>
+<p>算法复杂度是快速排序的复杂度O(NlogN)。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">wiggleSort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> sz = nums.size();</div><div class="line">    sort(nums.begin(), nums.end());</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tmp = nums;</div><div class="line">    <span class="keyword">int</span> k = sz - <span class="number">1</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;sz; i+=<span class="number">2</span>)</div><div class="line">        nums[i] = tmp[k--];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;sz; i+=<span class="number">2</span>)</div><div class="line">        nums[i] = tmp[k--];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>解法II O(n)时间复杂度+O(1)空间复杂度解法：</strong></p>
+<ol>
+<li><p>使用O(n)时间复杂度的quickSelect算法，从未经排序的数组nums中选出中位数mid</p>
+</li>
+<li><p>参照解法I的思路，将nums数组的下标x通过函数idx()从[0, 1, 2, … , n - 1, n] 映射到 [1, 3, 5, … , 0, 2, 4, …]，得到新下标ix</p>
+</li>
+<li><p>以中位数mid为界，将大于mid的元素排列在ix的较小部分，而将小于mid的元素排列在ix的较大部分。</p>
+</li>
+</ol>
+<p><strong><a href="https://discuss.leetcode.com/topic/32929/o-n-o-1-after-median-virtual-indexing" target="_blank" rel="external">思路来源：https://discuss.leetcode.com/topic/32929/o-n-o-1-after-median-virtual-indexing</a></strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">wiggleSort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> n = nums.size();</div><div class="line"></div><div class="line">    <span class="comment">// Find a median.</span></div><div class="line">    <span class="keyword">auto</span> midptr = nums.begin() + n / <span class="number">2</span>;</div><div class="line">    nth_element(nums.begin(), midptr, nums.end());</div><div class="line">    <span class="keyword">int</span> mid = *midptr;</div><div class="line"></div><div class="line">    <span class="comment">// Index-rewiring.</span></div><div class="line">    <span class="meta">#<span class="meta-keyword">define</span> A(i) nums[(1+2*(i)) % (n|1)]</span></div><div class="line"></div><div class="line">    <span class="comment">// 3-way-partition-to-wiggly in O(n) time with O(1) space.</span></div><div class="line">    <span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>, k = n - <span class="number">1</span>;</div><div class="line">    <span class="keyword">while</span> (j &lt;= k) &#123;</div><div class="line">        <span class="keyword">if</span> (A(j) &gt; mid)</div><div class="line">            swap(A(i++), A(j++));</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (A(j) &lt; mid)</div><div class="line">            swap(A(j), A(k--));</div><div class="line">        <span class="keyword">else</span></div><div class="line">            j++;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="3-way-partition"><a href="#3-way-partition" class="headerlink" title="3-way-partition"></a><strong>3-way-partition</strong></h2><p><strong><a href="https://en.wikipedia.org/wiki/Dutch_national_flag_problem#Pseudocode" target="_blank" rel="external">详见维基百科</a></strong></p>
+<p>伪码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">procedure three-way-partition(A : array of values, mid : value):</div><div class="line">    i ← 0</div><div class="line">    j ← 0</div><div class="line">    n ← size of A - 1</div><div class="line"></div><div class="line">    while j ≤ n:</div><div class="line">        if A[j] &lt; mid:</div><div class="line">            swap A[i] and A[j]</div><div class="line">            i ← i + 1</div><div class="line">            j ← j + 1</div><div class="line">        else if A[j] &gt; mid:</div><div class="line">            swap A[j] and A[n]</div><div class="line">            n ← n - 1</div><div class="line">        else:</div><div class="line">            j ← j + 1</div></pre></td></tr></table></figure></p>
+
+          
         
       
     </div>
@@ -578,8 +1010,8 @@
             
               
                 
-                <a class="post-title-link" href="/2015/06/07/proteus解决LED二极管不发光问题/" itemprop="url">
-                  proteus解决LED二极管不发光问题
+                <a class="post-title-link" href="/2016/07/31/Google-2016-面试题2-不构造树的情况下验证先序遍历/" itemprop="url">
+                  Google 2016 面试题2 | 不构造树的情况下验证先序遍历
                 </a>
               
             
@@ -592,8 +1024,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-06-07T13:11:00+08:00" content="2015-06-07">
-              2015-06-07
+            <time itemprop="dateCreated" datetime="2016-07-31T13:10:00+08:00" content="2016-07-31">
+              2016-07-31
             </time>
           </span>
 
@@ -606,8 +1038,20 @@
               <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/数字逻辑/" itemprop="url" rel="index">
-                    <span itemprop="name">数字逻辑</span>
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/数据结构/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
                   </a>
                 </span>
 
@@ -640,12 +1084,16 @@
 
       
         
-          <p><img src="http://img.blog.csdn.net/20150607130238443" alt=""><br>如上图，LED正接不亮，这种情况是LED和电阻之间没有导线连接造成的（一般元件之间必须要有导线连接，如果直接把元件拖到后面，看起来接上去了，其实是断开的）<br><img src="http://img.blog.csdn.net/20150607130353831" alt=""><br>拖动电阻，发现的确没有连接<br><img src="http://img.blog.csdn.net/20150607130443096" alt=""><br>连接后LED正常<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/07/proteus解决LED二极管不发光问题/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
+          
+            <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a><strong>题目描述</strong></h2><p>给出一个字符序列，问该序列是否是一棵合法的二叉树的先序遍历？<br>找到一种不需要构造二叉树的方法。<br>For example：</p>
+<blockquote>
+<p>“9,3,4,#,#,1,#,#,2,#,6,#,#”<br>是下面这颗二叉树的先序遍历。其中＃代表空节点。</p>
+</blockquote>
+<h2 id="分析解答"><a href="#分析解答" class="headerlink" title="分析解答"></a><strong>分析解答</strong></h2><p>通过观察上图中二叉树我们可以发现，一棵合法的二叉树去掉某个叶子节点后仍是合法的二叉树。在给出的字符序列中，叶子节点有很明显的特征，即叶子节点之后一定紧跟两个空节点＃。通过不断的把number,#,#的子串缩成空节点#(把number,#,#子串替换为#)，如果最后字符序列可以缩短到只有一个字符＃，那它就是我们要找的合法的先序遍历了。</p>
+<h2 id="参考程序"><a href="#参考程序" class="headerlink" title="参考程序"></a><strong>参考程序</strong></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Solution &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isValidSerialization</span><span class="params">(<span class="built_in">string</span> preorder)</span> </span>&#123;</div><div class="line">        <span class="keyword">bool</span> flag = <span class="literal">true</span>;</div><div class="line">        <span class="keyword">while</span> (preorder.length() &gt; <span class="number">1</span>) &#123;</div><div class="line">            <span class="keyword">int</span> index = preorder.find(<span class="string">",#,#"</span>);</div><div class="line">            <span class="keyword">if</span> (index &lt; <span class="number">0</span>) &#123;</div><div class="line">                flag = <span class="literal">false</span>;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">int</span> start = index;</div><div class="line">            <span class="keyword">while</span> (start &gt; <span class="number">0</span> &amp;&amp; preorder[start<span class="number">-1</span>] != <span class="string">','</span>)</div><div class="line">                start--;</div><div class="line">            <span class="keyword">if</span> (preorder[start] == <span class="string">'#'</span>) &#123;</div><div class="line">                flag = <span class="literal">false</span>;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">            preorder.erase(start, index-start+<span class="number">3</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> flag &amp;&amp; preorder[<span class="number">0</span>] == <span class="string">'#'</span>;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="题目来源"><a href="#题目来源" class="headerlink" title="题目来源"></a><strong>题目来源</strong></h2><p><a href="https://leetcode.com/problems/verify-preorder-serialization-of-a-binary-tree/" target="_blank" rel="external">LeetCode 331. Verify Preorder Serialization of a Binary Tree</a></p>
+
+          
         
       
     </div>
@@ -693,8 +1141,8 @@
             
               
                 
-                <a class="post-title-link" href="/2015/06/06/C语言连接MySQL-codeblocks/" itemprop="url">
-                  C语言连接MySQL（codeblocks）
+                <a class="post-title-link" href="/2016/07/31/Google-2016-面试题1-数组补丁/" itemprop="url">
+                  Google 2016 面试题1 | 数组补丁
                 </a>
               
             
@@ -707,8 +1155,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-06-06T16:55:00+08:00" content="2015-06-06">
-              2015-06-06
+            <time itemprop="dateCreated" datetime="2016-07-31T11:26:00+08:00" content="2016-07-31">
+              2016-07-31
             </time>
           </span>
 
@@ -721,8 +1169,20 @@
               <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/MySQL/" itemprop="url" rel="index">
-                    <span itemprop="name">MySQL</span>
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/算法/数学/" itemprop="url" rel="index">
+                    <span itemprop="name">数学</span>
                   </a>
                 </span>
 
@@ -755,12 +1215,22 @@
 
       
         
-          <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;winsock2.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;mysql.h&gt;</span></span></div><div class="line"><span class="comment">/*数据库连接用宏*/</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> HOST <span class="meta-string">"localhost"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> USERNAME <span class="meta-string">"root"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> PASSWORD <span class="meta-string">"root"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> DATABASE <span class="meta-string">"mysql"</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></div><div class="line"></span>&#123;</div><div class="line">    <span class="keyword">char</span> *query;</div><div class="line">    query=<span class="string">"select host,user from user"</span>;</div><div class="line">    query_sql(query);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">query_sql</span><span class="params">(<span class="keyword">char</span>* sql)</span></div><div class="line"></span>&#123;</div><div class="line">    MYSQL my_connection; <span class="comment">/*这是一个数据库连接*/</span></div><div class="line">    <span class="keyword">int</span> res; <span class="comment">/*执行sql語句后的返回标志*/</span></div><div class="line">    MYSQL_RES *res_ptr; <span class="comment">/*指向查询结果的指针*/</span></div><div class="line">    MYSQL_FIELD *field; <span class="comment">/*字段结构指针*/</span></div><div class="line">    MYSQL_ROW result_row; <span class="comment">/*按行返回的查询信息*/</span></div><div class="line">    <span class="keyword">int</span> row, column; <span class="comment">/*查询返回的行数和列数*/</span></div><div class="line">    <span class="keyword">int</span> i, j;</div><div class="line">    <span class="comment">/*初始化mysql连接my_connection*/</span></div><div class="line">    mysql_init(&amp;my_connection);</div><div class="line">    <span class="comment">/*建立mysql连接*/</span></div><div class="line">    <span class="keyword">if</span> (<span class="literal">NULL</span> != mysql_real_connect(&amp;my_connection, HOST, USERNAME, PASSWORD,</div><div class="line">                                   DATABASE, <span class="number">0</span>, <span class="literal">NULL</span>, CLIENT_FOUND_ROWS))  <span class="comment">/*连接成功*/</span></div><div class="line">    &#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"数据库查询query_sql连接成功！\n"</span>);</div><div class="line">        <span class="comment">/*设置查询编码为gbk，以支持中文*/</span></div><div class="line">        mysql_query(&amp;my_connection, <span class="string">"set names gbk"</span>);</div><div class="line">        res = mysql_query(&amp;my_connection, sql);</div><div class="line">        <span class="keyword">if</span> (res)   <span class="comment">/*执行失败*/</span></div><div class="line">        &#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"Error： mysql_query !\n"</span>);</div><div class="line">            <span class="comment">/*关闭连接*/</span></div><div class="line">            mysql_close(&amp;my_connection);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span>     <span class="comment">/*现在就代表执行成功了*/</span></div><div class="line">        &#123;</div><div class="line">            <span class="comment">/*将查询的結果给res_ptr*/</span></div><div class="line">            res_ptr = mysql_store_result(&amp;my_connection);</div><div class="line">            <span class="comment">/*如果结果不为空，就把结果print*/</span></div><div class="line">            <span class="keyword">if</span> (res_ptr)</div><div class="line">            &#123;</div><div class="line">                <span class="comment">/*取得結果的行数和*/</span></div><div class="line">                column = mysql_num_fields(res_ptr);</div><div class="line">                row = mysql_num_rows(res_ptr);</div><div class="line">                <span class="built_in">printf</span>(<span class="string">"查询到 %d 行 \n"</span>, row);</div><div class="line">                <span class="comment">/*输出結果的字段名*/</span></div><div class="line">                <span class="keyword">for</span> (i = <span class="number">0</span>; field = mysql_fetch_field(res_ptr); i++)</div><div class="line">                    <span class="built_in">printf</span>(<span class="string">"%10s "</span>, field-&gt;name);</div><div class="line">                <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">                <span class="comment">/*按行输出結果*/</span></div><div class="line">                <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt; row+<span class="number">1</span>; i++)</div><div class="line">                &#123;</div><div class="line">                    result_row = mysql_fetch_row(res_ptr);</div><div class="line">                    <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; column; j++)</div><div class="line">                        <span class="built_in">printf</span>(<span class="string">"%10s "</span>, result_row[j]);</div><div class="line">                    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="comment">/*不要忘了关闭连接*/</span></div><div class="line">            mysql_close(&amp;my_connection);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span></div><div class="line">    &#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"数据库连接失败"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/06/C语言连接MySQL-codeblocks/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
+          
+            <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述 "></a><strong>题目描述 </strong></h2><p>给出一个从小到大排好序的整数数组nums和一个整数n，在数组中添加若干个补丁（元素）使得[1,n]的区间内的所有数都可以表示成nums中若干个数的和。返回最少需要添加的补丁个数。</p>
+<blockquote>
+<p>Example 1：<br>nums = [1, 3], n = 6</p>
+</blockquote>
+<p>返回1，表示至少需要添加1个数｛2｝，才可以表示1到6之间所有数。</p>
+<blockquote>
+<p>Example 2:<br>nums = [1, 5, 10], n = 20</p>
+</blockquote>
+<p>返回2，表示至少需要添加两个数｛2，4｝，才可以表示1到20之间所有数。</p>
+<h2 id="分析解答"><a href="#分析解答" class="headerlink" title="分析解答 "></a><strong>分析解答 </strong></h2><p>读者不难想到暴力搜索的做法：先穷举每一个不在数组里的数p，再穷举判断p是否可以表示为数组中若干个数的和；如果不能，则把p加入数组中，把答案加一。</p>
+<p>然而，这种做法时间复杂度高且实际操作难度大（需要考虑穷举的顺序）。我们不妨先思考一个简单的问题，如果nums数组为空，那么最少需要多少个数字才能表示1到n之间所有数？相信大家都可以想到一个贪心算法，即按照1、2、4、8…都顺序添加，每次加入都数都比之前所有数的总和大1，直到总和大于n。本题的难点是预先给出了一些数，但这不影响我们的贪心策略：假设nums当前至多可以表示1到m之间的所有数，加入m+1；直到m大于等于n。</p>
+<h2 id="参考程序"><a href="#参考程序" class="headerlink" title="参考程序"></a><strong>参考程序</strong></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Solution &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minPatches</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> index = <span class="number">0</span>, res = <span class="number">0</span>;</div><div class="line">        <span class="keyword">long</span> sum = <span class="number">0</span>;</div><div class="line">        <span class="keyword">while</span> (sum &lt; n) &#123;</div><div class="line">            <span class="keyword">while</span> (index &lt; nums.size() &amp;&amp; nums[index] &lt;= sum + <span class="number">1</span>) &#123;</div><div class="line">                sum += nums[index++];</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (sum &lt; n) &#123;</div><div class="line">                res++;</div><div class="line">                sum += sum + <span class="number">1</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="题目来源"><a href="#题目来源" class="headerlink" title="题目来源"></a><strong>题目来源</strong></h2><p><a href="https://leetcode.com/problems/patching-array/" target="_blank" rel="external">LeetCode 330. Patching Array</a></p>
+
+          
         
       
     </div>
@@ -808,8 +1278,8 @@
             
               
                 
-                <a class="post-title-link" href="/2015/06/02/Git-Windows客户端保存用户名与密码的问题/" itemprop="url">
-                  终于解决“Git Windows客户端保存用户名与密码”的问题
+                <a class="post-title-link" href="/2016/07/31/Max-Points-on-a-Line/" itemprop="url">
+                  Max Points on a Line
                 </a>
               
             
@@ -822,8 +1292,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-06-02T22:03:00+08:00" content="2015-06-02">
-              2015-06-02
+            <time itemprop="dateCreated" datetime="2016-07-31T09:55:00+08:00" content="2016-07-31">
+              2016-07-31
             </time>
           </span>
 
@@ -836,8 +1306,20 @@
               <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Git/" itemprop="url" rel="index">
-                    <span itemprop="name">Git</span>
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/算法/平面几何/" itemprop="url" rel="index">
+                    <span itemprop="name">平面几何</span>
                   </a>
                 </span>
 
@@ -870,12 +1352,14 @@
 
       
         
-          <p><a href="http://stackoverflow.com/questions/6031214/git-how-to-use-netrc-file-on-windows">Git - How to use netrc file on windows - Stack Overflow</a><br><img src="http://img.blog.csdn.net/20150602220505492?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/02/Git-Windows客户端保存用户名与密码的问题/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
+          
+            <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a><strong>题目描述</strong></h2><p>Given n points on a 2D plane, find the maximum number of points that lie on the same straight line.</p>
+<h2 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析 "></a><strong>算法分析 </strong></h2><p>暴力枚举法。两点决定一条直线，$n$个点两两组合，可以得到$\dfrac{1}{2}n(n+1)$条直线，对每一条直线，判断$n$个点是否在该直线上，从而可以得到这条直线上的点的个数，选择最大的那条直线返回。复杂度$O(n^3)$。</p>
+<p>上面的暴力枚举法以“边”为中心，再看另一种暴力枚举法，以每个“点”为中心，然后遍历剩余点，找到所有的斜率，如果斜率相同，那么一定共线对每个点，用一个哈希表，key为斜率，value为该直线上的点数，计算出哈希表后，取最大值，并更新全局最大值，最后就是结果。时间复杂度$O(n^2)$，空间复杂度$O(n)$。</p>
+<h2 id="参考程序"><a href="#参考程序" class="headerlink" title="参考程序 "></a><strong>参考程序 </strong></h2><p>1.以“边”为中心<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Definition for a point.</div><div class="line"> * struct Point &#123;</div><div class="line"> *     int x;</div><div class="line"> *     int y;</div><div class="line"> *     Point() : x(0), y(0) &#123;&#125;</div><div class="line"> *     Point(int a, int b) : x(a), y(b) &#123;&#125;</div><div class="line"> * &#125;;</div><div class="line"> */</div><div class="line"><span class="keyword">class</span> Solution &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxPoints</span><span class="params">(<span class="built_in">vector</span>&lt;Point&gt;&amp; points)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> sz = points.size();</div><div class="line">        <span class="keyword">if</span> (sz &lt; <span class="number">3</span>) <span class="keyword">return</span> sz;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;sz<span class="number">-1</span>; i++) &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j=i+<span class="number">1</span>; j&lt;sz; j++) &#123;</div><div class="line">                <span class="keyword">int</span> cnt = <span class="number">0</span>, zero = <span class="number">0</span>;</div><div class="line">                <span class="keyword">double</span> a, b, c;</div><div class="line">                <span class="keyword">if</span> (points[i].x == points[j].x) &#123;</div><div class="line">                    zero = <span class="number">1</span>;</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    a = points[j].x - points[i].x;</div><div class="line">                    b = points[j].y - points[i].y;</div><div class="line">                    c = a * points[i].y - b * points[i].x;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> k=<span class="number">0</span>; k&lt;sz; k++) &#123;</div><div class="line">                    <span class="keyword">if</span> (zero == <span class="number">0</span> &amp;&amp; a * points[k].y - b * points[k].x == c ||</div><div class="line">                        zero == <span class="number">1</span> &amp;&amp; points[k].x == points[i].x)</div><div class="line">                        cnt++;</div><div class="line">                &#125;</div><div class="line">                res = max(res, cnt);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>2.以“点”为中心<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Solution &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxPoints</span><span class="params">(<span class="built_in">vector</span>&lt;Point&gt;&amp; points)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> sz = points.size();</div><div class="line">        <span class="keyword">if</span> (sz &lt; <span class="number">3</span>) <span class="keyword">return</span> sz;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</div><div class="line">        <span class="built_in">map</span>&lt;<span class="keyword">double</span>, <span class="keyword">int</span>&gt; slopemap;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;sz<span class="number">-1</span>; i++) &#123;</div><div class="line">            slopemap.clear();</div><div class="line">            <span class="keyword">int</span> samePoint = <span class="number">0</span>, cnt = <span class="number">0</span>, maxp = <span class="number">1</span>;</div><div class="line">            <span class="keyword">double</span> slope;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j=i+<span class="number">1</span>; j&lt;sz; j++) &#123;</div><div class="line">                <span class="keyword">if</span> (points[i].x == points[j].x) &#123;</div><div class="line">                    slope = numeric_limits&lt;<span class="keyword">double</span>&gt;::infinity();</div><div class="line">                    <span class="keyword">if</span> (points[i].y == points[j].y) &#123;</div><div class="line">                        samePoint++;</div><div class="line">                        <span class="keyword">continue</span>;</div><div class="line">                    &#125;</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    slope = (points[i].y - points[j].y) * <span class="number">1.0</span> / (points[i].x - points[j].x);</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">if</span> (slopemap.find(slope) != slopemap.end()) &#123;</div><div class="line">                    cnt = ++slopemap[slope];</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    cnt = slopemap[slope] = <span class="number">2</span>;</div><div class="line">                &#125;</div><div class="line">                maxp = max(maxp, cnt);</div><div class="line">            &#125;</div><div class="line">            res = max(res, maxp + samePoint);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+
+          
         
       
     </div>
@@ -923,8 +1407,8 @@
             
               
                 
-                <a class="post-title-link" href="/2015/05/31/oracle-error-引号内的字符串没有正确结束/" itemprop="url">
-                  Oracle error 引号内的字符串没有正确结束
+                <a class="post-title-link" href="/2016/07/31/轴对称/" itemprop="url">
+                  轴对称
                 </a>
               
             
@@ -937,8 +1421,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-05-31T22:35:00+08:00" content="2015-05-31">
-              2015-05-31
+            <time itemprop="dateCreated" datetime="2016-07-31T09:27:00+08:00" content="2016-07-31">
+              2016-07-31
             </time>
           </span>
 
@@ -951,8 +1435,20 @@
               <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Oracle/" itemprop="url" rel="index">
-                    <span itemprop="name">Oracle</span>
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/数据结构/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
                   </a>
                 </span>
 
@@ -985,362 +1481,16 @@
 
       
         
-          <p>ERROR:<br>ORA-01756: 引号内的字符串没有正确结束 </p>
-<p>SELECT DISTINCT A.JNO FROM Rt AS A WHERE NOT EXISTS (SELECT PNO FROM St AS B WHERE NOT EXISTS (SELECT JNO,PNO FROM Rt AS C WHERE C.JNO=A.JNO AND B.PNO=C.PNO)) GROUP BY A.JNO<br>                              *<br>第 1 行出现错误:<br>ORA-00933: SQL 命令未正确结束<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/05/31/oracle-error-引号内的字符串没有正确结束/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/05/30/CodeBlocks静态链接与动态链接设置/" itemprop="url">
-                  CodeBlocks静态链接与动态链接设置
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-05-30T17:30:00+08:00" content="2015-05-30">
-              2015-05-30
-            </time>
-          </span>
+          
+            <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a><strong>题目描述</strong></h2><p>给定平面上的n个点，问是否存在一条平行于y轴的直线，使得这n个点相对于这条直线对称。</p>
+<h2 id="Follow-up"><a href="#Follow-up" class="headerlink" title="Follow-up "></a><strong>Follow-up </strong></h2><p>是否存在一条直线使得这n个点关于这条直线对称？</p>
+<h2 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析 "></a><strong>算法分析 </strong></h2><p>因为对称轴一定平行于y轴，对称轴的特点就是每一个点都在另一边有一个对应的点。<strong>最左边的点一定对应某个最右边的点，因此最左边的点和最右边的点的中点应该在对称轴上。</strong></p>
+<p>找到了对称轴的位置，我们就可以通过HashMap判断是否每一个点都有对应的点，最后输出答案即可。</p>
+<p><strong>时间复杂度为O(n)。</strong></p>
+<h2 id="参考程序"><a href="#参考程序" class="headerlink" title="参考程序"></a><strong>参考程序</strong></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF = <span class="number">1</span>&lt;&lt;<span class="number">30</span>;</div><div class="line"></div><div class="line"><span class="keyword">struct</span> Point &#123;</div><div class="line">    <span class="keyword">int</span> x;</div><div class="line">    <span class="keyword">int</span> y;</div><div class="line">    Point(<span class="keyword">int</span> x=<span class="number">0</span>, <span class="keyword">int</span> y=<span class="number">0</span>) : x(x), y(y) &#123;&#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="built_in">vector</span>&lt;Point&gt; points;</div><div class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt; &gt; pmap;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> n;</div><div class="line">    <span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; n) &#123;</div><div class="line">        Point p;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++) &#123;</div><div class="line">            <span class="built_in">cin</span> &gt;&gt; p.x &gt;&gt; p.y;</div><div class="line">            points.push_back(p);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> maxv = -INF, minv = INF;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;points.size(); i++) &#123;</div><div class="line">            maxv = max(points[i].x, maxv);</div><div class="line">            minv = min(points[i].x, minv);</div><div class="line">            pmap[points[i].y].insert(points[i].x);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">bool</span> flag = <span class="literal">true</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;points.size(); i++) &#123;</div><div class="line">            <span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt; &amp;setx = pmap[points[i].y];</div><div class="line">            <span class="keyword">if</span> (setx.find(maxv + minv - points[i].x) == setx.end()) &#123;</div><div class="line">                flag = <span class="literal">false</span>;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        flag ? <span class="built_in">cout</span> &lt;&lt; <span class="string">"YES\n"</span> : <span class="built_in">cout</span> &lt;&lt; <span class="string">"NO\n"</span>;</div><div class="line">        points.clear();</div><div class="line">        pmap.clear();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="LeetCode相关练习题"><a href="#LeetCode相关练习题" class="headerlink" title="LeetCode相关练习题"></a><strong>LeetCode相关练习题</strong></h2><p><a href="https://leetcode.com/problems/max-points-on-a-line/" target="_blank" rel="external">https://leetcode.com/problems/max-points-on-a-line/</a></p>
 
           
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/DLL/" itemprop="url" rel="index">
-                    <span itemprop="name">DLL</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="静态库和动态库的区别"><a href="#静态库和动态库的区别" class="headerlink" title="静态库和动态库的区别"></a>静态库和动态库的区别</h1><h2 id="1-静态库"><a href="#1-静态库" class="headerlink" title="1.静态库"></a>1.静态库</h2><p>之所以称之为”静态库”，是因为在链接阶段，会将汇编生成的目标文件.o与引用到的库一起链接打包到可执行文件中。因此对应的链接方式称为静态链接。<br>从本质上来说，一个静态库可以简单看成是一组目标文件(.o/.obj文件)的集合，静态库与汇编生成的目标文件(.o/.obj)一起链接为可执行文件。<br>静态库（后缀为.a/.lib）和.o文件格式相似。即很多目标文件经过压缩打包后形成的一个文件<br>静态库特点总结：</p>
-<pre><code>1. 静态库对函数库的链接是放在编译时期完成的
-2. 程序在运行时与函数库再无瓜葛，移植方便，因为代码已经嵌入到程序里面了，可以直接跟着程序走，不存在对外部文件的依赖
-3. 浪费空间和资源，因为所有相关的目标文件与牵涉到的函数库被链接合成一个可执行文件，会增加原本程序的空间
-</code></pre>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/05/30/CodeBlocks静态链接与动态链接设置/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/05/18/CCpp跨平台交叉编译-静态库动态库编译-MinGW-Cygwin-CodeBlocks使用原理及链接参数选项/" itemprop="url">
-                  C/C++ 跨平台交叉编译、静态库/动态库编译、MinGW、Cygwin、CodeBlocks使用原理及链接参数选项
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-05-18T21:00:00+08:00" content="2015-05-18">
-              2015-05-18
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/DLL/" itemprop="url" rel="index">
-                    <span itemprop="name">DLL</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="0-引言"><a href="#0-引言" class="headerlink" title="0. 引言"></a><strong>0. 引言</strong></h1><p>UNIX是一个注册商标，是要满足一大堆条件并且支付可观费用才能够被授权使用的一个操作系统。linux是unix的克隆版本，是由其创始人Linus和诸多世界知名的黑客手工打造的一个操作系统。为什么linux和unix之间有很多软件可以很轻松的移植？因为linux也满足POSIX规范，所以在运行机制上跟unix相近。同时，POSIX标准也是Linux、windows下能够进行交叉编译的基础
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/05/18/CCpp跨平台交叉编译-静态库动态库编译-MinGW-Cygwin-CodeBlocks使用原理及链接参数选项/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/05/16/Java的内存回收机制/" itemprop="url">
-                  Java的内存回收机制
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-05-16T09:53:00+08:00" content="2015-05-16">
-              2015-05-16
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>在Java中，它的内存管理包括两方面：内存分配（创建Java对象的时候）和内存回收，这两方面工作都是由JVM自动完成的，降低了Java程序员的学习难度，避免了像C/C++直接操作内存的危险。但是，也正因为内存管理完全由JVM负责，所以也使Java很多程序员不再关心内存分配，导致很多程序低效，耗内存。因此就有了Java程序员到最后应该去了解JVM，才能写出更高效，充分利用有限的内存的程序。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/05/16/Java的内存回收机制/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
         
       
     </div>
@@ -1371,7 +1521,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1412,7 +1562,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">24</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1420,7 +1570,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -1429,7 +1579,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">35</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -1575,6 +1725,26 @@
   
 
   
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
 
   
 
