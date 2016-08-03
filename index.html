@@ -733,8 +733,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/02/汇编语言入门：debug调试工具/" itemprop="url">
-                  汇编语言入门：debug调试工具
+                <a class="post-title-link" href="/2016/08/02/谷歌浏览器安装QQ旋风插件/" itemprop="url">
+                  谷歌浏览器安装QQ旋风插件
                 </a>
               
             
@@ -777,48 +777,56 @@
       
         
           
-            <p>对于大学生来说，基本都需要学习高级编程语言，相信大多数理工类大学生都知道c++、c语言、Java语言等高级语言，也知道机器语言这个最低级的语言，但是却有很多都不知道汇编语言，或许听过这个名字，却不知道用途等。现在我就来给大家讲解一下汇编语言以及入门。我也是刚学习汇编语言，大家可以跟着我一起学习。汇编语言与高级语言不同，它是面向机器的语言，最接近于机器语言。学习汇编语言，必须要了解计算机中机器指令、数据、符合的表示形式和存储格式以及机器指令程序的运行方式等。汇编语言的实践性很强，必须要边学习边动手才可能掌握，需要耐心和细心。初学者一般需要用到debug小工具进行程序调试，现在我就来给大家演示一下debug调试工具的使用以及debug命令符。</p>
+            <p>此教程解决QQ旋风无法关联Chrome的问题。</p>
 <p>##<a href=""></a>工具/原料</p>
 <ul>
-<li><p>电脑</p>
+<li><p>QQ旋风</p>
 </li>
-<li><p>安装有debug小工具的系统（一般32位的windows系统自带有，64位的需要自己安装）</p>
-</li>
-<li><p><img src="http://img.blog.csdn.net/20150803144631191?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
-</li>
-<li><p>若直接输入debug打开，工作界面与输入cmd打开有所不同，建议还是通过cmd打开debug。</p>
-</li>
-<li><p>打开cmd程序后，输入debug，大小写均一样，习惯用大写，为方便操作，后续的操作我一律使用小写。输入之后按回车，会出现下图所示的工作框。</p>
+<li><p>谷歌Chrome浏览器</p>
 </li>
 </ul>
-<ul>
-<li><img src="http://img.blog.csdn.net/20150803145028837?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></li>
-</ul>
-<ul>
-<li>在debug窗口就可以进行汇编语句的编写和调试了。先在窗口输入A，然后回车，系统自动分配到内存，如本图所示，其中073F是寄存器的段基址，冒号后面的0100是偏移地址，对应的物理地址是74F00，即程序在此地址下开始存储。然后输入汇编语句，举一个简单的例子，将数据2341H送入寄存器ax和cx中。记住输入的数据在汇编是已经默认是十六进制，不需要在加h，否则会显示错误。</li>
-</ul>
-<ul>
-<li><img src="http://img.blog.csdn.net/20150803145303234?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></li>
-</ul>
-<ul>
-<li>再举另一个例子，将21h和23h两个数相加，结果存放到al中。并通过命令符t一步一步执行，看结果。每输入一个t，按回车后即完成一条指令，第一条指令是将21h送入到ax寄存器的低位al中，看到ax的值变成了0021；第二步执行的是将21h与23h相加，并将结果存放到al中，所执行之后看到ax的值由0021变成了0044<br>。注意到两条指令执行后，IP的值发生了改变，即地址指针发生了改变。NV、UP、EI、PL、NZ、NA、PO、NC代表的是标志寄存器的状态位，在此不做进一步介绍，查阅相关书籍都会有详细的介绍。</li>
-</ul>
-<ul>
-<li><img src="http://img.blog.csdn.net/20150803145626367?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></li>
-</ul>
-<ul>
-<li><p>现在来给大家介绍一下常用的几个命令符。a：逐行汇编；u：反汇编；t：逐行执行命令；d：显示一定内存单元内容，再次输入将在原显示内容上继续显示下面内存的内容；q：退出debug回到dos状态；r：改变或显示一个或多个寄存器的内容；n：命名文件；w：将已命名文件写入磁盘；l：将程序装载进内存。<br>暂时介绍这些常用的几个。有需要的读者可以去网上收索更详细的命令符。<br>下面给大家演示一个简单的例子，并使用这些命令符。<br>存盘后要想查看已存内容，可以先用q退出，然后输入dir回车，即可看到文件下的所以目录。可以看到自己命名的文件<br><img src="http://img.blog.csdn.net/20150803145740537?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<p>##<a href=""></a>方法/步骤</p>
+<ol>
+<li><p>1打开QQ旋风安装目录，QQDownload\Browser\Chrome 目录下找到“QQDownload_Chrome_Extension.crx”文件。</p>
 </li>
-<li><p>##注意事项</p>
+<li><p><img src="http://img.blog.csdn.net/20150621090007861?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
 </li>
-<li><p>要想学好汇编，必须边看资料边操作，不可急功近利，不然很难学会的。</p>
-</li>
-<li><p>汇编命令符是需要记住的，在程序调试中经常需要用到。多动手才能方便记忆和理解。</p>
-</li>
-</ul>
-<ul>
 <li></li>
-</ul>
+<li><p>2打开Chrome浏览器设置页面，然后进入扩展程序。</p>
+</li>
+<li><p><img src="http://img.blog.csdn.net/20150621090355211?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+</li>
+<li></li>
+<li><p>3直接拖拽“QQDownload_Chrome_Extension.crx”文件到扩展程序页面。</p>
+</li>
+<li><p><img src="http://img.blog.csdn.net/20150621090642549?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+</li>
+<li></li>
+<li><p>4点击“添加”</p>
+</li>
+<li><p><img src="http://img.blog.csdn.net/20150621090833115?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+</li>
+<li></li>
+<li><p>5在这两个地方打钩。</p>
+</li>
+<li><p><img src="http://img.blog.csdn.net/20150621091008563?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+</li>
+<li></li>
+<li><p>6打开QQ旋风浏览器关联界面发现此处已自动关联上了，手动关联成功。</p>
+</li>
+<li><p><img src="http://img.blog.csdn.net/20150621091529364?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+</li>
+<li></li>
+</ol>
+<ol>
+<li>4点击“添加”</li>
+</ol>
+<ol>
+<li>5在这两个地方打钩。</li>
+</ol>
+<ol>
+<li>6打开QQ旋风浏览器关联界面发现此处已自动关联上了，手动关联成功。</li>
+</ol>
 
           
         
