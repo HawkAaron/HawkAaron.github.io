@@ -98,7 +98,7 @@
 “9,3,4,#,#,1,#,#,2,#,6,#,#”是下面这颗二叉树的先序遍历。其中＃代表空节点。
 
 分析解答通过观察上图中二叉树我们可以发现，一棵合法的二叉树去掉某个叶子节点后仍是合法的二叉树。在给出的字符序列中，叶子节点有很明显的特征，即叶子节点之后一定紧跟两个空节">
-<meta property="og:updated_time" content="2016-08-03T14:20:17.876Z">
+<meta property="og:updated_time" content="2016-08-03T15:22:20.070Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Google 2016 面试题2 | 不构造树的情况下验证先序遍历">
 <meta name="twitter:description" content="题目描述给出一个字符序列，问该序列是否是一棵合法的二叉树的先序遍历？找到一种不需要构造二叉树的方法。For example：
@@ -333,7 +333,7 @@
 <blockquote>
 <p>“9,3,4,#,#,1,#,#,2,#,6,#,#”<br>是下面这颗二叉树的先序遍历。其中＃代表空节点。</p>
 </blockquote>
-<h2 id="分析解答"><a href="#分析解答" class="headerlink" title="分析解答"></a><strong>分析解答</strong></h2><p>通过观察上图中二叉树我们可以发现，一棵合法的二叉树去掉某个叶子节点后仍是合法的二叉树。在给出的字符序列中，叶子节点有很明显的特征，即叶子节点之后一定紧跟两个空节点＃。通过不断的把number,#,#的子串缩成空节点#(把number,#,#子串替换为#)，如果最后字符序列可以缩短到只有一个字符＃，那它就是我们要找的合法的先序遍历了。</p>
+<h2 id="分析解答"><a href="#分析解答" class="headerlink" title="分析解答"></a><strong>分析解答</strong></h2><p>通过观察上图中二叉树我们可以发现，一棵合法的二叉树去掉某个叶子节点后仍是合法的二叉树。在给出的字符序列中，叶子节点有很明显的特征，即叶子节点之后一定紧跟两个空节点＃。通过不断的把number,#,#的子串缩成空节点#(把number,#,#子串替换为#)，如果最后字符序列可以缩短到只有一个字符＃，那它就是我们要找的合法的先序遍历了。<br><a id="more"></a></p>
 <h2 id="参考程序"><a href="#参考程序" class="headerlink" title="参考程序"></a><strong>参考程序</strong></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Solution &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isValidSerialization</span><span class="params">(<span class="built_in">string</span> preorder)</span> </span>&#123;</div><div class="line">        <span class="keyword">bool</span> flag = <span class="literal">true</span>;</div><div class="line">        <span class="keyword">while</span> (preorder.length() &gt; <span class="number">1</span>) &#123;</div><div class="line">            <span class="keyword">int</span> index = preorder.find(<span class="string">",#,#"</span>);</div><div class="line">            <span class="keyword">if</span> (index &lt; <span class="number">0</span>) &#123;</div><div class="line">                flag = <span class="literal">false</span>;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">int</span> start = index;</div><div class="line">            <span class="keyword">while</span> (start &gt; <span class="number">0</span> &amp;&amp; preorder[start<span class="number">-1</span>] != <span class="string">','</span>)</div><div class="line">                start--;</div><div class="line">            <span class="keyword">if</span> (preorder[start] == <span class="string">'#'</span>) &#123;</div><div class="line">                flag = <span class="literal">false</span>;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">            preorder.erase(start, index-start+<span class="number">3</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> flag &amp;&amp; preorder[<span class="number">0</span>] == <span class="string">'#'</span>;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 <h2 id="题目来源"><a href="#题目来源" class="headerlink" title="题目来源"></a><strong>题目来源</strong></h2><p><a href="https://leetcode.com/problems/verify-preorder-serialization-of-a-binary-tree/" target="_blank" rel="external">LeetCode 331. Verify Preorder Serialization of a Binary Tree</a></p>
 
@@ -457,7 +457,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
