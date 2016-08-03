@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   
-  <title>汇编学习笔记--寄存器（内存访问 1） | Hexo</title>
+  <title>汇编学习笔记--寄存器（内存访问 1） | 黄明坤的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="内存访问首先要有地址，8086pc中的段地址存放在 ds 寄存器中（ds 和 cs是不一样的，cs是定位地址用于读取内存中的指令或者数据，而ds是读取内存中的数据时使用，下面我们会明白区别）
 将内存中的数据写入寄存器：mov bx,1000Hmov ds,bxmov al,[0]第一句是把1000H给bx（寄存器），第二句把bx中的值给ds（段地址寄存器），第三句从1000:0H中读取数据给al（">
 <meta property="og:type" content="article">
 <meta property="og:title" content="汇编学习笔记--寄存器（内存访问 1）">
 <meta property="og:url" content="http://HawkAaron.github.io/2016/08/02/汇编学习笔记--寄存器（内存访问 1）/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="黄明坤的个人博客">
 <meta property="og:description" content="内存访问首先要有地址，8086pc中的段地址存放在 ds 寄存器中（ds 和 cs是不一样的，cs是定位地址用于读取内存中的指令或者数据，而ds是读取内存中的数据时使用，下面我们会明白区别）
 将内存中的数据写入寄存器：mov bx,1000Hmov ds,bxmov al,[0]第一句是把1000H给bx（寄存器），第二句把bx中的值给ds（段地址寄存器），第三句从1000:0H中读取数据给al（">
 <meta property="og:updated_time" content="2016-08-01T10:20:59.105Z">
@@ -19,7 +19,7 @@
 <meta name="twitter:description" content="内存访问首先要有地址，8086pc中的段地址存放在 ds 寄存器中（ds 和 cs是不一样的，cs是定位地址用于读取内存中的指令或者数据，而ds是读取内存中的数据时使用，下面我们会明白区别）
 将内存中的数据写入寄存器：mov bx,1000Hmov ds,bxmov al,[0]第一句是把1000H给bx（寄存器），第二句把bx中的值给ds（段地址寄存器），第三句从1000:0H中读取数据给al（">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="黄明坤的个人博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -40,8 +40,12 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/" id="logo">黄明坤的个人博客</a>
       </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Welcome!</a>
+        </h2>
       
     </div>
     <div id="header-inner" class="inner">
@@ -96,7 +100,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://HawkAaron.github.io/2016/08/02/汇编学习笔记--寄存器（内存访问 1）/" data-id="cirejyls6000qzknr3gw0d0u5" class="article-share-link">Share</a>
+      <a data-url="http://HawkAaron.github.io/2016/08/02/汇编学习笔记--寄存器（内存访问 1）/" data-id="cirek20yi000n0snrvt16mx88" class="article-share-link">Share</a>
       
       
     </footer>
@@ -105,19 +109,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/08/02/汇编注释/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/08/02/汇编学习笔记--查看CPU和内存/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          汇编注释
+          汇编学习笔记--查看CPU和内存
         
       </div>
     </a>
   
   
-    <a href="/2016/08/02/Win7旗舰版不能将大于4G的文件拷贝到U盘怎么办？/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/08/02/win7 64位如何调出debug/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Win7旗舰版不能将大于4G的文件拷贝到U盘怎么办？</div>
+      <div class="article-nav-title">win7 64位如何调出debug</div>
     </a>
   
 </nav>
@@ -166,11 +170,11 @@
           </li>
         
           <li>
-            <a href="/2016/08/02/汇编学习笔记--寄存器（内存访问 1）/">汇编学习笔记--寄存器（内存访问 1）</a>
+            <a href="/2016/08/02/汇编语言入门：debug调试工具/">汇编语言入门：debug调试工具</a>
           </li>
         
           <li>
-            <a href="/2016/08/02/Win7旗舰版不能将大于4G的文件拷贝到U盘怎么办？/">Win7旗舰版不能将大于4G的文件拷贝到U盘怎么办？</a>
+            <a href="/2016/08/02/汇编学习笔记--查看CPU和内存/">汇编学习笔记--查看CPU和内存</a>
           </li>
         
       </ul>
@@ -185,7 +189,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016 John Doe<br>
+      &copy; 2016 黄明坤<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

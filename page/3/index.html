@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo</title>
+  <title>黄明坤的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="黄明坤的个人博客">
 <meta property="og:url" content="http://HawkAaron.github.io/page/3/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="黄明坤的个人博客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="黄明坤的个人博客">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="黄明坤的个人博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -33,8 +33,12 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/" id="logo">黄明坤的个人博客</a>
       </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Welcome!</a>
+        </h2>
       
     </div>
     <div id="header-inner" class="inner">
@@ -60,6 +64,45 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-oracle error 引号内的字符串没有正确结束" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/02/oracle error 引号内的字符串没有正确结束/" class="article-date">
+  <time datetime="2016-08-02T13:18:52.131Z" itemprop="datePublished">2016-08-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/02/oracle error 引号内的字符串没有正确结束/">oracle error 引号内的字符串没有正确结束</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>ERROR:<br>ORA-01756: 引号内的字符串没有正确结束 </p>
+<p>SELECT DISTINCT A.JNO FROM Rt AS A WHERE NOT EXISTS (SELECT PNO FROM St AS B WHERE NOT EXISTS (SELECT JNO,PNO FROM Rt AS C WHERE C.JNO=A.JNO AND B.PNO=C.PNO)) GROUP BY A.JNO<br>                              *<br>第 1 行出现错误:<br>ORA-00933: SQL 命令未正确结束 </p>
+<p>如果确认没有语法错误，那么就是sql文件编码的问题，由于oracle是用Java写的，所以我们在写sql脚本时应该保存为ANSI编码<br>（另存为，选择编码为ANSI即可）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://HawkAaron.github.io/2016/08/02/oracle error 引号内的字符串没有正确结束/" data-id="cirek20xx000g0snrre02bc1f" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-Java的内存回收机制" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -111,7 +154,7 @@ main(String[] args) {``         ``//创建一个对象``         ``Person
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://HawkAaron.github.io/2016/08/02/Java的内存回收机制/" data-id="cirejylpk0001zknrv781jrev" class="article-share-link">Share</a>
+      <a data-url="http://HawkAaron.github.io/2016/08/02/Java的内存回收机制/" data-id="cirek20wx00020snr84x21wvv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -121,9 +164,9 @@ main(String[] args) {``         ``//创建一个对象``         ``Person
 
 
   
-    <article id="post-mysql 远程数据库导入到本地数据库" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Oracle11g安装及使用详解" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/08/02/mysql 远程数据库导入到本地数据库/" class="article-date">
+    <a href="/2016/08/02/Oracle11g安装及使用详解/" class="article-date">
   <time datetime="2016-08-02T13:18:52.131Z" itemprop="datePublished">2016-08-02</time>
 </a>
     
@@ -135,7 +178,7 @@ main(String[] args) {``         ``//创建一个对象``         ``Person
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/02/mysql 远程数据库导入到本地数据库/">mysql 远程数据库导入到本地数据库</a>
+      <a class="article-title" href="/2016/08/02/Oracle11g安装及使用详解/">Oracle11g安装及使用详解</a>
     </h1>
   
 
@@ -143,51 +186,44 @@ main(String[] args) {``         ``//创建一个对象``         ``Person
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>mysqldump -h ‘114.212.111.123’ -uROSE -pxxxooo –opt –compress ITSM –skip-lock-tables | mysql -h localhost<br> -uroot -proot ITSMC<br>解释：<br>114.212.111.123 远程服务器名称<br>ROSE 远程数据库登录名<br>xxxooo 远程数据库登录密码<br>ITSM远程数据库名（即：复制的源）<br>localhost 本地数据库名称（一般情况下都是这个）<br>root 本地数据库登录名（一般情况下都是这个）<br>root 本地数据库登录密码（一般情况下都是这个）<br>ITSMC 本地（即：复制的目的）<br>sql解释：<br>mysqldump 是mysql的一个专门用于拷贝操作的命令<br>–opt 操作的意思<br>–compress 压缩要传输的数据<br>–skip-lock 忽略锁住的表（加上这句能防止当表有外键时的报错）<br>-tables 某数据库所有表<br>-h 服务器名称<br>-u 用户名（<em>后面无空格，直接加用户名）<br>-p 密码（</em>后面无空格，直接加密码）<br>注意：<br>-u、-p的后面没有空格，直接加用户名和密码！！！ </p>
+        <p>一、首先我们在官网下载Oracle11g，链接如下：<br><a href="http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html" target="_blank" rel="external">http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html</a><br>注意系统位数和文件个数<br><img src="http://img.blog.csdn.net/20150410221936614?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br>两个文件都要下载，过程可能比价漫长，可以敲会代码或者做几篇阅读理解缓解一下情绪（为接下来操蛋的安装过程做好充分的心理准备）</p>
+<p>二、安装可以参考已下链接<br><a href="http://jingyan.baidu.com/article/e5c39bf58eff9239d760338b.html" target="_blank" rel="external">http://jingyan.baidu.com/article/e5c39bf58eff9239d760338b.html</a><br>这里要注意一点：可以无视所有的错误提示！（在第5步进行先决条件检查时由于系统原因可能会报错，此时可以按照安装教程忽略相关选项！）<br>另外要注意的是安装目录尽量在跟目录下，比如安装在D:\Oracle\下，而且目录不能包含中文及空格等非数字字母的字符（大部分国外的大型程序都这样，我们只能默默地接受了）</p>
+<p>三、环境变量检查<br>1、使用前请配置环境变量（系统会自动配置，最好检查一下）：<br>方法一：命令行 echo %PATH% 命令<br><img src="http://img.blog.csdn.net/20150410222254232?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br>可以看见图中的环境变量的第一条目录即是刚才安装完的Oracle的bin目录（一般软件的bin目录下有我们用到的命令行工具，Oracle的bin命令里面有sqlplus）<br>方法二：右击‘计算机’，选择‘属性’，‘高级系统配置’，<br><img src="http://img.blog.csdn.net/20150410222343106?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br><img src="http://img.blog.csdn.net/20150410222411545?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br><img src="http://img.blog.csdn.net/20150410222556299?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><img src="http://img.blog.csdn.net/20150410222541124?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br><img src="http://img.blog.csdn.net/20150410222609937?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br>变量值的最前面即刚才安装的Oracle的bin目录<br>（若path中没有Oracle的bin目录则把刚才安装oracle的目录里面的bin找出来加进去就行了，正常情况下是自动加的，如果没有就是安装有问题了）</p>
+<p>四、登陆oracle：<br>登陆的方法有以下几种：<br>1、sqlplus登陆oracle：</p>
+<pre><code>1.C: &gt; sqlplus &quot;/as sysdba&quot;   --以操作系统权限认证的oracle sys管理员登陆
+
+2.C: &gt; sqlplus /nolog             --不在cmd或者terminal当中暴露密码的登陆方式
+SQL&gt; conn /as sysdba
+&amp;
+SQL&gt; conn sys/password as sysdba
+
+3.C: &gt; sqlplus scott/tiger      --非管理员用户登陆
+
+4.C: &gt; sqlplus scott/tiger@orcl    --非管理员用户使用tns别名登陆
+
+5.C: &gt; sqlplus sys/password@orcl as sysdba --管理员用户使用tns别名登陆
+6.C: &gt; sqlplus                       --不显露密码的登陆方式
+Enter user-name：sys
+Enter password：password as sysdba     --以sys用户登陆的话 必须要加上 as sysdba 子句
+
+![](http://img.blog.csdn.net/20150410222729400?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+这是我输入sqlplus后的效果，系统莫名其妙的提示输入用户名，用过MySQL的可能对这点感到很迷惑，一般安装完后都是root账户，但是oracle是个比MySQL强大很多倍的大型关系型数据库，用户名也有很多，如下：
+    scott
+    sys  
+    system
+    sysman 
+    这些账户的密码设置会在安装过程中完成，其中system是我们设置的登陆口令，Scott也是可以在口令管理中管理的
+</code></pre><p><a href="http://www.linuxidc.com/Linux/2011-03/33174.htm" target="_blank" rel="external">http://www.linuxidc.com/Linux/2011-03/33174.htm</a></p>
+<p>这个链接里面有比较详细的sqlplus的使用方法<br><a href="http://baike.baidu.com/link?url=GAgntfVfaPWk9Oam_8bWSv37PdWx6xQ-wZDP2TWCy8GWDnQlMI5T6JqWcflkw9jmfb3JXyTAjkfN-3Qp8nbryK#1" target="_blank" rel="external">http://baike.baidu.com/link?url=GAgntfVfaPWk9Oam_8bWSv37PdWx6xQ-wZDP2TWCy8GWDnQlMI5T6JqWcflkw9jmfb3JXyTAjkfN-3Qp8nbryK#1</a><br>以上是百度百科的介绍，可以参考<br><a href="http://jingyan.baidu.com/article/6525d4b155767dac7d2e94e8.html" target="_blank" rel="external">http://jingyan.baidu.com/article/6525d4b155767dac7d2e94e8.html</a><br>这个是Linux下的操作方法</p>
+<p>2、使用Oracle控制台<br>打开chrome浏览器（或其它，不推荐使用IE），在地址栏中输入<a href="https://localhost:1158/em" target="_blank" rel="external">https://localhost:1158/em</a><br>可能会有不安全之类的提示，无视即可，输入用户名密码后就可以管理了<br>具体的使用方法可以参考已下链接<br><a href="http://jingyan.baidu.com/article/3c343ff72c71c10d3679636a.html" target="_blank" rel="external">http://jingyan.baidu.com/article/3c343ff72c71c10d3679636a.html</a><br>不过控制台的连接速度可能很慢，如果不能忍受的话就用命令行吧</p>
+<p>3、第三方GUI管理工具<br>Toad：<br><a href="https://www.toadworld.com/?Redirected=true" target="_blank" rel="external">https://www.toadworld.com/?Redirected=true</a></p>
+<p>PLSQL Developer：<br><a href="http://jingyan.baidu.com/article/c85b7a6403acd1003bac950f.html" target="_blank" rel="external">http://jingyan.baidu.com/article/c85b7a6403acd1003bac950f.html</a></p>
+<p>五、管理Oracle<br>Oracle是地球上目前最强大的关系型数据库，用过MySQL的人可能刚开始对Oracle无从下手，想想当初你玩MySQL的时候不也是配置环境变量，百度登陆方法等等，所以我们要有耐心。最后一句话：打好基础。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://HawkAaron.github.io/2016/08/02/mysql 远程数据库导入到本地数据库/" data-id="cirejylqn000dzknrka649qqv" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-MySQL ERROR2013完美解决方案" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/08/02/MySQL ERROR2013完美解决方案/" class="article-date">
-  <time datetime="2016-08-02T13:18:52.131Z" itemprop="datePublished">2016-08-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/02/MySQL ERROR2013完美解决方案/">MySQL ERROR2013完美解决方案</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这个错误一般是安装了多个MySQL服务器导致的，解决方案如下：<br>1、进入MySQL安装目录：D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin&gt;<br>2、输入mysqld-nt -remove<br>D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin&gt;mysqld-nt -remove<br>The service doesn’t exist!</p>
-<p>3、输入mysqld-nt -install<br>D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin&gt;mysqld-nt -install<br>Service successfully installed.<br>4、输入net start mysql<br>D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin&gt;net start mysql<br>MySQL 服务正在启动 ……………….<br>MySQL 服务无法启动。<br>5、输入netstat -ano|findstr 3306<br>D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin&gt;netstat -ano|findstr 3306<br>  TCP    0.0.0.0:3306           0.0.0.0:0              LISTENING       5804<br>6、输入taskkill -f -pid 5804（此处的5804即上面的进程ID）<br>D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin&gt;taskkill -f -pid 5804<br>成功: 已终止 PID 为 5804 的进程。<br>7、输入net start mysql<br>D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin&gt;net start mysql<br>MySQL 服务正在启动 .<br>MySQL 服务已经启动成功。<br>8、输入mysql -uroot -p进入MySQL</p>
-<p>如果设置了环境变量，可在任意目录下执行以上命令</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://HawkAaron.github.io/2016/08/02/MySQL ERROR2013完美解决方案/" data-id="cirejylpp0002zknr9d9iz8fe" class="article-share-link">Share</a>
+      <a data-url="http://HawkAaron.github.io/2016/08/02/Oracle11g安装及使用详解/" data-id="cirek20xa00060snrmp96k5f4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -313,7 +349,7 @@ d:\mysql\data\latin1\*数据库里面 *代表里面的所有的文件
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://HawkAaron.github.io/2016/08/02/MySQL忘记密码/" data-id="cirejylpu0003zknra93xb46v" class="article-share-link">Share</a>
+      <a data-url="http://HawkAaron.github.io/2016/08/02/MySQL忘记密码/" data-id="cirek20x500050snrlo2ufcik" class="article-share-link">Share</a>
       
       
     </footer>
@@ -323,9 +359,9 @@ d:\mysql\data\latin1\*数据库里面 *代表里面的所有的文件
 
 
   
-    <article id="post-Oracle11g安装及使用详解" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-MySQL ERROR2013完美解决方案" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/08/02/Oracle11g安装及使用详解/" class="article-date">
+    <a href="/2016/08/02/MySQL ERROR2013完美解决方案/" class="article-date">
   <time datetime="2016-08-02T13:18:52.131Z" itemprop="datePublished">2016-08-02</time>
 </a>
     
@@ -337,7 +373,7 @@ d:\mysql\data\latin1\*数据库里面 *代表里面的所有的文件
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/02/Oracle11g安装及使用详解/">Oracle11g安装及使用详解</a>
+      <a class="article-title" href="/2016/08/02/MySQL ERROR2013完美解决方案/">MySQL ERROR2013完美解决方案</a>
     </h1>
   
 
@@ -345,44 +381,52 @@ d:\mysql\data\latin1\*数据库里面 *代表里面的所有的文件
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一、首先我们在官网下载Oracle11g，链接如下：<br><a href="http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html" target="_blank" rel="external">http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html</a><br>注意系统位数和文件个数<br><img src="http://img.blog.csdn.net/20150410221936614?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br>两个文件都要下载，过程可能比价漫长，可以敲会代码或者做几篇阅读理解缓解一下情绪（为接下来操蛋的安装过程做好充分的心理准备）</p>
-<p>二、安装可以参考已下链接<br><a href="http://jingyan.baidu.com/article/e5c39bf58eff9239d760338b.html" target="_blank" rel="external">http://jingyan.baidu.com/article/e5c39bf58eff9239d760338b.html</a><br>这里要注意一点：可以无视所有的错误提示！（在第5步进行先决条件检查时由于系统原因可能会报错，此时可以按照安装教程忽略相关选项！）<br>另外要注意的是安装目录尽量在跟目录下，比如安装在D:\Oracle\下，而且目录不能包含中文及空格等非数字字母的字符（大部分国外的大型程序都这样，我们只能默默地接受了）</p>
-<p>三、环境变量检查<br>1、使用前请配置环境变量（系统会自动配置，最好检查一下）：<br>方法一：命令行 echo %PATH% 命令<br><img src="http://img.blog.csdn.net/20150410222254232?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br>可以看见图中的环境变量的第一条目录即是刚才安装完的Oracle的bin目录（一般软件的bin目录下有我们用到的命令行工具，Oracle的bin命令里面有sqlplus）<br>方法二：右击‘计算机’，选择‘属性’，‘高级系统配置’，<br><img src="http://img.blog.csdn.net/20150410222343106?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br><img src="http://img.blog.csdn.net/20150410222411545?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br><img src="http://img.blog.csdn.net/20150410222556299?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><img src="http://img.blog.csdn.net/20150410222541124?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br><img src="http://img.blog.csdn.net/20150410222609937?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br>变量值的最前面即刚才安装的Oracle的bin目录<br>（若path中没有Oracle的bin目录则把刚才安装oracle的目录里面的bin找出来加进去就行了，正常情况下是自动加的，如果没有就是安装有问题了）</p>
-<p>四、登陆oracle：<br>登陆的方法有以下几种：<br>1、sqlplus登陆oracle：</p>
-<pre><code>1.C: &gt; sqlplus &quot;/as sysdba&quot;   --以操作系统权限认证的oracle sys管理员登陆
-
-2.C: &gt; sqlplus /nolog             --不在cmd或者terminal当中暴露密码的登陆方式
-SQL&gt; conn /as sysdba
-&amp;
-SQL&gt; conn sys/password as sysdba
-
-3.C: &gt; sqlplus scott/tiger      --非管理员用户登陆
-
-4.C: &gt; sqlplus scott/tiger@orcl    --非管理员用户使用tns别名登陆
-
-5.C: &gt; sqlplus sys/password@orcl as sysdba --管理员用户使用tns别名登陆
-6.C: &gt; sqlplus                       --不显露密码的登陆方式
-Enter user-name：sys
-Enter password：password as sysdba     --以sys用户登陆的话 必须要加上 as sysdba 子句
-
-![](http://img.blog.csdn.net/20150410222729400?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
-这是我输入sqlplus后的效果，系统莫名其妙的提示输入用户名，用过MySQL的可能对这点感到很迷惑，一般安装完后都是root账户，但是oracle是个比MySQL强大很多倍的大型关系型数据库，用户名也有很多，如下：
-    scott
-    sys  
-    system
-    sysman 
-    这些账户的密码设置会在安装过程中完成，其中system是我们设置的登陆口令，Scott也是可以在口令管理中管理的
-</code></pre><p><a href="http://www.linuxidc.com/Linux/2011-03/33174.htm" target="_blank" rel="external">http://www.linuxidc.com/Linux/2011-03/33174.htm</a></p>
-<p>这个链接里面有比较详细的sqlplus的使用方法<br><a href="http://baike.baidu.com/link?url=GAgntfVfaPWk9Oam_8bWSv37PdWx6xQ-wZDP2TWCy8GWDnQlMI5T6JqWcflkw9jmfb3JXyTAjkfN-3Qp8nbryK#1" target="_blank" rel="external">http://baike.baidu.com/link?url=GAgntfVfaPWk9Oam_8bWSv37PdWx6xQ-wZDP2TWCy8GWDnQlMI5T6JqWcflkw9jmfb3JXyTAjkfN-3Qp8nbryK#1</a><br>以上是百度百科的介绍，可以参考<br><a href="http://jingyan.baidu.com/article/6525d4b155767dac7d2e94e8.html" target="_blank" rel="external">http://jingyan.baidu.com/article/6525d4b155767dac7d2e94e8.html</a><br>这个是Linux下的操作方法</p>
-<p>2、使用Oracle控制台<br>打开chrome浏览器（或其它，不推荐使用IE），在地址栏中输入<a href="https://localhost:1158/em" target="_blank" rel="external">https://localhost:1158/em</a><br>可能会有不安全之类的提示，无视即可，输入用户名密码后就可以管理了<br>具体的使用方法可以参考已下链接<br><a href="http://jingyan.baidu.com/article/3c343ff72c71c10d3679636a.html" target="_blank" rel="external">http://jingyan.baidu.com/article/3c343ff72c71c10d3679636a.html</a><br>不过控制台的连接速度可能很慢，如果不能忍受的话就用命令行吧</p>
-<p>3、第三方GUI管理工具<br>Toad：<br><a href="https://www.toadworld.com/?Redirected=true" target="_blank" rel="external">https://www.toadworld.com/?Redirected=true</a></p>
-<p>PLSQL Developer：<br><a href="http://jingyan.baidu.com/article/c85b7a6403acd1003bac950f.html" target="_blank" rel="external">http://jingyan.baidu.com/article/c85b7a6403acd1003bac950f.html</a></p>
-<p>五、管理Oracle<br>Oracle是地球上目前最强大的关系型数据库，用过MySQL的人可能刚开始对Oracle无从下手，想想当初你玩MySQL的时候不也是配置环境变量，百度登陆方法等等，所以我们要有耐心。最后一句话：打好基础。</p>
+        <p>这个错误一般是安装了多个MySQL服务器导致的，解决方案如下：<br>1、进入MySQL安装目录：D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin&gt;<br>2、输入mysqld-nt -remove<br>D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin&gt;mysqld-nt -remove<br>The service doesn’t exist!</p>
+<p>3、输入mysqld-nt -install<br>D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin&gt;mysqld-nt -install<br>Service successfully installed.<br>4、输入net start mysql<br>D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin&gt;net start mysql<br>MySQL 服务正在启动 ……………….<br>MySQL 服务无法启动。<br>5、输入netstat -ano|findstr 3306<br>D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin&gt;netstat -ano|findstr 3306<br>  TCP    0.0.0.0:3306           0.0.0.0:0              LISTENING       5804<br>6、输入taskkill -f -pid 5804（此处的5804即上面的进程ID）<br>D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin&gt;taskkill -f -pid 5804<br>成功: 已终止 PID 为 5804 的进程。<br>7、输入net start mysql<br>D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin&gt;net start mysql<br>MySQL 服务正在启动 .<br>MySQL 服务已经启动成功。<br>8、输入mysql -uroot -p进入MySQL</p>
+<p>如果设置了环境变量，可在任意目录下执行以上命令</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://HawkAaron.github.io/2016/08/02/Oracle11g安装及使用详解/" data-id="cirejylpv0004zknrbpajvozu" class="article-share-link">Share</a>
+      <a data-url="http://HawkAaron.github.io/2016/08/02/MySQL ERROR2013完美解决方案/" data-id="cirek20x200040snrmui5qf3e" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-C语言连接MySQL（codeblocks）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/02/C语言连接MySQL（codeblocks）/" class="article-date">
+  <time datetime="2016-08-02T13:18:52.091Z" itemprop="datePublished">2016-08-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/02/C语言连接MySQL（codeblocks）/">C语言连接MySQL（codeblocks）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;winsock2.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;mysql.h&gt;</span></span></div><div class="line"><span class="comment">/*数据库连接用宏*/</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> HOST <span class="meta-string">"localhost"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> USERNAME <span class="meta-string">"root"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> PASSWORD <span class="meta-string">"root"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> DATABASE <span class="meta-string">"mysql"</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">char</span> *query;</div><div class="line">    query=<span class="string">"select host,user from user"</span>;</div><div class="line">    query_sql(query);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">query_sql</span><span class="params">(<span class="keyword">char</span>* sql)</span></span></div><div class="line">&#123;</div><div class="line">    MYSQL my_connection; <span class="comment">/*这是一个数据库连接*/</span></div><div class="line">    <span class="keyword">int</span> res; <span class="comment">/*执行sql語句后的返回标志*/</span></div><div class="line">    MYSQL_RES *res_ptr; <span class="comment">/*指向查询结果的指针*/</span></div><div class="line">    MYSQL_FIELD *field; <span class="comment">/*字段结构指针*/</span></div><div class="line">    MYSQL_ROW result_row; <span class="comment">/*按行返回的查询信息*/</span></div><div class="line">    <span class="keyword">int</span> row, column; <span class="comment">/*查询返回的行数和列数*/</span></div><div class="line">    <span class="keyword">int</span> i, j;</div><div class="line">    <span class="comment">/*初始化mysql连接my_connection*/</span></div><div class="line">    mysql_init(&amp;my_connection);</div><div class="line">    <span class="comment">/*建立mysql连接*/</span></div><div class="line">    <span class="keyword">if</span> (<span class="literal">NULL</span> != mysql_real_connect(&amp;my_connection, HOST, USERNAME, PASSWORD,</div><div class="line">                                   DATABASE, <span class="number">0</span>, <span class="literal">NULL</span>, CLIENT_FOUND_ROWS))  <span class="comment">/*连接成功*/</span></div><div class="line">    &#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"数据库查询query_sql连接成功！\n"</span>);</div><div class="line">        <span class="comment">/*设置查询编码为gbk，以支持中文*/</span></div><div class="line">        mysql_query(&amp;my_connection, <span class="string">"set names gbk"</span>);</div><div class="line">        res = mysql_query(&amp;my_connection, sql);</div><div class="line">        <span class="keyword">if</span> (res)   <span class="comment">/*执行失败*/</span></div><div class="line">        &#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"Error： mysql_query !\n"</span>);</div><div class="line">            <span class="comment">/*关闭连接*/</span></div><div class="line">            mysql_close(&amp;my_connection);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span>     <span class="comment">/*现在就代表执行成功了*/</span></div><div class="line">        &#123;</div><div class="line">            <span class="comment">/*将查询的結果给res_ptr*/</span></div><div class="line">            res_ptr = mysql_store_result(&amp;my_connection);</div><div class="line">            <span class="comment">/*如果结果不为空，就把结果print*/</span></div><div class="line">            <span class="keyword">if</span> (res_ptr)</div><div class="line">            &#123;</div><div class="line">                <span class="comment">/*取得結果的行数和*/</span></div><div class="line">                column = mysql_num_fields(res_ptr);</div><div class="line">                row = mysql_num_rows(res_ptr);</div><div class="line">                <span class="built_in">printf</span>(<span class="string">"查询到 %d 行 \n"</span>, row);</div><div class="line">                <span class="comment">/*输出結果的字段名*/</span></div><div class="line">                <span class="keyword">for</span> (i = <span class="number">0</span>; field = mysql_fetch_field(res_ptr); i++)</div><div class="line">                    <span class="built_in">printf</span>(<span class="string">"%10s "</span>, field-&gt;name);</div><div class="line">                <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">                <span class="comment">/*按行输出結果*/</span></div><div class="line">                <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt; row+<span class="number">1</span>; i++)</div><div class="line">                &#123;</div><div class="line">                    result_row = mysql_fetch_row(res_ptr);</div><div class="line">                    <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; column; j++)</div><div class="line">                        <span class="built_in">printf</span>(<span class="string">"%10s "</span>, result_row[j]);</div><div class="line">                    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="comment">/*不要忘了关闭连接*/</span></div><div class="line">            mysql_close(&amp;my_connection);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span></div><div class="line">    &#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"数据库连接失败"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>注意事项：<br>1.在Linker settings-&gt;Link libraries中添加libmysql.lib的路径<br>2.在Search directories-&gt;的Compiler中添加mysql.h的文件夹路径（总之就是让编译器能找到libmysql.lib和mysql.h）<br>3.在#include <mysql.h>之前添加#include <winsock2.h>（网上很多资料没有这一步，但是我这边实际操作时发现不加这一句编译无法通过）<br>运行结果：<br><img src="http://img.blog.csdn.net/20150606170050484?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></winsock2.h></mysql.h></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://HawkAaron.github.io/2016/08/02/C语言连接MySQL（codeblocks）/" data-id="cirek20x000030snrah9fegvz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -660,45 +704,7 @@ using namespace std;int main()
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://HawkAaron.github.io/2016/08/02/CC++ 跨平台交叉编译、静态库动态库编译、MinGW、Cygwin、CodeBlocks使用原理及链接参数选项/" data-id="cirejylr3000izknro0cvyi4h" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-C语言连接MySQL（codeblocks）" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/08/02/C语言连接MySQL（codeblocks）/" class="article-date">
-  <time datetime="2016-08-02T13:18:52.091Z" itemprop="datePublished">2016-08-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/02/C语言连接MySQL（codeblocks）/">C语言连接MySQL（codeblocks）</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;winsock2.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;mysql.h&gt;</span></span></div><div class="line"><span class="comment">/*数据库连接用宏*/</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> HOST <span class="meta-string">"localhost"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> USERNAME <span class="meta-string">"root"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> PASSWORD <span class="meta-string">"root"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> DATABASE <span class="meta-string">"mysql"</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">char</span> *query;</div><div class="line">    query=<span class="string">"select host,user from user"</span>;</div><div class="line">    query_sql(query);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">query_sql</span><span class="params">(<span class="keyword">char</span>* sql)</span></span></div><div class="line">&#123;</div><div class="line">    MYSQL my_connection; <span class="comment">/*这是一个数据库连接*/</span></div><div class="line">    <span class="keyword">int</span> res; <span class="comment">/*执行sql語句后的返回标志*/</span></div><div class="line">    MYSQL_RES *res_ptr; <span class="comment">/*指向查询结果的指针*/</span></div><div class="line">    MYSQL_FIELD *field; <span class="comment">/*字段结构指针*/</span></div><div class="line">    MYSQL_ROW result_row; <span class="comment">/*按行返回的查询信息*/</span></div><div class="line">    <span class="keyword">int</span> row, column; <span class="comment">/*查询返回的行数和列数*/</span></div><div class="line">    <span class="keyword">int</span> i, j;</div><div class="line">    <span class="comment">/*初始化mysql连接my_connection*/</span></div><div class="line">    mysql_init(&amp;my_connection);</div><div class="line">    <span class="comment">/*建立mysql连接*/</span></div><div class="line">    <span class="keyword">if</span> (<span class="literal">NULL</span> != mysql_real_connect(&amp;my_connection, HOST, USERNAME, PASSWORD,</div><div class="line">                                   DATABASE, <span class="number">0</span>, <span class="literal">NULL</span>, CLIENT_FOUND_ROWS))  <span class="comment">/*连接成功*/</span></div><div class="line">    &#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"数据库查询query_sql连接成功！\n"</span>);</div><div class="line">        <span class="comment">/*设置查询编码为gbk，以支持中文*/</span></div><div class="line">        mysql_query(&amp;my_connection, <span class="string">"set names gbk"</span>);</div><div class="line">        res = mysql_query(&amp;my_connection, sql);</div><div class="line">        <span class="keyword">if</span> (res)   <span class="comment">/*执行失败*/</span></div><div class="line">        &#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"Error： mysql_query !\n"</span>);</div><div class="line">            <span class="comment">/*关闭连接*/</span></div><div class="line">            mysql_close(&amp;my_connection);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span>     <span class="comment">/*现在就代表执行成功了*/</span></div><div class="line">        &#123;</div><div class="line">            <span class="comment">/*将查询的結果给res_ptr*/</span></div><div class="line">            res_ptr = mysql_store_result(&amp;my_connection);</div><div class="line">            <span class="comment">/*如果结果不为空，就把结果print*/</span></div><div class="line">            <span class="keyword">if</span> (res_ptr)</div><div class="line">            &#123;</div><div class="line">                <span class="comment">/*取得結果的行数和*/</span></div><div class="line">                column = mysql_num_fields(res_ptr);</div><div class="line">                row = mysql_num_rows(res_ptr);</div><div class="line">                <span class="built_in">printf</span>(<span class="string">"查询到 %d 行 \n"</span>, row);</div><div class="line">                <span class="comment">/*输出結果的字段名*/</span></div><div class="line">                <span class="keyword">for</span> (i = <span class="number">0</span>; field = mysql_fetch_field(res_ptr); i++)</div><div class="line">                    <span class="built_in">printf</span>(<span class="string">"%10s "</span>, field-&gt;name);</div><div class="line">                <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">                <span class="comment">/*按行输出結果*/</span></div><div class="line">                <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt; row+<span class="number">1</span>; i++)</div><div class="line">                &#123;</div><div class="line">                    result_row = mysql_fetch_row(res_ptr);</div><div class="line">                    <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; column; j++)</div><div class="line">                        <span class="built_in">printf</span>(<span class="string">"%10s "</span>, result_row[j]);</div><div class="line">                    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="comment">/*不要忘了关闭连接*/</span></div><div class="line">            mysql_close(&amp;my_connection);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span></div><div class="line">    &#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"数据库连接失败"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>注意事项：<br>1.在Linker settings-&gt;Link libraries中添加libmysql.lib的路径<br>2.在Search directories-&gt;的Compiler中添加mysql.h的文件夹路径（总之就是让编译器能找到libmysql.lib和mysql.h）<br>3.在#include <mysql.h>之前添加#include <winsock2.h>（网上很多资料没有这一步，但是我这边实际操作时发现不加这一句编译无法通过）<br>运行结果：<br><img src="http://img.blog.csdn.net/20150606170050484?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></winsock2.h></mysql.h></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://HawkAaron.github.io/2016/08/02/C语言连接MySQL（codeblocks）/" data-id="cirejylnw0000zknrf6agv12t" class="article-share-link">Share</a>
+      <a data-url="http://HawkAaron.github.io/2016/08/02/CC++ 跨平台交叉编译、静态库动态库编译、MinGW、Cygwin、CodeBlocks使用原理及链接参数选项/" data-id="cirek20wo00000snr2uw8jh5w" class="article-share-link">Share</a>
       
       
     </footer>
@@ -977,7 +983,7 @@ using namespace std;int main()
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://HawkAaron.github.io/2016/08/02/CodeBlocks静态链接与动态链接设置/" data-id="cirejylsa000rzknrh4p1l9vn" class="article-share-link">Share</a>
+      <a data-url="http://HawkAaron.github.io/2016/08/02/CodeBlocks静态链接与动态链接设置/" data-id="cirek20wu00010snrj7hx4mzf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1026,7 +1032,7 @@ using namespace std;int main()
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://HawkAaron.github.io/2016/08/02/“Git Windows”/" data-id="cirejylrg000kzknrqs8dh6si" class="article-share-link">Share</a>
+      <a data-url="http://HawkAaron.github.io/2016/08/02/“Git Windows”/" data-id="cirek20ye000l0snrpkszhelr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1071,7 +1077,7 @@ using namespace std;int main()
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://HawkAaron.github.io/2016/08/02/hello-world/" data-id="cirejylqk000czknrblg4lfly" class="article-share-link">Share</a>
+      <a data-url="http://HawkAaron.github.io/2016/08/02/hello-world/" data-id="cirek20xv000f0snrh6wg4a8g" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1127,11 +1133,11 @@ using namespace std;int main()
           </li>
         
           <li>
-            <a href="/2016/08/02/汇编学习笔记--寄存器（内存访问 1）/">汇编学习笔记--寄存器（内存访问 1）</a>
+            <a href="/2016/08/02/汇编语言入门：debug调试工具/">汇编语言入门：debug调试工具</a>
           </li>
         
           <li>
-            <a href="/2016/08/02/Win7旗舰版不能将大于4G的文件拷贝到U盘怎么办？/">Win7旗舰版不能将大于4G的文件拷贝到U盘怎么办？</a>
+            <a href="/2016/08/02/汇编学习笔记--查看CPU和内存/">汇编学习笔记--查看CPU和内存</a>
           </li>
         
       </ul>
@@ -1146,7 +1152,7 @@ using namespace std;int main()
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016 John Doe<br>
+      &copy; 2016 黄明坤<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

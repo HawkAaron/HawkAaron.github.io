@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>C/C++ 跨平台交叉编译、静态库/动态库编译、MinGW、Cygwin、CodeBlocks使用原理及链接参数选项 | Hexo</title>
+  <title>C/C++ 跨平台交叉编译、静态库/动态库编译、MinGW、Cygwin、CodeBlocks使用原理及链接参数选项 | 黄明坤的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="0. 引言UNIX是一个注册商标，是要满足一大堆条件并且支付可观费用才能够被授权使用的一个操作系统。linux是unix的克隆版本，是由其创始人Linus和诸多世界知名的黑客手工打造的一个操作系统。为什么linux和unix之间有很多软件可以很轻松的移植？因为linux也满足POSIX规范，所以在运行机制上跟unix相近。同时，POSIX标准也是Linux、windows下能够进行交叉编译的基础0">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C/C++ 跨平台交叉编译、静态库/动态库编译、MinGW、Cygwin、CodeBlocks使用原理及链接参数选项">
 <meta property="og:url" content="http://HawkAaron.github.io/2016/08/02/CC++ 跨平台交叉编译、静态库动态库编译、MinGW、Cygwin、CodeBlocks使用原理及链接参数选项/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="黄明坤的个人博客">
 <meta property="og:description" content="0. 引言UNIX是一个注册商标，是要满足一大堆条件并且支付可观费用才能够被授权使用的一个操作系统。linux是unix的克隆版本，是由其创始人Linus和诸多世界知名的黑客手工打造的一个操作系统。为什么linux和unix之间有很多软件可以很轻松的移植？因为linux也满足POSIX规范，所以在运行机制上跟unix相近。同时，POSIX标准也是Linux、windows下能够进行交叉编译的基础0">
 <meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
 <meta property="og:image" content="http://common.cnblogs.com/images/copycode.gif">
@@ -68,7 +68,7 @@
 <meta name="twitter:description" content="0. 引言UNIX是一个注册商标，是要满足一大堆条件并且支付可观费用才能够被授权使用的一个操作系统。linux是unix的克隆版本，是由其创始人Linus和诸多世界知名的黑客手工打造的一个操作系统。为什么linux和unix之间有很多软件可以很轻松的移植？因为linux也满足POSIX规范，所以在运行机制上跟unix相近。同时，POSIX标准也是Linux、windows下能够进行交叉编译的基础0">
 <meta name="twitter:image" content="http://common.cnblogs.com/images/copycode.gif">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="黄明坤的个人博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -89,8 +89,12 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/" id="logo">黄明坤的个人博客</a>
       </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Welcome!</a>
+        </h2>
       
     </div>
     <div id="header-inner" class="inner">
@@ -383,7 +387,7 @@ using namespace std;int main()
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://HawkAaron.github.io/2016/08/02/CC++ 跨平台交叉编译、静态库动态库编译、MinGW、Cygwin、CodeBlocks使用原理及链接参数选项/" data-id="cirejylr3000izknro0cvyi4h" class="article-share-link">Share</a>
+      <a data-url="http://HawkAaron.github.io/2016/08/02/CC++ 跨平台交叉编译、静态库动态库编译、MinGW、Cygwin、CodeBlocks使用原理及链接参数选项/" data-id="cirek20wo00000snr2uw8jh5w" class="article-share-link">Share</a>
       
       
     </footer>
@@ -392,19 +396,19 @@ using namespace std;int main()
     
 <nav id="article-nav">
   
-    <a href="/2016/08/02/Oracle11g安装及使用详解/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/08/02/C语言连接MySQL（codeblocks）/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          Oracle11g安装及使用详解
+          C语言连接MySQL（codeblocks）
         
       </div>
     </a>
   
   
-    <a href="/2016/08/02/C语言连接MySQL（codeblocks）/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/08/02/CodeBlocks静态链接与动态链接设置/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">C语言连接MySQL（codeblocks）</div>
+      <div class="article-nav-title">CodeBlocks静态链接与动态链接设置</div>
     </a>
   
 </nav>
@@ -453,11 +457,11 @@ using namespace std;int main()
           </li>
         
           <li>
-            <a href="/2016/08/02/汇编学习笔记--寄存器（内存访问 1）/">汇编学习笔记--寄存器（内存访问 1）</a>
+            <a href="/2016/08/02/汇编语言入门：debug调试工具/">汇编语言入门：debug调试工具</a>
           </li>
         
           <li>
-            <a href="/2016/08/02/Win7旗舰版不能将大于4G的文件拷贝到U盘怎么办？/">Win7旗舰版不能将大于4G的文件拷贝到U盘怎么办？</a>
+            <a href="/2016/08/02/汇编学习笔记--查看CPU和内存/">汇编学习笔记--查看CPU和内存</a>
           </li>
         
       </ul>
@@ -472,7 +476,7 @@ using namespace std;int main()
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016 John Doe<br>
+      &copy; 2016 黄明坤<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

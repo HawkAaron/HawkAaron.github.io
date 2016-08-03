@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo</title>
+  <title>黄明坤的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="黄明坤的个人博客">
 <meta property="og:url" content="http://HawkAaron.github.io/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="黄明坤的个人博客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="黄明坤的个人博客">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="黄明坤的个人博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -33,8 +33,12 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/" id="logo">黄明坤的个人博客</a>
       </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Welcome!</a>
+        </h2>
       
     </div>
     <div id="header-inner" class="inner">
@@ -91,7 +95,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://HawkAaron.github.io/2016/08/02/雅虎刷题狂人曹鹏：10年理论与实践结合的程序员之路/" data-id="cirejylt2000uzknraixbqrq6" class="article-share-link">Share</a>
+      <a data-url="http://HawkAaron.github.io/2016/08/02/雅虎刷题狂人曹鹏：10年理论与实践结合的程序员之路/" data-id="cirek20zu000u0snr9evins1f" class="article-share-link">Share</a>
       
       
     </footer>
@@ -129,7 +133,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://HawkAaron.github.io/2016/08/02/盘点那些快速打开windows程序的快捷键/" data-id="cirejylry000ozknru5n6enws" class="article-share-link">Share</a>
+      <a data-url="http://HawkAaron.github.io/2016/08/02/盘点那些快速打开windows程序的快捷键/" data-id="cirek20yr000q0snrm1dmjnls" class="article-share-link">Share</a>
       
       
     </footer>
@@ -167,171 +171,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://HawkAaron.github.io/2016/08/02/汇编注释/" data-id="cirejylru000nzknrjh9zbwo7" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-汇编学习笔记--寄存器（内存访问 1）" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/08/02/汇编学习笔记--寄存器（内存访问 1）/" class="article-date">
-  <time datetime="2016-08-02T13:18:52.162Z" itemprop="datePublished">2016-08-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/02/汇编学习笔记--寄存器（内存访问 1）/">汇编学习笔记--寄存器（内存访问 1）</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>内存访问首先要有地址，8086pc中的段地址存放在 ds 寄存器中（ds 和 cs是不一样的，cs是定位地址用于读取内存中的指令或者数据，而ds是读取内存中的数据时使用，下面我们会明白区别）</p>
-<p>将内存中的数据写入寄存器：<br>mov bx,1000H<br>mov ds,bx<br>mov al,[0]<br>第一句是把1000H给bx（寄存器），第二句把bx中的值给ds（段地址寄存器），第三句从1000:0H中读取数据给al（寄存器ax的低8位）；至于为什么不直接把段地址1000H给ds，这是8086硬件设计的问题，咱只能这么做了。</p>
-<p>把最后一句改成 mov [0],al 意思就是把寄存器ax的低8位写入内存地址1000:0H处。</p>
-<p>可以做以下例子：<br>mov ax,1000H<br>mov ds,ax<br>mov ax,11316<br>mov [0],ax<br>mov bx,[0]<br>sub bx,[2]<br>mov [2],bx<br>内存中的数据：<br>10000H：23<br>10001H：11<br>10002H：22<br>10003H：11<br>最后的结果会让你吃惊的，想知道的话就留言吧。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://HawkAaron.github.io/2016/08/02/汇编学习笔记--寄存器（内存访问 1）/" data-id="cirejyls6000qzknr3gw0d0u5" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Win7旗舰版不能将大于4G的文件拷贝到U盘怎么办？" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/08/02/Win7旗舰版不能将大于4G的文件拷贝到U盘怎么办？/" class="article-date">
-  <time datetime="2016-08-02T13:18:52.162Z" itemprop="datePublished">2016-08-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/02/Win7旗舰版不能将大于4G的文件拷贝到U盘怎么办？/">Win7旗舰版不能将大于4G的文件拷贝到U盘怎么办？</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>相信许多Win7用户在拷贝文件到U盘中的时候，都遇到过这样一个问题，那就是无法将超过4G的文件拷贝到U盘中，这个问题该怎么解决呢？今天小编就和大家一起来看看这个问题的解决方法吧。</p>
-<p><strong>设置方法：</strong><br>　　1、首先将需要转换的U盘插入到计算机电脑之中；<br>　　2、随后在开始菜单栏中找到运行选项，键入CMD指令后出现；<br>　　3、键入CONVERT X： /FS:NTFS，其中X代表的是你U盘目前所代表的盘符，按下回车；<br>　　4、直到显示转换完成之后就可以发现我们的U盘已经自然而然的转换为NTFS的文化系统了，各种原来存放在U盘里的文件都还完好无损的保存着。<br>　　以上就是Win7系统无法将超过4G的文件拷贝到U盘中的解决方法，正在为这个问题所烦恼的用户们，赶紧在自己的电脑上进行设置吧。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://HawkAaron.github.io/2016/08/02/Win7旗舰版不能将大于4G的文件拷贝到U盘怎么办？/" data-id="cirejylqd0009zknriwu8uz3w" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-谷歌浏览器安装QQ旋风插件" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/08/02/谷歌浏览器安装QQ旋风插件/" class="article-date">
-  <time datetime="2016-08-02T13:18:52.162Z" itemprop="datePublished">2016-08-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/02/谷歌浏览器安装QQ旋风插件/">谷歌浏览器安装QQ旋风插件</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>此教程解决QQ旋风无法关联Chrome的问题。</p>
-<p>##<a href=""></a>工具/原料</p>
-<ul>
-<li><p>QQ旋风</p>
-</li>
-<li><p>谷歌Chrome浏览器</p>
-</li>
-</ul>
-<p>##<a href=""></a>方法/步骤</p>
-<ol>
-<li><p>1打开QQ旋风安装目录，QQDownload\Browser\Chrome 目录下找到“QQDownload_Chrome_Extension.crx”文件。</p>
-</li>
-<li><p><img src="http://img.blog.csdn.net/20150621090007861?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
-</li>
-<li></li>
-<li><p>2打开Chrome浏览器设置页面，然后进入扩展程序。</p>
-</li>
-<li><p><img src="http://img.blog.csdn.net/20150621090355211?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
-</li>
-<li></li>
-<li><p>3直接拖拽“QQDownload_Chrome_Extension.crx”文件到扩展程序页面。</p>
-</li>
-<li><p><img src="http://img.blog.csdn.net/20150621090642549?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
-</li>
-<li></li>
-<li><p>4点击“添加”</p>
-</li>
-<li><p><img src="http://img.blog.csdn.net/20150621090833115?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
-</li>
-<li></li>
-<li><p>5在这两个地方打钩。</p>
-</li>
-<li><p><img src="http://img.blog.csdn.net/20150621091008563?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
-</li>
-<li></li>
-<li><p>6打开QQ旋风浏览器关联界面发现此处已自动关联上了，手动关联成功。</p>
-</li>
-<li><p><img src="http://img.blog.csdn.net/20150621091529364?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
-</li>
-<li></li>
-</ol>
-<ol>
-<li>4点击“添加”</li>
-</ol>
-<ol>
-<li>5在这两个地方打钩。</li>
-</ol>
-<ol>
-<li>6打开QQ旋风浏览器关联界面发现此处已自动关联上了，手动关联成功。</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://HawkAaron.github.io/2016/08/02/谷歌浏览器安装QQ旋风插件/" data-id="cirejylt0000tzknraldzw9je" class="article-share-link">Share</a>
+      <a data-url="http://HawkAaron.github.io/2016/08/02/汇编注释/" data-id="cirek20yq000p0snraotom1vv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -409,7 +249,91 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://HawkAaron.github.io/2016/08/02/汇编语言入门：debug调试工具/" data-id="cirejyls4000pzknrg8qn0kuz" class="article-share-link">Share</a>
+      <a data-url="http://HawkAaron.github.io/2016/08/02/汇编语言入门：debug调试工具/" data-id="cirek20yu000r0snrd8ue0rwe" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-汇编学习笔记--查看CPU和内存" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/02/汇编学习笔记--查看CPU和内存/" class="article-date">
+  <time datetime="2016-08-02T13:18:52.162Z" itemprop="datePublished">2016-08-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/02/汇编学习笔记--查看CPU和内存/">汇编学习笔记--查看CPU和内存</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1、进入Debug<br>2、基本命令详解<br><strong>-r</strong>查看、改变CPU寄存器的内容<br><img src="http://img.blog.csdn.net/20150519203027696?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br><strong>-d</strong>查看内存中的内容<br><img src="http://img.blog.csdn.net/20150519203956613?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br><strong>-e</strong>改写内存中的内容<br>命令格式：“e 起始地址 数据 数据 数据 。。。”<br><img src="http://img.blog.csdn.net/20150519205138961?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<p><strong>-**</strong>u**查看指定地址段的汇编代码<br><img src="http://img.blog.csdn.net/20150519205751299?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<p><strong>-**</strong>t**执行指定地址的汇编代码（首先修改 CS:IP 到所要执行的汇编代码的首地址）<br><img src="http://img.blog.csdn.net/20150519210403032?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<p><strong>-a</strong>以汇编指令的形式在内存中写入机器指令<br><img src="http://img.blog.csdn.net/20150519212728910?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<p>上图有一处错误，我们在用 -u 命令显示指定地址段的汇编代码时一定要把当前所在的地址置为汇编代码的首地址，不然机器会强制分段<br><img src="http://img.blog.csdn.net/20150519213200413?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<p>实验（1）：输入下图所示汇编代码，运行，查看对应寄存器的值及地址变化<br><img src="http://img.blog.csdn.net/20150519213734234?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<p>一步步 -t 后的结果见下图：<br><img src="http://img.blog.csdn.net/20150519214510020?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<p>实验（2）：将下列三条指令写入从2000:0开始的内存单元中，利用这三条指令计算2 的 3次方<br>mov ax,1<br>add ax,ax<br>jmp 2000:0003<br>注解：jmp是跳转的意思，第一条指令占用3个字节，第二条指令的首地址为2000:0003，所以可以通过重复执行第二条指令来实现计算2 的 8 次方<br><img src="http://img.blog.csdn.net/20150519215224267?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br>本以为只用执行4次的，结果执行了6次，中间的两次地址跳转也算进去了，因为地址跳转实际上也是从内存中读取数据</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://HawkAaron.github.io/2016/08/02/汇编学习笔记--查看CPU和内存/" data-id="cirek20yk000o0snrtyqqh4yf" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-汇编学习笔记--寄存器（内存访问 1）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/02/汇编学习笔记--寄存器（内存访问 1）/" class="article-date">
+  <time datetime="2016-08-02T13:18:52.162Z" itemprop="datePublished">2016-08-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/02/汇编学习笔记--寄存器（内存访问 1）/">汇编学习笔记--寄存器（内存访问 1）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>内存访问首先要有地址，8086pc中的段地址存放在 ds 寄存器中（ds 和 cs是不一样的，cs是定位地址用于读取内存中的指令或者数据，而ds是读取内存中的数据时使用，下面我们会明白区别）</p>
+<p>将内存中的数据写入寄存器：<br>mov bx,1000H<br>mov ds,bx<br>mov al,[0]<br>第一句是把1000H给bx（寄存器），第二句把bx中的值给ds（段地址寄存器），第三句从1000:0H中读取数据给al（寄存器ax的低8位）；至于为什么不直接把段地址1000H给ds，这是8086硬件设计的问题，咱只能这么做了。</p>
+<p>把最后一句改成 mov [0],al 意思就是把寄存器ax的低8位写入内存地址1000:0H处。</p>
+<p>可以做以下例子：<br>mov ax,1000H<br>mov ds,ax<br>mov ax,11316<br>mov [0],ax<br>mov bx,[0]<br>sub bx,[2]<br>mov [2],bx<br>内存中的数据：<br>10000H：23<br>10001H：11<br>10002H：22<br>10003H：11<br>最后的结果会让你吃惊的，想知道的话就留言吧。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://HawkAaron.github.io/2016/08/02/汇编学习笔记--寄存器（内存访问 1）/" data-id="cirek20yi000n0snrvt16mx88" class="article-share-link">Share</a>
       
       
     </footer>
@@ -463,7 +387,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://HawkAaron.github.io/2016/08/02/win7 64位如何调出debug/" data-id="cirejylri000lzknruwhg1zin" class="article-share-link">Share</a>
+      <a data-url="http://HawkAaron.github.io/2016/08/02/win7 64位如何调出debug/" data-id="cirek20yg000m0snripwnj9a8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -507,7 +431,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://HawkAaron.github.io/2016/08/02/端口占用/" data-id="cirejylsz000szknrtlev19qj" class="article-share-link">Share</a>
+      <a data-url="http://HawkAaron.github.io/2016/08/02/端口占用/" data-id="cirek20yw000s0snr0j44rn9d" class="article-share-link">Share</a>
       
       
     </footer>
@@ -517,9 +441,9 @@
 
 
   
-    <article id="post-汇编学习笔记--查看CPU和内存" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Windows常用快捷命令" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/08/02/汇编学习笔记--查看CPU和内存/" class="article-date">
+    <a href="/2016/08/02/Windows常用快捷命令/" class="article-date">
   <time datetime="2016-08-02T13:18:52.162Z" itemprop="datePublished">2016-08-02</time>
 </a>
     
@@ -531,7 +455,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/02/汇编学习笔记--查看CPU和内存/">汇编学习笔记--查看CPU和内存</a>
+      <a class="article-title" href="/2016/08/02/Windows常用快捷命令/">Windows常用快捷命令</a>
     </h1>
   
 
@@ -539,19 +463,50 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1、进入Debug<br>2、基本命令详解<br><strong>-r</strong>查看、改变CPU寄存器的内容<br><img src="http://img.blog.csdn.net/20150519203027696?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br><strong>-d</strong>查看内存中的内容<br><img src="http://img.blog.csdn.net/20150519203956613?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br><strong>-e</strong>改写内存中的内容<br>命令格式：“e 起始地址 数据 数据 数据 。。。”<br><img src="http://img.blog.csdn.net/20150519205138961?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
-<p><strong>-**</strong>u**查看指定地址段的汇编代码<br><img src="http://img.blog.csdn.net/20150519205751299?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
-<p><strong>-**</strong>t**执行指定地址的汇编代码（首先修改 CS:IP 到所要执行的汇编代码的首地址）<br><img src="http://img.blog.csdn.net/20150519210403032?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
-<p><strong>-a</strong>以汇编指令的形式在内存中写入机器指令<br><img src="http://img.blog.csdn.net/20150519212728910?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
-<p>上图有一处错误，我们在用 -u 命令显示指定地址段的汇编代码时一定要把当前所在的地址置为汇编代码的首地址，不然机器会强制分段<br><img src="http://img.blog.csdn.net/20150519213200413?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
-<p>实验（1）：输入下图所示汇编代码，运行，查看对应寄存器的值及地址变化<br><img src="http://img.blog.csdn.net/20150519213734234?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
-<p>一步步 -t 后的结果见下图：<br><img src="http://img.blog.csdn.net/20150519214510020?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
-<p>实验（2）：将下列三条指令写入从2000:0开始的内存单元中，利用这三条指令计算2 的 3次方<br>mov ax,1<br>add ax,ax<br>jmp 2000:0003<br>注解：jmp是跳转的意思，第一条指令占用3个字节，第二条指令的首地址为2000:0003，所以可以通过重复执行第二条指令来实现计算2 的 8 次方<br><img src="http://img.blog.csdn.net/20150519215224267?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjA0ODA2MTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br>本以为只用执行4次的，结果执行了6次，中间的两次地址跳转也算进去了，因为地址跳转实际上也是从内存中读取数据</p>
+        <p>windows运行打开服务命令的方法 ：<br>　　在开始-》运行，输入以下命令<br>　　1. gpedit.msc—–组策略<br>　　2. sndrec32——-录音机<br>　　3. Nslookup——-IP地址侦测器<br>　　4. explorer——-打开资源管理器<br>　　5. logoff———注销命令<br>　　6. tsshutdn——-60秒倒计时关机命令<br>　　补充回答：<br>　　1. gpedit.msc—–组策略<br>　　2. sndrec32——-录音机<br>　　3. Nslookup——-IP地址侦测器<br>　　4. explorer——-打开资源管理器<br>　　5. logoff———注销命令<br>　　6. tsshutdn——-60秒倒计时关机命令<br>　　7. lusrmgr.msc—-本机用户和组<br>　　8. services.msc—本地服务设置<br>　　9. oobe/msoobe /a—-检查XP是否激活<br>　　10. notepad——–打开记事本<br>　　11. cleanmgr——-垃圾整理<br>　　12. net start messenger—-开始信使服务<br>　　13. compmgmt.msc—计算机管理<br>　　14. net stop messenger—–停止信使服务<br>　　15. conf———–启动netmeeting<br>　　16. dvdplay——–DVD播放器<br>　　17. charmap——–启动字符映射表<br>　　18. diskmgmt.msc—磁盘管理实用程序<br>　　19. calc———–启动计算器<br>　　20. dfrg.msc——-磁盘碎片整理程序<br>　　21. chkdsk.exe—–Chkdsk磁盘检查<br>　　22. devmgmt.msc— 设备管理器<br>　　23. regsvr32 /u <em>.dll—-停止dll文件运行<br>　　24. drwtsn32—— 系统医生<br>　　25. rononce -p —-15秒关机<br>　　26. dxdiag———检查DirectX信息<br>　　27. regedt32——-注册表编辑器<br>　　28. Msconfig.exe—系统配置实用程序<br>　　29. rsop.msc——-组策略结果集<br>　　30. mem.exe——–显示内存使用情况<br>　　31. regedit.exe—-注册表<br>　　32. winchat——–XP自带局域网聊天<br>　　33. progman——–程序管理器<br>　　34. winmsd———系统信息<br>　　35. perfmon.msc—-计算机性能监测程序<br>　　36. winver———检查Windows版本<br>　　37. sfc /scannow—–扫描错误并复原<br>　　38. taskmgr—–任务管理器(2000/xp/2003<br>　　39. winver———检查Windows版本<br>　　40. wmimgmt.msc—-打开windows管理体系结构(WMI)<br>　　41. wupdmgr——–windows更新程序<br>　　42. wscript——–windows脚本宿主设置<br>　　43. write———-写字板<br>　　44. winmsd———系统信息<br>　　45. wiaacmgr——-扫描仪和照相机向导<br>　　46. winchat——–XP自带局域网聊天<br>　　47. mem.exe——–显示内存使用情况<br>　　48. Msconfig.exe—系统配置实用程序<br>　　49. mplayer2——-简易widnows media player<br>　　50. mspaint——–画图板<br>　　51. mstsc———-远程桌面连接<br>　　52. mplayer2——-媒体播放机<br>　　53. magnify——–放大镜实用程序<br>　　54. mmc————打开控制台<br>　　55. mobsync——–同步命令<br>　　56. dxdiag———检查DirectX信息<br>　　57. drwtsn32—— 系统医生<br>　　58. devmgmt.msc— 设备管理器<br>　　59. dfrg.msc——-磁盘碎片整理程序<br>　　60. diskmgmt.msc—磁盘管理实用程序<br>　　61. dcomcnfg——-打开系统组件服务<br>　　62. ddeshare——-打开DDE共享设置<br>　　63. dvdplay——–DVD播放器<br>　　64. net stop messenger—–停止信使服务<br>　　65. net start messenger—-开始信使服务<br>　　66. notepad——–打开记事本<br>　　67. nslookup——-网络管理的工具向导<br>　　68. ntbackup——-系统备份和还原<br>　　69. narrator——-屏幕“讲述人”<br>　　70. ntmsmgr.msc—-移动存储管理器<br>　　71. ntmsoprq.msc—移动存储管理员操作请求<br>　　72. netstat -an—-(TC)命令检查接口<br>　　73. syncapp——–创建一个公文包<br>　　74. sysedit——–系统配置编辑器<br>　　75. sigverif——-文件签名验证程序<br>　　76. sndrec32——-录音机<br>　　77. shrpubw——–创建共享文件夹<br>　　78. secpol.msc—–本地安全策略<br>　　79. syskey———系统加密，一旦加密就不能解开，保护windows xp系统的双重密码<br>　　80. services.msc—本地服务设置<br>　　81. Sndvol32——-音量控制程序<br>　　82. sfc.exe——–系统文件检查器<br>　　83. sfc /scannow—windows文件保护<br>　　84. tsshutdn——-60秒倒计时关机命令<br>　　85. tourstart——xp简介(安装完成后出现的漫游xp程序)<br>　　86. taskmgr——–任务管理器<br>　　87. eventvwr——-事件查看器<br>　　88. eudcedit——-造字程序<br>　　89. explorer——-打开资源管理器<br>　　90. packager——-对象包装程序<br>　　91. perfmon.msc—-计算机性能监测程序<br>　　92. progman——–程序管理器<br>　　93. regedit.exe—-注册表<br>　　94. rsop.msc——-组策略结果集<br>　　95. regedt32——-注册表编辑器<br>　　96. rononce -p —-15秒关机<br>　　97. regsvr32 /u </em>.dll—-停止dll文件运行<br>　　98. regsvr32 /u zipfldr.dll——取消ZIP支持<br>　　99. cmd.exe——–CMD命令提示符<br>　　100. chkdsk.exe—–Chkdsk磁盘检查<br>　　101. certmgr.msc—-证书管理实用程序<br>　　102. calc———–启动计算器<br>　　103. charmap——–启动字符映射表<br>　　104. cliconfg——-SQL SERVER 客户端网络实用程序<br>　　105. Clipbrd——–剪贴板查看器<br>　　106. conf———–启动netmeeting<br>　　107. compmgmt.msc—计算机管理<br>　　108. cleanmgr——-垃圾整理<br>　　109. ciadv.msc——索引服务程序<br>　　110. osk————打开屏幕键盘<br>　　111. odbcad32——-ODBC数据源管理器<br>　　112. oobe/msoobe /a—-检查XP是否激活<br>　　113. lusrmgr.msc—-本机用户和组<br>　　114. logoff———注销命令<br>　　115. fsmgmt.msc—–共享文件夹管理器<br>　　116. utilman——–辅助工具管理器<br>　　117. iexpress——-木马捆绑工具，系统自带<br>　　118. Nslookup——-IP地址侦测器<br>　　打开服务管理器的是services.msc<br>　　如果要用cmd直接启用已知服务名的服务如下：<br>　　net start [服务名] 启动一个服务<br>　　net stop [服务名] 停用一个服务</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://HawkAaron.github.io/2016/08/02/汇编学习笔记--查看CPU和内存/" data-id="cirejylrp000mzknr1zxom13l" class="article-share-link">Share</a>
+      <a data-url="http://HawkAaron.github.io/2016/08/02/Windows常用快捷命令/" data-id="cirek20xr000d0snryqbbbk8u" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Win7旗舰版不能将大于4G的文件拷贝到U盘怎么办？" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/02/Win7旗舰版不能将大于4G的文件拷贝到U盘怎么办？/" class="article-date">
+  <time datetime="2016-08-02T13:18:52.162Z" itemprop="datePublished">2016-08-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/02/Win7旗舰版不能将大于4G的文件拷贝到U盘怎么办？/">Win7旗舰版不能将大于4G的文件拷贝到U盘怎么办？</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>相信许多Win7用户在拷贝文件到U盘中的时候，都遇到过这样一个问题，那就是无法将超过4G的文件拷贝到U盘中，这个问题该怎么解决呢？今天小编就和大家一起来看看这个问题的解决方法吧。</p>
+<p><strong>设置方法：</strong><br>　　1、首先将需要转换的U盘插入到计算机电脑之中；<br>　　2、随后在开始菜单栏中找到运行选项，键入CMD指令后出现；<br>　　3、键入CONVERT X： /FS:NTFS，其中X代表的是你U盘目前所代表的盘符，按下回车；<br>　　4、直到显示转换完成之后就可以发现我们的U盘已经自然而然的转换为NTFS的文化系统了，各种原来存放在U盘里的文件都还完好无损的保存着。<br>　　以上就是Win7系统无法将超过4G的文件拷贝到U盘中的解决方法，正在为这个问题所烦恼的用户们，赶紧在自己的电脑上进行设置吧。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://HawkAaron.github.io/2016/08/02/Win7旗舰版不能将大于4G的文件拷贝到U盘怎么办？/" data-id="cirek20xq000c0snrb72dexvm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -607,11 +562,11 @@
           </li>
         
           <li>
-            <a href="/2016/08/02/汇编学习笔记--寄存器（内存访问 1）/">汇编学习笔记--寄存器（内存访问 1）</a>
+            <a href="/2016/08/02/汇编语言入门：debug调试工具/">汇编语言入门：debug调试工具</a>
           </li>
         
           <li>
-            <a href="/2016/08/02/Win7旗舰版不能将大于4G的文件拷贝到U盘怎么办？/">Win7旗舰版不能将大于4G的文件拷贝到U盘怎么办？</a>
+            <a href="/2016/08/02/汇编学习笔记--查看CPU和内存/">汇编学习笔记--查看CPU和内存</a>
           </li>
         
       </ul>
@@ -626,7 +581,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016 John Doe<br>
+      &copy; 2016 黄明坤<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

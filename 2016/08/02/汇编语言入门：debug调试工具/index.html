@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>汇编语言入门：debug调试工具 | Hexo</title>
+  <title>汇编语言入门：debug调试工具 | 黄明坤的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="对于大学生来说，基本都需要学习高级编程语言，相信大多数理工类大学生都知道c++、c语言、Java语言等高级语言，也知道机器语言这个最低级的语言，但是却有很多都不知道汇编语言，或许听过这个名字，却不知道用途等。现在我就来给大家讲解一下汇编语言以及入门。我也是刚学习汇编语言，大家可以跟着我一起学习。汇编语言与高级语言不同，它是面向机器的语言，最接近于机器语言。学习汇编语言，必须要了解计算机中机器指令、">
 <meta property="og:type" content="article">
 <meta property="og:title" content="汇编语言入门：debug调试工具">
 <meta property="og:url" content="http://HawkAaron.github.io/2016/08/02/汇编语言入门：debug调试工具/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="黄明坤的个人博客">
 <meta property="og:description" content="对于大学生来说，基本都需要学习高级编程语言，相信大多数理工类大学生都知道c++、c语言、Java语言等高级语言，也知道机器语言这个最低级的语言，但是却有很多都不知道汇编语言，或许听过这个名字，却不知道用途等。现在我就来给大家讲解一下汇编语言以及入门。我也是刚学习汇编语言，大家可以跟着我一起学习。汇编语言与高级语言不同，它是面向机器的语言，最接近于机器语言。学习汇编语言，必须要了解计算机中机器指令、">
 <meta property="og:image" content="http://img.blog.csdn.net/20150803144631191?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
 <meta property="og:image" content="http://img.blog.csdn.net/20150803145028837?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
@@ -22,7 +22,7 @@
 <meta name="twitter:description" content="对于大学生来说，基本都需要学习高级编程语言，相信大多数理工类大学生都知道c++、c语言、Java语言等高级语言，也知道机器语言这个最低级的语言，但是却有很多都不知道汇编语言，或许听过这个名字，却不知道用途等。现在我就来给大家讲解一下汇编语言以及入门。我也是刚学习汇编语言，大家可以跟着我一起学习。汇编语言与高级语言不同，它是面向机器的语言，最接近于机器语言。学习汇编语言，必须要了解计算机中机器指令、">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20150803144631191?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="黄明坤的个人博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -43,8 +43,12 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/" id="logo">黄明坤的个人博客</a>
       </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Welcome!</a>
+        </h2>
       
     </div>
     <div id="header-inner" class="inner">
@@ -137,7 +141,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://HawkAaron.github.io/2016/08/02/汇编语言入门：debug调试工具/" data-id="cirejyls4000pzknrg8qn0kuz" class="article-share-link">Share</a>
+      <a data-url="http://HawkAaron.github.io/2016/08/02/汇编语言入门：debug调试工具/" data-id="cirek20yu000r0snrd8ue0rwe" class="article-share-link">Share</a>
       
       
     </footer>
@@ -146,19 +150,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/08/02/谷歌浏览器安装QQ旋风插件/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/08/02/汇编注释/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          谷歌浏览器安装QQ旋风插件
+          汇编注释
         
       </div>
     </a>
   
   
-    <a href="/2016/08/02/win7 64位如何调出debug/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/08/02/汇编学习笔记--查看CPU和内存/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">win7 64位如何调出debug</div>
+      <div class="article-nav-title">汇编学习笔记--查看CPU和内存</div>
     </a>
   
 </nav>
@@ -207,11 +211,11 @@
           </li>
         
           <li>
-            <a href="/2016/08/02/汇编学习笔记--寄存器（内存访问 1）/">汇编学习笔记--寄存器（内存访问 1）</a>
+            <a href="/2016/08/02/汇编语言入门：debug调试工具/">汇编语言入门：debug调试工具</a>
           </li>
         
           <li>
-            <a href="/2016/08/02/Win7旗舰版不能将大于4G的文件拷贝到U盘怎么办？/">Win7旗舰版不能将大于4G的文件拷贝到U盘怎么办？</a>
+            <a href="/2016/08/02/汇编学习笔记--查看CPU和内存/">汇编学习笔记--查看CPU和内存</a>
           </li>
         
       </ul>
@@ -226,7 +230,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016 John Doe<br>
+      &copy; 2016 黄明坤<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
