@@ -248,121 +248,6 @@
             
               
                 
-                <a class="post-title-link" href="/2015/05/16/Java的内存回收机制/" itemprop="url">
-                  Java的内存回收机制
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-05-16T09:53:00+08:00" content="2015-05-16">
-              2015-05-16
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>在Java中，它的内存管理包括两方面：内存分配（创建Java对象的时候）和内存回收，这两方面工作都是由JVM自动完成的，降低了Java程序员的学习难度，避免了像C/C++直接操作内存的危险。但是，也正因为内存管理完全由JVM负责，所以也使Java很多程序员不再关心内存分配，导致很多程序低效，耗内存。因此就有了Java程序员到最后应该去了解JVM，才能写出更高效，充分利用有限的内存的程序。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/05/16/Java的内存回收机制/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2015/05/15/mysql-远程数据库导入到本地数据库/" itemprop="url">
                   mysql 远程数据库导入到本地数据库
                 </a>
@@ -470,6 +355,122 @@
 </table>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/05/15/mysql-远程数据库导入到本地数据库/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/05/13/MySQL忘记密码/" itemprop="url">
+                  MySQL忘记密码
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-05-13T22:55:00+08:00" content="2015-05-13">
+              2015-05-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/MySQL/" itemprop="url" rel="index">
+                    <span itemprop="name">MySQL</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>如果是root密码：</p>
+<h1 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h1><p>MySQL提供跳过访问控制的命令行参数，通过在命令行以此命令启动MySQL服务器：<br><strong>safe_mysqld –skip-grant-tables&amp; </strong><br>即可跳过MySQL的访问控制，任何人都可以在控制台以管理员的身份进入MySQL数据库。<br>需要注意的是在修改完密码以后要把MySQL服务器停掉重新启动才会生效<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/05/13/MySQL忘记密码/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -818,44 +819,12 @@ select * from session_privs;
 
       
         
-          
-            <h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><p>首先我们在官网下载Oracle11g，链接如下：<br><a href="http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html" title="Oracle11g下载链接" target="_blank" rel="external">http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html</a><br>注意系统位数和文件个数<br><img src="http://img.blog.csdn.net/20150410221936614" alt=""><br>两个文件都要下载，过程可能比价漫长，可以敲会代码或者做几篇阅读理解缓解一下情绪（为接下来操蛋的安装过程做好充分的心理准备）</p>
-<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>安装可以参考已下链接<br><a href="http://jingyan.baidu.com/article/e5c39bf58eff9239d760338b.html" target="_blank" rel="external">http://jingyan.baidu.com/article/e5c39bf58eff9239d760338b.html</a><br>这里要注意一点：可以无视所有的错误提示！（在第5步进行先决条件检查时由于系统原因可能会报错，此时可以按照安装教程忽略相关选项！）<br>另外要注意的是安装目录尽量在跟目录下，比如安装在D:\Oracle\下，而且目录不能包含中文及空格等非数字字母的字符（大部分国外的大型程序都这样，我们只能默默地接受了）</p>
-<h1 id="环境变量检查"><a href="#环境变量检查" class="headerlink" title="环境变量检查"></a>环境变量检查</h1><p>使用前请配置环境变量（系统会自动配置，最好检查一下）：</p>
-<h2 id="方法一：命令行-echo-PATH-命令"><a href="#方法一：命令行-echo-PATH-命令" class="headerlink" title="方法一：命令行 echo %PATH% 命令"></a>方法一：命令行 echo %PATH% 命令</h2><p><img src="http://img.blog.csdn.net/20150410222254232" alt=""><br>可以看见图中的环境变量的第一条目录即是刚才安装完的Oracle的bin目录（一般软件的bin目录下有我们用到的命令行工具，Oracle的bin命令里面有sqlplus）</p>
-<h2 id="方法二：右击‘计算机’，选择‘属性’，‘高级系统配置’"><a href="#方法二：右击‘计算机’，选择‘属性’，‘高级系统配置’" class="headerlink" title="方法二：右击‘计算机’，选择‘属性’，‘高级系统配置’"></a>方法二：右击‘计算机’，选择‘属性’，‘高级系统配置’</h2><p><img src="http://img.blog.csdn.net/20150410222343106" alt=""><br><img src="http://img.blog.csdn.net/20150410222411545" alt=""><br><img src="http://img.blog.csdn.net/20150410222556299" alt=""><img src="http://img.blog.csdn.net/20150410222541124" alt=""><br><img src="http://img.blog.csdn.net/20150410222609937" alt=""><br>变量值的最前面即刚才安装的Oracle的bin目录<br>（若path中没有Oracle的bin目录则把刚才安装oracle的目录里面的bin找出来加进去就行了，正常情况下是自动加的，如果没有就是安装有问题了）</p>
-<h1 id="登陆Oracle"><a href="#登陆Oracle" class="headerlink" title="登陆Oracle"></a>登陆Oracle</h1><p>登陆的方法有以下几种：</p>
-<h2 id="sqlplus登陆oracle："><a href="#sqlplus登陆oracle：" class="headerlink" title="sqlplus登陆oracle："></a>sqlplus登陆oracle：</h2><ol>
-<li><p>C: &gt; sqlplus “/as sysdba”   –以操作系统权限认证的oracle sys管理员登陆</p>
-</li>
-<li><p>C: &gt; sqlplus /nolog             –不在cmd或者terminal当中暴露密码的登陆方式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">SQL&gt; conn /as sysdba</div><div class="line">&amp;</div><div class="line">SQL&gt; conn sys/password as sysdba</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<ol>
-<li><p>C: &gt; sqlplus scott/tiger      –非管理员用户登陆</p>
-</li>
-<li><p>C: &gt; sqlplus scott/tiger@orcl    –非管理员用户使用tns别名登陆</p>
-</li>
-<li><p>C: &gt; sqlplus sys/password@orcl as sysdba –管理员用户使用tns别名登陆</p>
-</li>
-<li><p>C: &gt; sqlplus                       –不显露密码的登陆方式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Enter user-name：sys</div><div class="line">Enter password：password as sysdba     --以sys用户登陆的话 必须要加上 as sysdba 子句</div></pre></td></tr></table></figure>
-<p> <img src="http://img.blog.csdn.net/20150410222729400" alt=""><br> 这是我输入sqlplus后的效果，系统莫名其妙的提示输入用户名，用过MySQL的可能对这点感到很迷惑，一般安装完后都是root账户，但是oracle是个比MySQL强大很多倍的大型关系型数据库，用户名也有很多，如下：</p>
-<pre><code>scott
-sys  
-system
-sysman 
-这些账户的密码设置会在安装过程中完成，其中system是我们设置的登陆口令，Scott也是可以在口令管理中管理的
-</code></pre></li>
-</ol>
-<h3 id="其它参考"><a href="#其它参考" class="headerlink" title="其它参考"></a>其它参考</h3><p><a href="http://www.linuxidc.com/Linux/2011-03/33174.htm" target="_blank" rel="external">sqlplus详细使用方法</a><br><a href="http://baike.baidu.com/link?url=GAgntfVfaPWk9Oam_8bWSv37PdWx6xQ-wZDP2TWCy8GWDnQlMI5T6JqWcflkw9jmfb3JXyTAjkfN-3Qp8nbryK#1" target="_blank" rel="external">百度百科</a><br><a href="http://jingyan.baidu.com/article/6525d4b155767dac7d2e94e8.html" target="_blank" rel="external">Linux下操作方法</a></p>
-<h2 id="使用Oracle控制台"><a href="#使用Oracle控制台" class="headerlink" title="使用Oracle控制台"></a>使用Oracle控制台</h2><p>打开chrome浏览器（或其它，不推荐使用IE），在地址栏中输入<a href="https://localhost:1158/em" target="_blank" rel="external">https://localhost:1158/em</a><br>可能会有不安全之类的提示，无视即可，输入用户名密码后就可以管理了<br><a href="http://jingyan.baidu.com/article/3c343ff72c71c10d3679636a.html" target="_blank" rel="external">具体的使用方法可以点此查看</a><br>不过控制台的连接速度可能很慢，如果不能忍受的话就用命令行吧</p>
-<h2 id="第三方GUI管理工具"><a href="#第三方GUI管理工具" class="headerlink" title="第三方GUI管理工具"></a>第三方GUI管理工具</h2><p><a href="https://www.toadworld.com/?Redirected=true" target="_blank" rel="external">Toad</a></p>
-<p><a href="http://jingyan.baidu.com/article/c85b7a6403acd1003bac950f.html" target="_blank" rel="external">PLSQL Developer</a></p>
-<h1 id="管理Oracle"><a href="#管理Oracle" class="headerlink" title="管理Oracle"></a>管理Oracle</h1><p>Oracle是地球上目前最强大的关系型数据库，用过MySQL的人可能刚开始对Oracle无从下手，想想当初你玩MySQL的时候不也是配置环境变量，百度登陆方法等等，所以我们要有耐心。最后一句话：打好基础。</p>
-
-          
+          <h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><p>首先我们在官网下载Oracle11g，链接如下：<br><a href="http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html" title="Oracle11g下载链接">http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html</a><br>注意系统位数和文件个数<br><img src="http://img.blog.csdn.net/20150410221936614" alt=""><br>两个文件都要下载，过程可能比价漫长，可以敲会代码或者做几篇阅读理解缓解一下情绪（为接下来操蛋的安装过程做好充分的心理准备）<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/04/10/Oracle11g安装及使用详解/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
         
       
     </div>

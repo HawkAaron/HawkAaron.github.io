@@ -248,103 +248,6 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/02/MySQL忘记密码/" itemprop="url">
-                  MySQL忘记密码
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-08-02T21:18:52+08:00" content="2016-08-02">
-              2016-08-02
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>如果是root密码：</p>
-<h1 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h1><p>MySQL提供跳过访问控制的命令行参数，通过在命令行以此命令启动MySQL服务器：<br><strong>safe_mysqld –skip-grant-tables&amp; </strong><br>即可跳过MySQL的访问控制，任何人都可以在控制台以管理员的身份进入MySQL数据库。<br>需要注意的是在修改完密码以后要把MySQL服务器停掉重新启动才会生效<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/02/MySQL忘记密码/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2016/08/02/hello-world/" itemprop="url">
                   Hello World
                 </a>
@@ -618,32 +521,16 @@
 
       
         
-          
-            <h1 id="安装配置Python"><a href="#安装配置Python" class="headerlink" title="安装配置Python"></a>安装配置Python</h1><p>其实在开发python最好在ubuntu环境下，简单也便于扩展各个package。这次来讲一下如何在win7上搭建Python开发环境。由于python的跨平台性。在windows下和ubuntu下基本上没什么差别。下面从几个不步骤来搭建开发环境。</p>
+          <h1 id="安装配置Python"><a href="#安装配置Python" class="headerlink" title="安装配置Python"></a>安装配置Python</h1><p>其实在开发python最好在ubuntu环境下，简单也便于扩展各个package。这次来讲一下如何在win7上搭建Python开发环境。由于python的跨平台性。在windows下和ubuntu下基本上没什么差别。下面从几个不步骤来搭建开发环境。</p>
 <ol>
-<li><p>下载（<a href="https://www.python.org/downloads/）安装python.2.7.8" target="_blank" rel="external">https://www.python.org/downloads/）安装python.2.7.8</a>. python有2.7的版本和3.x版本，建议还是使用python-2.7.x 版本，因为python的各大框架都支持2.7版本，但是不支持3.x版本。例如简介并且功能强大的webpy就不支持3.x版本，好像web2py,django 对3.x版本也支持不太好。<br>安装就按照默认安装模式即可，主要是安装完成后设置环境变量。python也要配置环境变量，不过比Java简单多了，windows7下：计算机-&gt;属性-&gt;计算机名称、域和工作组设置（更改设置）-&gt;高级-&gt;环境变量，在变量PATH中加入C:/Python27，即之前的安装路径。</p>
+<li><p>下载（<a href="https://www.python.org/downloads/）安装python.2.7.8">https://www.python.org/downloads/）安装python.2.7.8</a>. python有2.7的版本和3.x版本，建议还是使用python-2.7.x 版本，因为python的各大框架都支持2.7版本，但是不支持3.x版本。例如简介并且功能强大的webpy就不支持3.x版本，好像web2py,django 对3.x版本也支持不太好。<br>安装就按照默认安装模式即可，主要是安装完成后设置环境变量。python也要配置环境变量，不过比Java简单多了，windows7下：计算机-&gt;属性-&gt;计算机名称、域和工作组设置（更改设置）-&gt;高级-&gt;环境变量，在变量PATH中加入C:/Python27，即之前的安装路径。</p>
 </li>
 <li><p>在命令行输入Python，出现下图所示说明安装配置成功。<br><img src="http://img.blog.csdn.net/20150614220256424" alt=""></p>
-</li>
-</ol>
-<h1 id="安装配置Pycharm-IDE开发工具"><a href="#安装配置Pycharm-IDE开发工具" class="headerlink" title="安装配置Pycharm IDE开发工具"></a>安装配置Pycharm IDE开发工具</h1><p>在python的开发过程中，刚开始一直没找到像eclipse 那样的方便的开发工具，大部分网友估计用过ecplise的pydev插件。其实早期学习的python过程，确实也用过这个工具。但是最终发现这个pycharm后，果断的放弃eclipse，因为它太好用啦。<br> PyCharm 是我用过的python编辑器中，比较顺手的一个。而且可以跨平台，在macos和windows下面都可以用，这点比较好。<br> <a href="http://www.jetbrains.com/pycharm/" target="_blank" rel="external">pycharm的官方下载地址： http://www.jetbrains.com/pycharm/ </a><br> 我们可以下载free的社区版，这足够我们用了。安装按照默认安装即可，安装成功启动如下：代表安装成功。<br>首先预览一下 PyCharm 在实际应用中的界面：<br><img src="http://img.blog.csdn.net/20150614220848906" alt=""></p>
-<p>PyCharm 的激活方式：<br>1，推荐购买正版。<br>2，可以选择试用，免费试用30天。<br>3，网上找激活码：<br>用户名：yueting3527<br>注册码：<br>===== LICENSE BEGIN =====<br>93347-12042010<br>00001FMHemWIs”6wozMZnat3IgXKXJ<br>2!nV2I6kSO48hgGLa9JNgjQ5oKz1Us<br>FFR8k”nGzJHzjQT6IBG!1fbQZn9!Vi<br>===== LICENSE END =====</p>
-<h1 id="Pycharm的使用"><a href="#Pycharm的使用" class="headerlink" title="Pycharm的使用"></a>Pycharm的使用</h1><ol>
-<li>点击Create New Project.</li>
-<li>输入项目名、路径、选择python解释器。如果没有出现python解释器，进入步骤3.<br><img src="http://img.blog.csdn.net/20150614221056309" alt=""></li>
-<li>选择python解释器。可以看到，一旦添加了python解释器，pycharm就会扫描出你已经安装的python扩展包，和这些扩展包的最新版本。</li>
-<li>点击OK之后，就会创建一个空项目，里面包含一个.idea的文件夹，用于pycharm管理项目。</li>
-<li>新建一个文件：右键单击刚建好的helloWord项目，选择New –&gt; Python File<br><img src="http://img.blog.csdn.net/20150614221428207" alt=""></li>
-<li>输入文件名：<br><img src="http://img.blog.csdn.net/20150614221552477" alt=""></li>
-<li><p>进入编写界面：PyCharm的默认编辑界面很怪，会自动生成一行 <strong>author</strong> = “作者” 的头。而比较常用的文件头，如：#coding=utf-8 等，反倒没有自动生成。<br><img src="http://img.blog.csdn.net/20150614221724802" alt=""><br>输入code：print “Hello word!”<br><img src="http://img.blog.csdn.net/20150614221923517" alt=""></p>
-</li>
-<li><p>设置控制台：运行之前，我们发现快捷菜单上的【运行】和【调试】都是灰色的，不可触发状态。是因为，我们需要先配置一下控制台。点击运行旁边的黑色倒三角，进入【Run/Debug<br>Configurations】配置界面。（或者点击Run –&gt; Edit Configurations 也一样）<br><img src="http://img.blog.csdn.net/20150614222121670" alt=""><br>在【Run/Debug Configurations】配置界面里，点击绿色的加号，新建一个配置项，并选择python。（因为hello word 就是个python程序）<br><img src="http://img.blog.csdn.net/20150614222249308" alt=""><br>在右边的配置界面里：Name 一栏里写个名字，比如Hello。点击Scrip选项，找到刚才我们写的hello_word.py<br><img src="http://img.blog.csdn.net/20150614222438443" alt=""><br>点击ok, 自动返回到编辑界面，这时候【运行】【调试】按钮全部变绿！<br><img src="http://img.blog.csdn.net/20150614222535224" alt=""></p>
-</li>
-<li><p>运行：点击绿色的运行按钮，观看输出的结果：<br><img src="http://img.blog.csdn.net/20150614222630525" alt=""><br>到此，Python开发环境搭建完成，第一个Python工程已经成功运行。</p>
-</li>
-</ol>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/06/14/Python开发环境搭建win7/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -753,12 +640,12 @@
 
       
         
-          
-            <p><img src="http://img.blog.csdn.net/20150607130238443" alt=""><br>如上图，LED正接不亮，这种情况是LED和电阻之间没有导线连接造成的（一般元件之间必须要有导线连接，如果直接把元件拖到后面，看起来接上去了，其实是断开的）<br><img src="http://img.blog.csdn.net/20150607130353831" alt=""><br>拖动电阻，发现的确没有连接<br><img src="http://img.blog.csdn.net/20150607130443096" alt=""><br>连接后LED正常</p>
-<p>也许你会发现连线正常后LED依然不亮，这时你应该注意一下电阻值的设定<br><img src="http://img.blog.csdn.net/20150607130632281" alt=""><br>如上图，5k的阻值，LED不亮了<br><img src="http://img.blog.csdn.net/20150607130931719" alt=""><br>阻值设为2k时很暗，这说明阻值高了，一般我们设置为100或200</p>
-<p>最后，如果你发现连接正常并且电阻值很低时LED还是不亮，那很可能是你的LED接反了，注意图中的接法</p>
-
-          
+          <p><img src="http://img.blog.csdn.net/20150607130238443" alt=""><br>如上图，LED正接不亮，这种情况是LED和电阻之间没有导线连接造成的（一般元件之间必须要有导线连接，如果直接把元件拖到后面，看起来接上去了，其实是断开的）<br><img src="http://img.blog.csdn.net/20150607130353831" alt=""><br>拖动电阻，发现的确没有连接<br><img src="http://img.blog.csdn.net/20150607130443096" alt=""><br>连接后LED正常<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/06/07/proteus解决LED二极管不发光问题/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1214,7 +1101,11 @@
 
       
         
-          <h1 id="静态库和动态库的区别"><a href="#静态库和动态库的区别" class="headerlink" title="静态库和动态库的区别"></a>静态库和动态库的区别</h1><h2 id="1-静态库"><a href="#1-静态库" class="headerlink" title="1.静态库"></a>1.静态库</h2><p>之所以称之为”静态库”，是因为在链接阶段，会将汇编生成的目标文件.o与引用到的库一起链接打包到可执行文件中。因此对应的链接方式称为静态链接。<br>从本质上来说，一个静态库可以简单看成是一组目标文件(.o/.obj文件)的集合，静态库与汇编生成的目标文件(.o/.obj)一起链接为可执行文件。
+          <h1 id="静态库和动态库的区别"><a href="#静态库和动态库的区别" class="headerlink" title="静态库和动态库的区别"></a>静态库和动态库的区别</h1><h2 id="1-静态库"><a href="#1-静态库" class="headerlink" title="1.静态库"></a>1.静态库</h2><p>之所以称之为”静态库”，是因为在链接阶段，会将汇编生成的目标文件.o与引用到的库一起链接打包到可执行文件中。因此对应的链接方式称为静态链接。<br>从本质上来说，一个静态库可以简单看成是一组目标文件(.o/.obj文件)的集合，静态库与汇编生成的目标文件(.o/.obj)一起链接为可执行文件。<br>静态库（后缀为.a/.lib）和.o文件格式相似。即很多目标文件经过压缩打包后形成的一个文件<br>静态库特点总结：</p>
+<pre><code>1. 静态库对函数库的链接是放在编译时期完成的
+2. 程序在运行时与函数库再无瓜葛，移植方便，因为代码已经嵌入到程序里面了，可以直接跟着程序走，不存在对外部文件的依赖
+3. 浪费空间和资源，因为所有相关的目标文件与牵涉到的函数库被链接合成一个可执行文件，会增加原本程序的空间
+</code></pre>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/05/30/CodeBlocks静态链接与动态链接设置/#more" rel="contents">
               Read more &raquo;
@@ -1332,6 +1223,121 @@
           <h1 id="0-引言"><a href="#0-引言" class="headerlink" title="0. 引言"></a><strong>0. 引言</strong></h1><p>UNIX是一个注册商标，是要满足一大堆条件并且支付可观费用才能够被授权使用的一个操作系统。linux是unix的克隆版本，是由其创始人Linus和诸多世界知名的黑客手工打造的一个操作系统。为什么linux和unix之间有很多软件可以很轻松的移植？因为linux也满足POSIX规范，所以在运行机制上跟unix相近。同时，POSIX标准也是Linux、windows下能够进行交叉编译的基础
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/05/18/CCpp跨平台交叉编译-静态库动态库编译-MinGW-Cygwin-CodeBlocks使用原理及链接参数选项/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/05/16/Java的内存回收机制/" itemprop="url">
+                  Java的内存回收机制
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-05-16T09:53:00+08:00" content="2015-05-16">
+              2015-05-16
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>在Java中，它的内存管理包括两方面：内存分配（创建Java对象的时候）和内存回收，这两方面工作都是由JVM自动完成的，降低了Java程序员的学习难度，避免了像C/C++直接操作内存的危险。但是，也正因为内存管理完全由JVM负责，所以也使Java很多程序员不再关心内存分配，导致很多程序低效，耗内存。因此就有了Java程序员到最后应该去了解JVM，才能写出更高效，充分利用有限的内存的程序。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/05/16/Java的内存回收机制/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
