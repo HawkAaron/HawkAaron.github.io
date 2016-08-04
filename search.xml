@@ -1,28 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title>HMK&#39;s blog</title>
-  <subtitle>Stay hungry. Stay foolish.</subtitle>
-  <link href="/atom.xml" rel="self"/>
+<search>
   
-  <link href="http://HawkAaron.github.io/"/>
-  <updated>2016-08-04T03:07:23.992Z</updated>
-  <id>http://HawkAaron.github.io/</id>
   
-  <author>
-    <name>HMK</name>
     
-  </author>
-  
-  <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Google面试题 3| 矩阵中的最长上升路径</title>
-    <link href="http://HawkAaron.github.io/2016/08/04/Google%E9%9D%A2%E8%AF%95%E9%A2%983-%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E8%B7%AF%E5%BE%84/"/>
-    <id>http://HawkAaron.github.io/2016/08/04/Google面试题3-矩阵中的最长上升路径/</id>
-    <published>2016-08-04T02:43:00.000Z</published>
-    <updated>2016-08-04T03:07:23.992Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Given an integer matrix, find the length of the longest increasing path.</p>
+    <entry>
+      <title><![CDATA[Google面试题 3| 矩阵中的最长上升路径]]></title>
+      <url>http://HawkAaron.github.io/2016/08/04/Google%E9%9D%A2%E8%AF%95%E9%A2%983-%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E8%B7%AF%E5%BE%84/</url>
+      <content type="html"><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Given an integer matrix, find the length of the longest increasing path.</p>
 <p>From each cell, you can either move to four directions: left, right, up or down. You may NOT move diagonally or move outside of the boundary (i.e. wrap-around is not allowed).</p>
 <p><strong>Example 1:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">nums = [</div><div class="line">  [9,9,4],</div><div class="line">  [6,6,8],</div><div class="line">  [2,1,1]</div><div class="line">]</div></pre></td></tr></table></figure></p>
 <p>Return <code>4</code><br>The longest increasing path is <code>[1, 2, 6, 9]</code>.</p>
@@ -37,41 +21,12 @@
 <h1 id="参考代码"><a href="#参考代码" class="headerlink" title="参考代码"></a>参考代码</h1><p>记忆化搜索<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Solution &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="keyword">const</span> <span class="keyword">int</span> dr[<span class="number">4</span>] = &#123; <span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">0</span> &#125;;</div><div class="line">    <span class="keyword">const</span> <span class="keyword">int</span> dc[<span class="number">4</span>] = &#123; <span class="number">0</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">1</span> &#125;;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; matrix, <span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; cache)</span> </span>&#123;</div><div class="line">        <span class="comment">// if calculated before, no need to do it again</span></div><div class="line">        <span class="keyword">if</span> (cache[x][y]) <span class="keyword">return</span> cache[x][y];</div><div class="line">        <span class="keyword">int</span> res = <span class="number">1</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">4</span>; i++) &#123;</div><div class="line">            <span class="keyword">int</span> nx = x + dr[i];</div><div class="line">            <span class="keyword">int</span> ny = y + dc[i];</div><div class="line">            <span class="comment">// if out of bond OR current cell value larger than previous cell value.</span></div><div class="line">            <span class="keyword">if</span> (nx &lt; <span class="number">0</span> || nx &gt;= matrix.size() || ny &lt; <span class="number">0</span> || ny &gt;= matrix[<span class="number">0</span>].size() ||</div><div class="line">                matrix[nx][ny] &gt;= matrix[x][y]) <span class="keyword">continue</span>;</div><div class="line">            res = max(res, dfs(matrix, nx, ny, cache) + <span class="number">1</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> cache[x][y] = res;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">longestIncreasingPath</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; matrix)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (matrix.empty() || matrix[<span class="number">0</span>].empty()) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> m = matrix.size(), n = matrix[<span class="number">0</span>].size();</div><div class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; cache(m, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(n, <span class="number">0</span>));</div><div class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;m; i++) &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;n; j++) &#123;</div><div class="line">                cache[i][j] = dfs(matrix, i, j, cache);</div><div class="line">                res = max(res, cache[i][j]);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://leetcode.com/problems/longest-increasing-path-in-a-matrix/" target="_blank" rel="external">LeetCode 329. Longest Increasing Path in a Matrix</a><br><a href="https://discuss.leetcode.com/topic/34835/15ms-concise-java-solution" target="_blank" rel="external">15ms Concise Java Solution</a></p>
 ]]></content>
+    </entry>
     
-    <summary type="html">
-    
-      &lt;h1 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h1&gt;&lt;p&gt;Given an integer matrix, find the length of the longest increasing path.&lt;/p&gt;
-&lt;p&gt;From each cell, you can either move to four directions: left, right, up or down. You may NOT move diagonally or move outside of the boundary (i.e. wrap-around is not allowed).&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Example 1:&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;nums = [&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  [9,9,4],&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  [6,6,8],&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  [2,1,1]&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;]&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Return &lt;code&gt;4&lt;/code&gt;&lt;br&gt;The longest increasing path is &lt;code&gt;[1, 2, 6, 9]&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Example 2:&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;nums = [&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  [3,4,5],&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  [3,2,6],&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  [2,2,1]&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;]&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Return &lt;code&gt;4&lt;/code&gt;&lt;br&gt;The longest increasing path is &lt;code&gt;[3, 4, 5, 6]&lt;/code&gt;. Moving diagonally is not allowed.
-    
-    </summary>
-    
-      <category term="算法" scheme="http://HawkAaron.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="DFS" scheme="http://HawkAaron.github.io/categories/%E7%AE%97%E6%B3%95/DFS/"/>
-    
-    
-      <category term="面试题" scheme="http://HawkAaron.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-      <category term="Google" scheme="http://HawkAaron.github.io/tags/Google/"/>
-    
-      <category term="DFS" scheme="http://HawkAaron.github.io/tags/DFS/"/>
-    
-      <category term="搜索" scheme="http://HawkAaron.github.io/tags/%E6%90%9C%E7%B4%A2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Longest Increasing Subsequence</title>
-    <link href="http://HawkAaron.github.io/2016/08/03/Longest-Increasing-Subsequence/"/>
-    <id>http://HawkAaron.github.io/2016/08/03/Longest-Increasing-Subsequence/</id>
-    <published>2016-08-03T00:06:00.000Z</published>
-    <updated>2016-08-04T00:14:18.866Z</updated>
-    
-    <content type="html"><![CDATA[<p>Given an unsorted array of integers, find the length of longest increasing subsequence.</p>
+    <entry>
+      <title><![CDATA[Longest Increasing Subsequence]]></title>
+      <url>http://HawkAaron.github.io/2016/08/03/Longest-Increasing-Subsequence/</url>
+      <content type="html"><![CDATA[<p>Given an unsorted array of integers, find the length of longest increasing subsequence.</p>
 <p>For example,<br>Given <code>[10, 9, 2, 5, 3, 7, 101, 18]</code>,<br>The longest increasing subsequence is <code>[2, 3, 7, 101]</code>, therefore the length is 4. Note that there may be more than one LIS combination, it is only necessary for you to return the length.</p>
 <p>Your algorithm should run in $O(n^2)$ complexity.</p>
 <p><strong>Follow up:</strong> Could you improve it to $O(n\log(n))$ time complexity?<a id="more"></a></p>
@@ -79,33 +34,12 @@
 <h1 id="9-lines-C-code-with-O-NlogN-complexity"><a href="#9-lines-C-code-with-O-NlogN-complexity" class="headerlink" title="9 lines C++ code with O(NlogN) complexity"></a>9 lines C++ code with O(NlogN) complexity</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">lengthOfLIS</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> x : nums) &#123;</div><div class="line">        <span class="keyword">auto</span> it = lower_bound(res.begin(), res.end(), x);</div><div class="line">        <span class="keyword">if</span> (it == res.end()) res.push_back(x);</div><div class="line">        <span class="keyword">else</span> *it = x;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> res.size();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h1 id="More-details"><a href="#More-details" class="headerlink" title="More details"></a>More details</h1><p><a href="https://discuss.leetcode.com/topic/30721/my-easy-to-understand-o-n-2-solution-using-dp-with-video-explanation" target="_blank" rel="external">https://discuss.leetcode.com/topic/30721/my-easy-to-understand-o-n-2-solution-using-dp-with-video-explanation</a><br><a href="https://discuss.leetcode.com/topic/28696/9-lines-c-code-with-o-nlogn-complexity/12" target="_blank" rel="external">https://discuss.leetcode.com/topic/28696/9-lines-c-code-with-o-nlogn-complexity/12</a><br><a href="http://www.geeksforgeeks.org/longest-monotonically-increasing-subsequence-size-n-log-n/" target="_blank" rel="external">http://www.geeksforgeeks.org/longest-monotonically-increasing-subsequence-size-n-log-n/</a></p>
 ]]></content>
+    </entry>
     
-    <summary type="html">
-    
-      &lt;p&gt;Given an unsorted array of integers, find the length of longest increasing subsequence.&lt;/p&gt;
-&lt;p&gt;For example,&lt;br&gt;Given &lt;code&gt;[10, 9, 2, 5, 3, 7, 101, 18]&lt;/code&gt;,&lt;br&gt;The longest increasing subsequence is &lt;code&gt;[2, 3, 7, 101]&lt;/code&gt;, therefore the length is 4. Note that there may be more than one LIS combination, it is only necessary for you to return the length.&lt;/p&gt;
-&lt;p&gt;Your algorithm should run in $O(n^2)$ complexity.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Follow up:&lt;/strong&gt; Could you improve it to $O(n\log(n))$ time complexity?
-    
-    </summary>
-    
-      <category term="算法" scheme="http://HawkAaron.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="DP" scheme="http://HawkAaron.github.io/tags/DP/"/>
-    
-      <category term="LeetCode" scheme="http://HawkAaron.github.io/tags/LeetCode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://HawkAaron.github.io/2016/08/02/hello-world/"/>
-    <id>http://HawkAaron.github.io/2016/08/02/hello-world/</id>
-    <published>2016-08-02T12:12:36.490Z</published>
-    <updated>2016-08-03T11:57:21.416Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.<br><a id="more"></a></p>
+    <entry>
+      <title><![CDATA[Hello World]]></title>
+      <url>http://HawkAaron.github.io/2016/08/02/hello-world/</url>
+      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.<br><a id="more"></a></p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
@@ -115,24 +49,12 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 ]]></content>
+    </entry>
     
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;br&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>线段树</title>
-    <link href="http://HawkAaron.github.io/2016/08/01/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
-    <id>http://HawkAaron.github.io/2016/08/01/线段树/</id>
-    <published>2016-08-01T08:02:00.000Z</published>
-    <updated>2016-08-03T15:21:21.969Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="线段树的构造"><a href="#线段树的构造" class="headerlink" title="线段树的构造"></a><strong><a href="http://www.lintcode.com/zh-cn/problem/segment-tree-build/" target="_blank" rel="external">线段树的构造</a></strong></h2><p>线段树是一棵二叉树，他的每个节点包含了两个额外的属性start和end用于表示该节点所代表的区间。start和end都是整数，并按照如下的方式赋值:</p>
+    <entry>
+      <title><![CDATA[线段树]]></title>
+      <url>http://HawkAaron.github.io/2016/08/01/%E7%BA%BF%E6%AE%B5%E6%A0%91/</url>
+      <content type="html"><![CDATA[<h2 id="线段树的构造"><a href="#线段树的构造" class="headerlink" title="线段树的构造"></a><strong><a href="http://www.lintcode.com/zh-cn/problem/segment-tree-build/" target="_blank" rel="external">线段树的构造</a></strong></h2><p>线段树是一棵二叉树，他的每个节点包含了两个额外的属性start和end用于表示该节点所代表的区间。start和end都是整数，并按照如下的方式赋值:</p>
 <ul>
 <li>根节点的 start 和 end 由 build 方法所给出。</li>
 <li>对于节点 A 的左儿子，有 start=A.left, end=(A.left + A.right) / 2。</li>
@@ -148,39 +70,12 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Solution &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="comment">/**</span></div><div class="line">     *@param root, index, value: The root of segment tree and </div><div class="line">     *@ change the node's value with [index, index] to the new given value</div><div class="line">     *@return: void</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">modify</span><span class="params">(SegmentTreeNode *root, <span class="keyword">int</span> index, <span class="keyword">int</span> value)</span> </span>&#123;</div><div class="line">        <span class="comment">// write your code here</span></div><div class="line">        <span class="keyword">if</span> (root-&gt;start == index &amp;&amp; root-&gt;end == index) &#123;</div><div class="line">            root-&gt;max = value;</div><div class="line">            <span class="keyword">return</span> ;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">int</span> mid = root-&gt;start + (root-&gt;end - root-&gt;start) / <span class="number">2</span>;</div><div class="line">        <span class="keyword">if</span> (root-&gt;start &lt;= index &amp;&amp; index &lt;= mid) &#123;</div><div class="line">            modify(root-&gt;left, index, value);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (mid &lt; index &amp;&amp; index &lt;= root-&gt;end) &#123;</div><div class="line">            modify(root-&gt;right, index, value);</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        root-&gt;max = max(root-&gt;left-&gt;max, root-&gt;right-&gt;max);</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 <h2 id="区间最小数"><a href="#区间最小数" class="headerlink" title="区间最小数"></a><strong><a href="http://www.lintcode.com/zh-cn/problem/interval-minimum-number/" target="_blank" rel="external">区间最小数</a></strong></h2><p>给定一个整数数组（下标由 0 到 n-1，其中 n 表示数组的规模），以及一个查询列表。每一个查询列表有两个整数 [start, end]。 对于每个查询，计算出数组中从下标 start 到 end 之间的数的最小值，并返回在结果列表中。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Definition of Interval:</div><div class="line"> * classs Interval &#123;</div><div class="line"> *     int start, end;</div><div class="line"> *     Interval(int start, int end) &#123;</div><div class="line"> *         this-&gt;start = start;</div><div class="line"> *         this-&gt;end = end;</div><div class="line"> *     &#125;</div><div class="line"> */</div><div class="line"><span class="keyword">class</span> Solution &#123; </div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="keyword">struct</span> Node &#123;</div><div class="line">        Node* left, * right;</div><div class="line">        <span class="keyword">int</span> start, end, min;</div><div class="line">        Node(<span class="keyword">int</span> start, <span class="keyword">int</span> end) &#123;</div><div class="line">            <span class="keyword">this</span>-&gt;start = start;</div><div class="line">            <span class="keyword">this</span>-&gt;end = end;</div><div class="line">            left = right = <span class="literal">NULL</span>;</div><div class="line">            min = <span class="number">1</span>&lt;&lt;<span class="number">30</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">    </div><div class="line">    <span class="function">Node* <span class="title">build</span><span class="params">(<span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (start &gt; end) <span class="keyword">return</span> <span class="literal">NULL</span>;</div><div class="line">        Node* root = <span class="keyword">new</span> Node(start, end);</div><div class="line">        </div><div class="line">        <span class="keyword">if</span> (start != end) &#123;</div><div class="line">            <span class="keyword">int</span> mid = (start + end) / <span class="number">2</span>;</div><div class="line">            root-&gt;left = build(start, mid);</div><div class="line">            root-&gt;right = build(mid+<span class="number">1</span>, end);</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">return</span> root;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">query</span><span class="params">(Node* root, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (root-&gt;start == start &amp;&amp; root-&gt;end == end) </div><div class="line">            <span class="keyword">return</span> root-&gt;min;</div><div class="line">        </div><div class="line">        <span class="keyword">int</span> leftmin = <span class="number">1</span>&lt;&lt;<span class="number">30</span>, rightmin = leftmin;</div><div class="line">        <span class="keyword">int</span> mid = (root-&gt;start + root-&gt;end) / <span class="number">2</span>;</div><div class="line">        <span class="keyword">if</span> (start &lt;= mid) &#123;</div><div class="line">            <span class="keyword">if</span> (mid &lt; end) &#123;</div><div class="line">                leftmin = query(root-&gt;left, start, mid);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                leftmin = query(root-&gt;left, start, end);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (mid &lt; end) &#123;</div><div class="line">            <span class="keyword">if</span> (start &lt;= mid) &#123;</div><div class="line">                rightmin = query(root-&gt;right, mid+<span class="number">1</span>, end);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                rightmin = query(root-&gt;right, start, end);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">return</span> min(leftmin, rightmin);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">modify</span><span class="params">(Node* root, <span class="keyword">int</span> index, <span class="keyword">int</span> value)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (root-&gt;start == index &amp;&amp; root-&gt;end == index) &#123;</div><div class="line">            root-&gt;min = value;</div><div class="line">            <span class="keyword">return</span> ;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="keyword">int</span> mid = (root-&gt;start + root-&gt;end) / <span class="number">2</span>;</div><div class="line">        <span class="keyword">if</span> (root-&gt;start &lt;= index &amp;&amp; index &lt;= mid) &#123;</div><div class="line">            modify(root-&gt;left, index, value);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (mid &lt; index &amp;&amp; index &lt;= root-&gt;end) &#123;</div><div class="line">            modify(root-&gt;right, index, value);</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        root-&gt;min = min(root-&gt;left-&gt;min, root-&gt;right-&gt;min);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">/**</span></div><div class="line">     *@param A, queries: Given an integer array and an query list</div><div class="line">     *@return: The result list</div><div class="line">     */</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; intervalMinNumber(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;A, <span class="built_in">vector</span>&lt;Interval&gt; &amp;queries) &#123;</div><div class="line">        <span class="comment">// write your code here</span></div><div class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ret;</div><div class="line">        <span class="keyword">if</span> (A.size() == <span class="number">0</span>) <span class="keyword">return</span> ret;</div><div class="line">        Node* root = build(<span class="number">0</span>, A.size()<span class="number">-1</span>);</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;A.size(); i++) </div><div class="line">            modify(root, i, A[i]);</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;queries.size(); i++) &#123;</div><div class="line">            ret.push_back(query(root, queries[i].start, queries[i].end));</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ret;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
 ]]></content>
+    </entry>
     
-    <summary type="html">
-    
-      &lt;h2 id=&quot;线段树的构造&quot;&gt;&lt;a href=&quot;#线段树的构造&quot; class=&quot;headerlink&quot; title=&quot;线段树的构造&quot;&gt;&lt;/a&gt;&lt;strong&gt;&lt;a href=&quot;http://www.lintcode.com/zh-cn/problem/segment-tree-build/&quot;&gt;线段树的构造&lt;/a&gt;&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;线段树是一棵二叉树，他的每个节点包含了两个额外的属性start和end用于表示该节点所代表的区间。start和end都是整数，并按照如下的方式赋值:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;根节点的 start 和 end 由 build 方法所给出。&lt;/li&gt;
-&lt;li&gt;对于节点 A 的左儿子，有 start=A.left, end=(A.left + A.right) / 2。&lt;/li&gt;
-&lt;li&gt;对于节点 A 的右儿子，有 start=(A.left + A.right) / 2 + 1, end=A.right。&lt;/li&gt;
-&lt;li&gt;如果 start 等于 end, 那么该节点是叶子节点，不再有左右儿子。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;实现一个 build 方法，接受 start 和 end 作为参数, 然后构造一个代表区间 [start, end] 的线段树，返回这棵线段树的根。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="数据结构" scheme="http://HawkAaron.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="线段树" scheme="http://HawkAaron.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
-    
-    
-      <category term="数据结构" scheme="http://HawkAaron.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="算法" scheme="http://HawkAaron.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Google 2016 面试题6 | Count of Smaller Numbers After Self(数组计数)</title>
-    <link href="http://HawkAaron.github.io/2016/08/01/Google-2016-%E9%9D%A2%E8%AF%95%E9%A2%986-Count-of-Smaller-Numbers-After-Self(%E6%95%B0%E7%BB%84%E8%AE%A1%E6%95%B0)/"/>
-    <id>http://HawkAaron.github.io/2016/08/01/Google-2016-面试题6-Count-of-Smaller-Numbers-After-Self(数组计数)/</id>
-    <published>2016-08-01T04:38:00.000Z</published>
-    <updated>2016-08-03T15:23:03.941Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述 "></a><strong>题目描述 </strong></h2><p>给定一个数组nums,返回一个计数数组count，count[i]表示nums中第i个右边有多少个数小于nums[i]<br>Example:<br>nums = [5, 2, 6, 1]<br>输出[2,1,1,0]</p>
+    <entry>
+      <title><![CDATA[Google 2016 面试题6 | Count of Smaller Numbers After Self(数组计数)]]></title>
+      <url>http://HawkAaron.github.io/2016/08/01/Google-2016-%E9%9D%A2%E8%AF%95%E9%A2%986-Count-of-Smaller-Numbers-After-Self(%E6%95%B0%E7%BB%84%E8%AE%A1%E6%95%B0)/</url>
+      <content type="html"><![CDATA[<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述 "></a><strong>题目描述 </strong></h2><p>给定一个数组nums,返回一个计数数组count，count[i]表示nums中第i个右边有多少个数小于nums[i]<br>Example:<br>nums = [5, 2, 6, 1]<br>输出[2,1,1,0]</p>
 <h2 id="分析解答"><a href="#分析解答" class="headerlink" title="分析解答"></a><strong>分析解答</strong></h2><p>此题不难给出O(N^2)的算法，先穷举nums中每个位置i，再穷举右边的数计算有多少个小于nums[i]。难点在于利用数据结构进行优化从而降低时间复杂度。线段树（segment tree）和平衡树（Balanced Binary Tree）是两种可以使用的数据结构。<a id="more"></a></p>
 <p>线段树的每个节点表示一段区间，记录这个区间的某些信息，其基本思想是把区间一分为二，二分为四。。。直到不可再分（因此叶子节点的区间只包含一个数），如此可以把任意区间表示成log（区间大小）个子区间的拼接，以降低查询时间复杂度。在本题中，假设nums中的数字范围在0到maxnum之间，那么建树的区间为[0,maxnum]（也就是根节点所表示的区间）。每个节点记录其表示区间内的数字个数。本题涉及两种线段树基本操作：插入和查询。插入操作把nums[i]插入到线段树相应位置，同时对所有经过的区间的sum值进行累加；查询操作需要查询区间[0,nums[i]-1]所包含的数字个数，利用已经建好的线段树把查询区间分割为若干个节点所表示的区间，统计并返回这些节点的sum值之和。</p>
 <p>平衡树用途更广，代码复杂度也更高，是一种保持叶子节点深度平衡的二叉搜索树，有多种方法实现，<a href="https://discuss.leetcode.com/category/395/count-of-smaller-numbers-after-self" target="_blank" rel="external">可以参照LeetCode</a>。</p>
@@ -188,64 +83,21 @@
 <h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a><strong>注意事项</strong></h3><p>之前写的线段树居然不能有负区间，debug了好长时间，发现原来是区间中点计算有问题，应该类似于<code>int c = a + (b - a) / 2</code></p>
 <h3 id="2-二叉搜索树-Binary-Search-Tree"><a href="#2-二叉搜索树-Binary-Search-Tree" class="headerlink" title="2.二叉搜索树 Binary Search Tree"></a><strong>2.二叉搜索树 Binary Search Tree</strong></h3><p>每个节点保存sum（左子树节点个数），dup（副本个数）。当插入一个数时，比它小的数的个数就是沿着树向右转时dup和sum之和，<a href="https://discuss.leetcode.com/topic/31405/9ms-short-java-bst-solution-get-answer-when-building-bst" target="_blank" rel="external">详情请见LeetCode</a><br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Solution &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="keyword">struct</span> Node &#123;</div><div class="line">        Node* left, *right;</div><div class="line">        <span class="keyword">int</span> val, sum, dup = <span class="number">1</span>;</div><div class="line">        Node(<span class="keyword">int</span> v, <span class="keyword">int</span> s) : val(v), sum(s) &#123;</div><div class="line">            left = right = <span class="literal">NULL</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; countSmaller(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums) &#123;</div><div class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ret(nums.size());</div><div class="line">        Node* root = <span class="literal">NULL</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=nums.size()<span class="number">-1</span>; i&gt;=<span class="number">0</span>; i--) &#123;</div><div class="line">            insert(nums[i], root, ret[i], <span class="number">0</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ret;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> num, Node*&amp; root, <span class="keyword">int</span>&amp; ret, <span class="keyword">int</span> preSum)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (root == <span class="literal">NULL</span>) &#123;</div><div class="line">            root = <span class="keyword">new</span> Node(num, <span class="number">0</span>);</div><div class="line">            ret = preSum;</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (root-&gt;val &gt; num) &#123;</div><div class="line">            root-&gt;sum++;</div><div class="line">            insert(num, root-&gt;left, ret, preSum);</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (root-&gt;val &lt; num) &#123;</div><div class="line">            insert(num, root-&gt;right, ret, preSum + root-&gt;dup + root-&gt;sum);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            root-&gt;dup++;</div><div class="line">            ret = preSum + root-&gt;sum;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
 <h3 id="迭代版"><a href="#迭代版" class="headerlink" title="迭代版"></a><strong>迭代版</strong></h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Solution &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="keyword">struct</span> Node &#123;</div><div class="line">        Node* left, *right;</div><div class="line">        <span class="keyword">int</span> val, sum = <span class="number">0</span>, dup = <span class="number">0</span>;</div><div class="line">        Node(<span class="keyword">int</span> v) : val(v) &#123;</div><div class="line">            left = right = <span class="literal">NULL</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; countSmaller(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums) &#123;</div><div class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ret(nums.size());</div><div class="line">        <span class="keyword">if</span> (nums.size() == <span class="number">0</span>) <span class="keyword">return</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;();</div><div class="line">        Node* root = <span class="keyword">new</span> Node(nums[nums.size()<span class="number">-1</span>]);</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=nums.size()<span class="number">-1</span>; i&gt;=<span class="number">0</span>; i--) &#123;</div><div class="line">            ret[i] = insert(root, nums[i]);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ret;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">insert</span><span class="params">(Node* root, <span class="keyword">int</span> num)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> ret = <span class="number">0</span>;</div><div class="line">        <span class="keyword">while</span> (root-&gt;val != num) &#123;</div><div class="line">            <span class="keyword">if</span> (root-&gt;val &gt; num) &#123;</div><div class="line">                root-&gt;sum++;</div><div class="line">                <span class="keyword">if</span> (root-&gt;left == <span class="literal">NULL</span>)</div><div class="line">                    root-&gt;left = <span class="keyword">new</span> Node(num);</div><div class="line">                root = root-&gt;left;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                ret += root-&gt;dup + root-&gt;sum;</div><div class="line">                <span class="keyword">if</span> (root-&gt;right == <span class="literal">NULL</span>)</div><div class="line">                    root-&gt;right = <span class="keyword">new</span> Node(num);</div><div class="line">                root = root-&gt;right;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        root-&gt;dup++;</div><div class="line">        <span class="keyword">return</span> ret + root-&gt;sum;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>]]></content>
+    </entry>
     
-    <summary type="html">
-    
-      &lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述 &quot;&gt;&lt;/a&gt;&lt;strong&gt;题目描述 &lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;给定一个数组nums,返回一个计数数组count，count[i]表示nums中第i个右边有多少个数小于nums[i]&lt;br&gt;Example:&lt;br&gt;nums = [5, 2, 6, 1]&lt;br&gt;输出[2,1,1,0]&lt;/p&gt;
-&lt;h2 id=&quot;分析解答&quot;&gt;&lt;a href=&quot;#分析解答&quot; class=&quot;headerlink&quot; title=&quot;分析解答&quot;&gt;&lt;/a&gt;&lt;strong&gt;分析解答&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;此题不难给出O(N^2)的算法，先穷举nums中每个位置i，再穷举右边的数计算有多少个小于nums[i]。难点在于利用数据结构进行优化从而降低时间复杂度。线段树（segment tree）和平衡树（Balanced Binary Tree）是两种可以使用的数据结构。
-    
-    </summary>
-    
-      <category term="数据结构" scheme="http://HawkAaron.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="线段树" scheme="http://HawkAaron.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
-    
-      <category term="BST" scheme="http://HawkAaron.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%BF%E6%AE%B5%E6%A0%91/BST/"/>
-    
-    
-      <category term="数据结构" scheme="http://HawkAaron.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="算法" scheme="http://HawkAaron.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Google 2016 面试题5 | 岛屿计数2</title>
-    <link href="http://HawkAaron.github.io/2016/08/01/Google-2016-%E9%9D%A2%E8%AF%95%E9%A2%985-%E5%B2%9B%E5%B1%BF%E8%AE%A1%E6%95%B02/"/>
-    <id>http://HawkAaron.github.io/2016/08/01/Google-2016-面试题5-岛屿计数2/</id>
-    <published>2016-08-01T01:46:00.000Z</published>
-    <updated>2016-08-03T15:22:40.270Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a><strong>题目描述</strong></h2><p>给出一个m行n列的网格地图，每个位置为0或1，0表示海水1表示陆地。一开始地图全为0（没有陆地）。每次在一个位置加入一块陆地，返回此时地图中陆地的总块数（相邻陆地统计时为同一块陆地）。<br>Example:<br>操作#1: addLand(0, 0) turns the water at grid[0][0] into a land.<br><img src="http://img.blog.csdn.net/20160801094144259" alt="leetcode"><br>操作#2: addLand(0, 1) turns the water at grid[0][1] into a land.<br><img src="http://img.blog.csdn.net/20160801094214103" alt="leetcode"><br>操作#3: addLand(1, 2) turns the water at grid[1][2] into a land.<br><img src="http://img.blog.csdn.net/20160801094236588" alt="leetcode"><br>操作#4: addLand(2, 1) turns the water at grid[2][1] into a land.<br><img src="http://img.blog.csdn.net/20160801094255504" alt="leetcode"><br>返回答案数组: [1, 1, 2, 3]<br>你可以做到复杂度O(k log mn)吗？其中k为操作次数。<br><a id="more"></a></p>
+    <entry>
+      <title><![CDATA[Google 2016 面试题5 | 岛屿计数2]]></title>
+      <url>http://HawkAaron.github.io/2016/08/01/Google-2016-%E9%9D%A2%E8%AF%95%E9%A2%985-%E5%B2%9B%E5%B1%BF%E8%AE%A1%E6%95%B02/</url>
+      <content type="html"><![CDATA[<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a><strong>题目描述</strong></h2><p>给出一个m行n列的网格地图，每个位置为0或1，0表示海水1表示陆地。一开始地图全为0（没有陆地）。每次在一个位置加入一块陆地，返回此时地图中陆地的总块数（相邻陆地统计时为同一块陆地）。<br>Example:<br>操作#1: addLand(0, 0) turns the water at grid[0][0] into a land.<br><img src="http://img.blog.csdn.net/20160801094144259" alt="leetcode"><br>操作#2: addLand(0, 1) turns the water at grid[0][1] into a land.<br><img src="http://img.blog.csdn.net/20160801094214103" alt="leetcode"><br>操作#3: addLand(1, 2) turns the water at grid[1][2] into a land.<br><img src="http://img.blog.csdn.net/20160801094236588" alt="leetcode"><br>操作#4: addLand(2, 1) turns the water at grid[2][1] into a land.<br><img src="http://img.blog.csdn.net/20160801094255504" alt="leetcode"><br>返回答案数组: [1, 1, 2, 3]<br>你可以做到复杂度O(k log mn)吗？其中k为操作次数。<br><a id="more"></a></p>
 <h2 id="分析解答"><a href="#分析解答" class="headerlink" title="分析解答"></a><strong>分析解答</strong></h2><p>对于一个静态的地图，统计岛屿个数可以使用dfs（类似于寻找一个图中的连通块个数），算法复杂度是O(m*n)。但是对于一个不断更新的地图，如果我们每次重新统计连通块个数，复杂度为O(m*n*k)，其中k为总操作个数。考虑到每次只有一个位置发生变化（从0变为1），完全不必重新统一，该陆地的产生职能影响周围四个位置。假设该陆地周围有t（p至多为4）个不连通的岛屿，那么该陆地为把这四个不同点岛屿合并为一个岛屿，使得总岛屿数下降t-1个。因此我们需要维护岛屿之间的连通性，自然的我们想到了并查集。<strong>并查集</strong>是一种解决此类问题的强力数据结构，以此题为例，初始时每个位置都是独立的、互不连通的，每个位置都有一个标签来identify自己，记录在fa数组中，fa[i]为i。当两个位置p、q相邻且都为1时，这两个位置需要统一它们的标签（表示这两个岛屿合并），即fa[p] = q。但是p、q的标签可能已经被修改，因此我们需要通过getfather函数递归找到它们的真实标签（getfather(i)的返回值也称为i的祖先），合并操作变为fa[getfather(p)] = getfather(q)。为了防止最坏情况下每次调用getfather函数都要经过m*n次递归，我们可以采用路径压缩的方法（详见代码中getfather函数），使得每个位置到其祖先的距离始终为一个很小的常数（与m、n无关）。本题中总体时间复杂度为O(m*n+k)，其中每次并查集的查询复杂度为一个常数（不超过4）。</p>
 <h2 id="参考代码"><a href="#参考代码" class="headerlink" title="参考代码 "></a><strong>参考代码 </strong></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Solution &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; numIslands2(<span class="keyword">int</span> m, <span class="keyword">int</span> n, <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt;&amp; positions) &#123;</div><div class="line">        <span class="keyword">bool</span> land[m][n];</div><div class="line">        <span class="keyword">int</span> dr[<span class="number">4</span>] = &#123;<span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">0</span>&#125;;</div><div class="line">        <span class="keyword">int</span> dc[<span class="number">4</span>] = &#123;<span class="number">0</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">1</span>&#125;;</div><div class="line">        <span class="keyword">int</span> fa[m * n];</div><div class="line">        <span class="keyword">int</span> island = <span class="number">0</span>;</div><div class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ret;</div><div class="line"></div><div class="line">        <span class="comment">// initialization</span></div><div class="line">        <span class="built_in">memset</span>(land, <span class="number">0</span>, <span class="keyword">sizeof</span>(land));</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;m*n; i++)</div><div class="line">            fa[i] = i;</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;positions.size(); i++) &#123;</div><div class="line">            island++;</div><div class="line">            <span class="keyword">int</span> x = positions[i][<span class="number">0</span>], y = positions[i][<span class="number">1</span>];</div><div class="line">            <span class="keyword">int</span> f = x * n + y;</div><div class="line">            land[x][y] = <span class="literal">true</span>;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;<span class="number">4</span>; j++) &#123;   <span class="comment">// 4 direction check</span></div><div class="line">                <span class="keyword">int</span> tx = x + dr[j];</div><div class="line">                <span class="keyword">int</span> ty = y + dc[j];</div><div class="line">                <span class="keyword">if</span> (tx &gt;=<span class="number">0</span> &amp;&amp; tx &lt; m &amp;&amp; ty &gt;= <span class="number">0</span> &amp;&amp; ty &lt; n &amp;&amp;</div><div class="line">                    land[tx][ty] &amp;&amp; getfather(fa, tx*n+ty) != f) &#123;</div><div class="line">                    fa[getfather(fa, tx*n+ty)] = f;</div><div class="line">                    island--;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            ret.push_back(island);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ret;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">// disjoint-set and path compression</span></div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getfather</span><span class="params">(<span class="keyword">int</span> fa[], <span class="keyword">int</span> i)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (fa[i] == i) <span class="keyword">return</span> i;</div><div class="line">        <span class="keyword">return</span> fa[i] = getfather(fa, fa[i]);</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 ]]></content>
+    </entry>
     
-    <summary type="html">
-    
-      &lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;给出一个m行n列的网格地图，每个位置为0或1，0表示海水1表示陆地。一开始地图全为0（没有陆地）。每次在一个位置加入一块陆地，返回此时地图中陆地的总块数（相邻陆地统计时为同一块陆地）。&lt;br&gt;Example:&lt;br&gt;操作#1: addLand(0, 0) turns the water at grid[0][0] into a land.&lt;br&gt;&lt;img src=&quot;http://img.blog.csdn.net/20160801094144259&quot; alt=&quot;leetcode&quot;&gt;&lt;br&gt;操作#2: addLand(0, 1) turns the water at grid[0][1] into a land.&lt;br&gt;&lt;img src=&quot;http://img.blog.csdn.net/20160801094214103&quot; alt=&quot;leetcode&quot;&gt;&lt;br&gt;操作#3: addLand(1, 2) turns the water at grid[1][2] into a land.&lt;br&gt;&lt;img src=&quot;http://img.blog.csdn.net/20160801094236588&quot; alt=&quot;leetcode&quot;&gt;&lt;br&gt;操作#4: addLand(2, 1) turns the water at grid[2][1] into a land.&lt;br&gt;&lt;img src=&quot;http://img.blog.csdn.net/20160801094255504&quot; alt=&quot;leetcode&quot;&gt;&lt;br&gt;返回答案数组: [1, 1, 2, 3]&lt;br&gt;你可以做到复杂度O(k log mn)吗？其中k为操作次数。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="数据结构" scheme="http://HawkAaron.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="算法" scheme="http://HawkAaron.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="数据结构" scheme="http://HawkAaron.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="并查集" scheme="http://HawkAaron.github.io/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Number of Islands</title>
-    <link href="http://HawkAaron.github.io/2016/07/31/Number-of-Islands/"/>
-    <id>http://HawkAaron.github.io/2016/07/31/Number-of-Islands/</id>
-    <published>2016-07-31T13:44:00.000Z</published>
-    <updated>2016-08-03T14:14:45.157Z</updated>
-    
-    <content type="html"><![CDATA[<p>Given a 2d grid map of ‘1’s (land) and ‘0’s (water), count the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.</p>
+    <entry>
+      <title><![CDATA[Number of Islands]]></title>
+      <url>http://HawkAaron.github.io/2016/07/31/Number-of-Islands/</url>
+      <content type="html"><![CDATA[<p>Given a 2d grid map of ‘1’s (land) and ‘0’s (water), count the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.</p>
 <p>Example 1:</p>
 <p>11110<br>11010<br>11000<br>00000<br>Answer: 1</p>
 <p>Example 2:</p>
@@ -254,30 +106,12 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Solution &#123;</div><div class="line">    <span class="keyword">int</span> m, n;</div><div class="line">    <span class="keyword">int</span> dr[<span class="number">4</span>] = &#123;<span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">0</span>&#125;;</div><div class="line">    <span class="keyword">int</span> dc[<span class="number">4</span>] = &#123;<span class="number">0</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">1</span>&#125;;</div><div class="line"><span class="keyword">public</span>:    </div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt; &gt;&amp; grid)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (x &lt; <span class="number">0</span> || x &gt;= m || y &lt; <span class="number">0</span> || y &gt;= n || grid[x][y] != <span class="string">'1'</span>) <span class="keyword">return</span>;</div><div class="line">        grid[x][y] = <span class="string">'2'</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">4</span>; i++) &#123;</div><div class="line">            dfs(x+dr[i], y+dc[i], grid);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">numIslands</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt; &gt;&amp; grid)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> cnt = <span class="number">0</span>;</div><div class="line">        m = grid.size(); </div><div class="line">        <span class="keyword">if</span> (m == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        n = grid[<span class="number">0</span>].size();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;m; i++) &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;n; j++) &#123;</div><div class="line">                <span class="keyword">if</span> (grid[i][j] == <span class="string">'1'</span>) &#123;</div><div class="line">                    dfs(i, j, grid);</div><div class="line">                    cnt++;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> cnt;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 <p><a href="https://leetcode.com/problems/number-of-islands/" target="_blank" rel="external">Source: LeetCode 200. Number of Islands</a> </p>
 ]]></content>
+    </entry>
     
-    <summary type="html">
-    
-      &lt;p&gt;Given a 2d grid map of ‘1’s (land) and ‘0’s (water), count the number of islands. An island is surrounded by water and is formed by conne
-    
-    </summary>
-    
-      <category term="算法" scheme="http://HawkAaron.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="DFS" scheme="http://HawkAaron.github.io/tags/DFS/"/>
-    
-      <category term="图论" scheme="http://HawkAaron.github.io/tags/%E5%9B%BE%E8%AE%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Google 2016 面试题3 | 摆动排序 II</title>
-    <link href="http://HawkAaron.github.io/2016/07/31/Google-2016-%E9%9D%A2%E8%AF%95%E9%A2%983-%E6%91%86%E5%8A%A8%E6%8E%92%E5%BA%8F2/"/>
-    <id>http://HawkAaron.github.io/2016/07/31/Google-2016-面试题3-摆动排序2/</id>
-    <published>2016-07-31T09:31:00.000Z</published>
-    <updated>2016-08-03T15:22:32.978Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述 "></a><strong>题目描述 </strong></h2><p>给出一个整数数组nums，重新排列nums使得nums[0] &lt; nums[1] &gt; nums[2] &lt; nums[3]…<br>Example:<br>nums = [1, 5, 1, 1, 6, 4], 一个可能的答案是[1, 4, 1, 5, 1, 6]<br>数据保证必定有解。</p>
+    <entry>
+      <title><![CDATA[Google 2016 面试题3 | 摆动排序 II]]></title>
+      <url>http://HawkAaron.github.io/2016/07/31/Google-2016-%E9%9D%A2%E8%AF%95%E9%A2%983-%E6%91%86%E5%8A%A8%E6%8E%92%E5%BA%8F2/</url>
+      <content type="html"><![CDATA[<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述 "></a><strong>题目描述 </strong></h2><p>给出一个整数数组nums，重新排列nums使得nums[0] &lt; nums[1] &gt; nums[2] &lt; nums[3]…<br>Example:<br>nums = [1, 5, 1, 1, 6, 4], 一个可能的答案是[1, 4, 1, 5, 1, 6]<br>数据保证必定有解。</p>
 <h2 id="分析解答"><a href="#分析解答" class="headerlink" title="分析解答"></a><strong>分析解答</strong></h2><p><strong>解法I O(nlogn)时间排序+O(n)空间辅助数组解法：</strong></p>
 <ol>
 <li><p>对原数组排序，得到排序后的辅助数组tmp</p>
@@ -302,42 +136,12 @@
 <h2 id="3-way-partition"><a href="#3-way-partition" class="headerlink" title="3-way-partition"></a><strong>3-way-partition</strong></h2><p><strong><a href="https://en.wikipedia.org/wiki/Dutch_national_flag_problem#Pseudocode" target="_blank" rel="external">详见维基百科</a></strong></p>
 <p>伪码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">procedure three-way-partition(A : array of values, mid : value):</div><div class="line">    i ← 0</div><div class="line">    j ← 0</div><div class="line">    n ← size of A - 1</div><div class="line"></div><div class="line">    while j ≤ n:</div><div class="line">        if A[j] &lt; mid:</div><div class="line">            swap A[i] and A[j]</div><div class="line">            i ← i + 1</div><div class="line">            j ← j + 1</div><div class="line">        else if A[j] &gt; mid:</div><div class="line">            swap A[j] and A[n]</div><div class="line">            n ← n - 1</div><div class="line">        else:</div><div class="line">            j ← j + 1</div></pre></td></tr></table></figure></p>
 ]]></content>
+    </entry>
     
-    <summary type="html">
-    
-      &lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述 &quot;&gt;&lt;/a&gt;&lt;strong&gt;题目描述 &lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;给出一个整数数组nums，重新排列nums使得nums[0] &amp;lt; nums[1] &amp;gt; nums[2] &amp;lt; nums[3]…&lt;br&gt;Example:&lt;br&gt;nums = [1, 5, 1, 1, 6, 4], 一个可能的答案是[1, 4, 1, 5, 1, 6]&lt;br&gt;数据保证必定有解。&lt;/p&gt;
-&lt;h2 id=&quot;分析解答&quot;&gt;&lt;a href=&quot;#分析解答&quot; class=&quot;headerlink&quot; title=&quot;分析解答&quot;&gt;&lt;/a&gt;&lt;strong&gt;分析解答&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;解法I O(nlogn)时间排序+O(n)空间辅助数组解法：&lt;/strong&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;对原数组排序，得到排序后的辅助数组tmp&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;对原数组的偶数位下标填充tmp的末尾元素&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;对原数组的奇数位下标填充tmp的末尾元素&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;算法复杂度是快速排序的复杂度O(NlogN)。
-    
-    </summary>
-    
-      <category term="算法" scheme="http://HawkAaron.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="面试题" scheme="http://HawkAaron.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-      <category term="Google" scheme="http://HawkAaron.github.io/tags/Google/"/>
-    
-      <category term="排序" scheme="http://HawkAaron.github.io/tags/%E6%8E%92%E5%BA%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Google 2016 面试题2 | 不构造树的情况下验证先序遍历</title>
-    <link href="http://HawkAaron.github.io/2016/07/31/Google-2016-%E9%9D%A2%E8%AF%95%E9%A2%982-%E4%B8%8D%E6%9E%84%E9%80%A0%E6%A0%91%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E9%AA%8C%E8%AF%81%E5%85%88%E5%BA%8F%E9%81%8D%E5%8E%86/"/>
-    <id>http://HawkAaron.github.io/2016/07/31/Google-2016-面试题2-不构造树的情况下验证先序遍历/</id>
-    <published>2016-07-31T05:10:00.000Z</published>
-    <updated>2016-08-03T15:22:20.070Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a><strong>题目描述</strong></h2><p>给出一个字符序列，问该序列是否是一棵合法的二叉树的先序遍历？<br>找到一种不需要构造二叉树的方法。<br>For example：</p>
+    <entry>
+      <title><![CDATA[Google 2016 面试题2 | 不构造树的情况下验证先序遍历]]></title>
+      <url>http://HawkAaron.github.io/2016/07/31/Google-2016-%E9%9D%A2%E8%AF%95%E9%A2%982-%E4%B8%8D%E6%9E%84%E9%80%A0%E6%A0%91%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E9%AA%8C%E8%AF%81%E5%85%88%E5%BA%8F%E9%81%8D%E5%8E%86/</url>
+      <content type="html"><![CDATA[<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a><strong>题目描述</strong></h2><p>给出一个字符序列，问该序列是否是一棵合法的二叉树的先序遍历？<br>找到一种不需要构造二叉树的方法。<br>For example：</p>
 <blockquote>
 <p>“9,3,4,#,#,1,#,#,2,#,6,#,#”<br>是下面这颗二叉树的先序遍历。其中＃代表空节点。</p>
 </blockquote>
@@ -345,38 +149,12 @@
 <h2 id="参考程序"><a href="#参考程序" class="headerlink" title="参考程序"></a><strong>参考程序</strong></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Solution &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isValidSerialization</span><span class="params">(<span class="built_in">string</span> preorder)</span> </span>&#123;</div><div class="line">        <span class="keyword">bool</span> flag = <span class="literal">true</span>;</div><div class="line">        <span class="keyword">while</span> (preorder.length() &gt; <span class="number">1</span>) &#123;</div><div class="line">            <span class="keyword">int</span> index = preorder.find(<span class="string">",#,#"</span>);</div><div class="line">            <span class="keyword">if</span> (index &lt; <span class="number">0</span>) &#123;</div><div class="line">                flag = <span class="literal">false</span>;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">int</span> start = index;</div><div class="line">            <span class="keyword">while</span> (start &gt; <span class="number">0</span> &amp;&amp; preorder[start<span class="number">-1</span>] != <span class="string">','</span>)</div><div class="line">                start--;</div><div class="line">            <span class="keyword">if</span> (preorder[start] == <span class="string">'#'</span>) &#123;</div><div class="line">                flag = <span class="literal">false</span>;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">            preorder.erase(start, index-start+<span class="number">3</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> flag &amp;&amp; preorder[<span class="number">0</span>] == <span class="string">'#'</span>;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 <h2 id="题目来源"><a href="#题目来源" class="headerlink" title="题目来源"></a><strong>题目来源</strong></h2><p><a href="https://leetcode.com/problems/verify-preorder-serialization-of-a-binary-tree/" target="_blank" rel="external">LeetCode 331. Verify Preorder Serialization of a Binary Tree</a></p>
 ]]></content>
+    </entry>
     
-    <summary type="html">
-    
-      &lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;给出一个字符序列，问该序列是否是一棵合法的二叉树的先序遍历？&lt;br&gt;找到一种不需要构造二叉树的方法。&lt;br&gt;For example：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;“9,3,4,#,#,1,#,#,2,#,6,#,#”&lt;br&gt;是下面这颗二叉树的先序遍历。其中＃代表空节点。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;分析解答&quot;&gt;&lt;a href=&quot;#分析解答&quot; class=&quot;headerlink&quot; title=&quot;分析解答&quot;&gt;&lt;/a&gt;&lt;strong&gt;分析解答&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;通过观察上图中二叉树我们可以发现，一棵合法的二叉树去掉某个叶子节点后仍是合法的二叉树。在给出的字符序列中，叶子节点有很明显的特征，即叶子节点之后一定紧跟两个空节点＃。通过不断的把number,#,#的子串缩成空节点#(把number,#,#子串替换为#)，如果最后字符序列可以缩短到只有一个字符＃，那它就是我们要找的合法的先序遍历了。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="数据结构" scheme="http://HawkAaron.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="算法" scheme="http://HawkAaron.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="数据结构" scheme="http://HawkAaron.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="二叉树" scheme="http://HawkAaron.github.io/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
-    
-      <category term="遍历" scheme="http://HawkAaron.github.io/tags/%E9%81%8D%E5%8E%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Google 2016 面试题1 | 数组补丁</title>
-    <link href="http://HawkAaron.github.io/2016/07/31/Google-2016-%E9%9D%A2%E8%AF%95%E9%A2%981-%E6%95%B0%E7%BB%84%E8%A1%A5%E4%B8%81/"/>
-    <id>http://HawkAaron.github.io/2016/07/31/Google-2016-面试题1-数组补丁/</id>
-    <published>2016-07-31T03:26:00.000Z</published>
-    <updated>2016-08-03T15:22:09.640Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述 "></a><strong>题目描述 </strong></h2><p>给出一个从小到大排好序的整数数组nums和一个整数n，在数组中添加若干个补丁（元素）使得[1,n]的区间内的所有数都可以表示成nums中若干个数的和。返回最少需要添加的补丁个数。</p>
+    <entry>
+      <title><![CDATA[Google 2016 面试题1 | 数组补丁]]></title>
+      <url>http://HawkAaron.github.io/2016/07/31/Google-2016-%E9%9D%A2%E8%AF%95%E9%A2%981-%E6%95%B0%E7%BB%84%E8%A1%A5%E4%B8%81/</url>
+      <content type="html"><![CDATA[<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述 "></a><strong>题目描述 </strong></h2><p>给出一个从小到大排好序的整数数组nums和一个整数n，在数组中添加若干个补丁（元素）使得[1,n]的区间内的所有数都可以表示成nums中若干个数的和。返回最少需要添加的补丁个数。</p>
 <blockquote>
 <p>Example 1：<br>nums = [1, 3], n = 6</p>
 </blockquote>
@@ -390,75 +168,23 @@
 <h2 id="参考程序"><a href="#参考程序" class="headerlink" title="参考程序"></a><strong>参考程序</strong></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Solution &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minPatches</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> index = <span class="number">0</span>, res = <span class="number">0</span>;</div><div class="line">        <span class="keyword">long</span> sum = <span class="number">0</span>;</div><div class="line">        <span class="keyword">while</span> (sum &lt; n) &#123;</div><div class="line">            <span class="keyword">while</span> (index &lt; nums.size() &amp;&amp; nums[index] &lt;= sum + <span class="number">1</span>) &#123;</div><div class="line">                sum += nums[index++];</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (sum &lt; n) &#123;</div><div class="line">                res++;</div><div class="line">                sum += sum + <span class="number">1</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 <h2 id="题目来源"><a href="#题目来源" class="headerlink" title="题目来源"></a><strong>题目来源</strong></h2><p><a href="https://leetcode.com/problems/patching-array/" target="_blank" rel="external">LeetCode 330. Patching Array</a></p>
 ]]></content>
+    </entry>
     
-    <summary type="html">
-    
-      &lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述 &quot;&gt;&lt;/a&gt;&lt;strong&gt;题目描述 &lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;给出一个从小到大排好序的整数数组nums和一个整数n，在数组中添加若干个补丁（元素）使得[1,n]的区间内的所有数都可以表示成nums中若干个数的和。返回最少需要添加的补丁个数。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Example 1：&lt;br&gt;nums = [1, 3], n = 6&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;返回1，表示至少需要添加1个数｛2｝，才可以表示1到6之间所有数。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Example 2:&lt;br&gt;nums = [1, 5, 10], n = 20&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;返回2，表示至少需要添加两个数｛2，4｝，才可以表示1到20之间所有数。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="算法" scheme="http://HawkAaron.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="数学" scheme="http://HawkAaron.github.io/categories/%E7%AE%97%E6%B3%95/%E6%95%B0%E5%AD%A6/"/>
-    
-    
-      <category term="数组" scheme="http://HawkAaron.github.io/tags/%E6%95%B0%E7%BB%84/"/>
-    
-      <category term="面试题" scheme="http://HawkAaron.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-      <category term="Google" scheme="http://HawkAaron.github.io/tags/Google/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Max Points on a Line</title>
-    <link href="http://HawkAaron.github.io/2016/07/31/Max-Points-on-a-Line/"/>
-    <id>http://HawkAaron.github.io/2016/07/31/Max-Points-on-a-Line/</id>
-    <published>2016-07-31T01:55:00.000Z</published>
-    <updated>2016-08-03T15:22:46.510Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a><strong>题目描述</strong></h2><p>Given n points on a 2D plane, find the maximum number of points that lie on the same straight line.</p>
+    <entry>
+      <title><![CDATA[Max Points on a Line]]></title>
+      <url>http://HawkAaron.github.io/2016/07/31/Max-Points-on-a-Line/</url>
+      <content type="html"><![CDATA[<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a><strong>题目描述</strong></h2><p>Given n points on a 2D plane, find the maximum number of points that lie on the same straight line.</p>
 <h2 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析 "></a><strong>算法分析 </strong></h2><p>暴力枚举法。两点决定一条直线，$n$个点两两组合，可以得到$\dfrac{1}{2}n(n+1)$条直线，对每一条直线，判断$n$个点是否在该直线上，从而可以得到这条直线上的点的个数，选择最大的那条直线返回。复杂度$O(n^3)$。</p>
 <p>上面的暴力枚举法以“边”为中心，再看另一种暴力枚举法，以每个“点”为中心，然后遍历剩余点，找到所有的斜率，如果斜率相同，那么一定共线对每个点，用一个哈希表，key为斜率，value为该直线上的点数，计算出哈希表后，取最大值，并更新全局最大值，最后就是结果。时间复杂度$O(n^2)$，空间复杂度$O(n)$。<br><a id="more"></a></p>
 <h2 id="参考程序"><a href="#参考程序" class="headerlink" title="参考程序 "></a><strong>参考程序 </strong></h2><p>1.以“边”为中心<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Definition for a point.</div><div class="line"> * struct Point &#123;</div><div class="line"> *     int x;</div><div class="line"> *     int y;</div><div class="line"> *     Point() : x(0), y(0) &#123;&#125;</div><div class="line"> *     Point(int a, int b) : x(a), y(b) &#123;&#125;</div><div class="line"> * &#125;;</div><div class="line"> */</div><div class="line"><span class="keyword">class</span> Solution &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxPoints</span><span class="params">(<span class="built_in">vector</span>&lt;Point&gt;&amp; points)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> sz = points.size();</div><div class="line">        <span class="keyword">if</span> (sz &lt; <span class="number">3</span>) <span class="keyword">return</span> sz;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;sz<span class="number">-1</span>; i++) &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j=i+<span class="number">1</span>; j&lt;sz; j++) &#123;</div><div class="line">                <span class="keyword">int</span> cnt = <span class="number">0</span>, zero = <span class="number">0</span>;</div><div class="line">                <span class="keyword">double</span> a, b, c;</div><div class="line">                <span class="keyword">if</span> (points[i].x == points[j].x) &#123;</div><div class="line">                    zero = <span class="number">1</span>;</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    a = points[j].x - points[i].x;</div><div class="line">                    b = points[j].y - points[i].y;</div><div class="line">                    c = a * points[i].y - b * points[i].x;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> k=<span class="number">0</span>; k&lt;sz; k++) &#123;</div><div class="line">                    <span class="keyword">if</span> (zero == <span class="number">0</span> &amp;&amp; a * points[k].y - b * points[k].x == c ||</div><div class="line">                        zero == <span class="number">1</span> &amp;&amp; points[k].x == points[i].x)</div><div class="line">                        cnt++;</div><div class="line">                &#125;</div><div class="line">                res = max(res, cnt);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
 <p>2.以“点”为中心<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Solution &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxPoints</span><span class="params">(<span class="built_in">vector</span>&lt;Point&gt;&amp; points)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> sz = points.size();</div><div class="line">        <span class="keyword">if</span> (sz &lt; <span class="number">3</span>) <span class="keyword">return</span> sz;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</div><div class="line">        <span class="built_in">map</span>&lt;<span class="keyword">double</span>, <span class="keyword">int</span>&gt; slopemap;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;sz<span class="number">-1</span>; i++) &#123;</div><div class="line">            slopemap.clear();</div><div class="line">            <span class="keyword">int</span> samePoint = <span class="number">0</span>, cnt = <span class="number">0</span>, maxp = <span class="number">1</span>;</div><div class="line">            <span class="keyword">double</span> slope;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j=i+<span class="number">1</span>; j&lt;sz; j++) &#123;</div><div class="line">                <span class="keyword">if</span> (points[i].x == points[j].x) &#123;</div><div class="line">                    slope = numeric_limits&lt;<span class="keyword">double</span>&gt;::infinity();</div><div class="line">                    <span class="keyword">if</span> (points[i].y == points[j].y) &#123;</div><div class="line">                        samePoint++;</div><div class="line">                        <span class="keyword">continue</span>;</div><div class="line">                    &#125;</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    slope = (points[i].y - points[j].y) * <span class="number">1.0</span> / (points[i].x - points[j].x);</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">if</span> (slopemap.find(slope) != slopemap.end()) &#123;</div><div class="line">                    cnt = ++slopemap[slope];</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    cnt = slopemap[slope] = <span class="number">2</span>;</div><div class="line">                &#125;</div><div class="line">                maxp = max(maxp, cnt);</div><div class="line">            &#125;</div><div class="line">            res = max(res, maxp + samePoint);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
 ]]></content>
+    </entry>
     
-    <summary type="html">
-    
-      &lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;Given n points on a 2D plane, find the maximum number of points that lie on the same straight line.&lt;/p&gt;
-&lt;h2 id=&quot;算法分析&quot;&gt;&lt;a href=&quot;#算法分析&quot; class=&quot;headerlink&quot; title=&quot;算法分析 &quot;&gt;&lt;/a&gt;&lt;strong&gt;算法分析 &lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;暴力枚举法。两点决定一条直线，$n$个点两两组合，可以得到$\dfrac{1}{2}n(n+1)$条直线，对每一条直线，判断$n$个点是否在该直线上，从而可以得到这条直线上的点的个数，选择最大的那条直线返回。复杂度$O(n^3)$。&lt;/p&gt;
-&lt;p&gt;上面的暴力枚举法以“边”为中心，再看另一种暴力枚举法，以每个“点”为中心，然后遍历剩余点，找到所有的斜率，如果斜率相同，那么一定共线对每个点，用一个哈希表，key为斜率，value为该直线上的点数，计算出哈希表后，取最大值，并更新全局最大值，最后就是结果。时间复杂度$O(n^2)$，空间复杂度$O(n)$。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="算法" scheme="http://HawkAaron.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="平面几何" scheme="http://HawkAaron.github.io/categories/%E7%AE%97%E6%B3%95/%E5%B9%B3%E9%9D%A2%E5%87%A0%E4%BD%95/"/>
-    
-    
-      <category term="Google" scheme="http://HawkAaron.github.io/tags/Google/"/>
-    
-      <category term="几何" scheme="http://HawkAaron.github.io/tags/%E5%87%A0%E4%BD%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>轴对称</title>
-    <link href="http://HawkAaron.github.io/2016/07/31/%E8%BD%B4%E5%AF%B9%E7%A7%B0/"/>
-    <id>http://HawkAaron.github.io/2016/07/31/轴对称/</id>
-    <published>2016-07-31T01:27:00.000Z</published>
-    <updated>2016-08-03T15:23:16.393Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a><strong>题目描述</strong></h2><p>给定平面上的n个点，问是否存在一条平行于y轴的直线，使得这n个点相对于这条直线对称。</p>
+    <entry>
+      <title><![CDATA[轴对称]]></title>
+      <url>http://HawkAaron.github.io/2016/07/31/%E8%BD%B4%E5%AF%B9%E7%A7%B0/</url>
+      <content type="html"><![CDATA[<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a><strong>题目描述</strong></h2><p>给定平面上的n个点，问是否存在一条平行于y轴的直线，使得这n个点相对于这条直线对称。</p>
 <h2 id="Follow-up"><a href="#Follow-up" class="headerlink" title="Follow-up "></a><strong>Follow-up </strong></h2><p>是否存在一条直线使得这n个点关于这条直线对称？<a id="more"></a></p>
 <h2 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析 "></a><strong>算法分析 </strong></h2><p>因为对称轴一定平行于y轴，对称轴的特点就是每一个点都在另一边有一个对应的点。<strong>最左边的点一定对应某个最右边的点，因此最左边的点和最右边的点的中点应该在对称轴上。</strong></p>
 <p>找到了对称轴的位置，我们就可以通过HashMap判断是否每一个点都有对应的点，最后输出答案即可。</p>
@@ -466,33 +192,12 @@
 <h2 id="参考程序"><a href="#参考程序" class="headerlink" title="参考程序"></a><strong>参考程序</strong></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF = <span class="number">1</span>&lt;&lt;<span class="number">30</span>;</div><div class="line"></div><div class="line"><span class="keyword">struct</span> Point &#123;</div><div class="line">    <span class="keyword">int</span> x;</div><div class="line">    <span class="keyword">int</span> y;</div><div class="line">    Point(<span class="keyword">int</span> x=<span class="number">0</span>, <span class="keyword">int</span> y=<span class="number">0</span>) : x(x), y(y) &#123;&#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="built_in">vector</span>&lt;Point&gt; points;</div><div class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt; &gt; pmap;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> n;</div><div class="line">    <span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; n) &#123;</div><div class="line">        Point p;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++) &#123;</div><div class="line">            <span class="built_in">cin</span> &gt;&gt; p.x &gt;&gt; p.y;</div><div class="line">            points.push_back(p);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> maxv = -INF, minv = INF;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;points.size(); i++) &#123;</div><div class="line">            maxv = max(points[i].x, maxv);</div><div class="line">            minv = min(points[i].x, minv);</div><div class="line">            pmap[points[i].y].insert(points[i].x);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">bool</span> flag = <span class="literal">true</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;points.size(); i++) &#123;</div><div class="line">            <span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt; &amp;setx = pmap[points[i].y];</div><div class="line">            <span class="keyword">if</span> (setx.find(maxv + minv - points[i].x) == setx.end()) &#123;</div><div class="line">                flag = <span class="literal">false</span>;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        flag ? <span class="built_in">cout</span> &lt;&lt; <span class="string">"YES\n"</span> : <span class="built_in">cout</span> &lt;&lt; <span class="string">"NO\n"</span>;</div><div class="line">        points.clear();</div><div class="line">        pmap.clear();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="LeetCode相关练习题"><a href="#LeetCode相关练习题" class="headerlink" title="LeetCode相关练习题"></a><strong>LeetCode相关练习题</strong></h2><p><a href="https://leetcode.com/problems/max-points-on-a-line/" target="_blank" rel="external">https://leetcode.com/problems/max-points-on-a-line/</a></p>
 ]]></content>
+    </entry>
     
-    <summary type="html">
-    
-      &lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;给定平面上的n个点，问是否存在一条平行于y轴的直线，使得这n个点相对于这条直线对称。&lt;/p&gt;
-&lt;h2 id=&quot;Follow-up&quot;&gt;&lt;a href=&quot;#Follow-up&quot; class=&quot;headerlink&quot; title=&quot;Follow-up &quot;&gt;&lt;/a&gt;&lt;strong&gt;Follow-up &lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;是否存在一条直线使得这n个点关于这条直线对称？
-    
-    </summary>
-    
-      <category term="数据结构" scheme="http://HawkAaron.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="算法" scheme="http://HawkAaron.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="数据结构" scheme="http://HawkAaron.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="HashMap" scheme="http://HawkAaron.github.io/tags/HashMap/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>adb无线调试</title>
-    <link href="http://HawkAaron.github.io/2016/05/29/adb%E6%97%A0%E7%BA%BF%E8%B0%83%E8%AF%95/"/>
-    <id>http://HawkAaron.github.io/2016/05/29/adb无线调试/</id>
-    <published>2016-05-29T09:35:00.000Z</published>
-    <updated>2016-08-03T10:55:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Android开发会用到 adb，调试用的设备一般会选择模拟器，但不管怎么说没有真机流畅，而且有些场景还必须得用真机。问题是真机调试还得用数据线，连上电脑后各种弹框下载简直受不了。这里介绍一下如何通过WiFi无线调试：<br><a id="more"></a></p>
+    <entry>
+      <title><![CDATA[adb无线调试]]></title>
+      <url>http://HawkAaron.github.io/2016/05/29/adb%E6%97%A0%E7%BA%BF%E8%B0%83%E8%AF%95/</url>
+      <content type="html"><![CDATA[<p>Android开发会用到 adb，调试用的设备一般会选择模拟器，但不管怎么说没有真机流畅，而且有些场景还必须得用真机。问题是真机调试还得用数据线，连上电脑后各种弹框下载简直受不了。这里介绍一下如何通过WiFi无线调试：<br><a id="more"></a></p>
 <h2 id="0x00-前期准备"><a href="#0x00-前期准备" class="headerlink" title="0x00 前期准备"></a><strong>0x00 前期准备</strong></h2><ol>
 <li>无线调试的前提是终端设备在同一局域网（能相互ping通即可），这里我们在 PC 创建一个免费WiFi，手机连上。</li>
 <li>手机需要root权限，以便于后面进行相关设置（目前各大厂商都有自己的权限管理中心，没有的可以刷开发版ROM或者用第三方root软件）。</li>
@@ -510,34 +215,12 @@
 <h2 id="0x04-步骤总结"><a href="#0x04-步骤总结" class="headerlink" title="0x04 步骤总结"></a><strong>0x04 步骤总结</strong></h2><p>1.进入android模拟终端，依次输入以下命令：<br><code>su</code> : 获取root权限（必须）<br><code>setprop service.adb.tcp.port 5555</code> ：设置adb监听端口（只用设置一次）<br><code>stop adbd</code> ：首先关闭 adbd<br><code>start adbd</code> ：然后开启 adbd<br><code>ip addr</code> ：获取手机IP，wlan0对应的IP</p>
 <p>2.CMD下adb连接手机：<br><code>adb connect IP:PORT</code> : 端口默认为5555，如果设置成其它的需要在IP后显示指定<br><code>adb devices</code> ：查看已经连上的设备（可选）<br><code>adb shell</code> ：进入手机终端shell（可选）</p>
 ]]></content>
+    </entry>
     
-    <summary type="html">
-    
-      &lt;p&gt;Android开发会用到 adb，调试用的设备一般会选择模拟器，但不管怎么说没有真机流畅，而且有些场景还必须得用真机。问题是真机调试还得用数据线，连上电脑后各种弹框下载简直受不了。这里介绍一下如何通过WiFi无线调试：&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Android" scheme="http://HawkAaron.github.io/categories/Android/"/>
-    
-    
-      <category term="Android" scheme="http://HawkAaron.github.io/tags/Android/"/>
-    
-      <category term="调试" scheme="http://HawkAaron.github.io/tags/%E8%B0%83%E8%AF%95/"/>
-    
-      <category term="局域网" scheme="http://HawkAaron.github.io/tags/%E5%B1%80%E5%9F%9F%E7%BD%91/"/>
-    
-      <category term="手机" scheme="http://HawkAaron.github.io/tags/%E6%89%8B%E6%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python开发环境搭建（Windows）</title>
-    <link href="http://HawkAaron.github.io/2015/06/14/Python%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAwin7/"/>
-    <id>http://HawkAaron.github.io/2015/06/14/Python开发环境搭建win7/</id>
-    <published>2015-06-14T13:47:00.000Z</published>
-    <updated>2016-08-03T13:44:16.083Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="安装配置Python"><a href="#安装配置Python" class="headerlink" title="安装配置Python"></a>安装配置Python</h1><p>其实在开发python最好在ubuntu环境下，简单也便于扩展各个package。这次来讲一下如何在win7上搭建Python开发环境。由于python的跨平台性。在windows下和ubuntu下基本上没什么差别。下面从几个不步骤来搭建开发环境。</p>
+    <entry>
+      <title><![CDATA[Python开发环境搭建（Windows）]]></title>
+      <url>http://HawkAaron.github.io/2015/06/14/Python%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAwin7/</url>
+      <content type="html"><![CDATA[<h1 id="安装配置Python"><a href="#安装配置Python" class="headerlink" title="安装配置Python"></a>安装配置Python</h1><p>其实在开发python最好在ubuntu环境下，简单也便于扩展各个package。这次来讲一下如何在win7上搭建Python开发环境。由于python的跨平台性。在windows下和ubuntu下基本上没什么差别。下面从几个不步骤来搭建开发环境。</p>
 <ol>
 <li><p>下载（<a href="https://www.python.org/downloads/）安装python.2.7.8" target="_blank" rel="external">https://www.python.org/downloads/）安装python.2.7.8</a>. python有2.7的版本和3.x版本，建议还是使用python-2.7.x 版本，因为python的各大框架都支持2.7版本，但是不支持3.x版本。例如简介并且功能强大的webpy就不支持3.x版本，好像web2py,django 对3.x版本也支持不太好。<br>安装就按照默认安装模式即可，主要是安装完成后设置环境变量。python也要配置环境变量，不过比Java简单多了，windows7下：计算机-&gt;属性-&gt;计算机名称、域和工作组设置（更改设置）-&gt;高级-&gt;环境变量，在变量PATH中加入C:/Python27，即之前的安装路径。</p>
 </li>
@@ -562,60 +245,20 @@
 </li>
 </ol>
 ]]></content>
+    </entry>
     
-    <summary type="html">
-    
-      &lt;h1 id=&quot;安装配置Python&quot;&gt;&lt;a href=&quot;#安装配置Python&quot; class=&quot;headerlink&quot; title=&quot;安装配置Python&quot;&gt;&lt;/a&gt;安装配置Python&lt;/h1&gt;&lt;p&gt;其实在开发python最好在ubuntu环境下，简单也便于扩展各个package。这次来讲一下如何在win7上搭建Python开发环境。由于python的跨平台性。在windows下和ubuntu下基本上没什么差别。下面从几个不步骤来搭建开发环境。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;下载（&lt;a href=&quot;https://www.python.org/downloads/）安装python.2.7.8&quot;&gt;https://www.python.org/downloads/）安装python.2.7.8&lt;/a&gt;. python有2.7的版本和3.x版本，建议还是使用python-2.7.x 版本，因为python的各大框架都支持2.7版本，但是不支持3.x版本。例如简介并且功能强大的webpy就不支持3.x版本，好像web2py,django 对3.x版本也支持不太好。&lt;br&gt;安装就按照默认安装模式即可，主要是安装完成后设置环境变量。python也要配置环境变量，不过比Java简单多了，windows7下：计算机-&amp;gt;属性-&amp;gt;计算机名称、域和工作组设置（更改设置）-&amp;gt;高级-&amp;gt;环境变量，在变量PATH中加入C:/Python27，即之前的安装路径。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;在命令行输入Python，出现下图所示说明安装配置成功。&lt;br&gt;&lt;img src=&quot;http://img.blog.csdn.net/20150614220256424&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://HawkAaron.github.io/categories/Python/"/>
-    
-    
-      <category term="Python" scheme="http://HawkAaron.github.io/tags/Python/"/>
-    
-      <category term="开发工具" scheme="http://HawkAaron.github.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>proteus解决LED二极管不发光问题</title>
-    <link href="http://HawkAaron.github.io/2015/06/07/proteus%E8%A7%A3%E5%86%B3LED%E4%BA%8C%E6%9E%81%E7%AE%A1%E4%B8%8D%E5%8F%91%E5%85%89%E9%97%AE%E9%A2%98/"/>
-    <id>http://HawkAaron.github.io/2015/06/07/proteus解决LED二极管不发光问题/</id>
-    <published>2015-06-07T05:11:00.000Z</published>
-    <updated>2016-08-03T13:44:54.442Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="http://img.blog.csdn.net/20150607130238443" alt=""><br>如上图，LED正接不亮，这种情况是LED和电阻之间没有导线连接造成的（一般元件之间必须要有导线连接，如果直接把元件拖到后面，看起来接上去了，其实是断开的）<br><img src="http://img.blog.csdn.net/20150607130353831" alt=""><br>拖动电阻，发现的确没有连接<br><img src="http://img.blog.csdn.net/20150607130443096" alt=""><br>连接后LED正常<br><a id="more"></a><br>也许你会发现连线正常后LED依然不亮，这时你应该注意一下电阻值的设定<br><img src="http://img.blog.csdn.net/20150607130632281" alt=""><br>如上图，5k的阻值，LED不亮了<br><img src="http://img.blog.csdn.net/20150607130931719" alt=""><br>阻值设为2k时很暗，这说明阻值高了，一般我们设置为100或200</p>
+    <entry>
+      <title><![CDATA[proteus解决LED二极管不发光问题]]></title>
+      <url>http://HawkAaron.github.io/2015/06/07/proteus%E8%A7%A3%E5%86%B3LED%E4%BA%8C%E6%9E%81%E7%AE%A1%E4%B8%8D%E5%8F%91%E5%85%89%E9%97%AE%E9%A2%98/</url>
+      <content type="html"><![CDATA[<p><img src="http://img.blog.csdn.net/20150607130238443" alt=""><br>如上图，LED正接不亮，这种情况是LED和电阻之间没有导线连接造成的（一般元件之间必须要有导线连接，如果直接把元件拖到后面，看起来接上去了，其实是断开的）<br><img src="http://img.blog.csdn.net/20150607130353831" alt=""><br>拖动电阻，发现的确没有连接<br><img src="http://img.blog.csdn.net/20150607130443096" alt=""><br>连接后LED正常<br><a id="more"></a><br>也许你会发现连线正常后LED依然不亮，这时你应该注意一下电阻值的设定<br><img src="http://img.blog.csdn.net/20150607130632281" alt=""><br>如上图，5k的阻值，LED不亮了<br><img src="http://img.blog.csdn.net/20150607130931719" alt=""><br>阻值设为2k时很暗，这说明阻值高了，一般我们设置为100或200</p>
 <p>最后，如果你发现连接正常并且电阻值很低时LED还是不亮，那很可能是你的LED接反了，注意图中的接法</p>
 ]]></content>
+    </entry>
     
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://img.blog.csdn.net/20150607130238443&quot; alt=&quot;&quot;&gt;&lt;br&gt;如上图，LED正接不亮，这种情况是LED和电阻之间没有导线连接造成的（一般元件之间必须要有导线连接，如果直接把元件拖到后面，看起来接上去了，其实是断开的）&lt;br&gt;&lt;img src=&quot;http://img.blog.csdn.net/20150607130353831&quot; alt=&quot;&quot;&gt;&lt;br&gt;拖动电阻，发现的确没有连接&lt;br&gt;&lt;img src=&quot;http://img.blog.csdn.net/20150607130443096&quot; alt=&quot;&quot;&gt;&lt;br&gt;连接后LED正常&lt;br&gt;
-    
-    </summary>
-    
-      <category term="数字逻辑" scheme="http://HawkAaron.github.io/categories/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91/"/>
-    
-    
-      <category term="Proteus" scheme="http://HawkAaron.github.io/tags/Proteus/"/>
-    
-      <category term="数字逻辑" scheme="http://HawkAaron.github.io/tags/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C语言连接MySQL（codeblocks）</title>
-    <link href="http://HawkAaron.github.io/2015/06/06/C%E8%AF%AD%E8%A8%80%E8%BF%9E%E6%8E%A5MySQL-codeblocks/"/>
-    <id>http://HawkAaron.github.io/2015/06/06/C语言连接MySQL-codeblocks/</id>
-    <published>2015-06-06T08:55:00.000Z</published>
-    <updated>2016-08-03T11:56:56.332Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;winsock2.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;mysql.h&gt;</span></span></div><div class="line"><span class="comment">/*数据库连接用宏*/</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> HOST <span class="meta-string">"localhost"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> USERNAME <span class="meta-string">"root"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> PASSWORD <span class="meta-string">"root"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> DATABASE <span class="meta-string">"mysql"</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">char</span> *query;</div><div class="line">    query=<span class="string">"select host,user from user"</span>;</div><div class="line">    query_sql(query);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">query_sql</span><span class="params">(<span class="keyword">char</span>* sql)</span></span></div><div class="line">&#123;</div><div class="line">    MYSQL my_connection; <span class="comment">/*这是一个数据库连接*/</span></div><div class="line">    <span class="keyword">int</span> res; <span class="comment">/*执行sql語句后的返回标志*/</span></div><div class="line">    MYSQL_RES *res_ptr; <span class="comment">/*指向查询结果的指针*/</span></div><div class="line">    MYSQL_FIELD *field; <span class="comment">/*字段结构指针*/</span></div><div class="line">    MYSQL_ROW result_row; <span class="comment">/*按行返回的查询信息*/</span></div><div class="line">    <span class="keyword">int</span> row, column; <span class="comment">/*查询返回的行数和列数*/</span></div><div class="line">    <span class="keyword">int</span> i, j;</div><div class="line">    <span class="comment">/*初始化mysql连接my_connection*/</span></div><div class="line">    mysql_init(&amp;my_connection);</div><div class="line">    <span class="comment">/*建立mysql连接*/</span></div><div class="line">    <span class="keyword">if</span> (<span class="literal">NULL</span> != mysql_real_connect(&amp;my_connection, HOST, USERNAME, PASSWORD,</div><div class="line">                                   DATABASE, <span class="number">0</span>, <span class="literal">NULL</span>, CLIENT_FOUND_ROWS))  <span class="comment">/*连接成功*/</span></div><div class="line">    &#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"数据库查询query_sql连接成功！\n"</span>);</div><div class="line">        <span class="comment">/*设置查询编码为gbk，以支持中文*/</span></div><div class="line">        mysql_query(&amp;my_connection, <span class="string">"set names gbk"</span>);</div><div class="line">        res = mysql_query(&amp;my_connection, sql);</div><div class="line">        <span class="keyword">if</span> (res)   <span class="comment">/*执行失败*/</span></div><div class="line">        &#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"Error： mysql_query !\n"</span>);</div><div class="line">            <span class="comment">/*关闭连接*/</span></div><div class="line">            mysql_close(&amp;my_connection);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span>     <span class="comment">/*现在就代表执行成功了*/</span></div><div class="line">        &#123;</div><div class="line">            <span class="comment">/*将查询的結果给res_ptr*/</span></div><div class="line">            res_ptr = mysql_store_result(&amp;my_connection);</div><div class="line">            <span class="comment">/*如果结果不为空，就把结果print*/</span></div><div class="line">            <span class="keyword">if</span> (res_ptr)</div><div class="line">            &#123;</div><div class="line">                <span class="comment">/*取得結果的行数和*/</span></div><div class="line">                column = mysql_num_fields(res_ptr);</div><div class="line">                row = mysql_num_rows(res_ptr);</div><div class="line">                <span class="built_in">printf</span>(<span class="string">"查询到 %d 行 \n"</span>, row);</div><div class="line">                <span class="comment">/*输出結果的字段名*/</span></div><div class="line">                <span class="keyword">for</span> (i = <span class="number">0</span>; field = mysql_fetch_field(res_ptr); i++)</div><div class="line">                    <span class="built_in">printf</span>(<span class="string">"%10s "</span>, field-&gt;name);</div><div class="line">                <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">                <span class="comment">/*按行输出結果*/</span></div><div class="line">                <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt; row+<span class="number">1</span>; i++)</div><div class="line">                &#123;</div><div class="line">                    result_row = mysql_fetch_row(res_ptr);</div><div class="line">                    <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; column; j++)</div><div class="line">                        <span class="built_in">printf</span>(<span class="string">"%10s "</span>, result_row[j]);</div><div class="line">                    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="comment">/*不要忘了关闭连接*/</span></div><div class="line">            mysql_close(&amp;my_connection);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span></div><div class="line">    &#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"数据库连接失败"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+    <entry>
+      <title><![CDATA[C语言连接MySQL（codeblocks）]]></title>
+      <url>http://HawkAaron.github.io/2015/06/06/C%E8%AF%AD%E8%A8%80%E8%BF%9E%E6%8E%A5MySQL-codeblocks/</url>
+      <content type="html"><![CDATA[<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;winsock2.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;mysql.h&gt;</span></span></div><div class="line"><span class="comment">/*数据库连接用宏*/</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> HOST <span class="meta-string">"localhost"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> USERNAME <span class="meta-string">"root"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> PASSWORD <span class="meta-string">"root"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> DATABASE <span class="meta-string">"mysql"</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">char</span> *query;</div><div class="line">    query=<span class="string">"select host,user from user"</span>;</div><div class="line">    query_sql(query);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">query_sql</span><span class="params">(<span class="keyword">char</span>* sql)</span></span></div><div class="line">&#123;</div><div class="line">    MYSQL my_connection; <span class="comment">/*这是一个数据库连接*/</span></div><div class="line">    <span class="keyword">int</span> res; <span class="comment">/*执行sql語句后的返回标志*/</span></div><div class="line">    MYSQL_RES *res_ptr; <span class="comment">/*指向查询结果的指针*/</span></div><div class="line">    MYSQL_FIELD *field; <span class="comment">/*字段结构指针*/</span></div><div class="line">    MYSQL_ROW result_row; <span class="comment">/*按行返回的查询信息*/</span></div><div class="line">    <span class="keyword">int</span> row, column; <span class="comment">/*查询返回的行数和列数*/</span></div><div class="line">    <span class="keyword">int</span> i, j;</div><div class="line">    <span class="comment">/*初始化mysql连接my_connection*/</span></div><div class="line">    mysql_init(&amp;my_connection);</div><div class="line">    <span class="comment">/*建立mysql连接*/</span></div><div class="line">    <span class="keyword">if</span> (<span class="literal">NULL</span> != mysql_real_connect(&amp;my_connection, HOST, USERNAME, PASSWORD,</div><div class="line">                                   DATABASE, <span class="number">0</span>, <span class="literal">NULL</span>, CLIENT_FOUND_ROWS))  <span class="comment">/*连接成功*/</span></div><div class="line">    &#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"数据库查询query_sql连接成功！\n"</span>);</div><div class="line">        <span class="comment">/*设置查询编码为gbk，以支持中文*/</span></div><div class="line">        mysql_query(&amp;my_connection, <span class="string">"set names gbk"</span>);</div><div class="line">        res = mysql_query(&amp;my_connection, sql);</div><div class="line">        <span class="keyword">if</span> (res)   <span class="comment">/*执行失败*/</span></div><div class="line">        &#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"Error： mysql_query !\n"</span>);</div><div class="line">            <span class="comment">/*关闭连接*/</span></div><div class="line">            mysql_close(&amp;my_connection);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span>     <span class="comment">/*现在就代表执行成功了*/</span></div><div class="line">        &#123;</div><div class="line">            <span class="comment">/*将查询的結果给res_ptr*/</span></div><div class="line">            res_ptr = mysql_store_result(&amp;my_connection);</div><div class="line">            <span class="comment">/*如果结果不为空，就把结果print*/</span></div><div class="line">            <span class="keyword">if</span> (res_ptr)</div><div class="line">            &#123;</div><div class="line">                <span class="comment">/*取得結果的行数和*/</span></div><div class="line">                column = mysql_num_fields(res_ptr);</div><div class="line">                row = mysql_num_rows(res_ptr);</div><div class="line">                <span class="built_in">printf</span>(<span class="string">"查询到 %d 行 \n"</span>, row);</div><div class="line">                <span class="comment">/*输出結果的字段名*/</span></div><div class="line">                <span class="keyword">for</span> (i = <span class="number">0</span>; field = mysql_fetch_field(res_ptr); i++)</div><div class="line">                    <span class="built_in">printf</span>(<span class="string">"%10s "</span>, field-&gt;name);</div><div class="line">                <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">                <span class="comment">/*按行输出結果*/</span></div><div class="line">                <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt; row+<span class="number">1</span>; i++)</div><div class="line">                &#123;</div><div class="line">                    result_row = mysql_fetch_row(res_ptr);</div><div class="line">                    <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; column; j++)</div><div class="line">                        <span class="built_in">printf</span>(<span class="string">"%10s "</span>, result_row[j]);</div><div class="line">                    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="comment">/*不要忘了关闭连接*/</span></div><div class="line">            mysql_close(&amp;my_connection);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span></div><div class="line">    &#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"数据库连接失败"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <p>注意事项：</p>
 <ol>
@@ -624,30 +267,12 @@
 <li>在#include <mysql.h>之前添加#include <winsock2.h>（网上很多资料没有这一步，但是我这边实际操作时发现不加这一句编译无法通过）<br>运行结果：<br><img src="http://img.blog.csdn.net/20150606170050484" alt=""></winsock2.h></mysql.h></li>
 </ol>
 ]]></content>
+    </entry>
     
-    <summary type="html">
-    
-      &lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;25&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;26&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;27&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;28&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;29&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;30&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;31&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;32&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;33&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;34&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;35&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;36&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;37&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;38&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;39&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;40&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;41&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;42&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;43&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;44&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;45&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;46&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;47&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;48&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;49&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;50&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;51&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;52&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;53&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;54&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;55&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;56&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;57&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;58&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;59&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;60&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;61&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;62&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;63&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;64&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;65&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;66&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;67&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;68&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;69&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;70&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;71&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;72&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;73&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;74&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;meta-string&quot;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;meta-string&quot;&gt;&amp;lt;winsock2.h&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;meta-string&quot;&gt;&amp;lt;mysql.h&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/*数据库连接用宏*/&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; HOST &lt;span class=&quot;meta-string&quot;&gt;&quot;localhost&quot;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; USERNAME &lt;span class=&quot;meta-string&quot;&gt;&quot;root&quot;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; PASSWORD &lt;span class=&quot;meta-string&quot;&gt;&quot;root&quot;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; DATABASE &lt;span class=&quot;meta-string&quot;&gt;&quot;mysql&quot;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; *query;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    query=&lt;span class=&quot;string&quot;&gt;&quot;select host,user from user&quot;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    query_sql(query);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;query_sql&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt;* sql)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    MYSQL my_connection; &lt;span class=&quot;comment&quot;&gt;/*这是一个数据库连接*/&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; res; &lt;span class=&quot;comment&quot;&gt;/*执行sql語句后的返回标志*/&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    MYSQL_RES *res_ptr; &lt;span class=&quot;comment&quot;&gt;/*指向查询结果的指针*/&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    MYSQL_FIELD *field; &lt;span class=&quot;comment&quot;&gt;/*字段结构指针*/&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    MYSQL_ROW result_row; &lt;span class=&quot;comment&quot;&gt;/*按行返回的查询信息*/&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; row, column; &lt;span class=&quot;comment&quot;&gt;/*查询返回的行数和列数*/&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i, j;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;/*初始化mysql连接my_connection*/&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    mysql_init(&amp;amp;my_connection);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;/*建立mysql连接*/&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (&lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt; != mysql_real_connect(&amp;amp;my_connection, HOST, USERNAME, PASSWORD,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                                   DATABASE, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt;, CLIENT_FOUND_ROWS))  &lt;span class=&quot;comment&quot;&gt;/*连接成功*/&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;数据库查询query_sql连接成功！\n&quot;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;/*设置查询编码为gbk，以支持中文*/&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        mysql_query(&amp;amp;my_connection, &lt;span class=&quot;string&quot;&gt;&quot;set names gbk&quot;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        res = mysql_query(&amp;amp;my_connection, sql);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (res)   &lt;span class=&quot;comment&quot;&gt;/*执行失败*/&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;Error： mysql_query !\n&quot;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &lt;span class=&quot;comment&quot;&gt;/*关闭连接*/&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            mysql_close(&amp;amp;my_connection);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;     &lt;span class=&quot;comment&quot;&gt;/*现在就代表执行成功了*/&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &lt;span class=&quot;comment&quot;&gt;/*将查询的結果给res_ptr*/&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            res_ptr = mysql_store_result(&amp;amp;my_connection);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &lt;span class=&quot;comment&quot;&gt;/*如果结果不为空，就把结果print*/&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (res_ptr)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                &lt;span class=&quot;comment&quot;&gt;/*取得結果的行数和*/&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                column = mysql_num_fields(res_ptr);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                row = mysql_num_rows(res_ptr);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                &lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;查询到 %d 行 \n&quot;&lt;/span&gt;, row);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                &lt;span class=&quot;comment&quot;&gt;/*输出結果的字段名*/&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (i = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; field = mysql_fetch_field(res_ptr); i++)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                    &lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;%10s &quot;&lt;/span&gt;, field-&amp;gt;name);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                &lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;\n&quot;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                &lt;span class=&quot;comment&quot;&gt;/*按行输出結果*/&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (i = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;; i &amp;lt; row+&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;; i++)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                    result_row = mysql_fetch_row(res_ptr);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (j = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; j &amp;lt; column; j++)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                        &lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;%10s &quot;&lt;/span&gt;, result_row[j]);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                    &lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;\n&quot;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &lt;span class=&quot;comment&quot;&gt;/*不要忘了关闭连接*/&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            mysql_close(&amp;amp;my_connection);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;数据库连接失败&quot;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="MySQL" scheme="http://HawkAaron.github.io/categories/MySQL/"/>
-    
-    
-      <category term="MySQL" scheme="http://HawkAaron.github.io/tags/MySQL/"/>
-    
-      <category term="C" scheme="http://HawkAaron.github.io/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>终于解决“Git Windows客户端保存用户名与密码”的问题</title>
-    <link href="http://HawkAaron.github.io/2015/06/02/Git-Windows%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%BF%9D%E5%AD%98%E7%94%A8%E6%88%B7%E5%90%8D%E4%B8%8E%E5%AF%86%E7%A0%81%E7%9A%84%E9%97%AE%E9%A2%98/"/>
-    <id>http://HawkAaron.github.io/2015/06/02/Git-Windows客户端保存用户名与密码的问题/</id>
-    <published>2015-06-02T14:03:00.000Z</published>
-    <updated>2016-08-03T13:50:18.107Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="http://stackoverflow.com/questions/6031214/git-how-to-use-netrc-file-on-windows" target="_blank" rel="external">Git - How to use netrc file on windows - Stack Overflow</a><br><img src="http://img.blog.csdn.net/20150602220505492" alt=""><br><a id="more"></a><br>这就是正确答案，我们已经验证过了，下面详细描述一下解决方法：</p>
+    <entry>
+      <title><![CDATA[终于解决“Git Windows客户端保存用户名与密码”的问题]]></title>
+      <url>http://HawkAaron.github.io/2015/06/02/Git-Windows%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%BF%9D%E5%AD%98%E7%94%A8%E6%88%B7%E5%90%8D%E4%B8%8E%E5%AF%86%E7%A0%81%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+      <content type="html"><![CDATA[<p><a href="http://stackoverflow.com/questions/6031214/git-how-to-use-netrc-file-on-windows" target="_blank" rel="external">Git - How to use netrc file on windows - Stack Overflow</a><br><img src="http://img.blog.csdn.net/20150602220505492" alt=""><br><a id="more"></a><br>这就是正确答案，我们已经验证过了，下面详细描述一下解决方法：</p>
 <ol>
 <li><p>在Windows中添加一个HOME环境变量，值为%USERPROFILE%，如下图：<br><img src="http://img.blog.csdn.net/20150602220742394" alt=""></p>
 </li>
@@ -658,57 +283,20 @@
 </ol>
 <p>That is the answer, and that is exactly the fucking git!</p>
 ]]></content>
+    </entry>
     
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/questions/6031214/git-how-to-use-netrc-file-on-windows&quot;&gt;Git - How to use netrc file on windows - Stack Overflow&lt;/a&gt;&lt;br&gt;&lt;img src=&quot;http://img.blog.csdn.net/20150602220505492&quot; alt=&quot;&quot;&gt;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Git" scheme="http://HawkAaron.github.io/categories/Git/"/>
-    
-    
-      <category term="Git" scheme="http://HawkAaron.github.io/tags/Git/"/>
-    
-      <category term="StackOverflow" scheme="http://HawkAaron.github.io/tags/StackOverflow/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Oracle error 引号内的字符串没有正确结束</title>
-    <link href="http://HawkAaron.github.io/2015/05/31/oracle-error-%E5%BC%95%E5%8F%B7%E5%86%85%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%B2%A1%E6%9C%89%E6%AD%A3%E7%A1%AE%E7%BB%93%E6%9D%9F/"/>
-    <id>http://HawkAaron.github.io/2015/05/31/oracle-error-引号内的字符串没有正确结束/</id>
-    <published>2015-05-31T14:35:00.000Z</published>
-    <updated>2016-08-03T13:03:36.860Z</updated>
-    
-    <content type="html"><![CDATA[<p>ERROR:<br>ORA-01756: 引号内的字符串没有正确结束 </p>
+    <entry>
+      <title><![CDATA[Oracle error 引号内的字符串没有正确结束]]></title>
+      <url>http://HawkAaron.github.io/2015/05/31/oracle-error-%E5%BC%95%E5%8F%B7%E5%86%85%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%B2%A1%E6%9C%89%E6%AD%A3%E7%A1%AE%E7%BB%93%E6%9D%9F/</url>
+      <content type="html"><![CDATA[<p>ERROR:<br>ORA-01756: 引号内的字符串没有正确结束 </p>
 <p>SELECT DISTINCT A.JNO FROM Rt AS A WHERE NOT EXISTS (SELECT PNO FROM St AS B WHERE NOT EXISTS (SELECT JNO,PNO FROM Rt AS C WHERE C.JNO=A.JNO AND B.PNO=C.PNO)) GROUP BY A.JNO<br>                              *<br>第 1 行出现错误:<br>ORA-00933: SQL 命令未正确结束<br><a id="more"></a><br>如果确认没有语法错误，那么就是sql文件编码的问题，由于oracle是用Java写的，所以我们在写sql脚本时应该保存为ANSI编码<br>（另存为，选择编码为ANSI即可）</p>
 ]]></content>
+    </entry>
     
-    <summary type="html">
-    
-      &lt;p&gt;ERROR:&lt;br&gt;ORA-01756: 引号内的字符串没有正确结束 &lt;/p&gt;
-&lt;p&gt;SELECT DISTINCT A.JNO FROM Rt AS A WHERE NOT EXISTS (SELECT PNO FROM St AS B WHERE NOT EXISTS (SELECT JNO,PNO FROM Rt AS C WHERE C.JNO=A.JNO AND B.PNO=C.PNO)) GROUP BY A.JNO&lt;br&gt;                              *&lt;br&gt;第 1 行出现错误:&lt;br&gt;ORA-00933: SQL 命令未正确结束&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Oracle" scheme="http://HawkAaron.github.io/categories/Oracle/"/>
-    
-    
-      <category term="Oracle" scheme="http://HawkAaron.github.io/tags/Oracle/"/>
-    
-      <category term="编码" scheme="http://HawkAaron.github.io/tags/%E7%BC%96%E7%A0%81/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CodeBlocks静态链接与动态链接设置</title>
-    <link href="http://HawkAaron.github.io/2015/05/30/CodeBlocks%E9%9D%99%E6%80%81%E9%93%BE%E6%8E%A5%E4%B8%8E%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E8%AE%BE%E7%BD%AE/"/>
-    <id>http://HawkAaron.github.io/2015/05/30/CodeBlocks静态链接与动态链接设置/</id>
-    <published>2015-05-30T09:30:00.000Z</published>
-    <updated>2016-08-03T13:45:44.175Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="静态库和动态库的区别"><a href="#静态库和动态库的区别" class="headerlink" title="静态库和动态库的区别"></a>静态库和动态库的区别</h1><h2 id="1-静态库"><a href="#1-静态库" class="headerlink" title="1.静态库"></a>1.静态库</h2><p>之所以称之为”静态库”，是因为在链接阶段，会将汇编生成的目标文件.o与引用到的库一起链接打包到可执行文件中。因此对应的链接方式称为静态链接。<br>从本质上来说，一个静态库可以简单看成是一组目标文件(.o/.obj文件)的集合，静态库与汇编生成的目标文件(.o/.obj)一起链接为可执行文件。<br>静态库（后缀为.a/.lib）和.o文件格式相似。即很多目标文件经过压缩打包后形成的一个文件<br>静态库特点总结：</p>
+    <entry>
+      <title><![CDATA[CodeBlocks静态链接与动态链接设置]]></title>
+      <url>http://HawkAaron.github.io/2015/05/30/CodeBlocks%E9%9D%99%E6%80%81%E9%93%BE%E6%8E%A5%E4%B8%8E%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E8%AE%BE%E7%BD%AE/</url>
+      <content type="html"><![CDATA[<h1 id="静态库和动态库的区别"><a href="#静态库和动态库的区别" class="headerlink" title="静态库和动态库的区别"></a>静态库和动态库的区别</h1><h2 id="1-静态库"><a href="#1-静态库" class="headerlink" title="1.静态库"></a>1.静态库</h2><p>之所以称之为”静态库”，是因为在链接阶段，会将汇编生成的目标文件.o与引用到的库一起链接打包到可执行文件中。因此对应的链接方式称为静态链接。<br>从本质上来说，一个静态库可以简单看成是一组目标文件(.o/.obj文件)的集合，静态库与汇编生成的目标文件(.o/.obj)一起链接为可执行文件。<br>静态库（后缀为.a/.lib）和.o文件格式相似。即很多目标文件经过压缩打包后形成的一个文件<br>静态库特点总结：</p>
 <pre><code>1. 静态库对函数库的链接是放在编译时期完成的
 2. 程序在运行时与函数库再无瓜葛，移植方便，因为代码已经嵌入到程序里面了，可以直接跟着程序走，不存在对外部文件的依赖
 3. 浪费空间和资源，因为所有相关的目标文件与牵涉到的函数库被链接合成一个可执行文件，会增加原本程序的空间
@@ -734,34 +322,12 @@
 <p>然后选择菜单栏Project-&gt;Build Options，弹出Project Build Options，选择工程名称。在Linker settings选项卡下添加libDynamicLibrary.a的路径，即<strong>添加需要的库</strong>。在Search directories选项卡下的Compiler子选项卡下添加dynamic.h所在的目录路径，即<strong>写入项目的头文件目</strong>录；在Linker子选项卡下添加libDynamicLibrary.a所在的目录路径，即<strong>写入库文件目录</strong>。最后，点击编译即可。<br>需要注意的是，以后单独运行编译后的exe执行文件时，需要将dll文件（此处为DynamicLibrary.dll）放在同一目录下，不然运行时可能会崩溃。</p>
 <p>参考：<br>codeblocks 配置编译器 1配置编译器的path, include, lib <a href="http://www.verydemo.com/demo_c167_i5481.html" target="_blank" rel="external">http://www.verydemo.com/demo_c167_i5481.html</a><br>C/C++ 跨平台交叉编译、静态库/动态库编译、MinGW、Cygwin、CodeBlocks使用原理及链接参数选项 <a href="http://www.cnblogs.com/LittleHann/p/3980364.html" target="_blank" rel="external">http://www.cnblogs.com/LittleHann/p/3980364.html</a><br>什么是DLL? <a href="http://support2.microsoft.com/kb/815065/zh-cn" target="_blank" rel="external">http://support2.microsoft.com/kb/815065/zh-cn</a></p>
 ]]></content>
+    </entry>
     
-    <summary type="html">
-    
-      &lt;h1 id=&quot;静态库和动态库的区别&quot;&gt;&lt;a href=&quot;#静态库和动态库的区别&quot; class=&quot;headerlink&quot; title=&quot;静态库和动态库的区别&quot;&gt;&lt;/a&gt;静态库和动态库的区别&lt;/h1&gt;&lt;h2 id=&quot;1-静态库&quot;&gt;&lt;a href=&quot;#1-静态库&quot; class=&quot;headerlink&quot; title=&quot;1.静态库&quot;&gt;&lt;/a&gt;1.静态库&lt;/h2&gt;&lt;p&gt;之所以称之为”静态库”，是因为在链接阶段，会将汇编生成的目标文件.o与引用到的库一起链接打包到可执行文件中。因此对应的链接方式称为静态链接。&lt;br&gt;从本质上来说，一个静态库可以简单看成是一组目标文件(.o/.obj文件)的集合，静态库与汇编生成的目标文件(.o/.obj)一起链接为可执行文件。&lt;br&gt;静态库（后缀为.a/.lib）和.o文件格式相似。即很多目标文件经过压缩打包后形成的一个文件&lt;br&gt;静态库特点总结：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;1. 静态库对函数库的链接是放在编译时期完成的
-2. 程序在运行时与函数库再无瓜葛，移植方便，因为代码已经嵌入到程序里面了，可以直接跟着程序走，不存在对外部文件的依赖
-3. 浪费空间和资源，因为所有相关的目标文件与牵涉到的函数库被链接合成一个可执行文件，会增加原本程序的空间
-&lt;/code&gt;&lt;/pre&gt;
-    
-    </summary>
-    
-      <category term="DLL" scheme="http://HawkAaron.github.io/categories/DLL/"/>
-    
-    
-      <category term="mingw" scheme="http://HawkAaron.github.io/tags/mingw/"/>
-    
-      <category term="交叉编译" scheme="http://HawkAaron.github.io/tags/%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C/C++ 跨平台交叉编译、静态库/动态库编译、MinGW、Cygwin、CodeBlocks使用原理及链接参数选项</title>
-    <link href="http://HawkAaron.github.io/2015/05/18/CCpp%E8%B7%A8%E5%B9%B3%E5%8F%B0%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91-%E9%9D%99%E6%80%81%E5%BA%93%E5%8A%A8%E6%80%81%E5%BA%93%E7%BC%96%E8%AF%91-MinGW-Cygwin-CodeBlocks%E4%BD%BF%E7%94%A8%E5%8E%9F%E7%90%86%E5%8F%8A%E9%93%BE%E6%8E%A5%E5%8F%82%E6%95%B0%E9%80%89%E9%A1%B9/"/>
-    <id>http://HawkAaron.github.io/2015/05/18/CCpp跨平台交叉编译-静态库动态库编译-MinGW-Cygwin-CodeBlocks使用原理及链接参数选项/</id>
-    <published>2015-05-18T13:00:00.000Z</published>
-    <updated>2016-08-03T12:27:53.918Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="0-引言"><a href="#0-引言" class="headerlink" title="0. 引言"></a><strong>0. 引言</strong></h1><p>UNIX是一个注册商标，是要满足一大堆条件并且支付可观费用才能够被授权使用的一个操作系统。linux是unix的克隆版本，是由其创始人Linus和诸多世界知名的黑客手工打造的一个操作系统。为什么linux和unix之间有很多软件可以很轻松的移植？因为linux也满足POSIX规范，所以在运行机制上跟unix相近。同时，POSIX标准也是Linux、windows下能够进行交叉编译的基础<a id="more"></a></p>
+    <entry>
+      <title><![CDATA[C/C++ 跨平台交叉编译、静态库/动态库编译、MinGW、Cygwin、CodeBlocks使用原理及链接参数选项]]></title>
+      <url>http://HawkAaron.github.io/2015/05/18/CCpp%E8%B7%A8%E5%B9%B3%E5%8F%B0%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91-%E9%9D%99%E6%80%81%E5%BA%93%E5%8A%A8%E6%80%81%E5%BA%93%E7%BC%96%E8%AF%91-MinGW-Cygwin-CodeBlocks%E4%BD%BF%E7%94%A8%E5%8E%9F%E7%90%86%E5%8F%8A%E9%93%BE%E6%8E%A5%E5%8F%82%E6%95%B0%E9%80%89%E9%A1%B9/</url>
+      <content type="html"><![CDATA[<h1 id="0-引言"><a href="#0-引言" class="headerlink" title="0. 引言"></a><strong>0. 引言</strong></h1><p>UNIX是一个注册商标，是要满足一大堆条件并且支付可观费用才能够被授权使用的一个操作系统。linux是unix的克隆版本，是由其创始人Linus和诸多世界知名的黑客手工打造的一个操作系统。为什么linux和unix之间有很多软件可以很轻松的移植？因为linux也满足POSIX规范，所以在运行机制上跟unix相近。同时，POSIX标准也是Linux、windows下能够进行交叉编译的基础<a id="more"></a></p>
 <h2 id="0x1-POSIX-Portable-Operating-System-Interface"><a href="#0x1-POSIX-Portable-Operating-System-Interface" class="headerlink" title="0x1: POSIX(Portable Operating System Interface)"></a><strong><em>0x1: POSIX(Portable Operating System Interface)</em></strong></h2><p>可移植操作系统接口(Portable Operating System Interface POSIX)，是IEEE为要在各种UNIX操作系统上运行的软件，而定义API的一系列互相关联的标准的总称，其正式称呼为IEEE 1003，而国际标准名称为ISO/IEC 9945。此标准源于一个大约开始于1985年的项目。POSIX这个名称是由理查德·斯托曼应IEEE的要求而提议的一个易于记忆的名称。它基本上是(Portable<br> Operating System Interface可移植操作系统接口)的缩写，而X则表明其对Unix API的传承<br>Linux基本上逐步实现了POSIX兼容，但并没有参加正式的POSIX认证。微软的Windows NT声称部分实现了POSIX标准，因为有POSIX标准的存在，我们在unix、linux、windows上进行编程的时候，会发现有很多API都是通用的，虽然大多数情况下进行跨系统兼容编程是很困难的<br>当前的POSIX主要分为四个部分</p>
 <pre><code>1. Base Definitions
 2. System Interfaces
@@ -987,22 +553,308 @@ ldd /bin/ping
 <h2 id="0x3-编程示例"><a href="#0x3-编程示例" class="headerlink" title="0x3: 编程示例"></a><strong><em>0x3: 编程示例</em></strong></h2><p><strong><strong>Relevant Link:</strong></strong><br>    <a href="http://www.mingw.org/" target="_blank" rel="external">http://www.mingw.org/</a><br>    <a href="https://code.google.com/p/msys-cn/wiki/ChapterThree" target="_blank" rel="external">https://code.google.com/p/msys-cn/wiki/ChapterThree</a><br>    <a href="http://wenku.baidu.com/view/c6f71522af45b307e87197a6.html" target="_blank" rel="external">http://wenku.baidu.com/view/c6f71522af45b307e87197a6.html</a></p>
 <h1 id="6-CodeBlocks简介"><a href="#6-CodeBlocks简介" class="headerlink" title="6. CodeBlocks简介"></a><strong>6. CodeBlocks简介</strong></h1><p><strong><strong>Relevant Link:</strong></strong><br>    <a href="http://bbs.chinaunix.net/thread-3640636-1-1.html" target="_blank" rel="external">http://bbs.chinaunix.net/thread-3640636-1-1.html</a><br>    <a href="http://zh.wikipedia.org/wiki/Code::Blocks" target="_blank" rel="external">http://zh.wikipedia.org/wiki/Code::Blocks</a><br>    <a href="http://blog.csdn.net/wtfmonking/article/details/17487705" target="_blank" rel="external">http://blog.csdn.net/wtfmonking/article/details/17487705</a></p>
 ]]></content>
+    </entry>
     
-    <summary type="html">
+    <entry>
+      <title><![CDATA[Java的内存回收机制]]></title>
+      <url>http://HawkAaron.github.io/2015/05/16/Java%E7%9A%84%E5%86%85%E5%AD%98%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/</url>
+      <content type="html"><![CDATA[<p>在Java中，它的内存管理包括两方面：内存分配（创建Java对象的时候）和内存回收，这两方面工作都是由JVM自动完成的，降低了Java程序员的学习难度，避免了像C/C++直接操作内存的危险。但是，也正因为内存管理完全由JVM负责，所以也使Java很多程序员不再关心内存分配，导致很多程序低效，耗内存。因此就有了Java程序员到最后应该去了解JVM，才能写出更高效，充分利用有限的内存的程序。<br><a id="more"></a></p>
+<h1 id="1-Java在内存中的状态"><a href="#1-Java在内存中的状态" class="headerlink" title="1.Java在内存中的状态"></a>1.Java在内存中的状态</h1><p>首先我们先写一个代码为例子：</p>
+<p>Person.java<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> test;</div><div class="line"></div><div class="line"> <span class="keyword">import</span> java.io.Serializable;</div><div class="line"></div><div class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</div><div class="line"></div><div class="line">     <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</div><div class="line"></div><div class="line">     String name; <span class="comment">// 姓名</span></div><div class="line"></div><div class="line">     Person friend;    <span class="comment">//朋友</span></div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">         <span class="keyword">super</span>();</div><div class="line">         <span class="keyword">this</span>.name = name;</div><div class="line">     &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+<p>Test.java<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> test;</div><div class="line"></div><div class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">         Person p1 = <span class="keyword">new</span> Person(<span class="string">"Kevin"</span>);</div><div class="line">         Person p2 = <span class="keyword">new</span> Person(<span class="string">"Rain"</span>);</div><div class="line">         Person p3 = <span class="keyword">new</span> Person(<span class="string">"Sunny"</span>);</div><div class="line"></div><div class="line">         p1.friend = p2;</div><div class="line">         p3 = p2;</div><div class="line">         p2 = <span class="keyword">null</span>;</div><div class="line">     &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+<p>把上面Test.java中main方面里面的对象引用画成一个从main方法开始的对象引用图的话就是这样的（顶点是对象和引用，有向边是引用关系）：<br><img src="http://img.blog.csdn.net/20160803201433724" alt=""><br>当程序运行起来之后，把它在内存中的状态看成是有向图后，可以分为三种：</p>
+<p><strong>1）可达状态</strong>：在一个对象创建后，有一个以上的引用变量引用它。在有向图中可以从起始顶点导航到该对象，那它就处于可达状态。</p>
+<p><strong>2）可恢复状态</strong>：如果程序中某个对象不再有任何的引用变量引用它，它将先进入可恢复状态，此时从有向图的起始顶点不能再导航到该对象。在这个状态下，系统的垃圾回收机制准备回收该对象的所占用的内存，在回收之前，系统会调用finalize()方法进行资源清理，如果资源整理后重新让一个以上引用变量引用该对象，则这个对象会再次变为可达状态；否则就会进入不可达状态。</p>
+<p><strong>3）不可达状态</strong>：当对象的所有关联都被切断，且系统调用finalize()方法进行资源清理后依旧没有使该对象变为可达状态，则这个对象将永久性失去引用并且变成不可达状态，系统才会真正的去回收该对象所占用的资源。</p>
+<p>上述三种状态的转换图如下：<br><img src="http://img.blog.csdn.net/20160803201525068" alt=""></p>
+<h1 id="2-Java对对象的4种引用"><a href="#2-Java对对象的4种引用" class="headerlink" title="2.Java对对象的4种引用"></a>2.Java对对象的4种引用</h1><p><strong>1）强引用</strong> ：创建一个对象并把这个对象直接赋给一个变量，eg ：Person person = new Person(“sunny”); 不管系统资源有么的紧张，强引用的对象都绝对不会被回收，即使他以后不会再用到。</p>
+<p><strong>2）软引用</strong> ：通过SoftReference类实现，eg : SoftReference<person> p = new SoftReference<person>(new Person(“Rain”));,内存非常紧张的时候会被回收，其他时候不会被回收，所以在使用之前要判断是否为null从而判断他是否已经被回收了。</person></person></p>
+<p><strong>3）弱引用 </strong>：通过WeakReference类实现，eg : WeakReference<person> p = new WeakReference<person>(new Person(“Rain”));不管内存是否足够，系统垃圾回收时必定会回收。</person></person></p>
+<p><strong>4）虚引用</strong> ：不能单独使用，主要是用于追踪对象被垃圾回收的状态。通过PhantomReference类和引用队列ReferenceQueue类联合使用实现，eg ：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> test;</div><div class="line"></div><div class="line"> <span class="keyword">import</span> java.lang.ref.PhantomReference;</div><div class="line"> <span class="keyword">import</span> java.lang.ref.ReferenceQueue;</div><div class="line"></div><div class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">         <span class="comment">//创建一个对象</span></div><div class="line">         Person person = <span class="keyword">new</span> Person(<span class="string">"Sunny"</span>);    </div><div class="line">         <span class="comment">//创建一个引用队列    </span></div><div class="line">         ReferenceQueue&lt;Person&gt; rq = <span class="keyword">new</span> ReferenceQueue&lt;Person&gt;();</div><div class="line">         <span class="comment">//创建一个虚引用，让此虚引用引用到person对象</span></div><div class="line">         PhantomReference&lt;Person&gt; pr = <span class="keyword">new</span> PhantomReference&lt;Person&gt;(person, rq);</div><div class="line">         <span class="comment">//切断person引用变量和对象的引用</span></div><div class="line">         person = <span class="keyword">null</span>;</div><div class="line">         <span class="comment">//试图取出虚引用所引用的对象</span></div><div class="line">         <span class="comment">//发现程序并不能通过虚引用访问被引用对象，所以此处输出为null</span></div><div class="line">         System.out.println(pr.get());</div><div class="line">         <span class="comment">//强制垃圾回收</span></div><div class="line">         System.gc();</div><div class="line">         System.runFinalization();</div><div class="line">         <span class="comment">//因为一旦虚引用中的对象被回收后，该虚引用就会进入引用队列中</span></div><div class="line">         <span class="comment">//所以用队列中最先进入队列中引用与pr进行比较，输出true</span></div><div class="line">         System.out.println(rq.poll() == pr);</div><div class="line">     &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p>运行结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">null</div><div class="line">true</div></pre></td></tr></table></figure></p>
+<h1 id="3-Java垃圾回收机制"><a href="#3-Java垃圾回收机制" class="headerlink" title="3.Java垃圾回收机制"></a>3.Java垃圾回收机制</h1><p>其实Java垃圾回收主要做的是两件事：1）内存回收 2）碎片整理</p>
+<h2 id="3-1垃圾回收算法"><a href="#3-1垃圾回收算法" class="headerlink" title="3.1垃圾回收算法"></a>3.1垃圾回收算法</h2><p><strong>1）串行回收（只用一个CPU）和并行回收（多个CPU才有用）</strong>：串行回收是不管系统有多少个CPU，始终只用一个CPU来执行垃圾回收操作，而并行回收就是把整个回收工作拆分成多个部分，每个部分由一个CPU负责，从而让多个CPU并行回收。并行回收的执行效率很高，但复杂度增加，另外也有一些副作用，如内存随便增加。</p>
+<p><strong>2）并发执行和应用程序停止</strong> ：应用程序停止（Stop-the-world）顾名思义，其垃圾回收方式在执行垃圾回收的同时会导致应用程序的暂停。并发执行的垃圾回收虽然不会导致应用程序的暂停，但由于并发执行垃圾需要解决和应用程序的执行冲突（应用程序可能在垃圾回收的过程修改对象），因此并发执行垃圾回收的系统开销比Stop-the-world高，而且执行时需要更多的堆内存。</p>
+<p><strong>3）压缩和不压缩和复制 </strong>：</p>
+<p>①支持压缩的垃圾回收器<strong>（标记-压缩 = 标记清除+压缩）</strong>会把所有的可达对象搬迁到一起，然后将之前占用的内存全部回收，减少了内存碎片。</p>
+<p>②不压缩的垃圾回收器<strong>（标记-清除）</strong>要遍历两次，第一次先从跟开始访问所有可达对象，并将他们标记为可达状态，第二次便利整个内存区域，对未标记可达状态的对象进行回收处理。这种回收方式不压缩，不需要额外内存，但要两次遍历，会产生碎片</p>
+<p>③<strong>复制</strong>式的垃圾回收器：将堆内存分成两个相同空间，从根（类似于前面的有向图起始顶点）开始访问每一个关联的可达对象，将空间A的全部可达对象复制到空间B，然后一次性回收空间A。对于该算法而言，因为只需访问所有的可达对象，将所有的可达对象复制走之后就直接回收整个空间，完全不用理会不可达对象，所以遍历空间的成本较小，但需要巨大的复制成本和较多的内存。<br><img src="http://img.blog.csdn.net/20160803201609641" alt=""></p>
+<h2 id="3-2堆内存的分代回收"><a href="#3-2堆内存的分代回收" class="headerlink" title="3.2堆内存的分代回收"></a>3.2堆内存的分代回收</h2><p><strong>1）分代回收的依据</strong>：</p>
+<p><strong>①对象生存时间的长短</strong>：大部分对象在Young期间就被回收</p>
+<p><strong>②不同代采取不同的垃圾回收策略</strong>：新（生存时间短）老（生存时间长）对象之间很少存在引用</p>
+<p><strong>2) 堆内存的分代：</strong></p>
+<p><strong>①Young代 ：</strong></p>
+<ol>
+<li><p>回收机制 ：因为对象数量少，所以采用复制回收。</p>
+</li>
+<li><p>组成区域 ：由1个Eden区和2个Survivor区构成，同一时间的两个Survivor区，一个用来保存对象，另一个是空的；每次进行Young代垃圾回收的时候，就把Eden，From中的可达对象复制到To区域中，一些生存时间长的就复制到了老年代，接着清除Eden，From空间，最后原来的To空间变为From空间，原来的From空间变为To空间。</p>
+</li>
+<li><p>对象来源 ：绝大多数对象先分配到Eden区，一些大的对象会直接被分配到Old代中。</p>
+</li>
+<li><p>回收频率 ：因为Young代对象大部分很快进入不可达状态，因此回收频率高且回收速度快<br><img src="http://img.blog.csdn.net/20160803201657835" alt=""><br><img src="http://img.blog.csdn.net/20160803201744815" alt=""></p>
+</li>
+</ol>
+<p><strong>②Old代 ：</strong></p>
+<ol>
+<li><p>回收机制 ：采用标记压缩算法回收。</p>
+</li>
+<li><p>对象来源 ：</p>
+<ol>
+<li><p>对象大直接进入老年代。</p>
+</li>
+<li><p>Young代中生存时间长的可达对象</p>
+</li>
+</ol>
+</li>
+<li><p>回收频率 ：因为很少对象会死掉，所以执行频率不高，而且需要较长时间来完成。</p>
+</li>
+</ol>
+<p><strong>③Permanent代 ：</strong></p>
+<ol>
+<li><p>用      途 ：用来装载Class，方法等信息，默认为64M，不会被回收</p>
+</li>
+<li><p>对象来源 ：eg：对于像Hibernate，Spring这类喜欢AOP动态生成类的框架，往往会生成大量的动态代理类，因此需要更多的Permanent代内存。所以我们经常在调试Hibernate，Spring的时候经常遇到java.lang.OutOfMemoryError:PermGen space的错误，这就是Permanent代内存耗尽所导致的错误。</p>
+</li>
+<li><p>回收频率 ：不会被回收</p>
+</li>
+</ol>
+<h2 id="3-3常见的垃圾回收器"><a href="#3-3常见的垃圾回收器" class="headerlink" title="3.3常见的垃圾回收器"></a>3.3常见的垃圾回收器</h2><p><strong>1）串行回收器</strong>（只使用一个CPU）：Young代采用串行复制算法；Old代使用串行标记压缩算法（三个阶段：标记mark—清除sweep—压缩compact），回收期间程序会产生暂停，</p>
+<p><strong>2）并行回收器</strong>：对Young代采用的算法和串行回收器一样，只是增加了多CPU并行处理； 对Old代的处理和串行回收器完全一样，依旧是单线程。</p>
+<p><strong>3）并行压缩回收器</strong>：对Young代处理采用与并行回收器完全一样的算法；只是对Old代采用了不同的算法，其实就是划分不同的区域，然后进行标记压缩算法：</p>
+<p>① 将Old代划分成几个固定区域；</p>
+<p>② mark阶段（多线程并行），标记可达对象；</p>
+<p>③ summary阶段（串行执行），从最左边开始检验知道找到某个达到数值（可达对象密度小）的区域时，此区域及其右边区域进行压缩回收，其左端为密集区域</p>
+<p>④ compact阶段（多线程并行），识别出需要装填的区域，多线程并行的把数据复制到这些区域中。经此过程后，Old代一端密集存在大量活动对象，另一端则存在大块空间。</p>
+<p><strong>4）并发标识—清理回收（CMS）</strong>：对Young代处理采用与并行回收器完全一样的算法；只是对Old代采用了不同的算法，但归根待地还是标记清理算法：</p>
+<p>① 初始标识（程序暂停）：标记被直接引用的对象(一级对象)；</p>
+<p>② 并发标识（程序运行）：通过一级对象寻找其他可达对象；</p>
+<p>③ 再标记（程序暂停）：多线程并行的重新标记之前可能因为并发而漏掉的对象（简单的说就是防遗漏）</p>
+<p>④ 并发清理（程序运行）</p>
+<h1 id="4-内存管理小技巧"><a href="#4-内存管理小技巧" class="headerlink" title="4.内存管理小技巧"></a>4.内存管理小技巧</h1><p>1）尽量使用直接量，eg：String javaStr = “小学徒的成长历程”;</p>
+<p>2）使用StringBuilder和StringBuffer进行字符串连接等操作;</p>
+<p>3）尽早释放无用对象;</p>
+<p>4）尽量少使用静态变量;</p>
+<p>5）缓存常用的对象:可以使用开源的开源缓存实现，eg：OSCache，Ehcache;</p>
+<p>6）尽量不使用finalize()方法;</p>
+<p>7）在必要的时候可以考虑使用软引用SoftReference。</p>
+]]></content>
+    </entry>
     
-      &lt;h1 id=&quot;0-引言&quot;&gt;&lt;a href=&quot;#0-引言&quot; class=&quot;headerlink&quot; title=&quot;0. 引言&quot;&gt;&lt;/a&gt;&lt;strong&gt;0. 引言&lt;/strong&gt;&lt;/h1&gt;&lt;p&gt;UNIX是一个注册商标，是要满足一大堆条件并且支付可观费用才能够被授权使用的一个操作系统。linux是unix的克隆版本，是由其创始人Linus和诸多世界知名的黑客手工打造的一个操作系统。为什么linux和unix之间有很多软件可以很轻松的移植？因为linux也满足POSIX规范，所以在运行机制上跟unix相近。同时，POSIX标准也是Linux、windows下能够进行交叉编译的基础
+    <entry>
+      <title><![CDATA[mysql 远程数据库导入到本地数据库]]></title>
+      <url>http://HawkAaron.github.io/2015/05/15/mysql-%E8%BF%9C%E7%A8%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AF%BC%E5%85%A5%E5%88%B0%E6%9C%AC%E5%9C%B0%E6%95%B0%E6%8D%AE%E5%BA%93/</url>
+      <content type="html"><![CDATA[<pre><code>mysqldump -h192.168.0.1 -uNAME -pPASS --opt --compress DBS --skip-lock-tables | mysql -h127.0.0.1 -uroot -proot DBD 
+</code></pre><h1 id="解释："><a href="#解释：" class="headerlink" title="解释："></a>解释：</h1><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>192.168.0.1</td>
+<td>远程服务器IP</td>
+</tr>
+<tr>
+<td>NAME</td>
+<td>远程数据库登录名</td>
+</tr>
+<tr>
+<td>PASS</td>
+<td>远程数据库登录密码</td>
+</tr>
+<tr>
+<td>DBS</td>
+<td>远程数据库名（即：复制的源）</td>
+</tr>
+<tr>
+<td>127.0.0.1</td>
+<td>本地数据库服务器IP</td>
+</tr>
+<tr>
+<td>root</td>
+<td>本地数据库登录名（一般情况下都是这个）</td>
+</tr>
+<tr>
+<td>root</td>
+<td>本地数据库登录密码（一般情况下都是这个）</td>
+</tr>
+<tr>
+<td>DBD</td>
+<td>本地数据库名（即：复制的目的）</td>
+</tr>
+</tbody>
+</table>
+<a id="more"></a>
+<h1 id="SQL解释："><a href="#SQL解释：" class="headerlink" title="SQL解释："></a>SQL解释：</h1><table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mysqldump</td>
+<td>mysql的一个专门用于拷贝操作的命令</td>
+</tr>
+<tr>
+<td>–opt</td>
+<td>操作的意思</td>
+</tr>
+<tr>
+<td>–compress</td>
+<td>压缩要传输的数据</td>
+</tr>
+<tr>
+<td>–skip-lock</td>
+<td>忽略锁住的表（加上这句能防止当表有外键时的报错）</td>
+</tr>
+<tr>
+<td>-tables</td>
+<td>某数据库所有表</td>
+</tr>
+<tr>
+<td>-h</td>
+<td>服务器名称</td>
+</tr>
+<tr>
+<td>-u</td>
+<td>用户名（后面无空格，直接加用户名）</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>密码（后面无空格，直接加密码）</td>
+</tr>
+</tbody>
+</table>
+<h1 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h1><p>-h、-u、-p的后面没有空格，直接加IP、用户名和密码！！！ </p>
+]]></content>
+    </entry>
     
-    </summary>
+    <entry>
+      <title><![CDATA[MySQL忘记密码]]></title>
+      <url>http://HawkAaron.github.io/2015/05/13/MySQL%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81/</url>
+      <content type="html"><![CDATA[<p>如果是root密码：</p>
+<h1 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h1><p>MySQL提供跳过访问控制的命令行参数，通过在命令行以此命令启动MySQL服务器：<br><strong>safe_mysqld –skip-grant-tables&amp; </strong><br>即可跳过MySQL的访问控制，任何人都可以在控制台以管理员的身份进入MySQL数据库。<br>需要注意的是在修改完密码以后要把MySQL服务器停掉重新启动才会生效<br><a id="more"></a></p>
+<h1 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h1><h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><p>可以进行如下的步骤重新设置MySQL的root密码： </p>
+<ol>
+<li>首先确认服务器出于安全的状态，也就是没有人能够任意地连接MySQL数据库。<br>因为在重新设置MySQL的root密码的期间，MySQL数据库完全出于没有密码保护的状态下，其他的用户也可以任意地登录和修改MySQL的信息。可以采用将MySQL对外的端口封闭，并且停止Apache以及所有的用户进程的方法实现服务器的准安全状态。最安全的状态是到服务器的Console上面操作，并且拔掉网线。 </li>
+<li>修改MySQL的登录设置：<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># vi /etc/my.cnf</span></div><div class="line">``` </div><div class="line">在[mysqld]的段中加上一句：**skip-grant-tables **</div><div class="line">例如：</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>[mysqld]<br>datadir=/var/lib/mysql<br>socket=/var/lib/mysql/mysql.sock<br>skip-name-resolve<br>skip-grant-tables<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">保存并且退出vi。 </div><div class="line">3. 重新启动mysqld </div><div class="line">``` bash</div><div class="line"># /etc/init.d/mysqld restart </div><div class="line">Stopping MySQL: [ OK ] </div><div class="line">Starting MySQL: [ OK ]</div></pre></td></tr></table></figure></p>
+<ol>
+<li><p>登录并修改MySQL的root密码 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># /usr/bin/mysql</span></div><div class="line">Welcome to the MySQL monitor. Commands end with ; or \g. </div><div class="line">Your MySQL connection id is 3 to server version: 3.23.56 </div><div class="line">Type ‘<span class="built_in">help</span>;’ or ‘\h’ <span class="keyword">for</span> help. Type ‘\c’ to clear the buffer. </div><div class="line">mysql&gt; USE mysql ; </div><div class="line">Reading table information <span class="keyword">for</span> completion of table and column names </div><div class="line">You can turn off this feature to get a quicker startup with -A </div><div class="line">Database changed </div><div class="line">mysql&gt; UPDATE user SET Password = password ( ‘new-password’ ) WHERE User = ‘root’ ; </div><div class="line">Query OK, 0 rows affected (0.00 sec) </div><div class="line">Rows matched: 2 Changed: 0 Warnings: 0 </div><div class="line">mysql&gt; flush privileges ; </div><div class="line">Query OK, 0 rows affected (0.01 sec) </div><div class="line">mysql&gt; quit </div><div class="line">Bye</div></pre></td></tr></table></figure>
+</li>
+<li><p>将MySQL的登录设置修改回来 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># vi /etc/my.cnf</span></div><div class="line">``` </div><div class="line">将刚才在[mysqld]的段中加上的skip-grant-tables删除 </div><div class="line">保存并且退出vi。 </div><div class="line">6. 重新启动mysqld </div><div class="line">``` bash</div><div class="line"><span class="comment"># /etc/init.d/mysqld restart </span></div><div class="line">Stopping MySQL: [ OK ] </div><div class="line">Starting MySQL: [ OK ]</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2><ol>
+<li>以系统管理员身份登陆系统。 </li>
+<li>打开cmd, 运行命令 <code>net start</code> 查看mysql是否启动。启动的话就停止<code>net stop mysql</code>. </li>
+<li>我的mysql安装在d:\usr\local\mysql4\bin下。 </li>
+<li>跳过权限检查启动mysql。<br><code>d:\usr\local\mysql4\bin\mysqld-nt –skip-grant-tables</code></li>
+<li>重新打开cmd。进到d:\usr\local\mysql4\bin下：<br><code>d:\usr\local\mysql4\bin\mysqladmin -uroot flush-privileges password “newpassword”</code><br><code>d:\usr\local\mysql4\bin\mysqladmin -u root -p shutdown 这句提示你重新输密码。</code></li>
+<li>在cmd里<code>net start mysql</code> </li>
+<li>搞定了。 </li>
+</ol>
+<h2 id="MySQL4-1以上版本一种密码错误问题的解决方法"><a href="#MySQL4-1以上版本一种密码错误问题的解决方法" class="headerlink" title="MySQL4.1以上版本一种密码错误问题的解决方法"></a>MySQL4.1以上版本一种密码错误问题的解决方法</h2><ol>
+<li><code># SET PASSWORD FOR ’some_user’@’some_host’ = OLD_PASSWORD(‘newpwd’);</code></li>
+<li><code># FLUSH PRIVILEGES;</code></li>
+</ol>
+<h2 id="Mysql数据库修复"><a href="#Mysql数据库修复" class="headerlink" title="Mysql数据库修复"></a>Mysql数据库修复</h2><pre><code>myisamchk -r -q d:\mysql\data\latin1\* 
+</code></pre><p><code>r代表修复 
+q代表快速</code></p>
+<h1 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h1><p>如果你忘记了你的MYSQL的root口令的话，你可以通过下面的过程恢复。</p>
+<ol>
+<li>向mysqld server 发送kill命令关掉mysqld server(不是 kill -9),存放进程ID的文件通常在MYSQL的数据库所在的目录中。<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">kill</span> `cat /mysql-data-directory/hostname.pid`</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>你必须是UNIX的root用户或者是你所运行的SERVER上的同等用户，才能执行这个操作。</p>
+<ol>
+<li>使用<code>--skip-grant-tables</code>参数来启动 mysqld。</li>
+<li>使用<code>mysql -h hostname mysql</code>命令登录到mysqld server ，用grant命令改变口令。你也可以这样做：<code>mysqladmin -h hostname -u user password &#39;new password&#39;</code>。<br>（其实也可以用 <code>use mysql; update user set password =password(&#39;yourpass&#39;) where user=&#39;root&#39;</code>来做到。）</li>
+<li>载入权限表： <code>mysqladmin -h hostname flush-privileges</code> ，或者使用 SQL 命令<code>FLUSH PRIVILEGES</code>。（当然，在这里，你也可以重启mysqld。）</li>
+</ol>
+<h1 id="方法四-一定要先备份"><a href="#方法四-一定要先备份" class="headerlink" title="方法四 (一定要先备份)"></a>方法四 (一定要先备份)</h1><ol>
+<li>重新在另一台电脑上安装相同版本的MySQL</li>
+<li>删除忘记密码的电脑中MySQL安装目录中\data\mysql的全部内容（要先停止MySQL服务）</li>
+<li>Copy新装的电脑上MySQL安装目录中\data\mysql的全部内容 to 刚刚删除的目录中</li>
+<li>启动MySQL服务</li>
+</ol>
+<p>综述：cmd到MySQL安装目录，关闭mysql服务 <strong><code>net stop mysql</code></strong>输入<strong><code>mysqld-nt --skip-grant-tables</code></strong> 此时cmd处于监听状态(这个留着不要关了)，新开一个cmd，切换到MySQL安装目录，输入mysql  进入MySQL命令行后修改root账户密码(<strong><code>use mysql;   update user set password=password(&#39;root&#39;) where user=&#39;root&#39;;  flush privileges;</code></strong>)<br>此方法只要到MySQL安装目录即可，注意安装的MySQL一定要有mysqld-nt，完全安装就行了，毕竟才100多M</p>
+]]></content>
+    </entry>
     
-      <category term="DLL" scheme="http://HawkAaron.github.io/categories/DLL/"/>
+    <entry>
+      <title><![CDATA[oracle查看当前登陆的用户信息]]></title>
+      <url>http://HawkAaron.github.io/2015/05/13/oracle%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E7%99%BB%E9%99%86%E7%9A%84%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF/</url>
+      <content type="html"><![CDATA[<p>查看当前登陆的用户名：</p>
+<pre><code>select user from dual;
+</code></pre><p>或者</p>
+<pre><code>select * from user_users;
+</code></pre><p>或者</p>
+<pre><code>show user
+</code></pre><p>查看当前用户拥有的角色和权限：</p>
+<pre><code>select * from user_role_privs;
+select * from session_privs;
+</code></pre>]]></content>
+    </entry>
     
+    <entry>
+      <title><![CDATA[MySQL ERROR2013完美解决方案]]></title>
+      <url>http://HawkAaron.github.io/2015/04/17/MySQL-ERROR2013%E5%AE%8C%E7%BE%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+      <content type="html"><![CDATA[<p>这个错误一般是安装了多个MySQL服务器导致的，解决方案如下：<br><strong>1、进入MySQL安装目录</strong>：D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin&gt;<br><strong>2、输入mysqld-nt -remove</strong><br>D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin&gt;mysqld-nt -remove<br>The service doesn’t exist!<br><a id="more"></a><br><strong>3、输入mysqld-nt -install</strong><br>D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin&gt;mysqld-nt -install<br>Service successfully installed.<br><strong>4、输入net start mysql</strong><br>D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin&gt;net start mysql<br>MySQL 服务正在启动 ……………….<br>MySQL 服务无法启动。<br><strong>5、输入netstat -ano|findstr 3306</strong><br>D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin&gt;netstat -ano|findstr 3306<br>  TCP    0.0.0.0:3306           0.0.0.0:0              LISTENING       5804<br><strong>6、输入taskkill -f -pid 5804（此处的5804即上面的进程ID）</strong><br>D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin&gt;taskkill -f -pid 5804<br>成功: 已终止 PID 为 5804 的进程。<br><strong>7、输入net start mysql</strong><br>D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin&gt;net start mysql<br>MySQL 服务正在启动 .<br>MySQL 服务已经启动成功。<br><strong>8、输入mysql -uroot -p进入MySQL</strong></p>
+<p>如果设置了环境变量，可在任意目录下执行以上命令</p>
+]]></content>
+    </entry>
     
-      <category term="DLL" scheme="http://HawkAaron.github.io/tags/DLL/"/>
+    <entry>
+      <title><![CDATA[Oracle11g安装及使用详解]]></title>
+      <url>http://HawkAaron.github.io/2015/04/10/Oracle11g%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8%E8%AF%A6%E8%A7%A3/</url>
+      <content type="html"><![CDATA[<h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><p>首先我们在官网下载Oracle11g，链接如下：<br><a href="http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html" title="Oracle11g下载链接" target="_blank" rel="external">http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html</a><br>注意系统位数和文件个数<br><img src="http://img.blog.csdn.net/20150410221936614" alt=""><br>两个文件都要下载，过程可能比价漫长，可以敲会代码或者做几篇阅读理解缓解一下情绪（为接下来操蛋的安装过程做好充分的心理准备）<br><a id="more"></a></p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>安装可以参考已下链接<br><a href="http://jingyan.baidu.com/article/e5c39bf58eff9239d760338b.html" target="_blank" rel="external">http://jingyan.baidu.com/article/e5c39bf58eff9239d760338b.html</a><br>这里要注意一点：可以无视所有的错误提示！（在第5步进行先决条件检查时由于系统原因可能会报错，此时可以按照安装教程忽略相关选项！）<br>另外要注意的是安装目录尽量在跟目录下，比如安装在D:\Oracle\下，而且目录不能包含中文及空格等非数字字母的字符（大部分国外的大型程序都这样，我们只能默默地接受了）</p>
+<h1 id="环境变量检查"><a href="#环境变量检查" class="headerlink" title="环境变量检查"></a>环境变量检查</h1><p>使用前请配置环境变量（系统会自动配置，最好检查一下）：</p>
+<h2 id="方法一：命令行-echo-PATH-命令"><a href="#方法一：命令行-echo-PATH-命令" class="headerlink" title="方法一：命令行 echo %PATH% 命令"></a>方法一：命令行 echo %PATH% 命令</h2><p><img src="http://img.blog.csdn.net/20150410222254232" alt=""><br>可以看见图中的环境变量的第一条目录即是刚才安装完的Oracle的bin目录（一般软件的bin目录下有我们用到的命令行工具，Oracle的bin命令里面有sqlplus）</p>
+<h2 id="方法二：右击‘计算机’，选择‘属性’，‘高级系统配置’"><a href="#方法二：右击‘计算机’，选择‘属性’，‘高级系统配置’" class="headerlink" title="方法二：右击‘计算机’，选择‘属性’，‘高级系统配置’"></a>方法二：右击‘计算机’，选择‘属性’，‘高级系统配置’</h2><p><img src="http://img.blog.csdn.net/20150410222343106" alt=""><br><img src="http://img.blog.csdn.net/20150410222411545" alt=""><br><img src="http://img.blog.csdn.net/20150410222556299" alt=""><img src="http://img.blog.csdn.net/20150410222541124" alt=""><br><img src="http://img.blog.csdn.net/20150410222609937" alt=""><br>变量值的最前面即刚才安装的Oracle的bin目录<br>（若path中没有Oracle的bin目录则把刚才安装oracle的目录里面的bin找出来加进去就行了，正常情况下是自动加的，如果没有就是安装有问题了）</p>
+<h1 id="登陆Oracle"><a href="#登陆Oracle" class="headerlink" title="登陆Oracle"></a>登陆Oracle</h1><p>登陆的方法有以下几种：</p>
+<h2 id="sqlplus登陆oracle："><a href="#sqlplus登陆oracle：" class="headerlink" title="sqlplus登陆oracle："></a>sqlplus登陆oracle：</h2><ol>
+<li><p>C: &gt; sqlplus “/as sysdba”   –以操作系统权限认证的oracle sys管理员登陆</p>
+</li>
+<li><p>C: &gt; sqlplus /nolog             –不在cmd或者terminal当中暴露密码的登陆方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">SQL&gt; conn /as sysdba</div><div class="line">&amp;</div><div class="line">SQL&gt; conn sys/password as sysdba</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol>
+<li><p>C: &gt; sqlplus scott/tiger      –非管理员用户登陆</p>
+</li>
+<li><p>C: &gt; sqlplus scott/tiger@orcl    –非管理员用户使用tns别名登陆</p>
+</li>
+<li><p>C: &gt; sqlplus sys/password@orcl as sysdba –管理员用户使用tns别名登陆</p>
+</li>
+<li><p>C: &gt; sqlplus                       –不显露密码的登陆方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Enter user-name：sys</div><div class="line">Enter password：password as sysdba     --以sys用户登陆的话 必须要加上 as sysdba 子句</div></pre></td></tr></table></figure>
+<p> <img src="http://img.blog.csdn.net/20150410222729400" alt=""><br> 这是我输入sqlplus后的效果，系统莫名其妙的提示输入用户名，用过MySQL的可能对这点感到很迷惑，一般安装完后都是root账户，但是oracle是个比MySQL强大很多倍的大型关系型数据库，用户名也有很多，如下：</p>
+<pre><code>scott
+sys  
+system
+sysman 
+这些账户的密码设置会在安装过程中完成，其中system是我们设置的登陆口令，Scott也是可以在口令管理中管理的
+</code></pre></li>
+</ol>
+<h3 id="其它参考"><a href="#其它参考" class="headerlink" title="其它参考"></a>其它参考</h3><p><a href="http://www.linuxidc.com/Linux/2011-03/33174.htm" target="_blank" rel="external">sqlplus详细使用方法</a><br><a href="http://baike.baidu.com/link?url=GAgntfVfaPWk9Oam_8bWSv37PdWx6xQ-wZDP2TWCy8GWDnQlMI5T6JqWcflkw9jmfb3JXyTAjkfN-3Qp8nbryK#1" target="_blank" rel="external">百度百科</a><br><a href="http://jingyan.baidu.com/article/6525d4b155767dac7d2e94e8.html" target="_blank" rel="external">Linux下操作方法</a></p>
+<h2 id="使用Oracle控制台"><a href="#使用Oracle控制台" class="headerlink" title="使用Oracle控制台"></a>使用Oracle控制台</h2><p>打开chrome浏览器（或其它，不推荐使用IE），在地址栏中输入<a href="https://localhost:1158/em" target="_blank" rel="external">https://localhost:1158/em</a><br>可能会有不安全之类的提示，无视即可，输入用户名密码后就可以管理了<br><a href="http://jingyan.baidu.com/article/3c343ff72c71c10d3679636a.html" target="_blank" rel="external">具体的使用方法可以点此查看</a><br>不过控制台的连接速度可能很慢，如果不能忍受的话就用命令行吧</p>
+<h2 id="第三方GUI管理工具"><a href="#第三方GUI管理工具" class="headerlink" title="第三方GUI管理工具"></a>第三方GUI管理工具</h2><p><a href="https://www.toadworld.com/?Redirected=true" target="_blank" rel="external">Toad</a></p>
+<p><a href="http://jingyan.baidu.com/article/c85b7a6403acd1003bac950f.html" target="_blank" rel="external">PLSQL Developer</a></p>
+<h1 id="管理Oracle"><a href="#管理Oracle" class="headerlink" title="管理Oracle"></a>管理Oracle</h1><p>Oracle是地球上目前最强大的关系型数据库，用过MySQL的人可能刚开始对Oracle无从下手，想想当初你玩MySQL的时候不也是配置环境变量，百度登陆方法等等，所以我们要有耐心。最后一句话：打好基础。</p>
+]]></content>
+    </entry>
     
-      <category term="mingw" scheme="http://HawkAaron.github.io/tags/mingw/"/>
-    
-      <category term="交叉编译" scheme="http://HawkAaron.github.io/tags/%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/"/>
-    
-  </entry>
   
-</feed>
+  
+</search>
