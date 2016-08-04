@@ -92,7 +92,7 @@ From each cell, you can either move to four directions: left, right, up or down.
 <meta property="og:site_name" content="HMK's blog">
 <meta property="og:description" content="题目描述Given an integer matrix, find the length of the longest increasing path.
 From each cell, you can either move to four directions: left, right, up or down. You may NOT move diagonally or move outsid">
-<meta property="og:updated_time" content="2016-08-04T03:03:44.453Z">
+<meta property="og:updated_time" content="2016-08-04T03:06:04.275Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Google面试题 3| 矩阵中的最长上升路径">
 <meta name="twitter:description" content="题目描述Given an integer matrix, find the length of the longest increasing path.
@@ -325,7 +325,7 @@ From each cell, you can either move to four directions: left, right, up or down.
 <p><strong>Example 1:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">nums = [</div><div class="line">  [9,9,4],</div><div class="line">  [6,6,8],</div><div class="line">  [2,1,1]</div><div class="line">]</div></pre></td></tr></table></figure></p>
 <p>Return <code>4</code><br>The longest increasing path is <code>[1, 2, 6, 9]</code>.</p>
 <p><strong>Example 2:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">nums = [</div><div class="line">  [3,4,5],</div><div class="line">  [3,2,6],</div><div class="line">  [2,2,1]</div><div class="line">]</div></pre></td></tr></table></figure></p>
-<p>Return <code>4</code><br>The longest increasing path is <code>[3, 4, 5, 6]</code>. Moving diagonally is not allowed.</p>
+<p>Return <code>4</code><br>The longest increasing path is <code>[3, 4, 5, 6]</code>. Moving diagonally is not allowed. <a id="more"></a></p>
 <h1 id="分析解答"><a href="#分析解答" class="headerlink" title="分析解答"></a>分析解答</h1><p>通过记忆化搜索实现动态规划，记忆化搜索是搜索和动态规划的结合，在搜索过程中记录已经求解完毕的状态，使得每个状态只需进行一次搜索。在本题中，<code>cache[i][j]</code>记录在(i,j)位置可以得到的最长上升路径，其值通过搜索相邻四个位置的最大路径值确定</p>
 <ol>
 <li>对每个点<code>DFS</code>，在4个方向找比当前小的数</li>
