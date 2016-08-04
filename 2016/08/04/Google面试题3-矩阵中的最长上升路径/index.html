@@ -74,6 +74,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="HMK's blog" type="application/atom+xml" />
+
 
 
 
@@ -92,7 +94,7 @@ From each cell, you can either move to four directions: left, right, up or down.
 <meta property="og:site_name" content="HMK's blog">
 <meta property="og:description" content="题目描述Given an integer matrix, find the length of the longest increasing path.
 From each cell, you can either move to four directions: left, right, up or down. You may NOT move diagonally or move outsid">
-<meta property="og:updated_time" content="2016-08-04T03:06:04.275Z">
+<meta property="og:updated_time" content="2016-08-04T03:07:23.992Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Google面试题 3| 矩阵中的最长上升路径">
 <meta name="twitter:description" content="题目描述Given an integer matrix, find the length of the longest increasing path.
@@ -108,7 +110,7 @@ From each cell, you can either move to four directions: left, right, up or down.
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: 0,
+      userId: 6260393964407358000,
       author: 'Author'
     }
   };
@@ -154,7 +156,7 @@ From each cell, you can either move to four directions: left, right, up or down.
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
-  <p class="site-subtitle">Welcome!</p>
+  <p class="site-subtitle">Stay hungry. Stay foolish.</p>
 </div>
 
 <div class="site-nav-toggle">
@@ -301,6 +303,13 @@ From each cell, you can either move to four directions: left, right, up or down.
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/04/Google面试题3-矩阵中的最长上升路径/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/04/Google面试题3-矩阵中的最长上升路径/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -333,7 +342,7 @@ From each cell, you can either move to four directions: left, right, up or down.
 <li>用<code>cache</code>数组存放距离，以后不用重复计算</li>
 </ol>
 <h1 id="参考代码"><a href="#参考代码" class="headerlink" title="参考代码"></a>参考代码</h1><p>记忆化搜索<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Solution &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="keyword">const</span> <span class="keyword">int</span> dr[<span class="number">4</span>] = &#123; <span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">0</span> &#125;;</div><div class="line">    <span class="keyword">const</span> <span class="keyword">int</span> dc[<span class="number">4</span>] = &#123; <span class="number">0</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">1</span> &#125;;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; matrix, <span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; cache)</span> </span>&#123;</div><div class="line">        <span class="comment">// if calculated before, no need to do it again</span></div><div class="line">        <span class="keyword">if</span> (cache[x][y]) <span class="keyword">return</span> cache[x][y];</div><div class="line">        <span class="keyword">int</span> res = <span class="number">1</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">4</span>; i++) &#123;</div><div class="line">            <span class="keyword">int</span> nx = x + dr[i];</div><div class="line">            <span class="keyword">int</span> ny = y + dc[i];</div><div class="line">            <span class="comment">// if out of bond OR current cell value larger than previous cell value.</span></div><div class="line">            <span class="keyword">if</span> (nx &lt; <span class="number">0</span> || nx &gt;= matrix.size() || ny &lt; <span class="number">0</span> || ny &gt;= matrix[<span class="number">0</span>].size() ||</div><div class="line">                matrix[nx][ny] &gt;= matrix[x][y]) <span class="keyword">continue</span>;</div><div class="line">            res = max(res, dfs(matrix, nx, ny, cache) + <span class="number">1</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> cache[x][y] = res;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">longestIncreasingPath</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; matrix)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (matrix.empty() || matrix[<span class="number">0</span>].empty()) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> m = matrix.size(), n = matrix[<span class="number">0</span>].size();</div><div class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; cache(m, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(n, <span class="number">0</span>));</div><div class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;m; i++) &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;n; j++) &#123;</div><div class="line">                cache[i][j] = dfs(matrix, i, j, cache);</div><div class="line">                res = max(res, cache[i][j]);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<h1 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h1><p><a href="https://leetcode.com/problems/longest-increasing-path-in-a-matrix/" target="_blank" rel="external">LeetCode 329. Longest Increasing Path in a Matrix</a><br><a href="https://discuss.leetcode.com/topic/34835/15ms-concise-java-solution" target="_blank" rel="external">15ms Concise Java Solution</a></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://leetcode.com/problems/longest-increasing-path-in-a-matrix/" target="_blank" rel="external">LeetCode 329. Longest Increasing Path in a Matrix</a><br><a href="https://discuss.leetcode.com/topic/34835/15ms-concise-java-solution" target="_blank" rel="external">15ms Concise Java Solution</a></p>
 
       
     </div>
@@ -403,6 +412,10 @@ From each cell, you can either move to four directions: left, right, up or down.
           
   <div class="comments" id="comments">
     
+      <div class="ds-thread" data-thread-key="2016/08/04/Google面试题3-矩阵中的最长上升路径/"
+           data-title="Google面试题 3| 矩阵中的最长上升路径" data-url="http://HawkAaron.github.io/2016/08/04/Google面试题3-矩阵中的最长上升路径/">
+      </div>
+    
   </div>
 
 
@@ -471,8 +484,35 @@ From each cell, you can either move to four directions: left, right, up or down.
         </nav>
 
         
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/HawkAaron/HawkAaron.github.io" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/3884310664" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
           
         </div>
 
@@ -480,6 +520,20 @@ From each cell, you can either move to four directions: left, right, up or down.
         
 
         
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/qq_20480611" title="CSDN blog" target="_blank">CSDN blog</a>
+                </li>
+              
+            </ul>
+          </div>
         
 
       </section>
@@ -491,7 +545,7 @@ From each cell, you can either move to four directions: left, right, up or down.
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分析解答"><span class="nav-number">2.</span> <span class="nav-text">分析解答</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考代码"><span class="nav-number">3.</span> <span class="nav-text">参考代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料："><span class="nav-number">4.</span> <span class="nav-text">参考资料：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分析解答"><span class="nav-number">2.</span> <span class="nav-text">分析解答</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考代码"><span class="nav-number">3.</span> <span class="nav-text">参考代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
           </div>
         </section>
@@ -612,9 +666,30 @@ From each cell, you can either move to four directions: left, right, up or down.
 
   
 
+  
+    
+  
 
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wusthmk"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
 
   
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
 
 
 
