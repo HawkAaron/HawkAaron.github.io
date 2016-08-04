@@ -748,9 +748,9 @@
       <category term="DLL" scheme="http://HawkAaron.github.io/categories/DLL/"/>
     
     
-      <category term="mingw" scheme="http://HawkAaron.github.io/tags/mingw/"/>
-    
       <category term="交叉编译" scheme="http://HawkAaron.github.io/tags/%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/"/>
+    
+      <category term="mingw" scheme="http://HawkAaron.github.io/tags/mingw/"/>
     
   </entry>
   
@@ -997,11 +997,11 @@ ldd /bin/ping
       <category term="DLL" scheme="http://HawkAaron.github.io/categories/DLL/"/>
     
     
-      <category term="DLL" scheme="http://HawkAaron.github.io/tags/DLL/"/>
+      <category term="交叉编译" scheme="http://HawkAaron.github.io/tags/%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/"/>
     
       <category term="mingw" scheme="http://HawkAaron.github.io/tags/mingw/"/>
     
-      <category term="交叉编译" scheme="http://HawkAaron.github.io/tags/%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/"/>
+      <category term="DLL" scheme="http://HawkAaron.github.io/tags/DLL/"/>
     
   </entry>
   
