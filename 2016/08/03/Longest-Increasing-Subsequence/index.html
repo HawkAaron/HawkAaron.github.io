@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Git,StackOverflow," />
+  <meta name="keywords" content="DP,LeetCode," />
 
 
 
@@ -84,19 +84,19 @@
 
 
 
-<meta name="description" content="Git - How to use netrc file on windows - Stack Overflow">
+<meta name="description" content="Given an unsorted array of integers, find the length of longest increasing subsequence.
+For example,Given [10, 9, 2, 5, 3, 7, 101, 18],The longest increasing subsequence is [2, 3, 7, 101], therefore t">
 <meta property="og:type" content="article">
-<meta property="og:title" content="终于解决“Git Windows客户端保存用户名与密码”的问题">
-<meta property="og:url" content="http://HawkAaron.github.io/2015/06/02/Git-Windows客户端保存用户名与密码的问题/index.html">
+<meta property="og:title" content="Longest Increasing Subsequence">
+<meta property="og:url" content="http://HawkAaron.github.io/2016/08/03/Longest-Increasing-Subsequence/index.html">
 <meta property="og:site_name" content="HMK's blog">
-<meta property="og:description" content="Git - How to use netrc file on windows - Stack Overflow">
-<meta property="og:image" content="http://img.blog.csdn.net/20150602220505492">
-<meta property="og:image" content="http://img.blog.csdn.net/20150602220742394">
-<meta property="og:updated_time" content="2016-08-03T13:50:18.107Z">
+<meta property="og:description" content="Given an unsorted array of integers, find the length of longest increasing subsequence.
+For example,Given [10, 9, 2, 5, 3, 7, 101, 18],The longest increasing subsequence is [2, 3, 7, 101], therefore t">
+<meta property="og:updated_time" content="2016-08-04T00:07:29.378Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="终于解决“Git Windows客户端保存用户名与密码”的问题">
-<meta name="twitter:description" content="Git - How to use netrc file on windows - Stack Overflow">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20150602220505492">
+<meta name="twitter:title" content="Longest Increasing Subsequence">
+<meta name="twitter:description" content="Given an unsorted array of integers, find the length of longest increasing subsequence.
+For example,Given [10, 9, 2, 5, 3, 7, 101, 18],The longest increasing subsequence is [2, 3, 7, 101], therefore t">
 
 
 
@@ -117,9 +117,9 @@
 
 
 
-  <link rel="canonical" href="http://HawkAaron.github.io/2015/06/02/Git-Windows客户端保存用户名与密码的问题/"/>
+  <link rel="canonical" href="http://HawkAaron.github.io/2016/08/03/Longest-Increasing-Subsequence/"/>
 
-  <title> 终于解决“Git Windows客户端保存用户名与密码”的问题 | HMK's blog </title>
+  <title> Longest Increasing Subsequence | HMK's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -249,7 +249,7 @@
             
             
               
-                终于解决“Git Windows客户端保存用户名与密码”的问题
+                Longest Increasing Subsequence
               
             
           </h1>
@@ -261,8 +261,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-06-02T22:03:00+08:00" content="2015-06-02">
-              2015-06-02
+            <time itemprop="dateCreated" datetime="2016-08-03T08:06:00+08:00" content="2016-08-03">
+              2016-08-03
             </time>
           </span>
 
@@ -275,8 +275,8 @@
               <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Git/" itemprop="url" rel="index">
-                    <span itemprop="name">Git</span>
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
                   </a>
                 </span>
 
@@ -308,16 +308,13 @@
       
 
       
-        <p><a href="http://stackoverflow.com/questions/6031214/git-how-to-use-netrc-file-on-windows" target="_blank" rel="external">Git - How to use netrc file on windows - Stack Overflow</a><br><img src="http://img.blog.csdn.net/20150602220505492" alt=""><br><a id="more"></a><br>这就是正确答案，我们已经验证过了，下面详细描述一下解决方法：</p>
-<ol>
-<li><p>在Windows中添加一个HOME环境变量，值为%USERPROFILE%，如下图：<br><img src="http://img.blog.csdn.net/20150602220742394" alt=""></p>
-</li>
-<li><p>在“开始》运行”中打开%Home%，新建一个名为“_netrc”的文件。</p>
-</li>
-<li>用记事本打开_netrc文件，输入Git服务器名、用户名、密码，并保存。示例如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">machine git.cnblogs.com</div><div class="line">login cnblogs_user</div><div class="line">password cnblogs_pwd</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>That is the answer, and that is exactly the fucking git!</p>
+        <p>Given an unsorted array of integers, find the length of longest increasing subsequence.</p>
+<p>For example,<br>Given <code>[10, 9, 2, 5, 3, 7, 101, 18]</code>,<br>The longest increasing subsequence is <code>[2, 3, 7, 101]</code>, therefore the length is 4. Note that there may be more than one LIS combination, it is only necessary for you to return the length.</p>
+<p>Your algorithm should run in $$O(n^2)$$ complexity.</p>
+<p><strong>Follow up:</strong> Could you improve it to $$O(n\log(n))$$ time complexity?</p>
+<h1 id="DP-solution-with-O-N-2-complexity"><a href="#DP-solution-with-O-N-2-complexity" class="headerlink" title="DP solution with O(N^2) complexity"></a>DP solution with O(N^2) complexity</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">lengthOfLIS</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</div><div class="line">    <span class="comment">// This will be our array to track longest sequence length</span></div><div class="line">    <span class="keyword">int</span> dp[nums.size()];</div><div class="line"></div><div class="line">    <span class="comment">// Fill each position with value 1 in the array</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;nums.size(); i++)</div><div class="line">        dp[i] = <span class="number">1</span>;</div><div class="line"></div><div class="line">    <span class="comment">// Mark one pointer at i. For each i, start from j=0.</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;nums.size(); i++) &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;i; j++) &#123;</div><div class="line">            <span class="comment">// It means next number contributes to increasing sequence.</span></div><div class="line">            <span class="keyword">if</span> (nums[j] &lt; nums[i]) &#123;</div><div class="line">                <span class="comment">// But increase the value only if it results in a larger value of the sequence than dp[i]</span></div><div class="line">                <span class="comment">// It is possible that dp[i] already has larger value from some previous j'th iteration</span></div><div class="line">                dp[i] = max(dp[i], dp[j] + <span class="number">1</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// Find the maximum length from the array that we just generated</span></div><div class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;nums.size(); i++)</div><div class="line">        res = max(res, dp[i]);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> res;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="9-lines-C-code-with-O-NlogN-complexity"><a href="#9-lines-C-code-with-O-NlogN-complexity" class="headerlink" title="9 lines C++ code with O(NlogN) complexity"></a>9 lines C++ code with O(NlogN) complexity</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">lengthOfLIS</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> x : nums) &#123;</div><div class="line">        <span class="keyword">auto</span> it = lower_bound(res.begin(), res.end(), x);</div><div class="line">        <span class="keyword">if</span> (it == res.end()) res.push_back(x);</div><div class="line">        <span class="keyword">else</span> *it = x;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> res.size();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="More-details"><a href="#More-details" class="headerlink" title="More details"></a>More details</h1><p><a href="https://discuss.leetcode.com/topic/30721/my-easy-to-understand-o-n-2-solution-using-dp-with-video-explanation" target="_blank" rel="external">https://discuss.leetcode.com/topic/30721/my-easy-to-understand-o-n-2-solution-using-dp-with-video-explanation</a><br><a href="https://discuss.leetcode.com/topic/28696/9-lines-c-code-with-o-nlogn-complexity/12" target="_blank" rel="external">https://discuss.leetcode.com/topic/28696/9-lines-c-code-with-o-nlogn-complexity/12</a><br><a href="http://www.geeksforgeeks.org/longest-monotonically-increasing-subsequence-size-n-log-n/" target="_blank" rel="external">http://www.geeksforgeeks.org/longest-monotonically-increasing-subsequence-size-n-log-n/</a></p>
 
       
     </div>
@@ -340,9 +337,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Git/" rel="tag">#Git</a>
+            <a href="/tags/DP/" rel="tag">#DP</a>
           
-            <a href="/tags/StackOverflow/" rel="tag">#StackOverflow</a>
+            <a href="/tags/LeetCode/" rel="tag">#LeetCode</a>
           
         </div>
       
@@ -351,17 +348,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/05/31/oracle-error-引号内的字符串没有正确结束/" rel="next" title="Oracle error 引号内的字符串没有正确结束">
-                <i class="fa fa-chevron-left"></i> Oracle error 引号内的字符串没有正确结束
+              <a href="/2016/08/02/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/06/06/C语言连接MySQL-codeblocks/" rel="prev" title="C语言连接MySQL（codeblocks）">
-                C语言连接MySQL（codeblocks） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -475,7 +468,7 @@
               
             
             
-              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#DP-solution-with-O-N-2-complexity"><span class="nav-number">1.</span> <span class="nav-text">DP solution with O(N^2) complexity</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-lines-C-code-with-O-NlogN-complexity"><span class="nav-number">2.</span> <span class="nav-text">9 lines C++ code with O(NlogN) complexity</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#More-details"><span class="nav-number">3.</span> <span class="nav-text">More details</span></a></li></ol></div>
             
           </div>
         </section>
