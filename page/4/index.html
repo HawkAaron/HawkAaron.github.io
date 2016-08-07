@@ -74,6 +74,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="HMK's blog" type="application/atom+xml" />
+
 
 
 
@@ -104,7 +106,7 @@
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: 0,
+      userId: 6260393964407358000,
       author: 'Author'
     }
   };
@@ -123,6 +125,16 @@
   
 
 
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?dcc8faf9ad20b2d8568f57e5f38f43f0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
@@ -152,7 +164,7 @@
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
-  <p class="site-subtitle">Welcome!</p>
+  <p class="site-subtitle">Stay hungry. Stay foolish.</p>
 </div>
 
 <div class="site-nav-toggle">
@@ -211,9 +223,32 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
   
 </nav>
 
@@ -290,11 +325,27 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/04/10/Oracle11g安装及使用详解/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/10/Oracle11g安装及使用详解/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
 
           
+          
+             <span id="/2015/04/10/Oracle11g安装及使用详解/" class="leancloud_visitors" data-flag-title="Oracle11g安装及使用详解">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
           
 
           
@@ -310,44 +361,12 @@
 
       
         
-          
-            <h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><p>首先我们在官网下载Oracle11g，链接如下：<br><a href="http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html" title="Oracle11g下载链接" target="_blank" rel="external">http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html</a><br>注意系统位数和文件个数<br><img src="http://img.blog.csdn.net/20150410221936614" alt=""><br>两个文件都要下载，过程可能比价漫长，可以敲会代码或者做几篇阅读理解缓解一下情绪（为接下来操蛋的安装过程做好充分的心理准备）</p>
-<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>安装可以参考已下链接<br><a href="http://jingyan.baidu.com/article/e5c39bf58eff9239d760338b.html" target="_blank" rel="external">http://jingyan.baidu.com/article/e5c39bf58eff9239d760338b.html</a><br>这里要注意一点：可以无视所有的错误提示！（在第5步进行先决条件检查时由于系统原因可能会报错，此时可以按照安装教程忽略相关选项！）<br>另外要注意的是安装目录尽量在跟目录下，比如安装在D:\Oracle\下，而且目录不能包含中文及空格等非数字字母的字符（大部分国外的大型程序都这样，我们只能默默地接受了）</p>
-<h1 id="环境变量检查"><a href="#环境变量检查" class="headerlink" title="环境变量检查"></a>环境变量检查</h1><p>使用前请配置环境变量（系统会自动配置，最好检查一下）：</p>
-<h2 id="方法一：命令行-echo-PATH-命令"><a href="#方法一：命令行-echo-PATH-命令" class="headerlink" title="方法一：命令行 echo %PATH% 命令"></a>方法一：命令行 echo %PATH% 命令</h2><p><img src="http://img.blog.csdn.net/20150410222254232" alt=""><br>可以看见图中的环境变量的第一条目录即是刚才安装完的Oracle的bin目录（一般软件的bin目录下有我们用到的命令行工具，Oracle的bin命令里面有sqlplus）</p>
-<h2 id="方法二：右击‘计算机’，选择‘属性’，‘高级系统配置’"><a href="#方法二：右击‘计算机’，选择‘属性’，‘高级系统配置’" class="headerlink" title="方法二：右击‘计算机’，选择‘属性’，‘高级系统配置’"></a>方法二：右击‘计算机’，选择‘属性’，‘高级系统配置’</h2><p><img src="http://img.blog.csdn.net/20150410222343106" alt=""><br><img src="http://img.blog.csdn.net/20150410222411545" alt=""><br><img src="http://img.blog.csdn.net/20150410222556299" alt=""><img src="http://img.blog.csdn.net/20150410222541124" alt=""><br><img src="http://img.blog.csdn.net/20150410222609937" alt=""><br>变量值的最前面即刚才安装的Oracle的bin目录<br>（若path中没有Oracle的bin目录则把刚才安装oracle的目录里面的bin找出来加进去就行了，正常情况下是自动加的，如果没有就是安装有问题了）</p>
-<h1 id="登陆Oracle"><a href="#登陆Oracle" class="headerlink" title="登陆Oracle"></a>登陆Oracle</h1><p>登陆的方法有以下几种：</p>
-<h2 id="sqlplus登陆oracle："><a href="#sqlplus登陆oracle：" class="headerlink" title="sqlplus登陆oracle："></a>sqlplus登陆oracle：</h2><ol>
-<li><p>C: &gt; sqlplus “/as sysdba”   –以操作系统权限认证的oracle sys管理员登陆</p>
-</li>
-<li><p>C: &gt; sqlplus /nolog             –不在cmd或者terminal当中暴露密码的登陆方式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">SQL&gt; conn /as sysdba</div><div class="line">&amp;</div><div class="line">SQL&gt; conn sys/password as sysdba</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<ol>
-<li><p>C: &gt; sqlplus scott/tiger      –非管理员用户登陆</p>
-</li>
-<li><p>C: &gt; sqlplus scott/tiger@orcl    –非管理员用户使用tns别名登陆</p>
-</li>
-<li><p>C: &gt; sqlplus sys/password@orcl as sysdba –管理员用户使用tns别名登陆</p>
-</li>
-<li><p>C: &gt; sqlplus                       –不显露密码的登陆方式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Enter user-name：sys</div><div class="line">Enter password：password as sysdba     --以sys用户登陆的话 必须要加上 as sysdba 子句</div></pre></td></tr></table></figure>
-<p> <img src="http://img.blog.csdn.net/20150410222729400" alt=""><br> 这是我输入sqlplus后的效果，系统莫名其妙的提示输入用户名，用过MySQL的可能对这点感到很迷惑，一般安装完后都是root账户，但是oracle是个比MySQL强大很多倍的大型关系型数据库，用户名也有很多，如下：</p>
-<pre><code>scott
-sys  
-system
-sysman 
-这些账户的密码设置会在安装过程中完成，其中system是我们设置的登陆口令，Scott也是可以在口令管理中管理的
-</code></pre></li>
-</ol>
-<h3 id="其它参考"><a href="#其它参考" class="headerlink" title="其它参考"></a>其它参考</h3><p><a href="http://www.linuxidc.com/Linux/2011-03/33174.htm" target="_blank" rel="external">sqlplus详细使用方法</a><br><a href="http://baike.baidu.com/link?url=GAgntfVfaPWk9Oam_8bWSv37PdWx6xQ-wZDP2TWCy8GWDnQlMI5T6JqWcflkw9jmfb3JXyTAjkfN-3Qp8nbryK#1" target="_blank" rel="external">百度百科</a><br><a href="http://jingyan.baidu.com/article/6525d4b155767dac7d2e94e8.html" target="_blank" rel="external">Linux下操作方法</a></p>
-<h2 id="使用Oracle控制台"><a href="#使用Oracle控制台" class="headerlink" title="使用Oracle控制台"></a>使用Oracle控制台</h2><p>打开chrome浏览器（或其它，不推荐使用IE），在地址栏中输入<a href="https://localhost:1158/em" target="_blank" rel="external">https://localhost:1158/em</a><br>可能会有不安全之类的提示，无视即可，输入用户名密码后就可以管理了<br><a href="http://jingyan.baidu.com/article/3c343ff72c71c10d3679636a.html" target="_blank" rel="external">具体的使用方法可以点此查看</a><br>不过控制台的连接速度可能很慢，如果不能忍受的话就用命令行吧</p>
-<h2 id="第三方GUI管理工具"><a href="#第三方GUI管理工具" class="headerlink" title="第三方GUI管理工具"></a>第三方GUI管理工具</h2><p><a href="https://www.toadworld.com/?Redirected=true" target="_blank" rel="external">Toad</a></p>
-<p><a href="http://jingyan.baidu.com/article/c85b7a6403acd1003bac950f.html" target="_blank" rel="external">PLSQL Developer</a></p>
-<h1 id="管理Oracle"><a href="#管理Oracle" class="headerlink" title="管理Oracle"></a>管理Oracle</h1><p>Oracle是地球上目前最强大的关系型数据库，用过MySQL的人可能刚开始对Oracle无从下手，想想当初你玩MySQL的时候不也是配置环境变量，百度登陆方法等等，所以我们要有耐心。最后一句话：打好基础。</p>
-
-          
+          <h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><p>首先我们在官网下载Oracle11g，链接如下：<br><a href="http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html" title="Oracle11g下载链接">http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html</a><br>注意系统位数和文件个数<br><img src="http://img.blog.csdn.net/20150410221936614" alt=""><br>两个文件都要下载，过程可能比价漫长，可以敲会代码或者做几篇阅读理解缓解一下情绪（为接下来操蛋的安装过程做好充分的心理准备）<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/04/10/Oracle11g安装及使用详解/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -427,7 +446,7 @@ sysman
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -436,7 +455,7 @@ sysman
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">47</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -445,8 +464,35 @@ sysman
         </nav>
 
         
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/HawkAaron" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/3884310664" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
           
         </div>
 
@@ -454,6 +500,20 @@ sysman
         
 
         
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/qq_20480611" title="CSDN blog" target="_blank">CSDN blog</a>
+                </li>
+              
+            </ul>
+          </div>
         
 
       </section>
@@ -571,19 +631,296 @@ sysman
 
   
 
+  
+    
+  
 
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wusthmk"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
 
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
   
 
 
 
 
+
+
   
   
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
 
   
 
   
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("qLmBl8idmY9QSj7OSNQOgX8f-gzGzoHsz", "nKFIha0lyf0Q6ugrUOqmy3uQ");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 

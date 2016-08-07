@@ -4,6 +4,50 @@
   
     
     <entry>
+      <title><![CDATA[Linux安装gcc-6.1.0]]></title>
+      <url>http://HawkAaron.github.io/2016/08/07/Linux%E5%AE%89%E8%A3%85gcc-6.1.0/</url>
+      <content type="html"><![CDATA[<h1 id="获取gcc源码包"><a href="#获取gcc源码包" class="headerlink" title="获取gcc源码包"></a>获取gcc源码包</h1><p><a href="https://ftp.gnu.org/gnu/gcc" target="_blank" rel="external">gcc各版本地址：https://ftp.gnu.org/gnu/gcc</a><br><a href="https://ftp.gnu.org/gnu/gcc/gcc-6.1.0/gcc-6.1.0.tar.bz2" target="_blank" rel="external">目前最新的是6.1.0版：https://ftp.gnu.org/gnu/gcc/gcc-6.1.0/gcc-6.1.0.tar.bz2</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># wget https://ftp.gnu.org/gnu/gcc/gcc-6.1.0/gcc-6.1.0.tar.bz2</span></div><div class="line"><span class="comment"># tar -jxvf gcc-6.1.0.tar.bz2</span></div></pre></td></tr></table></figure></p>
+<h1 id="下载依赖项"><a href="#下载依赖项" class="headerlink" title="下载依赖项"></a>下载依赖项</h1><p>执行<code>download_prerequisites</code>将会自动下载这些软件并解压到当前目录，生成gcc编译的make文件。自动安装gcc需要下载诸如gmp、mpfr、mpc等依赖文件：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># cd gcc-6.1.0</span></div><div class="line"><span class="comment"># ./contrib/download_prerequisites</span></div></pre></td></tr></table></figure></p>
+<p>如果你的Linux无法直接联网，那么你只能打开文件download_prerequisites，获取到这些文件的下载链接，然后通过其他上网设备下载这些软件。最后把这些软件直接解压到gcc源程序目录(/路径/6.1.0)下即可。</p>
+<h1 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># mkdir gcc-build</span></div><div class="line"><span class="comment"># cd gcc-build</span></div><div class="line"><span class="comment"># ../configure -enable-checking=release -enable-languages=c,c++ -disable-multilib</span></div><div class="line"><span class="comment"># make</span></div><div class="line"><span class="comment"># make install</span></div></pre></td></tr></table></figure>
+<p>注意<code>make</code>的<code>-j</code>选项可以指定同时运行的作业数量，即CPU核数，如果有4核则可以加上<code>-j4</code><br><a id="more"></a></p>
+<h1 id="出错解决"><a href="#出错解决" class="headerlink" title="出错解决"></a>出错解决</h1><p>make过程中可能会出现以下错误信息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"> build/genattrtab ../.././gcc/config/i386/i386.md insn-conditions.md \</div><div class="line">  -Atmp-attrtab.c -Dtmp-dfatab.c -Ltmp-latencytab.c</div><div class="line">make[3]: *** [s-attrtab] Killed</div><div class="line">make[3]: Leaving directory `/usr/src/gcc-4.9.2/host-x86_64-unknown-linux-gnu/gcc&apos;</div><div class="line">make[2]: *** [all-stage1-gcc] Error 2</div><div class="line">make[2]: Leaving directory `/usr/src/gcc-4.9.2&apos;</div><div class="line">make[1]: *** [stage1-bubble] Error 2</div><div class="line">make[1]: Leaving directory `/usr/src/gcc-4.9.2&apos;</div><div class="line">make: *** [all] Error 2</div></pre></td></tr></table></figure></p>
+<p>可以通过添加swap分区的方法解决：<br><a href="http://blog.csdn.net/qq_20480611/article/details/52144399" target="_blank" rel="external">http://blog.csdn.net/qq_20480611/article/details/52144399</a></p>
+<h1 id="GCC新特征"><a href="#GCC新特征" class="headerlink" title="GCC新特征"></a>GCC新特征</h1><p>GCC 6.1 发布了，该版本较之前GCC5 新怎了大量的功能特性，默认采用C++14为新的标准，替代了之前的C++98。OpenMP 4.5规范将在本版本中被支持。此外，GCC 6.1 增强了对 C++17 的试验性支持；大大改进了诊断特性，包括位置，位置范围，拼写错误标识符建议，选项名字等等改进；新增了修复提示和一些警告提示。改进记录如下：</p>
+<ul>
+<li><p>UndefinedBehaviorSanitizer gained a new sanitization option, -fsanitize=bounds-strict, which enables strict checking of array bounds.  In particular, it enables -fsanitize=bounds as well as instrumentation of flexible array member-like arrays.</p>
+</li>
+<li><p>Type-based alias analysis now disambiguates accesses to different pointers. This improves precision of the alias oracle by about 20-30% on higher-level C++ programs. Programs doing invalid type punning of pointer types may now need -fno-strict-aliasing to work correctly.</p>
+</li>
+<li><p>Alias analysis now correctly supports weakref and alias attributes. This makes it possible to access both a variable and its alias in one translation unit which is common with link-time optimization.</p>
+</li>
+<li><p>Value range propagation now assumes that the this pointer of C++ member functions is non-null.  This eliminates common null pointer checks but also breaks some non-conforming code-bases (such as Qt-5, Chromium, KDevelop). As a temporary work-around-fno-delete-null-pointer-checks can be used. Wrong code can be identified by using-fsanitize=undefined.</p>
+</li>
+</ul>
+<p>完整发布说明，可以在<a href="https://gcc.gnu.org/gcc-6/changes.html" target="_blank" rel="external">这里</a>查看。</p>
+<h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><p><a href="http://blog.csdn.net/tangyi2008/article/details/42100049" target="_blank" rel="external">CentOS下安装gcc-4.9.2</a><br><a href="http://www.cnblogs.com/destim/p/5643574.html" target="_blank" rel="external">centos6.5安装gcc6.1等c++环境</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Linux添加swap分区]]></title>
+      <url>http://HawkAaron.github.io/2016/08/07/Linux%E6%B7%BB%E5%8A%A0swap%E5%88%86%E5%8C%BA/</url>
+      <content type="html"><![CDATA[<p>根据Redhat公司的建议,Linux系统swap分区最适合的大小是物理内存的1-2倍.不过Linux上有些软件对swap分区得需求较大,例如要顺利执行Oracle数据库软件,swap分区至少需要400MB或者物理内存2倍以上的空间.当然我们在安装Linux的时候,就能直接讲swap分区设置到足够的大小,但如果已经安装好Linux了,之后又想再安装类似Oracle的软件,却发现swap分区空间不够,该如何处理?</p>
+<p>针对此种情况,有两种解决方法:一是创建新的swap分区;另一则是创建swap文件.</p>
+<p><a href="http://blog.csdn.net/qq_20480611/article/details/50234945" target="_blank" rel="external"><strong>点此查看如何创建新分区</strong></a></p>
+<p>下面介绍创建swap文件的过程：<br>如果你的硬盘空间已经全部分配给其他分区,也没有多余的预算新添购硬盘,我们可以利用swap文件的方式增加虚拟的swap空间,不过执行性能会较实际的swap分区差.<a id="more"></a></p>
+<h1 id="产生swap文件"><a href="#产生swap文件" class="headerlink" title="产生swap文件"></a>产生swap文件</h1><p>执行<strong>dd</strong>命令新增一个1G的swap文件：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># dd if=/dev/zero of=/opt/swapfile bs=1M count=1000</span></div></pre></td></tr></table></figure></p>
+<p>更多关于<strong>dd</strong>命令的解释请参考man手册<code>man dd</code></p>
+<h1 id="格式化swap文件"><a href="#格式化swap文件" class="headerlink" title="格式化swap文件"></a>格式化swap文件</h1><p>接下来执行<strong>mkswap</strong>命令,将myswap文件格式化成swap文件系统：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># mkswap /tmp/myswap</span></div></pre></td></tr></table></figure></p>
+<h1 id="使能swap文件"><a href="#使能swap文件" class="headerlink" title="使能swap文件"></a>使能swap文件</h1><p>执行<strong>swapon</strong>命令可以使能myswap文件为swap分区，对应的执行<strong>swapoff</strong>命令可以关闭这种效果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># swapon /tmp/myswap</span></div></pre></td></tr></table></figure></p>
+<p>此时可以通过 <code>free -h</code> 查看内存使用情况及swap分区</p>
+<h1 id="自动挂载"><a href="#自动挂载" class="headerlink" title="自动挂载"></a>自动挂载</h1><p>编辑<code>/etc/fstab</code>文件，添加开机使能swap文件项：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># vim /tmp/myswap</span></div><div class="line">/tmp/myswap swap swap defaults 0 0 <span class="comment"># 待添加的行</span></div></pre></td></tr></table></figure></p>
+<p>最后执行以下命令自动挂载所有在fstab中的文件系统<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># mount -a</span></div></pre></td></tr></table></figure></p>
+<h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><p><a href="http://blog.csdn.net/tangyi2008/article/details/42099427" target="_blank" rel="external">LINUX下手动添加swap分区</a><br><a href="http://blog.163.com/zhang_jinnan/blog/static/4656383220101258831514/" target="_blank" rel="external">linux的中swap分区的创建</a> </p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Deep Learning Libraries by Language]]></title>
       <url>http://HawkAaron.github.io/2016/08/07/Deep-Learning-Libraries-by-Language/</url>
       <content type="html"><![CDATA[<h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><ol>

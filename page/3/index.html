@@ -283,6 +283,268 @@
             
               
                 
+                <a class="post-title-link" href="/2015/06/06/C语言连接MySQL-codeblocks/" itemprop="url">
+                  C语言连接MySQL（codeblocks）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-06-06T16:55:00+08:00" content="2015-06-06">
+              2015-06-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/MySQL/" itemprop="url" rel="index">
+                    <span itemprop="name">MySQL</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/06/06/C语言连接MySQL-codeblocks/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/06/C语言连接MySQL-codeblocks/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2015/06/06/C语言连接MySQL-codeblocks/" class="leancloud_visitors" data-flag-title="C语言连接MySQL（codeblocks）">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;winsock2.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;mysql.h&gt;</span></span></div><div class="line"><span class="comment">/*数据库连接用宏*/</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> HOST <span class="meta-string">"localhost"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> USERNAME <span class="meta-string">"root"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> PASSWORD <span class="meta-string">"root"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> DATABASE <span class="meta-string">"mysql"</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></div><div class="line"></span>&#123;</div><div class="line">    <span class="keyword">char</span> *query;</div><div class="line">    query=<span class="string">"select host,user from user"</span>;</div><div class="line">    query_sql(query);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">query_sql</span><span class="params">(<span class="keyword">char</span>* sql)</span></div><div class="line"></span>&#123;</div><div class="line">    MYSQL my_connection; <span class="comment">/*这是一个数据库连接*/</span></div><div class="line">    <span class="keyword">int</span> res; <span class="comment">/*执行sql語句后的返回标志*/</span></div><div class="line">    MYSQL_RES *res_ptr; <span class="comment">/*指向查询结果的指针*/</span></div><div class="line">    MYSQL_FIELD *field; <span class="comment">/*字段结构指针*/</span></div><div class="line">    MYSQL_ROW result_row; <span class="comment">/*按行返回的查询信息*/</span></div><div class="line">    <span class="keyword">int</span> row, column; <span class="comment">/*查询返回的行数和列数*/</span></div><div class="line">    <span class="keyword">int</span> i, j;</div><div class="line">    <span class="comment">/*初始化mysql连接my_connection*/</span></div><div class="line">    mysql_init(&amp;my_connection);</div><div class="line">    <span class="comment">/*建立mysql连接*/</span></div><div class="line">    <span class="keyword">if</span> (<span class="literal">NULL</span> != mysql_real_connect(&amp;my_connection, HOST, USERNAME, PASSWORD,</div><div class="line">                                   DATABASE, <span class="number">0</span>, <span class="literal">NULL</span>, CLIENT_FOUND_ROWS))  <span class="comment">/*连接成功*/</span></div><div class="line">    &#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"数据库查询query_sql连接成功！\n"</span>);</div><div class="line">        <span class="comment">/*设置查询编码为gbk，以支持中文*/</span></div><div class="line">        mysql_query(&amp;my_connection, <span class="string">"set names gbk"</span>);</div><div class="line">        res = mysql_query(&amp;my_connection, sql);</div><div class="line">        <span class="keyword">if</span> (res)   <span class="comment">/*执行失败*/</span></div><div class="line">        &#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"Error： mysql_query !\n"</span>);</div><div class="line">            <span class="comment">/*关闭连接*/</span></div><div class="line">            mysql_close(&amp;my_connection);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span>     <span class="comment">/*现在就代表执行成功了*/</span></div><div class="line">        &#123;</div><div class="line">            <span class="comment">/*将查询的結果给res_ptr*/</span></div><div class="line">            res_ptr = mysql_store_result(&amp;my_connection);</div><div class="line">            <span class="comment">/*如果结果不为空，就把结果print*/</span></div><div class="line">            <span class="keyword">if</span> (res_ptr)</div><div class="line">            &#123;</div><div class="line">                <span class="comment">/*取得結果的行数和*/</span></div><div class="line">                column = mysql_num_fields(res_ptr);</div><div class="line">                row = mysql_num_rows(res_ptr);</div><div class="line">                <span class="built_in">printf</span>(<span class="string">"查询到 %d 行 \n"</span>, row);</div><div class="line">                <span class="comment">/*输出結果的字段名*/</span></div><div class="line">                <span class="keyword">for</span> (i = <span class="number">0</span>; field = mysql_fetch_field(res_ptr); i++)</div><div class="line">                    <span class="built_in">printf</span>(<span class="string">"%10s "</span>, field-&gt;name);</div><div class="line">                <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">                <span class="comment">/*按行输出結果*/</span></div><div class="line">                <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt; row+<span class="number">1</span>; i++)</div><div class="line">                &#123;</div><div class="line">                    result_row = mysql_fetch_row(res_ptr);</div><div class="line">                    <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; column; j++)</div><div class="line">                        <span class="built_in">printf</span>(<span class="string">"%10s "</span>, result_row[j]);</div><div class="line">                    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="comment">/*不要忘了关闭连接*/</span></div><div class="line">            mysql_close(&amp;my_connection);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span></div><div class="line">    &#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"数据库连接失败"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/06/06/C语言连接MySQL-codeblocks/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/06/02/Git-Windows客户端保存用户名与密码的问题/" itemprop="url">
+                  终于解决“Git Windows客户端保存用户名与密码”的问题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-06-02T22:03:00+08:00" content="2015-06-02">
+              2015-06-02
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/06/02/Git-Windows客户端保存用户名与密码的问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/02/Git-Windows客户端保存用户名与密码的问题/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2015/06/02/Git-Windows客户端保存用户名与密码的问题/" class="leancloud_visitors" data-flag-title="终于解决“Git Windows客户端保存用户名与密码”的问题">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="http://stackoverflow.com/questions/6031214/git-how-to-use-netrc-file-on-windows">Git - How to use netrc file on windows - Stack Overflow</a><br><img src="http://img.blog.csdn.net/20150602220505492" alt=""><br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/06/02/Git-Windows客户端保存用户名与密码的问题/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/05/31/oracle-error-引号内的字符串没有正确结束/" itemprop="url">
                   Oracle error 引号内的字符串没有正确结束
                 </a>
@@ -1364,142 +1626,11 @@ select * from session_privs;
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/04/10/Oracle11g安装及使用详解/" itemprop="url">
-                  Oracle11g安装及使用详解
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-04-10T22:16:00+08:00" content="2015-04-10">
-              2015-04-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Oracle/" itemprop="url" rel="index">
-                    <span itemprop="name">Oracle</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/04/10/Oracle11g安装及使用详解/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/10/Oracle11g安装及使用详解/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2015/04/10/Oracle11g安装及使用详解/" class="leancloud_visitors" data-flag-title="Oracle11g安装及使用详解">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><p>首先我们在官网下载Oracle11g，链接如下：<br><a href="http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html" title="Oracle11g下载链接">http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html</a><br>注意系统位数和文件个数<br><img src="http://img.blog.csdn.net/20150410221936614" alt=""><br>两个文件都要下载，过程可能比价漫长，可以敲会代码或者做几篇阅读理解缓解一下情绪（为接下来操蛋的安装过程做好充分的心理准备）<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/04/10/Oracle11g安装及使用详解/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1540,7 +1671,7 @@ select * from session_privs;
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-count">31</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1548,7 +1679,7 @@ select * from session_privs;
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -1557,7 +1688,7 @@ select * from session_privs;
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-count">47</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
