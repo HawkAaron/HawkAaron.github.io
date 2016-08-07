@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://HawkAaron.github.io/"/>
-  <updated>2016-08-04T03:07:23.992Z</updated>
+  <updated>2016-08-07T02:56:53.930Z</updated>
   <id>http://HawkAaron.github.io/</id>
   
   <author>
@@ -14,6 +14,243 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Deep Learning Libraries by Language</title>
+    <link href="http://HawkAaron.github.io/2016/08/07/Deep-Learning-Libraries-by-Language/"/>
+    <id>http://HawkAaron.github.io/2016/08/07/Deep-Learning-Libraries-by-Language/</id>
+    <published>2016-08-07T02:39:00.000Z</published>
+    <updated>2016-08-07T02:56:53.930Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><ol>
+<li><p><a href="http://deeplearning.net/software/theano" target="_blank" rel="external">Theano</a> is a python library for defining and evaluating mathematical expressions with numerical arrays. It makes it easy to write deep learning algorithms in python. On the top of the Theano many more libraries are built.</p>
+<ol>
+<li><p><a href="http://keras.io/" target="_blank" rel="external">Keras</a> is a minimalist, highly modular neural network library in the spirit of Torch, written in Python, that uses Theano under the hood for optimized tensor manipulation on GPU and CPU.</p>
+</li>
+<li><p><a href="http://deeplearning.net/software/pylearn2/" target="_blank" rel="external">Pylearn2</a> is a library that wraps a lot of models and training algorithms such as Stochastic Gradient Descent that are commonly used in Deep Learning. Its functional libraries are built on top of Theano.</p>
+</li>
+<li><p><a href="https://github.com/Lasagne/Lasagne" target="_blank" rel="external">Lasagne</a> is a lightweight library to build and train neural networks in Theano. It is governed by simplicity, transparency, modularity, pragmatism , focus and restraint principles.</p>
+</li>
+<li><p><a href="https://github.com/mila-udem/blocks" target="_blank" rel="external">Blocks</a> a framework that helps you build neural network models on top of Theano.</p>
+</li>
+</ol>
+</li>
+<li><p><a href="http://caffe.berkeleyvision.org/" target="_blank" rel="external">Caffe</a> is a deep learning framework made with expression, speed, and modularity in mind. It is developed by the Berkeley Vision and Learning Center (BVLC) and by community contributors. Google’s <a href="http://venturebeat.com/2015/07/01/google-open-sources-its-software-for-making-trippy-images-with-deep-learning/" target="_blank" rel="external">DeepDream</a> is based on Caffe Framework. This framework is a BSD-licensed C++ library with Python Interface.</p>
+</li>
+<li><p><a href="https://github.com/dnouri/nolearn" target="_blank" rel="external">nolearn</a> contains a number of wrappers and abstractions around existing neural network libraries, most notably <a href="http://lasagne.readthedocs.org/" target="_blank" rel="external">Lasagne</a>, along with a few machine learning utility modules.</p>
+</li>
+<li><p><a href="http://radimrehurek.com/gensim/" target="_blank" rel="external">Gensim</a> is deep learning toolkit implemented in python programming language intended for handling large text collections, using efficient algorithms.</p>
+</li>
+<li><p><a href="http://chainer.org/" target="_blank" rel="external">Chainer</a> bridge the gap between algorithms and implementations of deep learning. Its powerful, flexible and intuitive and is considered as the <a href="http://www.slideshare.net/beam2d/introduction-to-chainer-a-flexible-framework-for-deep-learning" target="_blank" rel="external">flexible framework</a> for Deep Learning.</p>
+</li>
+<li><p><a href="https://github.com/nitishsrivastava/deepnet" target="_blank" rel="external">deepnet</a> is a GPU-based python implementation of deep learning algorithms like Feed-forward Neural Nets, Restricted Boltzmann Machines, Deep Belief Nets, Autoencoders, Deep Boltzmann Machines and Convolutional Neural Nets.</p>
+</li>
+<li><p><a href="https://github.com/hannes-brt/hebel" target="_blank" rel="external">Hebel</a> is a library for deep learning with neural networks in Python using GPU acceleration with CUDA through PyCUDA. It implements the most important types of neural network models and offers a variety of different activation functions and training methods such as momentum, Nesterov momentum, dropout, and early stopping.</p>
+</li>
+<li><p><a href="https://github.com/dmlc/cxxnet" target="_blank" rel="external">CXXNET</a> is fast, concise, distributed deep learning framework based on MShadow. It is a lightweight and easy extensible C++/CUDA neural network toolkit with friendly Python/Matlab interface for training and prediction.</p>
+</li>
+<li><p><a href="https://github.com/andersbll/deeppy" target="_blank" rel="external">DeepPy</a> is a Pythonic deep learning framework built on top of NumPy.</p>
+</li>
+<li><p><a href="https://github.com/vishwa-raman/DeepLearning" target="_blank" rel="external">DeepLearning</a> is deep learning library, developed with C++ and python.</p>
+</li>
+<li><p><a href="https://github.com/NervanaSystems/neon" target="_blank" rel="external">Neon</a> is Nervana’s Python based Deep Learning framework.</p>
+</li>
+</ol>
+<h1 id="Matlab"><a href="#Matlab" class="headerlink" title="Matlab"></a>Matlab</h1><ol>
+<li><p><a href="https://github.com/sdemyanov/ConvNet" target="_blank" rel="external">ConvNet</a> Convolutional neural net is a type of deep learning classification algorithms, that can learn useful features from raw data by themselves and is performed by tuning its weighs.</p>
+</li>
+<li><p><a href="https://github.com/rasmusbergpalm/DeepLearnToolbox" target="_blank" rel="external">DeepLearnToolBox</a> is a matlab/octave toolbox for deep learning and includes Deep Belief Nets, Stacked Autoencoders, convolutional neural nets.</p>
+</li>
+<li><p><a href="https://code.google.com/p/cuda-convnet/" target="_blank" rel="external">cuda-convnet</a> is a fast C++/CUDA implementation of convolutional (or more generally, feed-forward) neural networks. It can model arbitrary layer connectivity and network depth. Any directed acyclic graph of layers will do. Training is done using the backpropagation algorithm.</p>
+</li>
+<li><p><a href="http://www.vlfeat.org/matconvnet/" target="_blank" rel="external">MatConvNet</a>  is a MATLAB toolbox implementing Convolutional Neural Networks (CNNs) for computer vision applications. It is simple, efficient, and can run and learn state-of-the-art CNNs</p>
+</li>
+</ol>
+<h1 id="CPP"><a href="#CPP" class="headerlink" title="CPP"></a>CPP</h1><ol>
+<li><p><a href="http://eblearn.sourceforge.net/index.shtml" target="_blank" rel="external">eblearn</a> is an open-source C++ library of machine learning by New York University’s machine learning lab, led by Yann LeCun. In particular, implementations of convolutional neural networks with energy-based models along with a GUI, demos and tutorials.</p>
+</li>
+<li><p><a href="http://www.comp.nus.edu.sg/~dbsystem/singa/" target="_blank" rel="external">SINGA</a> is designed to be general to implement the distributed training algorithms of existing systems. It is supported by Apache Software Foundation.</p>
+</li>
+<li><p><a href="https://developer.nvidia.com/digits" target="_blank" rel="external">NVIDIA DIGITS</a> is a new system for developing, training and visualizing deep neural networks. It puts the power of deep learning into an intuitive browser-based interface, so that data scientists and researchers can quickly design the best DNN for their data using real-time network behavior visualization.</p>
+</li>
+<li><p><a href="https://01.org/intel-deep-learning-framework" target="_blank" rel="external">Intel® Deep Learning Framework</a> provides a unified framework for Intel® platforms accelerating Deep Convolutional Neural Networks.</p>
+</li>
+</ol>
+<h1 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h1><ol>
+<li><p><a href="http://nd4j.org/" target="_blank" rel="external">N-Dimensional Arrays for Java (ND4J)</a> is scientific computing libraries for the JVM. They are meant to be used in production environments, which means routines are designed to run fast with minimum RAM requirements.</p>
+</li>
+<li><p><a href="http://deeplearning4j.org/" target="_blank" rel="external">Deeplearning4j</a> is the first commercial-grade, open-source, distributed deep-learning library written for Java and Scala. It is designed to be used in business environments, rather than as a research tool.</p>
+</li>
+<li><p><a href="http://www.heatonresearch.com/encog" target="_blank" rel="external">Encog</a> is an advanced machine learning framework which supports Support Vector Machines,Artificial Neural Networks, Genetic Programming, Bayesian Networks, Hidden Markov Models, Genetic Programming and Genetic Algorithms are supported.</p>
+</li>
+</ol>
+<h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><ol>
+<li><a href="http://cs.stanford.edu/people/karpathy/convnetjs/" target="_blank" rel="external">Convnet.js</a> is a Javascript library for training Deep Learning models (mainly Neural Networks) entirely in a browser. No software requirements, no compilers, no installations, no GPUs, no sweat.</li>
+</ol>
+<h1 id="Lua"><a href="#Lua" class="headerlink" title="Lua"></a>Lua</h1><ol>
+<li><a href="http://torch.ch/" target="_blank" rel="external">Torch</a> is a scientific computing framework with wide support for machine learning algorithms. It is easy to use and efficient, fast scripting language, LuaJIT, and an underlying C/CUDA implementation. Torch is based on Lua programming language.</li>
+</ol>
+<h1 id="Julia"><a href="#Julia" class="headerlink" title="Julia"></a>Julia</h1><ol>
+<li><a href="https://github.com/pluskid/Mocha.jl" target="_blank" rel="external">Mocha</a> is a Deep Learning framework for Julia, inspired by the C++ framework Caffe. Efficient implementations of general stochastic gradient solvers and common layers in Mocha could be used to train deep / shallow (convolutional) neural networks, with (optional) unsupervised pre-training via (stacked) auto-encoders. Its best feature include Modular architecture, High-level Interface, portability with speed, compatibility and many more.</li>
+</ol>
+<h1 id="Lisp"><a href="#Lisp" class="headerlink" title="Lisp"></a>Lisp</h1><ol>
+<li><a href="http://lush.sourceforge.net/" target="_blank" rel="external">Lush(Lisp Universal Shell)</a> is an object-oriented programming language designed for researchers, experimenters, and engineers interested in large-scale numerical and graphic applications. It comes with rich set of deep learning libraries as a part of machine learning libraries.</li>
+</ol>
+<h1 id="Haskell"><a href="#Haskell" class="headerlink" title="Haskell"></a>Haskell</h1><ol>
+<li><a href="https://github.com/ajtulloch/dnngraph" target="_blank" rel="external">DNNGraph</a> is a deep neural network model generation DSL in Haskell.</li>
+</ol>
+<h1 id="NET"><a href="#NET" class="headerlink" title=".NET"></a>.NET</h1><ol>
+<li><a href="http://accord-framework.net/" target="_blank" rel="external">Accord.NET</a> is a .NET machine learning framework combined with audio and image processing libraries completely written in C#. It is a complete framework for building production-grade computer vision, computer audition, signal processing and statistics applications.</li>
+</ol>
+<h1 id="R"><a href="#R" class="headerlink" title="R"></a>R</h1><ol>
+<li><p><a href="http://cran.um.ac.ir/web/packages/darch/index.html" target="_blank" rel="external">darch</a> package can be used for generating neural networks with many layers (deep architectures). Training methods includes a pre training with the contrastive divergence method and a fine tuning with common known training algorithms like backpropagation or conjugate gradient.</p>
+</li>
+<li><p><a href="https://cran.r-project.org/web/packages/deepnet/index.html" target="_blank" rel="external">deepnet</a> implements some deep learning architectures and neural network algorithms, including BP,RBM,DBN,Deep autoencoder and so on.</p>
+</li>
+</ol>
+<p><a href="http://www.teglor.com/b/deep-learning-libraries-language-cm569/" target="_blank" rel="external">Source: http://www.teglor.com/b/deep-learning-libraries-language-cm569/</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Python&quot;&gt;&lt;a href=&quot;#Python&quot; class=&quot;headerlink&quot; title=&quot;Python&quot;&gt;&lt;/a&gt;Python&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://deeplearning.net/software/the
+    
+    </summary>
+    
+      <category term="机器学习" scheme="http://HawkAaron.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="深度学习" scheme="http://HawkAaron.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="深度学习" scheme="http://HawkAaron.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="Deep Learning" scheme="http://HawkAaron.github.io/tags/Deep-Learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数学在计算机图形学中的应用</title>
+    <link href="http://HawkAaron.github.io/2016/08/06/%E6%95%B0%E5%AD%A6%E5%9C%A8%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/"/>
+    <id>http://HawkAaron.github.io/2016/08/06/数学在计算机图形学中的应用/</id>
+    <published>2016-08-06T13:53:00.000Z</published>
+    <updated>2016-08-07T02:38:47.798Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>“学习计算机图形学需要多少的数学？”</strong> 这是初学者最经常问的问题。狭义的计算机图形学指的是传统的三维建模，绘制，动画等，而广义的计算机图形学还包括计算机图像处理，视频处理，计算机视觉和机器学习等领域。</p>
+<p>答案取决于你<strong>想在计算机图形学领域钻研多深：</strong></p>
+<p>1、如果仅仅使用周围唾手可得的图形软件，如 Photoshop, 3D Studio Max, Maya, AutoCAD 等，你不需要知道多少数学知识；通过掌握简单的概念和阅读使用教程你就能使用这些软件的基本功能；但是如果你想精通这些软件，你还是需要学习计算机图形学的一些入门知识的；</p>
+<p>2、如果想学习计算机图形学的入门知识，你至少需要掌握代数，三角学和线性代数的一些基本知识；这也是要成为图形软件高手所必需掌握的；</p>
+<p>3、如果想成为一名计算机图形学的研究工作者，那么对数学的学习将是 “活到老，学到老”。重要的是，从以前看似枯燥的数学到看到它的实际应用的过程中，你会更容易享受数学的美妙。在你不断进行计算机图形学的研究的过程中，你会感觉到你的数学知识越来越不够用，从而真正理解 “数学不是没有用，而是不够用！”。</p>
+<p>如果你并不特别喜欢数学，是否仍有在计算机图形学领域工作的机会？是的，计算机图形学的确有一些方面不需要考虑太多的数学问题。你不应该因为数学成绩不好而放弃它，如果你对计算机图形学具有强烈兴趣和好奇心的话，而且你还特别喜欢和擅长计算机编程的话。不过，如果学习了更多的数学知识，那么你将在研究课题上有更多的选择余地。如果你要做很好的计算机图形学的研究工作，则建议你还是多学习些数学。</p>
+<p>对于在计算机图形学中哪些数学才是重要的？这个问题是没有明确的答案的。这领域里不同的方面要求掌握不同的数学知识，也许兴趣将会决定了你的方向。那些基本的数学知识和分析能力是最重要的，而其他的数学则是根据你所从事的方向相关。</p>
+<p>下面将介绍我们认为对于计算机图形学有用的数学。别以为想成为一名计算机图形学的研究者就必须精通各门数学！在大学里，你所学的那些数学看起来都很抽象，枯燥无味，这是因为你并不知道它们的用处，甚至连讲课的老师也不知道，而你们的目的只是记住那些定理和公式，考个好分数。与大学学习数学不一样的是，你在计算机图形学的学习和研究过程中会感受到数学的用处和美妙，这时你学习数学的目的将更加明确，兴趣将更加浓厚，学习方法将更加有效。因为你是<strong>在使用数学的过程中在学习数学！</strong>想想看你是如何学会中文说话的？为了对用于计算机图形学的数学有一个全面的看法，这里特地列出了很多方面。注意，不是这里提到的每个方面你都必须熟悉，许多研究工作者从不需要考虑下面提到的某些数学知识，成功的研究者总是将某一方面的数学知识和数学工具用到极致！</p>
+<p>最后，虽然读了这篇文章后，你应该会对数学在计算机图形学中的应用有所了解，不过这也是一家之言。也许你应该阅读更多的此类文章，或者至少从其他从事计算机图形学工作的人那里了解不同的学习重点。</p>
+<h1 id="初等代数和三角学"><a href="#初等代数和三角学" class="headerlink" title="初等代数和三角学"></a><strong>初等代数和三角学</strong></h1><p>对于计算机图形学的初学者来说，高中的代数和三角学可能是最重要的数学。日复一日，我从简单的方程解出一个或更多的根。我时常还要解决类似求一些几何图形边长的简单三角学问题。代数和三角学是计算机图形学的最基础的知识。</p>
+<p>那么高中的几何学怎么样呢？可能让人惊讶，不过在多数计算机图形学里，高中的几何学并不经常被用到。原因是许多学校教的几何学实际上是如何建立数学证明的课程。虽然证明题对提高智力显然是有效的，但对于计算机图形学来说，那些与几何课有关的定理和证明并不常被用到。如果你毕业于数学相关领域（包括计算机图形学），就会发现虽然你在证明定理，不过这对开始学习图形学不是必要的。</p>
+<p>如果精通代数和三角学，就可以开始读一本计算机图形学的入门书了。下一个重要的用于计算机图形学的数学——线性代数，多数此类书籍至少包含了一个对线性代数的简要介绍。</p>
+<p>推荐的参考书:</p>
+<blockquote>
+<p>Computer Graphics:  Principles and Practice<br>James Foley, Andries  van Dam, Steven Feiner, John Hughes<br>Addison-Wesley</p>
+</blockquote>
+<h1 id="线性代数"><a href="#线性代数" class="headerlink" title="线性代数"></a><strong>线性代数</strong></h1><p>线性代数的思想贯穿于计算机图形学。事实上，只要牵涉到几何数值表示法，就常常抽象出例如 x,y,z 坐标之类的数值，我们称之为矢量。计算机图形学自始至终离不开矢量和矩阵。用矢量和矩阵来描述旋转，平移，或者缩放是再好不过了。高中和大学都有线性代数的课程。只要想在计算机图形学领域工作，就应该打下坚实的线性代数基础。我刚才提到，许多图形学的书都有关于线性代数的简要介绍——足够教给你图形学的第一门课。</p>
+<h1 id="数学分析（微积分学）"><a href="#数学分析（微积分学）" class="headerlink" title="数学分析（微积分学）"></a><strong>数学分析（微积分学）</strong></h1><p>微积分学是高级计算机图形学的重要成分。如果打算学习研究图形学，我强烈建议你应该对微积分学有初步认识。理由不仅仅是微积分学是一种很有用的工具，还有许多研究者用微积分学的术语来描述他们的问题和解决办法。另外，在许多重要的数学领域，微积分学被作为进一步学习的前提。学习了基本代数之后，微积分学又是一种能为你打开多数计算机图形学与后继的数学学习之门的课程。</p>
+<h1 id="微分几何"><a href="#微分几何" class="headerlink" title="微分几何"></a><strong>微分几何</strong></h1><p>微分几何学研究描述和控制光滑曲线，曲面的方程。如果你要计算出经过某个远离曲面的点并垂直于曲面的矢量（法向矢量）就会用到微分几何学。让一辆汽车以特定速度在曲线上行驶也牵涉到微分几何学。有一种通用的绘制光滑曲面的图形学技术，叫做 “凹凸帖图”，这个技术用到了微分几何学。另外，要研究曲面的一些几何性质，如曲率、可展性、测地性质等，需要较多的微分几何知识。如果要着手于用曲线和曲面来创造形体（在图形学里称之为建模），你至少应该学习微分几何学的基础。</p>
+<h1 id="数值方法（计算方法）"><a href="#数值方法（计算方法）" class="headerlink" title="数值方法（计算方法）"></a><strong>数值方法（计算方法）</strong></h1><p>几乎任何时候，我们在计算机里用近似值代替精确值来表示和操作数值，所以计算过程总是会有误差。而且对于给定的数值问题，常常有多种解决的方法，一些方法会更块，更精确或者对内存的需求更少。数值方法研究的对象包括 “计算方法” 和 “科学计算” 等等。这是一个很广阔的领域，而且我将提及的其他几门数学其实是数值方法的一些分支。这些分支包括抽样法理论，矩阵方程组，数值微分方程组和最优化。</p>
+<p>推荐的参考书:</p>
+<blockquote>
+<p>Numerical Recipes in  C++: The Art of Scientific Computing<br>William Press, Saul  Teukolsky, William Vetterling and Brian Flannery<br>Cambridge University  Press</p>
+</blockquote>
+<h1 id="抽样法理论和信号处理"><a href="#抽样法理论和信号处理" class="headerlink" title="抽样法理论和信号处理"></a><strong>抽样法理论和信号处理</strong></h1><p>在计算机图形学里我们反复使用储存在正规二维数组里的数字集合来表示一些对象，例如图片和曲面。这时，我们就要用抽样法来表示这些对象。如果要控制这些对象的品质，抽样法理论就变得尤为重要。抽样法应用于图形学的常见例子是当物体被绘制在屏幕上时，它的轮廓呈现锯齿状的边缘。这锯齿状的边缘（被认为是 “混淆” 现象）是非常让人分散注意力的，用抽样法中著名的技术例如回旋，傅立叶变换，空间和频率的函数表示就能把这个现象减少到最小。这些思想在图像和音频处理领域是同样重要的。</p>
+<p>推荐的参考书:</p>
+<blockquote>
+<p>The Fourier Transform  and Its Applications<br>Ronald N.  Bracewell<br>McGraw Hill</p>
+</blockquote>
+<h1 id="矩阵计算"><a href="#矩阵计算" class="headerlink" title="矩阵计算"></a><strong>矩阵计算</strong></h1><p>计算机图形学的许多问题要用到矩阵方程组的数值解法。一些涉及矩阵的问题包括：找出最好的位置与方向以使对象们互相匹配（最小二乘法），创建一个覆盖所给点集的曲面，并使皱折程度最小（薄板样条算法），还有材质模拟，例如水和衣服等。在图形学里矩阵表述相当流行，因此在用于图形学的数学中我对矩阵方程组的评价是很高的。</p>
+<p>推荐的参考书:</p>
+<blockquote>
+<p>Matrix  Computations<br>Gene Golub and Charles  Van Loan<br>Johns Hopkins  University Press</p>
+</blockquote>
+<h1 id="物理学（物理模拟）"><a href="#物理学（物理模拟）" class="headerlink" title="物理学（物理模拟）"></a><strong>物理学（物理模拟）</strong></h1><p>物理学显然不是数学的分支，它是自成一家的学科。但是在计算机图形学的某些领域，物理学和数学是紧密联系的。在图形学里，牵涉物理学的问题包括光与物体的表面是怎样互相影响的，人与动物的移动方式，水与空气的流动。为了模拟这些自然现象，物理学的知识是必不可少的。这和解微分方程紧密联系，我将会在下一节提到微分方程。</p>
+<h1 id="微分方程的数值解法（有限元方法）"><a href="#微分方程的数值解法（有限元方法）" class="headerlink" title="微分方程的数值解法（有限元方法）"></a><strong>微分方程的数值解法（有限元方法）</strong></h1><p>我相信对于计算机图形学来说，解微分方程的技巧是非常重要的。像我们刚才讨论的，计算机图形学致力于模拟源于真实世界的物理系统。波浪是怎样在水里形成的，动物是怎样在地面上行走的，这就是两个模拟物理系统的例子。模拟物理系统的问题经常就是怎样解微分方程的数值解。请注意，微分方程的数值解法与微分方程的符号解法是有很大差异的。符号解法求出没有误差的解，而且时常只用于一些非常简单的方程。有时大学课程里的 “微分方程” 只教符号解法，不过这并不会对多数计算机图形学的问题有帮助。</p>
+<p>在对物理系统的模拟中，我们把世界细分为许多表示成矢量的小元素。然后这些元素之间的关系就可以用矩阵来描述。虽然要处理的矩阵方程组往往没有很精确的解，但是取而代之的是执行了一系列的计算，这些计算产生一个表示成数列的近似解。这就是微分方程的数值解法。请注意，矩阵方程的解法与微分方程数值解法的关系是很密切的。</p>
+<h1 id="最优化"><a href="#最优化" class="headerlink" title="最优化"></a><strong>最优化</strong></h1><p>在计算机图形学里，我们常常为了期望的目标寻求一种合适的描述对象或者对象集的方法。例如安排灯的位置使得房间的照明看起来有种特殊的 “感觉”，动画里的人物要怎样活动四肢才能实现一个特殊的动作，怎样排版才不会使页面混乱。以上这些例子可以归结为最优化问题。十年前的计算机图形学几乎没有最优化技术的文献，不过最近这个领域越来越重视最优化理论。我认为在计算机图形学里，最优化的重要性将会日益增加。</p>
+<h1 id="概率论与统计学"><a href="#概率论与统计学" class="headerlink" title="概率论与统计学"></a><strong>概率论与统计学</strong></h1><p>计算机图形学的许多领域都要用到概率论与统计学。当研究者涉足人类学科时，他们当然需要统计学来分析数据。图形学相关领域涉及人类学科，例如虚拟现实和人机交互 (HCI)。另外，许多用计算机描绘真实世界的问题牵涉到各种未知事件的概率。两个例子：一棵成长期的树, 它的树枝分杈的概率；虚拟的动物如何决定它的行走路线。最后，一些解高难度方程组的技巧用了随机数来估计方程组的解。重要的例子：蒙特卡罗方法经常用于光如何传播的问题。以上仅是一部分在计算机图形学里使用概率论和统计学的方法。</p>
+<p>另外，在机器学习和统计学习中，需要非常多和深入的统计学知识。</p>
+<h1 id="拓扑学"><a href="#拓扑学" class="headerlink" title="拓扑学"></a><strong>拓扑学</strong></h1><p>用一句话来形容拓扑学，它研究油炸圈饼与咖啡杯为什么在本质上是相同的。答案是他们都是只有一个洞的曲面。对于计算机图形学来说，拓扑学的形式（符号表示法）是表达思想的简便方法，常用于分析一些曲面的性质，在形状分析、形状匹配和搜索中得到应用。</p>
+<h1 id="黎曼几何"><a href="#黎曼几何" class="headerlink" title="黎曼几何"></a><strong>黎曼几何</strong></h1><p>黎曼几何是研究流形曲面上的微积分与微分几何。不同与三维欧氏空间，它研究的曲面是在流形曲面上，其中用到不同的度量。这部分数学知识有点抽象，但是同样有效地被用到计算机图形学中。如共形几何理论就被发展起来在计算机图形学中得到广泛的应用。</p>
+<h1 id="抽象代数"><a href="#抽象代数" class="headerlink" title="抽象代数"></a><strong>抽象代数</strong></h1><p>抽象代数就是研究群论，环论和域的代数学。相对于线性代数，内容也比较抽象。在计算机图形学上也时有用到。</p>
+<h1 id="计算几何"><a href="#计算几何" class="headerlink" title="计算几何"></a><strong>计算几何</strong></h1><p>计算几何学研究如何用计算机高效地表示与操作几何体。典型问题如，碰撞检测，把多边形分解为三角形，找出最靠近某个位置的点，这个学科包括了运算法则，数据结构和数学。图形学的研究者，只要涉足创建形体（建模），就要大量用到计算几何学。</p>
+<p>推荐的参考书:</p>
+<blockquote>
+<p>Computational Geometry in C<br>Joseph O’Rourke<br>Cambridge University Press<br>Computational Geometry:  An Introduction<br>Franco Preparata  and Michael Shamos<br>Springer-Verlag </p>
+</blockquote>
+<h1 id="其他几何学"><a href="#其他几何学" class="headerlink" title="其他几何学"></a><strong>其他几何学</strong></h1><p>一些其他的几何学，如《仿射几何》、《射影几何》在计算机图形学的某些问题上用得比较多，对工程具有较大的促进应用。</p>
+<h1 id="总结：数学应用和数学理论"><a href="#总结：数学应用和数学理论" class="headerlink" title="总结：数学应用和数学理论"></a><strong>总结：数学应用和数学理论</strong></h1><p>对于图形学来说，以上提到的许多数学学科都有个共同点：比起这些数学的理论价值，<strong>我们更倾向于发掘它们的应用价值。</strong>不要惊讶。计算机图形学的许多问题和物理学者与工程师们研究的问题是紧密联系的，并且物理学者与工程师们使用的数学工具正是计算机图形学研究者们使用的。多数研究纯数学理论的学科从不被用于计算机图形学。不过这不是绝对的。请注意这些特例：分子生物学正利用节理论来研究 DNA 分子动力学，亚原子物理学用到了抽象群论。也许有一天，纯数学理论也能推动计算机图形学的发展，谁知道呢？</p>
+<p>事实上，文章中所提到一些数学分支，按照我国的教育体制，在数学系本科的学生（或者硕士研究生阶段的理工科学生）基本都能接触到。但是大学所学习的数学比较偏重于证明以构建完备的数学理论框架，而不太注重实际的使用，现在的大学教师授课的方式也是这样。</p>
+<p>我认为，学习数学最好的方式就是使用它，使用它越多，你就觉得它越有用，越有趣，学得就越好，也越快，越扎实。当然，很少有人能精通全部的知识，对于计算机图形学的学习和实践，应当采取掌握较为宽广的数学知识基础，在需要的时候，对相关的数学知识再进行深入的学习和挖掘；不要因为自身数学知识的匮乏而沮丧，更不能因此而敌视数学，保持对计算机图形学强烈的兴趣和乐观上进的学习态度是学习计算机图形学的关键。</p>
+<p>还有一点需要指出的是，在学习计算机图形学的过程中，你会发现各个方面的数学知识都会被用到，因此你掌握的数学知识会比较全面，也知道如何在实际中应用。这可能是应用数学在所有学科得到最好的体现。相反，一些做纯理论的数学工作者，掌握的数学知识就是他们所研究的一块，而对其他的数学知识掌握得就不够好，他们做得比较深入。当然，做应用数学和理论数学都有值得敬仰的地方，一个侧重在实际应用，而另一个侧重在理论深度，但要做好都不是很容易。数学说到底还是要学老用的。相对来讲，做计算机图形学能看到学到的数学在实际中所用了，<strong>“所用即所学”</strong>。试想一下，当你能看到自己做的美妙的东西被别人看到且被敬仰的时候，你的成就感一定会很大！</p>
+<p>最后说一点的就是，学习计算机图形学和从事计算机图形学的研究，除了数学基础外，还需要较强的计算机编程能力，你务必要掌握和熟练一门编程语言，一般建议 C/C++，因为你要实现出你的想法，你必须编程去实现出来，做出漂亮的结果。编程也是很有趣的，只要你有兴趣，提高是非常快的！当然，这里我不阐述如何提高编程的能力和水平的方法。<strong>“数学” 和 “编程”，两手都要抓，两手都要硬！</strong>提醒大家一点的是，如果你对编程兴趣不大，或者就不愿编程，那你就不适合选择计算机图形学，可能更适合选择其他方向，比如统计学或理论数学。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;“学习计算机图形学需要多少的数学？”&lt;/strong&gt; 这是初学者最经常问的问题。狭义的计算机图形学指的是传统的三维建模，绘制，动画等，而广义的计算机图形学还包括计算机图像处理，视频处理，计算机视觉和机器学习等领域。&lt;/p&gt;
+&lt;p&gt;答案取决于你&lt;strong
+    
+    </summary>
+    
+      <category term="数学" scheme="http://HawkAaron.github.io/categories/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+      <category term="数学" scheme="http://HawkAaron.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+      <category term="计算机图形学" scheme="http://HawkAaron.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前K个最频繁的元素</title>
+    <link href="http://HawkAaron.github.io/2016/08/05/%E5%89%8DK%E4%B8%AA%E6%9C%80%E9%A2%91%E7%B9%81%E7%9A%84%E5%85%83%E7%B4%A0/"/>
+    <id>http://HawkAaron.github.io/2016/08/05/前K个最频繁的元素/</id>
+    <published>2016-08-05T14:06:00.000Z</published>
+    <updated>2016-08-05T14:13:38.062Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Given a non-empty array of integers, return the <strong><code>k</code></strong> most frequent elements.</p>
+<p>For example,<br>Given <code>[1,1,1,2,2,3]</code> and k = 2, return <code>[1,2]</code>.</p>
+<p><strong>Note: </strong></p>
+<ul>
+<li>You may assume <code>k</code> is always valid, 1 ≤ k ≤ number of unique elements.</li>
+<li>Your algorithm’s time complexity <strong>must be</strong> better than $O(n\log (n))$, where $n$ is the array’s size.</li>
+</ul>
+<h1 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h1><p>题目要求我们输出前k个出现最频繁的元素，因为k最大可以等于n，所以在最坏情况下我们需要统计所有数字的出现次数。那么这个问题就分成了两个部分：</p>
+<ol>
+<li>统计所有不同的数字出现的次数</li>
+<li>找出出现次数前k大的数字</li>
+</ol>
+<p>对于问题1，因为数字可能很大，我们需要借助HashMap进行统计，时间复杂度是O(n)的。对于问题2，有多种方法：一种简单的方法是，对所有的次数快速排序，然后输出前k个，这样的时间复杂度是O(n log n)，不符合本题的要求。我们需要进行优化。</p>
+<p>因为最后只需要返回k个数字，所以我们只需要一直维护一个大小为k的小根堆。当新的数字出现的次数大于堆中最小的次数时，我们对堆进行更新。时间复杂度是O(n log k)，是符合题目要求的。</p>
+<p>那有没有办法进一步优化呢？因为k最坏情况下还是等于n的，n log k不是很理想。那么我们就需要换一种排序的方法。有一种排序的方法，其复杂度只和需要排序的数字的大小有关，而在本题中，需要排序的数字大小至多为n（某个数出现了n次）。答案是桶排序！桶排序就是用一个数组bucket记录每个数字出现的次数，每次把数字丢到相应编号的桶中，然后从后往前穷举每一个桶，取出其中的元素直到取满k个。时间复杂度是O(n)。</p>
+<p>最后本问题的最优算法的时间复杂度是O(n)。</p>
+<h1 id="参考程序"><a href="#参考程序" class="headerlink" title="参考程序"></a>参考程序</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Solution &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; topKFrequent(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k) &#123;</div><div class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res;</div><div class="line">        <span class="keyword">if</span> (!nums.size()) <span class="keyword">return</span> res;</div><div class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; cnt;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> num : nums) cnt[num]++;</div><div class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; bucket(nums.size() + <span class="number">1</span>);</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> kv : cnt) &#123;</div><div class="line">            bucket[kv.second].push_back(kv.first);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = bucket.size() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; --i) &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; bucket[i].size(); ++j)&#123;</div><div class="line">                res.push_back(bucket[i][j]);</div><div class="line">                <span class="keyword">if</span> (res.size() == k) <span class="keyword">return</span> res;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h1 id="题目来源"><a href="#题目来源" class="headerlink" title="题目来源"></a>题目来源</h1><p><a href="https://leetcode.com/problems/top-k-frequent-elements/" target="_blank" rel="external">LeetCode 347. Top K Frequent Elements</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h1&gt;&lt;p&gt;Given a non-empty array of integers, return the &lt;strong&gt;&lt;code&gt;
+    
+    </summary>
+    
+      <category term="算法" scheme="http://HawkAaron.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="桶排序" scheme="http://HawkAaron.github.io/categories/%E7%AE%97%E6%B3%95/%E6%A1%B6%E6%8E%92%E5%BA%8F/"/>
+    
+    
+      <category term="HashMap" scheme="http://HawkAaron.github.io/tags/HashMap/"/>
+    
+      <category term="桶排序" scheme="http://HawkAaron.github.io/tags/%E6%A1%B6%E6%8E%92%E5%BA%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>Google面试题 3| 矩阵中的最长上升路径</title>
@@ -264,9 +501,9 @@
       <category term="算法" scheme="http://HawkAaron.github.io/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="DFS" scheme="http://HawkAaron.github.io/tags/DFS/"/>
-    
       <category term="图论" scheme="http://HawkAaron.github.io/tags/%E5%9B%BE%E8%AE%BA/"/>
+    
+      <category term="DFS" scheme="http://HawkAaron.github.io/tags/DFS/"/>
     
   </entry>
   
@@ -671,337 +908,6 @@
       <category term="Git" scheme="http://HawkAaron.github.io/tags/Git/"/>
     
       <category term="StackOverflow" scheme="http://HawkAaron.github.io/tags/StackOverflow/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Oracle error 引号内的字符串没有正确结束</title>
-    <link href="http://HawkAaron.github.io/2015/05/31/oracle-error-%E5%BC%95%E5%8F%B7%E5%86%85%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%B2%A1%E6%9C%89%E6%AD%A3%E7%A1%AE%E7%BB%93%E6%9D%9F/"/>
-    <id>http://HawkAaron.github.io/2015/05/31/oracle-error-引号内的字符串没有正确结束/</id>
-    <published>2015-05-31T14:35:00.000Z</published>
-    <updated>2016-08-03T13:03:36.860Z</updated>
-    
-    <content type="html"><![CDATA[<p>ERROR:<br>ORA-01756: 引号内的字符串没有正确结束 </p>
-<p>SELECT DISTINCT A.JNO FROM Rt AS A WHERE NOT EXISTS (SELECT PNO FROM St AS B WHERE NOT EXISTS (SELECT JNO,PNO FROM Rt AS C WHERE C.JNO=A.JNO AND B.PNO=C.PNO)) GROUP BY A.JNO<br>                              *<br>第 1 行出现错误:<br>ORA-00933: SQL 命令未正确结束<br><a id="more"></a><br>如果确认没有语法错误，那么就是sql文件编码的问题，由于oracle是用Java写的，所以我们在写sql脚本时应该保存为ANSI编码<br>（另存为，选择编码为ANSI即可）</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;ERROR:&lt;br&gt;ORA-01756: 引号内的字符串没有正确结束 &lt;/p&gt;
-&lt;p&gt;SELECT DISTINCT A.JNO FROM Rt AS A WHERE NOT EXISTS (SELECT PNO FROM St AS B WHERE NOT EXISTS (SELECT JNO,PNO FROM Rt AS C WHERE C.JNO=A.JNO AND B.PNO=C.PNO)) GROUP BY A.JNO&lt;br&gt;                              *&lt;br&gt;第 1 行出现错误:&lt;br&gt;ORA-00933: SQL 命令未正确结束&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Oracle" scheme="http://HawkAaron.github.io/categories/Oracle/"/>
-    
-    
-      <category term="Oracle" scheme="http://HawkAaron.github.io/tags/Oracle/"/>
-    
-      <category term="编码" scheme="http://HawkAaron.github.io/tags/%E7%BC%96%E7%A0%81/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CodeBlocks静态链接与动态链接设置</title>
-    <link href="http://HawkAaron.github.io/2015/05/30/CodeBlocks%E9%9D%99%E6%80%81%E9%93%BE%E6%8E%A5%E4%B8%8E%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E8%AE%BE%E7%BD%AE/"/>
-    <id>http://HawkAaron.github.io/2015/05/30/CodeBlocks静态链接与动态链接设置/</id>
-    <published>2015-05-30T09:30:00.000Z</published>
-    <updated>2016-08-03T13:45:44.175Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="静态库和动态库的区别"><a href="#静态库和动态库的区别" class="headerlink" title="静态库和动态库的区别"></a>静态库和动态库的区别</h1><h2 id="1-静态库"><a href="#1-静态库" class="headerlink" title="1.静态库"></a>1.静态库</h2><p>之所以称之为”静态库”，是因为在链接阶段，会将汇编生成的目标文件.o与引用到的库一起链接打包到可执行文件中。因此对应的链接方式称为静态链接。<br>从本质上来说，一个静态库可以简单看成是一组目标文件(.o/.obj文件)的集合，静态库与汇编生成的目标文件(.o/.obj)一起链接为可执行文件。<br>静态库（后缀为.a/.lib）和.o文件格式相似。即很多目标文件经过压缩打包后形成的一个文件<br>静态库特点总结：</p>
-<pre><code>1. 静态库对函数库的链接是放在编译时期完成的
-2. 程序在运行时与函数库再无瓜葛，移植方便，因为代码已经嵌入到程序里面了，可以直接跟着程序走，不存在对外部文件的依赖
-3. 浪费空间和资源，因为所有相关的目标文件与牵涉到的函数库被链接合成一个可执行文件，会增加原本程序的空间
-</code></pre><a id="more"></a>
-<p><strong>GCC编译、使用静态库</strong><br>静态库的后缀是.a(并没有强制规定)，它的产生分两步</p>
-<pre><code>1. 由源文件编译生成一堆.o，每个.o里都包含这个编译单元的符号表
-2. ar命令将很多.o转换成.a，成为静态库，从这点也可以看出来，库是很多.o文件的集合
-</code></pre><p>编译好静态库文件之后，我们就可以在其他程序中使用静态库文件中的函数了</p>
-<pre><code>1. 只需要在使用到这些公用函数的源程序中包含这些公用函数的原型声明(include对应的头文件)
-2. 然后在用gcc命令生成目标文件时指明静态库名
-3. gcc将会从静态库中将公用函数连接到目标文件中
-4. 注意，gcc会在静态库名前加上前缀lib，然后追加扩展名.a得到的静态库文件名来查找静态库文件,因此，我们在写需要连接的库时，只写名字就可以，如libhello.a的库，只写: -lhello
-</code></pre><h2 id="2-动态库"><a href="#2-动态库" class="headerlink" title="2.动态库"></a>2.动态库</h2><p>动态库文件名命名规范和静态库文件名命名规范类似，也是在动态库名增加前缀lib，但其文件扩展名为.so（.dll）。例如：我们将创建的动态库名为myhello，则动态库文件名就是libmyhello.so。<br>使用库是重用代码的一种绝佳方式。 您不必在自己创建的每个程序中重新实现同一例程，而只需对这些例程写入一次，然后从需要该功能的应用程序引用它们即可。 通过将代码放入 DLL，您节省在引用它的每个应用程序的空间，而且，您可以更新 DLL，而无需重新编译所有应用程序。<br>动态链接库 (DLL) 是作为共享函数库的可执行文件。动态链接提供了一种方法，使进程可以调用不属于其可执行代码的函数。DLL 还有助于共享数据和资源。多个应用程序可同时访问内存中单个 DLL 副本的内容。<br>动态链接与静态链接的不同之处在于它允许可执行模块（.dll 文件或 .exe 文件）仅包含在运行时定位 DLL 函数的可执行代码所需的信息。在静态链接中，链接器从静态链接库获取所有被引用的函数，并将库同代码一起放到可执行文件中。<br>使用动态链接代替静态链接有若干优点。DLL 节省内存，减少交换操作，节省磁盘空间，更易于升级，提供售后支持，提供扩展 MFC 库类的机制，支持多语言程序，并使国际版本的创建轻松完成。<br><strong>DLL 的类型</strong><br>当您在应用程序中加载 DLL 时，可以使用两种链接方法来调用导出的 DLL 函数。这两种链接方法是加载时动态链接和运行时动态链接。<br>动态库一般会有对应的导入库，方便程序静态载入动态链接库，否则你可能就需要自己LoadLibary调入DLL文件，然后再手工GetProcAddress获得对应函数了。有了导入库，你只需要链接导入库后按照头文件函数接口的声明调用函数就可以了。<br><strong>加载时动态链接</strong>（load-time dynamic linking）<br>在加载时动态链接中，应用程序像调用本地函数一样对导出的 DLL 函数进行显式调用。要使用加载时动态链接，请在编译和链接应用程序时提供头文件 (.h) 和导入库文件 (.lib)。当您这样做时，链接器将向系统提供加载 DLL 所需的信息，并在加载时解析导出的 DLL 函数的位置。<br><strong>运行时动态链接</strong>（run-time dynamic linking）<br>在运行时动态链接中，应用程序调用 LoadLibrary 函数或 LoadLibraryEx 函数以在运行时加载 DLL。成功加载 DLL 后，可以使用 GetProcAddress 函数获得要调用的导出的 DLL 函数的地址。在使用运行时动态链接时，无需使用导入库文件。</p>
-<p>所谓静态、动态是指”链接”的过程存在区别:<br><img src="http://img.blog.csdn.net/20141002194726705" alt=""></p>
-<h2 id="3-DLL地狱"><a href="#3-DLL地狱" class="headerlink" title="3. DLL地狱"></a>3. DLL地狱</h2><p>DLL地狱（DLL Hell）指在Microsoft Windows系统中，因为动态链接库（DLL）的版本或兼容性的问题而造成程序无法正常运行。<br>Windows早期并没有很严谨的DLL版本管理机制，以致经常发生安装了某软件后，因为其覆盖了系统上原有的同一个DLL文件，而导致原有可运行的程序无法运行。但还原回原有的DLL文件之后，所新安装的软件就无法运行。若覆盖到系统所使用的重要DLL时亦可能让系统容易死机甚至无法正常启动。<br>在CodeBlocks+GCC环境下，静态链接与动态链接设置如下：</p>
-<h1 id="静态链接"><a href="#静态链接" class="headerlink" title="静态链接"></a>静态链接</h1><h2 id="1-建立静态链接库"><a href="#1-建立静态链接库" class="headerlink" title="1.建立静态链接库"></a>1.建立静态链接库</h2><p>示例：<br>建立静态链接库工程，工程文件包括static.h和static.cpp，具体如下，然后编译工程，会生成一个libStaticLibrary.a文件。<br>libStaticLibrary.a是用于链接的，与其他文件一起编译生成一个exe执行文件。<br><strong>static.h</strong><br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> STATIC_H_INCLUDED  </span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> STATIC_H_INCLUDED  </span></div><div class="line">  </div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus  </span></div><div class="line"><span class="keyword">extern</span> <span class="string">"C"</span>  </div><div class="line">&#123;  </div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span>  </span></div><div class="line">  </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">SampleAddInt</span><span class="params">(<span class="keyword">int</span> i1, <span class="keyword">int</span> i2)</span></span>;  </div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">SampleFunction1</span><span class="params">()</span></span>;  </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">SampleFunction2</span><span class="params">()</span></span>;  </div><div class="line">  </div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus  </span></div><div class="line">&#125;  </div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span>  </span></div><div class="line">  </div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// STATIC_H_INCLUDED</span></span></div></pre></td></tr></table></figure></p>
-<p><strong>static.cpp</strong><br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"static.h"</span>  </span></div><div class="line">  </div><div class="line"><span class="comment">// A function adding two integers and returning the result  </span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">SampleAddInt</span><span class="params">(<span class="keyword">int</span> i1, <span class="keyword">int</span> i2)</span>  </span></div><div class="line">&#123;  </div><div class="line">    <span class="keyword">return</span> i1 + i2;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line"><span class="comment">// A function doing nothing ;)  </span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">SampleFunction1</span><span class="params">()</span>  </span></div><div class="line">&#123;  </div><div class="line">    <span class="comment">// insert code here  </span></div><div class="line">&#125;  </div><div class="line">  </div><div class="line"><span class="comment">// A function always returning zero  </span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">SampleFunction2</span><span class="params">()</span>  </span></div><div class="line">&#123;  </div><div class="line">    <span class="comment">// insert code here  </span></div><div class="line">  </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="2-建立主工程"><a href="#2-建立主工程" class="headerlink" title="2.建立主工程"></a>2.建立主工程</h2><p>建立Console application，将生成一个main.cpp示例文件，在最上方添加#include “static.h”语句，这样就可以调用静态链接库里的函数了。<br><strong>main.cpp</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span>  </span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"static.h"</span>  </span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;  </div><div class="line">  </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></div><div class="line">&#123;  </div><div class="line">    <span class="keyword">int</span> a=<span class="number">1</span>,b=<span class="number">2</span>;  </div><div class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"a + b = "</span>&lt;&lt;SampleAddInt(a,b)&lt;&lt; <span class="built_in">endl</span>;  </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>然后选择菜单栏Project-&gt;Build Options，弹出Project Build Options，选择工程名称。在Linker settings选项卡下添加libStaticLibrary.a的路径，即<strong>添加需要的库</strong>。在Search<br> directories选项卡下的Compiler子选项卡下添加static.h所在的目录路径，即写入项目的头文件目录。最后，点击编译即可。</p>
-<h1 id="动态链接"><a href="#动态链接" class="headerlink" title="动态链接"></a>动态链接</h1><h2 id="1-建立动态链接库"><a href="#1-建立动态链接库" class="headerlink" title="1.建立动态链接库"></a>1.建立动态链接库</h2><p>示例：<br>建立动态链接库工程，工程文件包括dynamic.h和dynamic.cpp，具体如下，然后编译工程，会生成一个libDynamicLibrary.a文件和DynamicLibrary.dll文件。<br>libDynamicLibrary.a是用于链接的，DynamicLibrary.dll用于与将要链接的exe执行文件一起工作。<br><strong>dynamic.h</strong><br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> __DYNAMIC_H__  </span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> __DYNAMIC_H__  </span></div><div class="line">  </div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;windows.h&gt;</span>  </span></div><div class="line">  </div><div class="line"><span class="comment">/*  To use this exported function of dll, include this header </span></div><div class="line"> *  in your project. </div><div class="line"> */  </div><div class="line">  </div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> BUILD_DLL  </span></div><div class="line">    <span class="meta">#<span class="meta-keyword">define</span> DLL_EXPORT __declspec(dllexport)  </span></div><div class="line"><span class="meta">#<span class="meta-keyword">else</span>  </span></div><div class="line">    <span class="meta">#<span class="meta-keyword">define</span> DLL_EXPORT __declspec(dllimport)  </span></div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span>  </span></div><div class="line">  </div><div class="line">  </div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus  </span></div><div class="line"><span class="keyword">extern</span> <span class="string">"C"</span>  </div><div class="line">&#123;  </div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span>  </span></div><div class="line">  </div><div class="line"><span class="function"><span class="keyword">void</span> DLL_EXPORT <span class="title">SomeFunction</span><span class="params">(<span class="keyword">const</span> LPCSTR sometext)</span></span>;  </div><div class="line">  </div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus  </span></div><div class="line">&#125;  </div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span>  </span></div><div class="line">  </div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// __DYNAMIC__</span></span></div></pre></td></tr></table></figure></p>
-<p><strong>dynamic.cpp</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"dynamic.h"</span>  </span></div><div class="line">  </div><div class="line"><span class="comment">// a sample exported function  </span></div><div class="line"><span class="function"><span class="keyword">void</span> DLL_EXPORT <span class="title">SomeFunction</span><span class="params">(<span class="keyword">const</span> LPCSTR sometext)</span>  </span></div><div class="line">&#123;  </div><div class="line">    MessageBoxA(<span class="number">0</span>, sometext, <span class="string">"DLL Message"</span>, MB_OK | MB_ICONINFORMATION);  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line"><span class="keyword">extern</span> <span class="string">"C"</span> <span class="function">DLL_EXPORT BOOL APIENTRY <span class="title">DllMain</span><span class="params">(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved)</span>  </span></div><div class="line">&#123;  </div><div class="line">    <span class="keyword">switch</span> (fdwReason)  </div><div class="line">    &#123;  </div><div class="line">        <span class="keyword">case</span> DLL_PROCESS_ATTACH:  </div><div class="line">            <span class="comment">// attach to process  </span></div><div class="line">            <span class="comment">// return FALSE to fail DLL load  </span></div><div class="line">            <span class="keyword">break</span>;  </div><div class="line">  </div><div class="line">        <span class="keyword">case</span> DLL_PROCESS_DETACH:  </div><div class="line">            <span class="comment">// detach from process  </span></div><div class="line">            <span class="keyword">break</span>;  </div><div class="line">  </div><div class="line">        <span class="keyword">case</span> DLL_THREAD_ATTACH:  </div><div class="line">            <span class="comment">// attach to thread  </span></div><div class="line">            <span class="keyword">break</span>;  </div><div class="line">  </div><div class="line">        <span class="keyword">case</span> DLL_THREAD_DETACH:  </div><div class="line">            <span class="comment">// detach from thread  </span></div><div class="line">            <span class="keyword">break</span>;  </div><div class="line">    &#125;  </div><div class="line">    <span class="keyword">return</span> TRUE; <span class="comment">// succesful  </span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="2-建立主工程-1"><a href="#2-建立主工程-1" class="headerlink" title="2.建立主工程"></a>2.建立主工程</h2><p>建立win32 GUI project，将生成一个main.cpp示例文件，在最上方添加include “dynamic.h”语句，这样就可以调用动态链接库里的函数了。<br><strong>main.cpp</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;windows.h&gt;</span>  </span></div><div class="line">  </div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"dynamic.h"</span>  </span></div><div class="line">  </div><div class="line"><span class="comment">/*  Declare Windows procedure  */</span>  </div><div class="line"><span class="function">LRESULT CALLBACK <span class="title">WindowProcedure</span> <span class="params">(HWND, UINT, WPARAM, LPARAM)</span></span>;  </div><div class="line">  </div><div class="line"><span class="comment">/*  Make the class name into a global variable  */</span>  </div><div class="line"><span class="keyword">char</span> szClassName[ ] = <span class="string">"CodeBlocksWindowsApp"</span>;  </div><div class="line">  </div><div class="line"><span class="function"><span class="keyword">int</span> WINAPI <span class="title">WinMain</span> <span class="params">(HINSTANCE hThisInstance,  </span></span></div><div class="line">                     HINSTANCE hPrevInstance,  </div><div class="line">                     LPSTR lpszArgument,  </div><div class="line">                     <span class="keyword">int</span> nCmdShow)  </div><div class="line">&#123;  </div><div class="line">    HWND hwnd;               <span class="comment">/* This is the handle for our window */</span>  </div><div class="line">    MSG messages;            <span class="comment">/* Here messages to the application are saved */</span>  </div><div class="line">    WNDCLASSEX wincl;        <span class="comment">/* Data structure for the windowclass */</span>  </div><div class="line">  </div><div class="line">    <span class="comment">/* The Window structure */</span>  </div><div class="line">    wincl.hInstance = hThisInstance;  </div><div class="line">    wincl.lpszClassName = szClassName;  </div><div class="line">    wincl.lpfnWndProc = WindowProcedure;      <span class="comment">/* This function is called by windows */</span>  </div><div class="line">    wincl.style = CS_DBLCLKS;                 <span class="comment">/* Catch double-clicks */</span>  </div><div class="line">    wincl.cbSize = <span class="keyword">sizeof</span> (WNDCLASSEX);  </div><div class="line">  </div><div class="line">    <span class="comment">/* Use default icon and mouse-pointer */</span>  </div><div class="line">    wincl.hIcon = LoadIcon (<span class="literal">NULL</span>, IDI_APPLICATION);  </div><div class="line">    wincl.hIconSm = LoadIcon (<span class="literal">NULL</span>, IDI_APPLICATION);  </div><div class="line">    wincl.hCursor = LoadCursor (<span class="literal">NULL</span>, IDC_ARROW);  </div><div class="line">    wincl.lpszMenuName = <span class="literal">NULL</span>;                 <span class="comment">/* No menu */</span>  </div><div class="line">    wincl.cbClsExtra = <span class="number">0</span>;                      <span class="comment">/* No extra bytes after the window class */</span>  </div><div class="line">    wincl.cbWndExtra = <span class="number">0</span>;                      <span class="comment">/* structure or the window instance */</span>  </div><div class="line">    <span class="comment">/* Use Windows's default colour as the background of the window */</span>  </div><div class="line">    wincl.hbrBackground = (HBRUSH) COLOR_BACKGROUND;  </div><div class="line">  </div><div class="line">    <span class="comment">/* Register the window class, and if it fails quit the program */</span>  </div><div class="line">    <span class="keyword">if</span> (!RegisterClassEx (&amp;wincl))  </div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">  </div><div class="line">    <span class="comment">/* The class is registered, let's create the program*/</span>  </div><div class="line">    hwnd = CreateWindowEx (  </div><div class="line">           <span class="number">0</span>,                   <span class="comment">/* Extended possibilites for variation */</span>  </div><div class="line">           szClassName,         <span class="comment">/* Classname */</span>  </div><div class="line">           <span class="string">"Code::Blocks Template Windows App"</span>,       <span class="comment">/* Title Text */</span>  </div><div class="line">           WS_OVERLAPPEDWINDOW, <span class="comment">/* default window */</span>  </div><div class="line">           CW_USEDEFAULT,       <span class="comment">/* Windows decides the position */</span>  </div><div class="line">           CW_USEDEFAULT,       <span class="comment">/* where the window ends up on the screen */</span>  </div><div class="line">           <span class="number">544</span>,                 <span class="comment">/* The programs width */</span>  </div><div class="line">           <span class="number">375</span>,                 <span class="comment">/* and height in pixels */</span>  </div><div class="line">           HWND_DESKTOP,        <span class="comment">/* The window is a child-window to desktop */</span>  </div><div class="line">           <span class="literal">NULL</span>,                <span class="comment">/* No menu */</span>  </div><div class="line">           hThisInstance,       <span class="comment">/* Program Instance handler */</span>  </div><div class="line">           <span class="literal">NULL</span>                 <span class="comment">/* No Window Creation data */</span>  </div><div class="line">           );  </div><div class="line">  </div><div class="line">    <span class="comment">/* Make the window visible on the screen */</span>  </div><div class="line">    ShowWindow (hwnd, nCmdShow);  </div><div class="line">  </div><div class="line">    SomeFunction(<span class="string">"Dynamic Tester"</span>);  </div><div class="line">  </div><div class="line">    <span class="comment">/* Run the message loop. It will run until GetMessage() returns 0 */</span>  </div><div class="line">    <span class="keyword">while</span> (GetMessage (&amp;messages, <span class="literal">NULL</span>, <span class="number">0</span>, <span class="number">0</span>))  </div><div class="line">    &#123;  </div><div class="line">        <span class="comment">/* Translate virtual-key messages into character messages */</span>  </div><div class="line">        TranslateMessage(&amp;messages);  </div><div class="line">        <span class="comment">/* Send message to WindowProcedure */</span>  </div><div class="line">        DispatchMessage(&amp;messages);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    <span class="comment">/* The program return-value is 0 - The value that PostQuitMessage() gave */</span>  </div><div class="line">    <span class="keyword">return</span> messages.wParam;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line">  </div><div class="line"><span class="comment">/*  This function is called by the Windows function DispatchMessage()  */</span>  </div><div class="line">  </div><div class="line"><span class="function">LRESULT CALLBACK <span class="title">WindowProcedure</span> <span class="params">(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)</span>  </span></div><div class="line">&#123;  </div><div class="line">    <span class="keyword">switch</span> (message)                  <span class="comment">/* handle the messages */</span>  </div><div class="line">    &#123;  </div><div class="line">        <span class="keyword">case</span> WM_DESTROY:  </div><div class="line">            PostQuitMessage (<span class="number">0</span>);       <span class="comment">/* send a WM_QUIT to the message queue */</span>  </div><div class="line">            <span class="keyword">break</span>;  </div><div class="line">        <span class="keyword">default</span>:                      <span class="comment">/* for messages that we don't deal with */</span>  </div><div class="line">            <span class="keyword">return</span> DefWindowProc (hwnd, message, wParam, lParam);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>然后选择菜单栏Project-&gt;Build Options，弹出Project Build Options，选择工程名称。在Linker settings选项卡下添加libDynamicLibrary.a的路径，即<strong>添加需要的库</strong>。在Search directories选项卡下的Compiler子选项卡下添加dynamic.h所在的目录路径，即<strong>写入项目的头文件目</strong>录；在Linker子选项卡下添加libDynamicLibrary.a所在的目录路径，即<strong>写入库文件目录</strong>。最后，点击编译即可。<br>需要注意的是，以后单独运行编译后的exe执行文件时，需要将dll文件（此处为DynamicLibrary.dll）放在同一目录下，不然运行时可能会崩溃。</p>
-<p>参考：<br>codeblocks 配置编译器 1配置编译器的path, include, lib <a href="http://www.verydemo.com/demo_c167_i5481.html" target="_blank" rel="external">http://www.verydemo.com/demo_c167_i5481.html</a><br>C/C++ 跨平台交叉编译、静态库/动态库编译、MinGW、Cygwin、CodeBlocks使用原理及链接参数选项 <a href="http://www.cnblogs.com/LittleHann/p/3980364.html" target="_blank" rel="external">http://www.cnblogs.com/LittleHann/p/3980364.html</a><br>什么是DLL? <a href="http://support2.microsoft.com/kb/815065/zh-cn" target="_blank" rel="external">http://support2.microsoft.com/kb/815065/zh-cn</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;静态库和动态库的区别&quot;&gt;&lt;a href=&quot;#静态库和动态库的区别&quot; class=&quot;headerlink&quot; title=&quot;静态库和动态库的区别&quot;&gt;&lt;/a&gt;静态库和动态库的区别&lt;/h1&gt;&lt;h2 id=&quot;1-静态库&quot;&gt;&lt;a href=&quot;#1-静态库&quot; class=&quot;headerlink&quot; title=&quot;1.静态库&quot;&gt;&lt;/a&gt;1.静态库&lt;/h2&gt;&lt;p&gt;之所以称之为”静态库”，是因为在链接阶段，会将汇编生成的目标文件.o与引用到的库一起链接打包到可执行文件中。因此对应的链接方式称为静态链接。&lt;br&gt;从本质上来说，一个静态库可以简单看成是一组目标文件(.o/.obj文件)的集合，静态库与汇编生成的目标文件(.o/.obj)一起链接为可执行文件。&lt;br&gt;静态库（后缀为.a/.lib）和.o文件格式相似。即很多目标文件经过压缩打包后形成的一个文件&lt;br&gt;静态库特点总结：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;1. 静态库对函数库的链接是放在编译时期完成的
-2. 程序在运行时与函数库再无瓜葛，移植方便，因为代码已经嵌入到程序里面了，可以直接跟着程序走，不存在对外部文件的依赖
-3. 浪费空间和资源，因为所有相关的目标文件与牵涉到的函数库被链接合成一个可执行文件，会增加原本程序的空间
-&lt;/code&gt;&lt;/pre&gt;
-    
-    </summary>
-    
-      <category term="DLL" scheme="http://HawkAaron.github.io/categories/DLL/"/>
-    
-    
-      <category term="mingw" scheme="http://HawkAaron.github.io/tags/mingw/"/>
-    
-      <category term="交叉编译" scheme="http://HawkAaron.github.io/tags/%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C/C++ 跨平台交叉编译、静态库/动态库编译、MinGW、Cygwin、CodeBlocks使用原理及链接参数选项</title>
-    <link href="http://HawkAaron.github.io/2015/05/18/CCpp%E8%B7%A8%E5%B9%B3%E5%8F%B0%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91-%E9%9D%99%E6%80%81%E5%BA%93%E5%8A%A8%E6%80%81%E5%BA%93%E7%BC%96%E8%AF%91-MinGW-Cygwin-CodeBlocks%E4%BD%BF%E7%94%A8%E5%8E%9F%E7%90%86%E5%8F%8A%E9%93%BE%E6%8E%A5%E5%8F%82%E6%95%B0%E9%80%89%E9%A1%B9/"/>
-    <id>http://HawkAaron.github.io/2015/05/18/CCpp跨平台交叉编译-静态库动态库编译-MinGW-Cygwin-CodeBlocks使用原理及链接参数选项/</id>
-    <published>2015-05-18T13:00:00.000Z</published>
-    <updated>2016-08-03T12:27:53.918Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="0-引言"><a href="#0-引言" class="headerlink" title="0. 引言"></a><strong>0. 引言</strong></h1><p>UNIX是一个注册商标，是要满足一大堆条件并且支付可观费用才能够被授权使用的一个操作系统。linux是unix的克隆版本，是由其创始人Linus和诸多世界知名的黑客手工打造的一个操作系统。为什么linux和unix之间有很多软件可以很轻松的移植？因为linux也满足POSIX规范，所以在运行机制上跟unix相近。同时，POSIX标准也是Linux、windows下能够进行交叉编译的基础<a id="more"></a></p>
-<h2 id="0x1-POSIX-Portable-Operating-System-Interface"><a href="#0x1-POSIX-Portable-Operating-System-Interface" class="headerlink" title="0x1: POSIX(Portable Operating System Interface)"></a><strong><em>0x1: POSIX(Portable Operating System Interface)</em></strong></h2><p>可移植操作系统接口(Portable Operating System Interface POSIX)，是IEEE为要在各种UNIX操作系统上运行的软件，而定义API的一系列互相关联的标准的总称，其正式称呼为IEEE 1003，而国际标准名称为ISO/IEC 9945。此标准源于一个大约开始于1985年的项目。POSIX这个名称是由理查德·斯托曼应IEEE的要求而提议的一个易于记忆的名称。它基本上是(Portable<br> Operating System Interface可移植操作系统接口)的缩写，而X则表明其对Unix API的传承<br>Linux基本上逐步实现了POSIX兼容，但并没有参加正式的POSIX认证。微软的Windows NT声称部分实现了POSIX标准，因为有POSIX标准的存在，我们在unix、linux、windows上进行编程的时候，会发现有很多API都是通用的，虽然大多数情况下进行跨系统兼容编程是很困难的<br>当前的POSIX主要分为四个部分</p>
-<pre><code>1. Base Definitions
-2. System Interfaces
-3. Shell and Utilities
-4. Rationale
-</code></pre><h2 id="0x2-POSIX-1-1标准"><a href="#0x2-POSIX-1-1标准" class="headerlink" title="0x2: POSIX 1.1标准"></a><strong><em>0x2: POSIX 1.1标准</em></strong></h2><p>POSIX(Portable Operating System Interface for Computing Systems)是由IEEE 和ISO/IEC 开发的一簇标准。该标准是基于现有的UNIX实践和经验，描述了操作系统的调用服务接口，用于保证编制的应用程序可以在源代码一级上在多种操作系统上移植运行。</p>
-<pre><code>1. 1003.0
-    管理POSIX开放式系统环境(OSE)。IEEE在1995年通过了这项标准。ISO的版本是ISO/IEC 14252:1996
-
-2. 1003.1
-    被广泛接受、用于源代码级别的可移植性标准。1003.1提供一个操作系统的C语言应用编程接口(API)。IEEE和ISO已经在1990年通过了这个标准，IEEE在1995年重新修订了该标准。
-
-3. 1003.1b
-    一个用于实时编程的标准(以前的P1003.4或POSIX.4)。这个标准在1993年被IEEE通过，被合并进ISO/IEC 9945-1
-
-4. 1003.1c
-    一个用于线程(在一个程序中当前被执行的代码段)的标准。以前是P1993.4或POSIX.4的一部分，这个标准已经在1995年被IEEE通过，归入ISO/IEC 9945-1:1996
-
-5. 1003.1g
-    一个关于协议独立接口的标准，该接口可以使一个应用程序通过网络与另一个应用程序通讯。1996年，IEEE通过了这个标准
-
-6. 1003.2
-    一个应用于shell和工具软件的标准，它们分别是操作系统所必须提供的命令处理器和工具程序。1992年IEEE通过了这个标准。ISO也已经通过了这个标准(ISO/IEC 9945-2:1993)
-
-7. 1003.2d
-    改进的1003.2标准
-
-8. 1003.5
-     一个相当于1003.1的Ada语言的API。在1992年，IEEE通过了这个标准。并在1997年对其进行了修订。ISO也通过了该标准
-
-9. 1003.5b
-    一个相当于1003.1b(实时扩展)的Ada语言的API。IEEE和ISO都已经通过了这个标准。ISO的标准是ISO/IEC 14519:1999
-
-10. 1003.5c
-    一个相当于1003.1q(协议独立接口)的Ada语言的API。在1998年，IEEE通过了这个标准。ISO也通过了这个标准。
-
-11. 1003.9
-    一个相当于1003.1的FORTRAN语言的API。在1992年，IEEE通过了这个标准，并于1997年对其再次确认。ISO也已经通过了这个标准
-
-12. 1003.10
-    一个应用于超级计算应用环境框架(Application Environment Profile，AEP)的标准。在1995年，IEEE通过了这个标准
-
-13. 1003.13
-    一个关于应用环境框架的标准，主要针对使用POSIX接口的实时应用程序。在1998年，IEEE通过了这个标准 
-
-14. 1003.22
-    一个针对POSIX的关于安全性框架的指南
-
-15. 1003.23
-    一个针对用户组织的指南，主要是为了指导用户开发和使用支持操作需求的开放式系统环境(OSE)框架
-
-16. 2003
-    针对指定和使用是否符合POSIX标准的测试方法，有关其定义、一般需求和指导方针的一个标准。在1997年，IEEE通过了这个标
-
-17. 2003.1
-    这个标准规定了针对1003.1的POSIX测试方法的提供商要提供的一些条件。在1992年，IEEE通过了这个标准
-
-18. 2003.2
-    一个定义了被用来检查与IEEE 1003.2(shell和工具API)是否符合的测试方法的标准。在1996年，IEEE通过了这个标准
-</code></pre><h2 id="0x3-POSIX标准的意义"><a href="#0x3-POSIX标准的意义" class="headerlink" title="0x3: POSIX标准的意义"></a><strong><em>0x3: POSIX标准的意义</em></strong></h2><p>POSIX的意义在于提供了”跨操作系统兼容性编译”的能力，遵循了POSIX标准的C/C++程序源代码，可以直接在Linux/BSD环境下用GCC编译，或者在windows下用Cygwin/MinGW编译(Cygwin、MinGW提供了跨操作系统的兼容编译)。这叫跨操作系统的编译，注意要和”跨平台交叉编译”区分开来<br><strong><strong>Relevant Link:</strong></strong><br>    <a href="http://zh.wikipedia.org/wiki/POSIX" target="_blank" rel="external">http://zh.wikipedia.org/wiki/POSIX</a><br>    <a href="http://i.linuxtoy.org/docs/guide/ch48s05.html" target="_blank" rel="external">http://i.linuxtoy.org/docs/guide/ch48s05.html</a></p>
-<h1 id="1-交叉编译"><a href="#1-交叉编译" class="headerlink" title="1. 交叉编译"></a><strong>1. 交叉编译</strong></h1><h2 id="0x1-交叉编译简介"><a href="#0x1-交叉编译简介" class="headerlink" title="0x1: 交叉编译简介"></a><strong><em>0x1: 交叉编译简介</em></strong></h2><p>从编译所在的平台和运行所在的平台这点来看，有两种编译概念<br>    <strong>1. 本地编译</strong><br>    我们常见的软件开发，都是属于”本地编译”。在当前的PC下，x86的CPU下，直接编译出来程序，可以运行的程序(或者库文件)，其可以直接在当前的环境，即x86的CPU下，当前电脑中，运行。<br>    此时的编译，可以叫做”本地编译”，即在当前目标平台下，编译出来的程序，也只是放到当前平台下，就可以运行的<br>    <strong>2. 交叉编译</strong><br>    这是一个和本地编译相对应的概念。而所谓的”交叉编译”，就是在一种平台上编译，编译出来的程序，是放到别的平台上运行<br>    即编译的环境，和运行的环境，不一样，属于交叉的，此所谓cross交叉编译，这个概念，主要和嵌入式开发有关<br>一种最常见的例子就是：<br>    在进行嵌入式开发时，手上有个嵌入式开发板，CPU是arm的，然后在x86的平台下开发，比如Ubuntu的Linux，或者是Win7。然后就需要在x86的平台上，(用交叉编译器)去编译你写好的程序代码，编译生成的(可执行的)程序，是放<br>    到目标开发板，arm的CPU上运行的<br>    此所谓：在x86平台上编译，在ARM平台上运行<br>交叉编译，英文常写作cross compile，也有其他写法：crosscompile, cross compiling等</p>
-<h2 id="0x2-为何要有交叉编译"><a href="#0x2-为何要有交叉编译" class="headerlink" title="0x2: 为何要有交叉编译"></a><strong><em>0x2: 为何要有交叉编译</em></strong></h2><p>之所以要有交叉编译，主要原因是：<br>    <strong>1. 嵌入式系统中的资源太少</strong><br>    交叉编译出来的程序，所要运行的目标环境中，各种资源，都相对有限，所以很难进行直接的本地编译，最常见的情况是：<br>    因为编译，开发，都需要相对比较多的CPU，内存，硬盘等资源，而嵌入式开发上的那点资源，只够嵌入式(Linux)系统运行的，没太多剩余的资源，供你本地编译。所以需要在别的平台上进行跨平台编译，然后在其他的平台上运行</p>
-<h2 id="0x3-跨平台编译和跨操作系统编译的差别"><a href="#0x3-跨平台编译和跨操作系统编译的差别" class="headerlink" title="0x3: 跨平台编译和跨操作系统编译的差别"></a><strong><em>0x3: 跨平台编译和跨操作系统编译的差别</em></strong></h2><p>这里需要注意的是”平台”的概念，实际上包含两个概念<br>    <strong>1. 体系结构(Architecture)</strong>: 同一个体系结构可以运行不同的操作系统<br>    <strong>2. 操作系统(Operating System)</strong>: 同一个操作系统也可以在不同的体系结构上运行<br>举例来说，我们常说的x86 Linux平台实际上是Intel x86体系结构和Linux for x86操作系统的统称；而x86 WinNT平台实际上是Intel x86体系结构和Windows NT for x86操作系统的简称</p>
-<p>像crosstool-NG这类交叉编译器和Cygwin这类跨操作系统平台编译器的区别在于</p>
-<pre><code>1. crosstool-NG跨平台编译(跨体系结构、操作系统)
-2. Cygwin跨平台编译(提供*inux到windows系统的代码级编译兼容性)
-</code></pre><p><strong><strong>Relevant Link:</strong></strong><br>    <a href="http://www.crifan.com/files/doc/docbook/cross_compile/release/html/cross_compile.html" target="_blank" rel="external">http://www.crifan.com/files/doc/docbook/cross_compile/release/html/cross_compile.html</a><br>    <a href="http://zh.wikipedia.org/wiki/%E4%BA%A4%E5%8F%89%E7%B7%A8%E8%AD%AF%E5%99%A8" target="_blank" rel="external">http://zh.wikipedia.org/wiki/%E4%BA%A4%E5%8F%89%E7%B7%A8%E8%AD%AF%E5%99%A8</a><br>    <a href="http://baike.baidu.com/view/650389.htm" target="_blank" rel="external">http://baike.baidu.com/view/650389.htm</a></p>
-<h1 id="2-Cygwin简介"><a href="#2-Cygwin简介" class="headerlink" title="2. Cygwin简介"></a><strong>2. Cygwin简介</strong></h1><h2 id="0x1-简介"><a href="#0x1-简介" class="headerlink" title="0x1: 简介"></a><strong><em>0x1: 简介</em></strong></h2><p>Cygwin是许多自由软件的集合，最初由Cygnus Solutions开发，用于各种版本的Microsoft Windows上，运行类UNIX系统。Cygwin的主要目的是通过”重新编译”(注意：是重新编译)，将POSIX系统(例如Linux、BSD，以及其他Unix系统)上的软件移植到Windows上。Cygwin移植工作在Windows NT上比较好，在Windows 95和Windows 98上，相对差劲一些。目前Cygwin由Red Hat等负责维护</p>
-<p>首要需要明白的是，Cygwin不是一个跨平台模拟器，它不能让我们把linux上编译出来的程序在windows上运行(像wine那样)，而是一个跨平台的编译器，也就是提供代码级的跨操作系统兼容性，我们在linux下写的符合POSIX标准的C程序可以在windows下面进行编译，Cygwin提供了一套在windows下可以使用的Linux的API</p>
-<p>Cygwin包括了一套库，该库在Win32系统下实现了POSIX系统调用的API。还有一套GNU开发工具集(比如GCC、GDB)，这样可以进行简单的软件开发。还有一些UNIX系统下的常见程序。2001年，新增了X Window System</p>
-<h2 id="0x2-Cygwin的特性"><a href="#0x2-Cygwin的特性" class="headerlink" title="0x2: Cygwin的特性"></a><strong><em>0x2: Cygwin的特性</em></strong></h2><pre><code>Cygwin is:
-1. a large collection of GNU and Open Source tools which provide functionality similar to a Linux distribution on Windows.
-2. a DLL (cygwin1.dll) which provides substantial POSIX API functionality.
-
-Cygwin is not:
-1. a way to run native Linux apps on Windows. You must rebuild your application from source if you want it to run on Windows.
-2. a way to magically make native Windows apps aware of UNIX® functionality like signals, ptys, etc. Again, you need to build your apps from source if you want to take advantage of Cygwin functionality.
-</code></pre><h2 id="0x3-Cygwin原理"><a href="#0x3-Cygwin原理" class="headerlink" title="0x3: Cygwin原理"></a><strong><em>0x3: Cygwin原理</em></strong></h2><p>cygnus当初首先把GCC，GDB，GAS等开发工具进行了改进，使他们能够生成并解释win32的目标文件。然后，他们要把这些工具移植到windows平台上去。一种方案是基于win32 api对这些工具的源代码进行大幅修改，这样做显然需要大量工作。因此，他们采取了一种不同的方法</p>
-<ol>
-<li>他们写了一个共享库(就是cygwin.dll)，把win32 api中没有的unix风格的调用(如fork、spawn、signals、select、sockets等)封装在里面</li>
-<li>也就是说，他们基于win32 api写了一个unix系统库的模拟层(这个模拟层是一个关键，它的底层是win32 api，上层提供unix风格的调用，所以我们才可以在windows下编译unix风格的C程序)</li>
-<li>这样，只要把这些工具的源代码和这个共享库连接到一起，就可以使用unix主机上的交叉编译器来生成可以在windows平台上运行的工具集</li>
-<li>以这些移植到windows平台上的开发工具为基础，cygnus又逐步把其他的工具(几乎不需要对源代码进行修改，只需要修改他们的配置脚本)软件移植到windows上来。这样，在windows平台上运行bash和开发工具、用户工具，感觉好像在unix上工作</li>
-</ol>
-<h2 id="0x4-使用Cygwin编程"><a href="#0x4-使用Cygwin编程" class="headerlink" title="0x4: 使用Cygwin编程"></a><strong><em>0x4: 使用Cygwin编程</em></strong></h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#iuclude <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"hello world!\n"</span>);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>编译<br>    gcc hello.c -o hello.exe<br>得到hello.exe，这个程序可以在windows上直接点击运行<br><strong><strong>Relevant Link:</strong></strong><br>    <a href="http://zh.wikipedia.org/wiki/Cygwin" target="_blank" rel="external">http://zh.wikipedia.org/wiki/Cygwin</a><br>    <a href="https://www.cygwin.com/" target="_blank" rel="external">https://www.cygwin.com/</a><br>    <a href="http://www.ibm.com/developerworks/cn/linux/l-cn-cygwin/" target="_blank" rel="external">http://www.ibm.com/developerworks/cn/linux/l-cn-cygwin/</a></p>
-<h1 id="3-静态库编译及使用"><a href="#3-静态库编译及使用" class="headerlink" title="3. 静态库编译及使用"></a><strong>3. 静态库编译及使用</strong></h1><h2 id="0x1-什么是库"><a href="#0x1-什么是库" class="headerlink" title="0x1: 什么是库"></a><strong><em>0x1: 什么是库</em></strong></h2><p>库是写好的现有的，成熟的，可以复用的代码。现实中每个程序都要依赖很多基础的底层库，不可能每个人的代码都从零开始，因此库的存在是很有必要的<br>本质上来说库是一种可执行代码的二进制形式，可以被操作系统载入内存执行。库有两种</p>
-<pre><code>1. 静态库(.a、.lib)
-2. 动态库(.so、.dll)
-</code></pre><p>所谓静态、动态是指”链接”的过程存在区别<br><img src="http://images.cnitblog.com/blog/532548/201409/191103358154415.png" alt=""></p>
-<h2 id="0x2-动态库和静态库的默认路径PATH搜索顺序"><a href="#0x2-动态库和静态库的默认路径PATH搜索顺序" class="headerlink" title="0x2: 动态库和静态库的默认路径PATH搜索顺序"></a><strong><em>0x2: 动态库和静态库的默认路径PATH搜索顺序</em></strong></h2><p>库文件在连接(静态库和共享库)和运行(仅限于使用共享库的程序)时被使用，其搜索路径是在系统中进行设置的</p>
-<pre><code>1. 静态库的搜索路径顺序
-    1) /lib
-    2) /usr/lib  
-    3) /etc/ld.so.conf文件中添加库的搜索路径
-    4) /etc/ld.so.conf.d下新建一个.conf文件，这种方法可以很灵活地将不同软件的库搜索路径区分开来
-2. 动态库的搜索路径顺序
-    1) LD_LIBRARY_PATH 
-    2) /lib
-    3) /usr/lib  
-    4) /etc/ld.so.cache(使用ldconfig生成的库路径缓存)
-    5) /etc/ld.so.conf文件中添加库的搜索路径
-    6) /etc/ld.so.conf.d下新建一个.conf文件，这种方法可以很灵活地将不同软件的库搜索路径区分开来
-</code></pre><h2 id="0x3-静态库"><a href="#0x3-静态库" class="headerlink" title="0x3: 静态库"></a><strong><em>0x3: 静态库</em></strong></h2><p>之所以称之为”静态库”，是因为在链接阶段，会将汇编生成的目标文件.o与引用到的库一起链接打包到可执行文件中。因此对应的链接方式称为静态链接。<br>从本质上来说，一个静态库可以简单看成是一组目标文件(.o/.obj文件)的集合，静态库与汇编生成的目标文件(.o/.obj)一起链接为可执行文件<br>静态库和.o文件格式相似。即很多目标文件经过压缩打包后形成的一个文件<br>静态库特点总结：</p>
-<pre><code>1. 静态库对函数库的链接是放在编译时期完成的
-2. 程序在运行时与函数库再无瓜葛，移植方便，因为代码已经嵌入到程序里面了，可以直接跟着程序走，不存在对外部文件的依赖
-3. 浪费空间和资源，因为所有相关的目标文件与牵涉到的函数库被链接合成一个可执行文件，会增加原本程序的空间
-</code></pre><h2 id="0x4-静态库编程"><a href="#0x4-静态库编程" class="headerlink" title="0x4: 静态库编程"></a><strong><em>0x4: 静态库编程</em></strong></h2><p>我们接下来学习一下如何创建用于C++应用的静态库(一个.lib 文件)。 使用静态库是重用代码的一种绝佳方式。 你不必在要求功能的每个应用中重新实现同一例程，而只需将其写入静态库一次，然后从应用引用它们即可。<br> 从静态库链接的代码成为了应用的一部分，这样你就不必安装另一个文件来使用代码。</p>
-<h3 id="1-VS编译、使用静态库"><a href="#1-VS编译、使用静态库" class="headerlink" title="1. VS编译、使用静态库"></a><strong>1. VS编译、使用静态库</strong></h3><pre><code>//创建静态库项目
-1. 在菜单栏上，依次选择&quot;文件&quot;、&quot;新建&quot;、&quot;项目&quot;
-2. 在&quot;新建项目&quot;对话框的左窗格中，依次展开&quot;已安装&quot;、&quot;模板&quot;、&quot;Visual C++&quot;，然后选择&quot;Win32&quot;
-3. 在中间窗格中，选择&quot;Win32 控制台应用程序&quot;
-4. 在&quot;名称&quot;框中为项目指定名称，例如 MathFuncsLib。 在&quot;解决方案名称&quot;框中为解决方案指定名称，例如 StaticLibrary。 选择&quot;确定&quot;按钮
-5. 在&quot;Win32 应用程序向导&quot;对话框的&quot;概述&quot;页上，选择&quot;下一步&quot;按钮
-6. 在&quot;应用程序设置&quot;页的&quot;应用程序类型&quot;下，选择&quot;静态库&quot;
-7. 在&quot;应用程序设置&quot;页的&quot;附加选项&quot;下，清除&quot;预编译头&quot;复选框
-8. 选择&quot;完成&quot;按钮创建项目
-</code></pre><p>MathFuncsLib.h<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// MathFuncsLib.h</span></div><div class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> MATHFUNCSLIB_H  </span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MATHFUNCSLIB_H  </span></div><div class="line">  </div><div class="line"><span class="keyword">namespace</span> MathFuncs</div><div class="line">&#123;</div><div class="line">    <span class="keyword">class</span> MyMathFuncs</div><div class="line">    &#123;</div><div class="line">    <span class="keyword">public</span>:</div><div class="line">        <span class="comment">// Returns a + b</span></div><div class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">double</span> <span class="title">Add</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</span></span>;</div><div class="line"></div><div class="line">        <span class="comment">// Returns a - b</span></div><div class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">double</span> <span class="title">Subtract</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</span></span>;</div><div class="line"></div><div class="line">        <span class="comment">// Returns a * b</span></div><div class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">double</span> <span class="title">Multiply</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</span></span>;</div><div class="line"></div><div class="line">        <span class="comment">// Returns a / b</span></div><div class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">double</span> <span class="title">Divide</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</span></span>;</div><div class="line">    &#125;;</div><div class="line">&#125;  </div><div class="line">  <span class="meta">#<span class="meta-keyword">endif</span></span></div></pre></td></tr></table></figure></p>
-<p>MathFuncsLib.cpp<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// MathFuncsLib.cpp</span></div><div class="line"><span class="comment">// compile with: cl /c /EHsc MathFuncsLib.cpp</span></div><div class="line"><span class="comment">// post-build command: lib MathFuncsLib.obj</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"MathFuncsLib.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdexcept&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">namespace</span> MathFuncs</div><div class="line">&#123;</div><div class="line">    <span class="keyword">double</span> MyMathFuncs::Add(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> a + b;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">double</span> MyMathFuncs::Subtract(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> a - b;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">double</span> MyMathFuncs::Multiply(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> a * b;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">double</span> MyMathFuncs::Divide(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> a / b;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>编译静态库文件<br>    //编译此静态库</p>
-<pre><code>1. 在菜单栏上依次选择&quot;生成&quot;、&quot;生成解决方案&quot;
-2. 这将创建一个可供其他程序使用的静态库
-</code></pre><p>vs是windows操作系统下的编译平台，通过vs编译得到的.lib静态库只能在windows的程序代码中使用，主要是编译器、汇编器和连接器的不同，因此二者库的二进制是不兼容的。文章之后会学习到如何将linux下编译的静态库通过跨平台编译链接到windows的程序代码中</p>
-<p>要在其他程序中使用静态库中的功能，必须引用静态库才能使用其中的例程<br>    //创建引用静态库的 C++ 控制台应用</p>
-<pre><code>1. 在菜单栏上，依次选择&quot;文件&quot;、&quot;新建&quot;、&quot;项目&quot;。
-2. 在左窗格中的&quot;Visual C++&quot;下，选择&quot;Win32&quot;。
-3. 在中间窗格中，选择&quot;Win32 控制台应用程序&quot;。
-4. 在&quot;名称&quot;框中为项目指定名称，例如 MyExecRefsLib。 在&quot;解决方案&quot;旁的下拉列表中选择&quot;添加到解决方案&quot;。 这会将新项目添加到包含此静
-5. 态库的解决方案。 选择&quot;确定&quot;按钮。
-6. 在&quot;Win32 应用程序向导&quot;对话框的&quot;概述&quot;页上，选择&quot;下一步&quot;按钮。
-7. 在&quot;应用程序设置&quot;页的&quot;应用程序类型&quot;下，选择&quot;控制台应用程序&quot;。
-8. 在&quot;应用程序设置&quot;页的&quot;附加选项&quot;下，清除&quot;预编译头&quot;复选框。
-9. 选择&quot;完成&quot;按钮创建项目。
-
- //在应用中使用静态库的功能
-1. 在创建一个控制台应用程序后，一个空的程序已经为你创建好了。 源文件的名称与你之前选择的名称相同。 在此示例中，源文件名为 MyExecRefsLib.cpp。
-2. 必须引用静态库才能使用其中的算术例程。 为此，请在&quot;解决方案资源管理器&quot;中打开 MyExecRefsLib 项目的快捷菜单，然后选择&quot;引用&quot;。 在 MyExecRefsLib&quot;属性页&quot;对话框中，展开&quot;通用属性&quot;节点，选择&quot;框架和引用&quot;，然后选择&quot;添加新引用&quot;按钮。 有关&quot;引用&quot;对话框的更多信息，请参见&quot;&lt;Projectname&gt; 属性页&quot;对话框 -&gt;&quot;通用属性&quot;-&gt;&quot;框架和引用&quot;。
-3. &quot;添加引用&quot;对话框列出了可以引用的库。 &quot;项目&quot;选项卡列出了当前解决方案中的所有项目以及它们包含的所有库。 在&quot;项目&quot;选项卡上，选中&quot;MathFuncsLib&quot;复选框，然后选择&quot;确定&quot;按钮。
-4. 若要引用 MathFuncsLib.h 头文件，必须修改包含的目录路径。 在 MyExecRefsLib&quot;属性页&quot;对话框中，依次展开&quot;配置属性&quot;节点和&quot;C/C++&quot;节点，然后选择&quot;常规&quot;。 在&quot;附加包含目录&quot;旁，指定 MathFuncsLib 目录的路径或浏览至该目录。
-5. 若要浏览至目录路径，请打开属性值下拉列表框，然后选择&quot;编辑&quot;。 在&quot;附加包含目录&quot;对话框中，在文本框中选择一个空行，然后选择行尾的省略号按钮 (…)。 在&quot;选择目录&quot;对话框中，选择 MathFuncsLib 目录，然后选择&quot;选择文件夹&quot;按钮以保存所做选择并关闭对话框。 在&quot;附加包含目录&quot;对话框中，选择&quot;确定&quot;按钮，然后在&quot;属性页&quot;对话框中，选择&quot;确定&quot;按钮以保存对该项目进行的更改。
-</code></pre><p>MyExecRefsLib.cpp<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// MyExecRefsLib.cpp</span></div><div class="line"><span class="comment">// compile with: cl /EHsc MyExecRefsLib.cpp /link MathFuncsLib.lib</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"MathFuncsLib.h"</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">double</span> a = <span class="number">7.4</span>;</div><div class="line">    <span class="keyword">int</span> b = <span class="number">99</span>;</div><div class="line"></div><div class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"a + b = "</span> &lt;&lt;        MathFuncs::MyMathFuncs::Add(a, b) &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"a - b = "</span> &lt;&lt;        MathFuncs::MyMathFuncs::Subtract(a, b) &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"a * b = "</span> &lt;&lt;        MathFuncs::MyMathFuncs::Multiply(a, b) &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"a / b = "</span> &lt;&lt;        MathFuncs::MyMathFuncs::Divide(a, b) &lt;&lt; <span class="built_in">endl</span>;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong><strong>Relevant Link:</strong></strong><br>    <a href="http://msdn.microsoft.com/zh-cn/library/ms235627.aspx#BKMK_CreateLibProject" target="_blank" rel="external">http://msdn.microsoft.com/zh-cn/library/ms235627.aspx#BKMK_CreateLibProject</a></p>
-<p>###<strong>2. GCC编译、使用静态库</strong><br>静态库的后缀是.a(并没有强制规定)，它的产生分两步</p>
-<pre><code>1. 由源文件编译生成一堆.o，每个.o里都包含这个编译单元的符号表
-2. ar命令将很多.o转换成.a，成为静态库，从这点也可以看出来，库是很多.o文件的集合
-</code></pre><p>在linux下，库文件一般放在/usr/lib和/lib下<br>静态库的名字一般为libxxxx.a，其中xxxx是该lib的名称<br>动态库的名字一般为libxxxx.so.major.minor，xxxx是该lib的名称，major是主版本号，minor是副版本号(如果库的命名不遵循 libXXXXX.a的格式就找不到相应文件)</p>
-<pre><code>ldd命令可以查看一个可执行程序依赖的共享库 
-ldd /bin/ping
-    linux-gate.so.1 =&gt;  (0x006cd000)
-    libidn.so.11 =&gt; /lib/libidn.so.11 (0x005d6000)
-    libc.so.6 =&gt; /lib/libc.so.6 (0x00927000)
-    /lib/ld-linux.so.2 (0x005ac000)
-</code></pre><p>首先，我们先完成函数库(静态库的代码)的编码<br>hello.h: 函数库(静态库)的头文件<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> HELLO_H</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> HELLO_H</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">hello</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* name)</span></span>;</div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div></pre></td></tr></table></figure></p>
-<p>hello.c: 函数库的实现代码<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">hello</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* name)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"Hello%s!\n"</span>, name);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>现在，我们可以将当前的代码编译为静态库文件，需要注意的，静态库和可执行在本质上都是可执行代码，但是静态库没有main主程序，所以不能独立运行，需要被引入到别的程序中进行运行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//将代码编译为对象文件.o</div><div class="line">gcc -c hello.c</div><div class="line">//将.o链接为静态库文件</div><div class="line">ar rcs libhello.a hello.o</div></pre></td></tr></table></figure></p>
-<p>编译好静态库文件之后，我们就可以在其他程序中使用静态库文件中的函数了</p>
-<pre><code>1. 只需要在使用到这些公用函数的源程序中包含这些公用函数的原型声明(include对应的头文件)
-2. 然后在用gcc命令生成目标文件时指明静态库名
-3. gcc将会从静态库中将公用函数连接到目标文件中
-4. 注意，gcc会在静态库名前加上前缀lib，然后追加扩展名.a得到的静态库文件名来查找静态库文件,因此，我们在写需要连接的库时，只写名字就可以，如libhello.a的库，只写: -lhello
-</code></pre><p>main.c: 调用静态库的程序代码<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"hello.h"</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    hello(<span class="string">"LittleHann"</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>编译<br>    gcc -o hello main.c -L. -lhello<br>关于gcc的编译指令，请参阅另一篇文章<br>    <a href="http://www.cnblogs.com/LittleHann/p/3855905.html" target="_blank" rel="external">http://www.cnblogs.com/LittleHann/p/3855905.html</a></p>
-<p><strong><strong>Relevant Link:</strong></strong><br>    <a href="http://wenku.baidu.com/view/7d8602b265ce050877321301.html" target="_blank" rel="external">http://wenku.baidu.com/view/7d8602b265ce050877321301.html</a></p>
-<h1 id="4-动态库编译及使用"><a href="#4-动态库编译及使用" class="headerlink" title="4. 动态库编译及使用"></a><strong>4. 动态库编译及使用</strong></h1><h2 id="0x1-动态库"><a href="#0x1-动态库" class="headerlink" title="0x1: 动态库"></a><strong><em>0x1: 动态库</em></strong></h2><p>动态库文件名命名规范和静态库文件名命名规范类似，也是在动态库名增加前缀lib，但其文件扩展名为.so。例如：我们将创建的动态库名为myhello，则动态库文件名就是libmyhello.so。</p>
-<p>接下来我们继续学习如何创建用于 C++ 应用程序的动态链接库 (DLL)。 使用库是重用代码的一种绝佳方式。 您不必在自己创建的每个程序中重新实现同一例程，而只需对这些例程写入一次，然后从需要该功能的应用程序引用它们即可。 通过将代码放入 DLL，您节省在引用它的每个应用程序的空间，而且，您可以更新 DLL，而无需重新编译所有应用程序</p>
-<h2 id="0x2-动态库编程"><a href="#0x2-动态库编程" class="headerlink" title="0x2: 动态库编程"></a><strong><em>0x2: 动态库编程</em></strong></h2><h3 id="1-VS编译、使用静态库-1"><a href="#1-VS编译、使用静态库-1" class="headerlink" title="1. VS编译、使用静态库"></a><strong>1. VS编译、使用静态库</strong></h3><pre><code>//创建动态链接库 (DLL) 项目
-1. 在菜单栏上，依次选择&quot;文件&quot;、&quot;新建&quot;、&quot;项目&quot;。
-2. 在&quot;新建项目&quot;对话框的左窗格中，依次展开&quot;已安装&quot;、&quot;模板&quot;、&quot;Visual C++&quot;，然后选择&quot;Win32&quot;。
-3. 在中间窗格中，选择&quot;Win32 控制台应用程序&quot;。
-4. 在&quot;名称&quot;框中为项目指定名称，例如，MathFuncsDll。 在&quot;解决方案名称&quot;框中为解决方案指定一个名称，例如 DynamicLibrary。 选择&quot;确定&quot;按钮。
-5. 在&quot;Win32 应用程序向导&quot;对话框的&quot;概述&quot;页上，选择&quot;下一步&quot;按钮。
-6. 在&quot;应用程序设置&quot;页上的&quot;应用程序类型&quot;下，选择&quot;DLL&quot;。
-7. 选择&quot;完成&quot;按钮创建项目。
-</code></pre><p>编写动态库DLL的头文件，MathFuncsDll.h<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// MathFuncsDll.h</span></div><div class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> MATHFUNCSDll_H#<span class="meta-keyword">define</span> MATHFUNCSDll_H</span></div><div class="line"></div><div class="line"><span class="comment">/*当定义了 MATHFUNCSDLL_EXPORTS 符号时，MATHFUNCSDLL_API 符号将在此代码中的成员函数声明中设置 __declspec(dllexport) 修饰符，此修饰符使函数能作为 DLL 导出，以供其他应用程序调用</span></div><div class="line">当 MATHFUNCSDLL_EXPORTS 未定义时，MATHFUNCSDLL_API 会在成员函数声明中定义 __declspec(dllimport) 修饰符。 此修饰符能够使编译器优化从 DLL 导入的用于其他应用程序的函数</div><div class="line">默认情况下，生成 MathFuncsDll 项目时会定义 MATHFUNCSDLL_EXPORTS*/</div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> MATHFUNCSDLL_EXPORTS</span></div><div class="line">    <span class="meta">#<span class="meta-keyword">define</span> MATHFUNCSDLL_API __declspec(dllexport) </span></div><div class="line"><span class="meta">#<span class="meta-keyword">else</span></span></div><div class="line">    <span class="meta">#<span class="meta-keyword">define</span> MATHFUNCSDLL_API __declspec(dllimport) </span></div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line"></div><div class="line"><span class="keyword">namespace</span> MathFuncs</div><div class="line">&#123;</div><div class="line">    <span class="comment">// This class is exported from the MathFuncsDll.dll</span></div><div class="line">    <span class="keyword">class</span> MyMathFuncs</div><div class="line">    &#123;</div><div class="line">    <span class="keyword">public</span>: </div><div class="line">        <span class="comment">// Returns a + b</span></div><div class="line">        <span class="function"><span class="keyword">static</span> MATHFUNCSDLL_API <span class="keyword">double</span> <span class="title">Add</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</span></span>; </div><div class="line"></div><div class="line">        <span class="comment">// Returns a - b</span></div><div class="line">        <span class="function"><span class="keyword">static</span> MATHFUNCSDLL_API <span class="keyword">double</span> <span class="title">Subtract</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</span></span>; </div><div class="line"></div><div class="line">        <span class="comment">// Returns a * b</span></div><div class="line">        <span class="function"><span class="keyword">static</span> MATHFUNCSDLL_API <span class="keyword">double</span> <span class="title">Multiply</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</span></span>; </div><div class="line"></div><div class="line">        <span class="comment">// Returns a / b</span></div><div class="line">        <span class="comment">// Throws const std::invalid_argument&amp; if b is 0</span></div><div class="line">        <span class="function"><span class="keyword">static</span> MATHFUNCSDLL_API <span class="keyword">double</span> <span class="title">Divide</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</span></span>; </div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div></pre></td></tr></table></figure></p>
-<p>编写动态库DLL的函数实现的.cpp文件<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// MathFuncsDll.cpp : Defines the exported functions for the DLL application.</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdafx.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"MathFuncsDll.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdexcept&gt;</span></span></div><div class="line">	</div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;<span class="keyword">namespace</span> MathFuncs</div><div class="line">&#123;</div><div class="line">    <span class="keyword">double</span> MyMathFuncs::Add(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> a + b;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">double</span> MyMathFuncs::Subtract(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> a - b;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">double</span> MyMathFuncs::Multiply(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> a * b;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">double</span> MyMathFuncs::Divide(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span> (b == <span class="number">0</span>)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">throw</span> invalid_argument(<span class="string">"b cannot be zero!"</span>);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> a / b;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>编译后可以得到一个.dll文件</p>
-<p>编译得到一个dll文件后，我们就在其他的程序代码中去引入这个dll文件，并使用其中的函数功能了</p>
-<pre><code>//创建引用 DLL 的应用程序
-1. 为了创建一个项目引用你刚刚创建好的DLL，在菜单栏中选择 文件&gt;新建&gt;项目。
-2. 在左窗格中的&quot;Visual C++&quot;下，选择&quot;Win32&quot;。
-3. 在中间窗格中，选择&quot;Win32 控制台应用程序&quot;。
-4. 在&quot;名称&quot;框中为项目指定名称，例如，MyExecRefsDll。 从&quot;解决方案&quot;旁边的下拉列表中选择&quot;添加到解决方案&quot;。 这会将新项目添加到包含 DLL 的同一个解决方案中。 选择&quot;确定&quot;按钮。
-5. 在&quot;Win32 应用程序向导&quot;对话框的&quot;概述&quot;页上，选择&quot;下一步&quot;按钮。
-6. 在&quot;应用程序设置&quot;页的&quot;应用程序类型&quot;下，选择&quot;控制台应用程序&quot;。
-7. 在&quot;应用程序设置&quot;页的&quot;附加选项&quot;下，清除&quot;预编译头&quot;复选框。
-8. 选择&quot;完成&quot;按钮创建项目。
-
-//在应用程序中使用类库的功能
-1. 在创建一个控制台应用程序后，一个空的程序已经为你创建好了。 源文件的名称与你之前选择的名称相同。 在本示例中，名为&quot;MyExecRefsDll.cpp&quot;。
-2. 若要使用您 DLL 中创建的算术例程，必须引用 DLL。 为此，请在 解决方案资源管理器 中选择 MyExecRefsDll 项目，然后在菜单栏上，选择 项目，引用。 在&quot;属性页&quot;对话框中，展开&quot;通用属性&quot;节点，选择&quot;框架和引用&quot;，然后选择&quot;添加新引用&quot;按钮。 有关&quot;引用&quot;对话框的更多信息，请参见&quot;&lt;Projectname&gt; 属性页&quot;对话框 -&gt;&quot;通用属性&quot;-&gt;&quot;框架和引用&quot;。
-3. &quot;添加引用&quot;对话框列出了可以引用的库。 &quot;项目&quot;选项卡列出了当前解决方案中的所有项目，以及它们包含的所有库。 在&quot;项目&quot;选项卡上，选中&quot;MathFuncsDll&quot;旁边的复选框，然后选中&quot;确定&quot;按钮。
-4. 若要引用 DLL 的头文件，必须修改包含的目录路径。 为此，请在&quot;属性页&quot;对话框中展开&quot;配置属性&quot;节点，然后展开&quot;C/C++&quot;节点，并选择&quot;常规&quot;。 在&quot;附加包含目录&quot;旁边，指定 MathFuncsDll.h 头文件所在位置的路径。 可以使用相对路径（例如 ..\MathFuncsDll\），然后选择&quot;确定&quot;按钮。
-5. 现在即可在此应用程序中使用 MyMathFuncs 类。 使用以下代码替换&quot;&quot;的内容：
-</code></pre><p>MyExecRefsDll.cpp<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// MyExecRefsDll.cpp</span></div><div class="line"><span class="comment">// compile with: /EHsc /link MathFuncsDll.lib</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"MathFuncsDll.h"</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">double</span> a = <span class="number">7.4</span>;</div><div class="line">    <span class="keyword">int</span> b = <span class="number">99</span>;</div><div class="line"></div><div class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"a + b = "</span> &lt;&lt; MathFuncs::MyMathFuncs::Add(a, b) &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"a - b = "</span> &lt;&lt; MathFuncs::MyMathFuncs::Subtract(a, b) &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"a * b = "</span> &lt;&lt; MathFuncs::MyMathFuncs::Multiply(a, b) &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"a / b = "</span> &lt;&lt; MathFuncs::MyMathFuncs::Divide(a, b) &lt;&lt; <span class="built_in">endl</span>;</div><div class="line"></div><div class="line">    <span class="keyword">try</span>    &#123;</div><div class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"a / 0 = "</span> &lt;&lt; MathFuncs::MyMathFuncs::Divide(a, <span class="number">0</span>) &lt;&lt; <span class="built_in">endl</span>; </div><div class="line">    &#125;</div><div class="line">    <span class="keyword">catch</span> (<span class="keyword">const</span> invalid_argument &amp;e) </div><div class="line">    &#123;</div><div class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"Caught exception: "</span> &lt;&lt; e.what() &lt;&lt; <span class="built_in">endl</span>; </div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="2-GCC编译、使用静态库"><a href="#2-GCC编译、使用静态库" class="headerlink" title="2. GCC编译、使用静态库"></a><strong>2. GCC编译、使用静态库</strong></h3><p>foo.h:<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> foo_h__</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> foo_h__</span></div><div class="line">	 </div><div class="line"><span class="function"><span class="keyword">extern</span> <span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">void</span>)</span></span>;</div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span>  <span class="comment">// foo_h__</span></span></div></pre></td></tr></table></figure></p>
-<p>foo.c:<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line">	 </div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">puts</span>(<span class="string">"Hello LittleHann, I'm a shared library"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>编译动态库文件.so<br>    gcc -shared -Wall -Werror -fpic -o libfoo.so foo.c</p>
-<p>编译好动态库文件之后，我们就可以在其他程序中引入这个动态库文件.so，并使用其中的导出函数</p>
-<p>main.c:<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span>#<span class="meta-keyword">include</span> <span class="meta-string">"foo.h"</span></span></div><div class="line">	 </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">puts</span>(<span class="string">"This is a shared library test..."</span>);</div><div class="line">    foo();</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>在main.c中引入了foo.h头文件<br>    gcc -L. -Wall -o test main.c -lfoo</p>
-<p>编译成功后，还有一件很重要的事，我们回想一下Linux下静态库、动态库的默认搜索顺序</p>
-<pre><code>1) LD_LIBRARY_PATH 
-2) /lib
-3) /usr/lib  
-4) /etc/ld.so.cache(使用ldconfig生成的库路径缓存)
-5) /etc/ld.so.conf文件中添加库的搜索路径
-6) /etc/ld.so.conf.d下新建一个.conf文件，这种方法可以很灵活地将不同软件的库搜索路径区分开来
-</code></pre><p>linux是默认不会去搜索当前目录的，所以我们必须将.so文件复制到默认路径下、或者使用LD_LIBRARY_PATH显示指定<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cp libfoo.so /usr/lib</div><div class="line">./<span class="built_in">test</span></div><div class="line">rm <span class="_">-f</span> /usr/lib/libfoo.so</div></pre></td></tr></table></figure></p>
-<p><strong><strong>Relevant Link:</strong></strong><br>    <a href="http://msdn.microsoft.com/zh-cn/library/ms235636.aspx" target="_blank" rel="external">http://msdn.microsoft.com/zh-cn/library/ms235636.aspx</a><br>    <a href="http://www.cprogramming.com/tutorial/shared-libraries-linux-gcc.html" target="_blank" rel="external">http://www.cprogramming.com/tutorial/shared-libraries-linux-gcc.html</a></p>
-<h1 id="5-MinGW简介"><a href="#5-MinGW简介" class="headerlink" title="5. MinGW简介"></a><strong>5. MinGW简介</strong></h1><h2 id="0x1-MinGW是什么"><a href="#0x1-MinGW是什么" class="headerlink" title="0x1: MinGW是什么"></a><strong><em>0x1: MinGW是什么</em></strong></h2><p>MinGW(Minimalist GNU for Windows)，又称mingw32，是将GCC编译器和GNU Binutils移植到Win32平台下的产物，包括一系列头文件(Win32API)、库和可执行文件</p>
-<p>GCC支持的语言大多在MinGW也受支持，其中涵盖</p>
-<pre><code>1. C 
-2. Objective-C
-3. Fortran
-4. Ada
-5. 对于C语言之外的语言，MinGW使用标准的GNU运行库，如C++使用GNU libstdc++ 
-</code></pre><p>但是MinGW使用Windows中的C运行库。因此用MinGW开发的程序不需要额外的第三方DLL支持就可以直接在Windows下运行，而且也不一定必须遵从GPL许可证。这同时造成了MinGW开发的程序只能使用Win32API和跨平台的第三方库，而缺少POSIX支持 ，大多数GNU软件无法在不修改源代码的情况下用MinGW编译</p>
-<p>GCC是一个原本用于Unix系统下编程的编译器。不过，现在GCC也有了许多Win32下的移植版本，目前GCC在windows下有三个移植版本</p>
-<pre><code>1. MinGW
-2. Cygwin
-3. Djgpp
-</code></pre><p>MinGW是Minimalistic GNU for Windows 的缩写。它是一个建立在GCC和binutils 项目上的编译器系统。和其他GCC的移植版相比，它可以说是最接近Win32的一个了。因为，MinGW几乎支持所有的Win32 API，这也是MinGW的特色之一。它所连接的程序，不需要任何第三方库就可以运行了。在某种程度上看，MinGW更像是VC的替代品</p>
-<h2 id="0x3-编程示例"><a href="#0x3-编程示例" class="headerlink" title="0x3: 编程示例"></a><strong><em>0x3: 编程示例</em></strong></h2><p><strong><strong>Relevant Link:</strong></strong><br>    <a href="http://www.mingw.org/" target="_blank" rel="external">http://www.mingw.org/</a><br>    <a href="https://code.google.com/p/msys-cn/wiki/ChapterThree" target="_blank" rel="external">https://code.google.com/p/msys-cn/wiki/ChapterThree</a><br>    <a href="http://wenku.baidu.com/view/c6f71522af45b307e87197a6.html" target="_blank" rel="external">http://wenku.baidu.com/view/c6f71522af45b307e87197a6.html</a></p>
-<h1 id="6-CodeBlocks简介"><a href="#6-CodeBlocks简介" class="headerlink" title="6. CodeBlocks简介"></a><strong>6. CodeBlocks简介</strong></h1><p><strong><strong>Relevant Link:</strong></strong><br>    <a href="http://bbs.chinaunix.net/thread-3640636-1-1.html" target="_blank" rel="external">http://bbs.chinaunix.net/thread-3640636-1-1.html</a><br>    <a href="http://zh.wikipedia.org/wiki/Code::Blocks" target="_blank" rel="external">http://zh.wikipedia.org/wiki/Code::Blocks</a><br>    <a href="http://blog.csdn.net/wtfmonking/article/details/17487705" target="_blank" rel="external">http://blog.csdn.net/wtfmonking/article/details/17487705</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;0-引言&quot;&gt;&lt;a href=&quot;#0-引言&quot; class=&quot;headerlink&quot; title=&quot;0. 引言&quot;&gt;&lt;/a&gt;&lt;strong&gt;0. 引言&lt;/strong&gt;&lt;/h1&gt;&lt;p&gt;UNIX是一个注册商标，是要满足一大堆条件并且支付可观费用才能够被授权使用的一个操作系统。linux是unix的克隆版本，是由其创始人Linus和诸多世界知名的黑客手工打造的一个操作系统。为什么linux和unix之间有很多软件可以很轻松的移植？因为linux也满足POSIX规范，所以在运行机制上跟unix相近。同时，POSIX标准也是Linux、windows下能够进行交叉编译的基础
-    
-    </summary>
-    
-      <category term="DLL" scheme="http://HawkAaron.github.io/categories/DLL/"/>
-    
-    
-      <category term="DLL" scheme="http://HawkAaron.github.io/tags/DLL/"/>
-    
-      <category term="mingw" scheme="http://HawkAaron.github.io/tags/mingw/"/>
-    
-      <category term="交叉编译" scheme="http://HawkAaron.github.io/tags/%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/"/>
     
   </entry>
   
