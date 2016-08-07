@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://HawkAaron.github.io/"/>
-  <updated>2016-08-07T12:15:01.270Z</updated>
+  <updated>2016-08-07T12:54:41.714Z</updated>
   <id>http://HawkAaron.github.io/</id>
   
   <author>
@@ -16,19 +16,65 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>9个优秀的标签云免费生成工具</title>
+    <link href="http://HawkAaron.github.io/2016/08/07/9%E4%B8%AA%E4%BC%98%E7%A7%80%E7%9A%84%E6%A0%87%E7%AD%BE%E4%BA%91%E5%85%8D%E8%B4%B9%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7/"/>
+    <id>http://HawkAaron.github.io/2016/08/07/9个优秀的标签云免费生成工具/</id>
+    <published>2016-08-07T12:25:40.000Z</published>
+    <updated>2016-08-07T12:54:41.714Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>标签云或文字云是关键词的视觉化描述，用于汇总用户生成的标签或一个网站的文字内容。标签一般是独立的词汇，常常按字母顺序排列，其重要程度又能通过改变字体大小或颜色来表现，所以标签云可以灵活地依照字序或热门程度来检索一个标签。 大多数标签本身就是超级链接，直接指向与标签相联的一系列条目。</p>
+</blockquote>
+<p>我经常看到一些网站有云标签，我也很喜欢这样的云标签，网上我发现有很多的标签云教程，但是找到理想的并不是太多，这就是为什么我今天共享这几个标签元的原因。<a id="more"></a></p>
+<h1 id="Wordle"><a href="#Wordle" class="headerlink" title="Wordle"></a><a href="http://www.wordle.net/" target="_blank" rel="external">Wordle</a></h1><p><img src="Wordle.jpg" alt=""><br>Wordle是产生“词云：。不同的字体，布局和配色方案，你可以调整你的云。。您可以打印出来，或将它们保存到Wordle画廊与朋友分享。</p>
+<h1 id="tagCloud-生成器"><a href="#tagCloud-生成器" class="headerlink" title="tagCloud 生成器"></a><a href="http://www.tag-cloud.de/" target="_blank" rel="external">tagCloud 生成器</a></h1><p><img src="tagCloud-generator.jpg" alt=""><br>只需几步下载表格，这可以产生HTML和Flash在线标签云。</p>
+<h1 id="ImageChef"><a href="#ImageChef" class="headerlink" title="ImageChef"></a><a href="http://www.imagechef.com/ic/word_mosaic/" target="_blank" rel="external">ImageChef</a></h1><p><img src="ImageChef.jpg" alt=""><br>您可以创建不同的风格和异形词云，并作为明信片发送给您的朋友等。</p>
+<h1 id="ABCya"><a href="#ABCya" class="headerlink" title="ABCya"></a><a href="http://www.abcya.com/word_clouds.htm" target="_blank" rel="external">ABCya</a></h1><p><img src="ABCya.jpg" alt=""><br>A字云是一个字频的图形表示。您可以键入或粘贴到自己的主页上显示框的文字和按箭头按钮来查看生成的字云方向。使用云以上的图形按钮，可以改变一个字云的外观。这是专门为学校的孩子们设计的。</p>
+<h1 id="Tagul"><a href="#Tagul" class="headerlink" title="Tagul"></a><a href="http://tagul.com/" target="_blank" rel="external">Tagul</a></h1><p><img src="Tagul.jpg" alt=""><br>Tagul是专为网络大师们要放置在网页上漂亮的云彩而准备的。Tagul云可以自定义字体，云的形状，颜色等，为您的网站访问者提供更好的用户体验。</p>
+<h1 id="字云"><a href="#字云" class="headerlink" title="字云"></a><a href="http://www.tocloud.com/" target="_blank" rel="external">字云</a></h1><p><img src="Word-Cloud.jpg" alt=""><br>ToCloud是一个网上的自由标签云生成器，你可以设置词的长度和频率。因此，页面生成的字云给出了一个快速了解如何优化某些词的页面。ToCloud也非常好用，他能提取短语，是一个比较好的标签云工具之一。</p>
+<h1 id="WordItOut"><a href="#WordItOut" class="headerlink" title="WordItOut"></a><a href="http://worditout.com/" target="_blank" rel="external">WordItOut</a></h1><p><img src="WordItOut.jpg" alt=""><br>WordItOut让您的文字转换成字云。然后您可以保存和共享，使每个人都可以找到。</p>
+<h1 id="Tagxedo"><a href="#Tagxedo" class="headerlink" title="Tagxedo"></a><a href="http://www.tagxedo.com/" target="_blank" rel="external">Tagxedo</a></h1><p><img src="Tagxedo.jpg" alt=""><br>Tagxedo将著名的演讲、新闻、口号、主题，甚至情书变成令人震撼的文字云。文字各自的大小恰好突出其在正文中出现的频率。</p>
+<h1 id="TagCrowd"><a href="#TagCrowd" class="headerlink" title="TagCrowd"></a><a href="http://tagcrowd.com/" target="_blank" rel="external">TagCrowd</a></h1><p><img src="TagCrowd.jpg" alt=""><br>TagCrowd是一个通过创建词云来可视化词频的Web应用程序。它专注于使词云易于阅读，分析和比较。</p>
+<p><a href="http://www.smashingapps.com/2011/12/15/nine-excellent-yet-free-online-word-cloud-generators.html" target="_blank" rel="external">Source: smashingapps</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;标签云或文字云是关键词的视觉化描述，用于汇总用户生成的标签或一个网站的文字内容。标签一般是独立的词汇，常常按字母顺序排列，其重要程度又能通过改变字体大小或颜色来表现，所以标签云可以灵活地依照字序或热门程度来检索一个标签。 大多数标签本身就是超级链接，直接指向与标签相联的一系列条目。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我经常看到一些网站有云标签，我也很喜欢这样的云标签，网上我发现有很多的标签云教程，但是找到理想的并不是太多，这就是为什么我今天共享这几个标签元的原因。
+    
+    </summary>
+    
+      <category term="工具&amp;资源" scheme="http://HawkAaron.github.io/categories/%E5%B7%A5%E5%85%B7-%E8%B5%84%E6%BA%90/"/>
+    
+    
+      <category term="标签云" scheme="http://HawkAaron.github.io/tags/%E6%A0%87%E7%AD%BE%E4%BA%91/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Linux安装gcc-6.1.0</title>
     <link href="http://HawkAaron.github.io/2016/08/07/Linux%E5%AE%89%E8%A3%85gcc-6.1.0/"/>
     <id>http://HawkAaron.github.io/2016/08/07/Linux安装gcc-6.1.0/</id>
     <published>2016-08-07T11:50:00.000Z</published>
-    <updated>2016-08-07T12:15:01.270Z</updated>
+    <updated>2016-08-07T13:34:39.410Z</updated>
     
     <content type="html"><![CDATA[<h1 id="获取gcc源码包"><a href="#获取gcc源码包" class="headerlink" title="获取gcc源码包"></a>获取gcc源码包</h1><p><a href="https://ftp.gnu.org/gnu/gcc" target="_blank" rel="external">gcc各版本地址：https://ftp.gnu.org/gnu/gcc</a><br><a href="https://ftp.gnu.org/gnu/gcc/gcc-6.1.0/gcc-6.1.0.tar.bz2" target="_blank" rel="external">目前最新的是6.1.0版：https://ftp.gnu.org/gnu/gcc/gcc-6.1.0/gcc-6.1.0.tar.bz2</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># wget https://ftp.gnu.org/gnu/gcc/gcc-6.1.0/gcc-6.1.0.tar.bz2</span></div><div class="line"><span class="comment"># tar -jxvf gcc-6.1.0.tar.bz2</span></div></pre></td></tr></table></figure></p>
 <h1 id="下载依赖项"><a href="#下载依赖项" class="headerlink" title="下载依赖项"></a>下载依赖项</h1><p>执行<code>download_prerequisites</code>将会自动下载这些软件并解压到当前目录，生成gcc编译的make文件。自动安装gcc需要下载诸如gmp、mpfr、mpc等依赖文件：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># cd gcc-6.1.0</span></div><div class="line"><span class="comment"># ./contrib/download_prerequisites</span></div></pre></td></tr></table></figure></p>
 <p>如果你的Linux无法直接联网，那么你只能打开文件download_prerequisites，获取到这些文件的下载链接，然后通过其他上网设备下载这些软件。最后把这些软件直接解压到gcc源程序目录(/路径/6.1.0)下即可。</p>
 <h1 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># mkdir gcc-build</span></div><div class="line"><span class="comment"># cd gcc-build</span></div><div class="line"><span class="comment"># ../configure -enable-checking=release -enable-languages=c,c++ -disable-multilib</span></div><div class="line"><span class="comment"># make</span></div><div class="line"><span class="comment"># make install</span></div></pre></td></tr></table></figure>
 <p>注意<code>make</code>的<code>-j</code>选项可以指定同时运行的作业数量，即CPU核数，如果有4核则可以加上<code>-j4</code><br><a id="more"></a></p>
-<h1 id="出错解决"><a href="#出错解决" class="headerlink" title="出错解决"></a>出错解决</h1><p>make过程中可能会出现以下错误信息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"> build/genattrtab ../.././gcc/config/i386/i386.md insn-conditions.md \</div><div class="line">  -Atmp-attrtab.c -Dtmp-dfatab.c -Ltmp-latencytab.c</div><div class="line">make[3]: *** [s-attrtab] Killed</div><div class="line">make[3]: Leaving directory `/usr/src/gcc-4.9.2/host-x86_64-unknown-linux-gnu/gcc&apos;</div><div class="line">make[2]: *** [all-stage1-gcc] Error 2</div><div class="line">make[2]: Leaving directory `/usr/src/gcc-4.9.2&apos;</div><div class="line">make[1]: *** [stage1-bubble] Error 2</div><div class="line">make[1]: Leaving directory `/usr/src/gcc-4.9.2&apos;</div><div class="line">make: *** [all] Error 2</div></pre></td></tr></table></figure></p>
+<h1 id="出错解决"><a href="#出错解决" class="headerlink" title="出错解决"></a>出错解决</h1><ol>
+<li>make过程中可能会出现以下错误信息：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"> build/genattrtab ../.././gcc/config/i386/i386.md insn-conditions.md \</div><div class="line">  -Atmp-attrtab.c -Dtmp-dfatab.c -Ltmp-latencytab.c</div><div class="line">make[3]: *** [s-attrtab] Killed</div><div class="line">make[3]: Leaving directory `/usr/src/gcc-4.9.2/host-x86_64-unknown-linux-gnu/gcc&apos;</div><div class="line">make[2]: *** [all-stage1-gcc] Error 2</div><div class="line">make[2]: Leaving directory `/usr/src/gcc-4.9.2&apos;</div><div class="line">make[1]: *** [stage1-bubble] Error 2</div><div class="line">make[1]: Leaving directory `/usr/src/gcc-4.9.2&apos;</div><div class="line">make: *** [all] Error 2</div></pre></td></tr></table></figure>
+</li>
+</ol>
 <p>可以通过添加swap分区的方法解决：<br><a href="http://blog.csdn.net/qq_20480611/article/details/52144399" target="_blank" rel="external">http://blog.csdn.net/qq_20480611/article/details/52144399</a></p>
+<ol>
+<li>动态库<strong>libstdc++.so.6</strong>版本不匹配<br>可以正常编译程序，但是运行时出现以下问题：<br><a href="http://stackoverflow.com/questions/5216399/usr-lib-libstdc-so-6-version-glibcxx-3-4-15-not-found" target="_blank" rel="external"><strong>/usr/lib/libstdc++.so.6: version `GLIBCXX_3.4.15’ not found</strong></a><br>添加<strong>LD_LIBRARY_PATH</strong>环境变量即可解决：<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># vim ~/.bash_profile</span></div><div class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=/usr/<span class="built_in">local</span>/lib:/usr/lib:/usr/<span class="built_in">local</span>/lib64:/usr/lib64</div><div class="line"><span class="comment"># source ~/.bash_profile</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
 <h1 id="GCC新特征"><a href="#GCC新特征" class="headerlink" title="GCC新特征"></a>GCC新特征</h1><p>GCC 6.1 发布了，该版本较之前GCC5 新怎了大量的功能特性，默认采用C++14为新的标准，替代了之前的C++98。OpenMP 4.5规范将在本版本中被支持。此外，GCC 6.1 增强了对 C++17 的试验性支持；大大改进了诊断特性，包括位置，位置范围，拼写错误标识符建议，选项名字等等改进；新增了修复提示和一些警告提示。改进记录如下：</p>
 <ul>
 <li><p>UndefinedBehaviorSanitizer gained a new sanitization option, -fsanitize=bounds-strict, which enables strict checking of array bounds.  In particular, it enables -fsanitize=bounds as well as instrumentation of flexible array member-like arrays.</p>
@@ -41,7 +87,7 @@
 </li>
 </ul>
 <p>完整发布说明，可以在<a href="https://gcc.gnu.org/gcc-6/changes.html" target="_blank" rel="external">这里</a>查看。</p>
-<h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><p><a href="http://blog.csdn.net/tangyi2008/article/details/42100049" target="_blank" rel="external">CentOS下安装gcc-4.9.2</a><br><a href="http://www.cnblogs.com/destim/p/5643574.html" target="_blank" rel="external">centos6.5安装gcc6.1等c++环境</a></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="http://blog.csdn.net/tangyi2008/article/details/42100049" target="_blank" rel="external">CentOS下安装gcc-4.9.2</a><br><a href="http://www.cnblogs.com/destim/p/5643574.html" target="_blank" rel="external">centos6.5安装gcc6.1等c++环境</a><br><a href="https://gcc.gnu.org/onlinedocs/libstdc++/faq.html#faq.how_to_set_paths" target="_blank" rel="external">https://gcc.gnu.org/onlinedocs/libstdc++/faq.html#faq.how_to_set_paths</a></p>
 ]]></content>
     
     <summary type="html">
@@ -920,32 +966,6 @@
       <category term="Python" scheme="http://HawkAaron.github.io/tags/Python/"/>
     
       <category term="开发工具" scheme="http://HawkAaron.github.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>proteus解决LED二极管不发光问题</title>
-    <link href="http://HawkAaron.github.io/2015/06/07/proteus%E8%A7%A3%E5%86%B3LED%E4%BA%8C%E6%9E%81%E7%AE%A1%E4%B8%8D%E5%8F%91%E5%85%89%E9%97%AE%E9%A2%98/"/>
-    <id>http://HawkAaron.github.io/2015/06/07/proteus解决LED二极管不发光问题/</id>
-    <published>2015-06-07T05:11:00.000Z</published>
-    <updated>2016-08-03T13:44:54.442Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="http://img.blog.csdn.net/20150607130238443" alt=""><br>如上图，LED正接不亮，这种情况是LED和电阻之间没有导线连接造成的（一般元件之间必须要有导线连接，如果直接把元件拖到后面，看起来接上去了，其实是断开的）<br><img src="http://img.blog.csdn.net/20150607130353831" alt=""><br>拖动电阻，发现的确没有连接<br><img src="http://img.blog.csdn.net/20150607130443096" alt=""><br>连接后LED正常<br><a id="more"></a><br>也许你会发现连线正常后LED依然不亮，这时你应该注意一下电阻值的设定<br><img src="http://img.blog.csdn.net/20150607130632281" alt=""><br>如上图，5k的阻值，LED不亮了<br><img src="http://img.blog.csdn.net/20150607130931719" alt=""><br>阻值设为2k时很暗，这说明阻值高了，一般我们设置为100或200</p>
-<p>最后，如果你发现连接正常并且电阻值很低时LED还是不亮，那很可能是你的LED接反了，注意图中的接法</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://img.blog.csdn.net/20150607130238443&quot; alt=&quot;&quot;&gt;&lt;br&gt;如上图，LED正接不亮，这种情况是LED和电阻之间没有导线连接造成的（一般元件之间必须要有导线连接，如果直接把元件拖到后面，看起来接上去了，其实是断开的）&lt;br&gt;&lt;img src=&quot;http://img.blog.csdn.net/20150607130353831&quot; alt=&quot;&quot;&gt;&lt;br&gt;拖动电阻，发现的确没有连接&lt;br&gt;&lt;img src=&quot;http://img.blog.csdn.net/20150607130443096&quot; alt=&quot;&quot;&gt;&lt;br&gt;连接后LED正常&lt;br&gt;
-    
-    </summary>
-    
-      <category term="数字逻辑" scheme="http://HawkAaron.github.io/categories/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91/"/>
-    
-    
-      <category term="Proteus" scheme="http://HawkAaron.github.io/tags/Proteus/"/>
-    
-      <category term="数字逻辑" scheme="http://HawkAaron.github.io/tags/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91/"/>
     
   </entry>
   
